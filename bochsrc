@@ -6,6 +6,7 @@ memory: host=32, guest=32
 romimage: file="/usr/local/share/bochs/BIOS-bochs-latest"
 vgaromimage: file="/usr/local/share/bochs/VGABIOS-lgpl-latest"
 floppya: 1_44=a.img, status=inserted
+#floppya: 1_44=hellos.img, status=inserted
 boot: floppy
 floppy_bootsig_check: disabled=0
 # no floppya
