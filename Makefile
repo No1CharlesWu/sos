@@ -1,3 +1,7 @@
+MAKE	= make -r
+NASM 	= nasm
+
+
 debug: a.img bochsrc
 	bochs -f bochsrc
 	
