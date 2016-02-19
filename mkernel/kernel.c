@@ -3,8 +3,16 @@
 * License: GPL version 2 or higher http://www.gnu.org/licenses/gpl.html
 */
 
+#include "type.h"
+#include "const.h"
+#include "protect.h"
+
+PUBLIC void* memcpy(void* pDst, void* pSrc, int iSize);
+PUBLIC void disp_str(char * pszInfo);
+
 void kmain(void)
 {
+	disp_str("kmain start\n");
 	const char *str = "my first kernel";
 	/* video memory begins at address 0xb8000 */
 	char *vidptr = (char*)0xb8000;
@@ -35,6 +43,7 @@ void kmain(void)
 		i = i + 2;
 	}
 
+	disp_str("kmain end\n");
 	return;
 }
 

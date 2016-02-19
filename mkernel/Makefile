@@ -10,10 +10,13 @@ LDFLAGS		= -m elf_i386 -T link.ld
 
 # This Program
 KERNEL 		= kernel
-OBJS		= kc.o kasm.o
+OBJS		= kc.o kasm.o lib/kliba.o lib/string.o
 
 run : everything
 	qemu-system-i386 -kernel $(KERNEL)
+
+# All Phony Targets
+.PHONY : everything all final clean realclean
 
 everything : $(KERNEL)
 
@@ -35,6 +38,12 @@ kasm.o : kernel.asm
 
 kc.o : kernel.c
 	$(CC) $(CFLAGS)  $< -o $@
+
+lib/klib.o : lib/kliba.asm
+	$(ASM) $(ASMKFLAGS) $< -o $@
+
+lib/string.o : lib/string.asm
+	$(ASM) $(ASMKFLAGS) $< -o $@
 
 #nasm -f elf kernel.asm -o kasm.o
 #gcc -fno-stack-protector -m32 -c kernel.c -0 kc.o
