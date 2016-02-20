@@ -10,7 +10,7 @@ LDFLAGS		= -m elf_i386 -T link.ld
 
 # This Program
 KERNEL 		= kernel
-OBJS		= kc.o kasm.o lib/kliba.o lib/string.o
+OBJS		= kc.o kasm.o lib/klib.o lib/string.o
 
 run : everything
 	qemu-system-i386 -kernel $(KERNEL)
@@ -39,7 +39,7 @@ kasm.o : kernel.asm
 kc.o : kernel.c
 	$(CC) $(CFLAGS)  $< -o $@
 
-lib/klib.o : lib/kliba.asm
+lib/klib.o : lib/klib.asm
 	$(ASM) $(ASMKFLAGS) $< -o $@
 
 lib/string.o : lib/string.asm
