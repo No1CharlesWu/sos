@@ -18,7 +18,7 @@ run : everything
 	qemu-system-i386 -kernel $(KERNEL)
 
 debug : everything
-	bochs -f bochsrc	
+	bochs -f bochsrc_u
 
 # All Phony Targets
 .PHONY : everything all final clean realclean image buildimg
