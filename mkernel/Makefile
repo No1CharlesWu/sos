@@ -4,8 +4,8 @@ DASM 		= ndisasm
 CC		= gcc
 LD 		= ld
 
-ASMKFLAGS	= -f elf
-CFLAGS		= -fno-stack-protector -m32 -c 
+ASMKFLAGS	= -I include/ -f elf
+CFLAGS		= -I include -fno-stack-protector -m32 -c 
 LDFLAGS		= -m elf_i386 -T link.ld
 
 # This Program
@@ -36,7 +36,7 @@ $(KERNEL) : $(OBJS)
 kasm.o : kernel.asm
 	$(ASM) $(ASMKFLAGS) $< -o $@ 
 
-kc.o : kernel.c
+kc.o : kernel.c include/const.h include/protect.h include/type.h
 	$(CC) $(CFLAGS)  $< -o $@
 
 lib/klib.o : lib/klib.asm
