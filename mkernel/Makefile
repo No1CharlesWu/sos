@@ -11,8 +11,8 @@ LDFLAGS		= -m elf_i386 -T link.ld
 
 # This Program
 BOOT		= boot/boot.bin boot/loader.bin
-KERNEL 		= kernel
-OBJS		= kc.o kasm.o lib/klib.o lib/string.o
+KERNEL 		= kernel.bin
+OBJS		= kernel/kc.o kernel/kasm.o lib/klib.o lib/string.o
 
 run : everything
 	qemu-system-i386 -kernel $(KERNEL)
@@ -54,10 +54,10 @@ boot/loader.bin : boot/loader.asm boot/include/load.inc \
 $(KERNEL) : $(OBJS)
 	$(LD) $(LDFLAGS) -o $(KERNEL) $(OBJS)
 
-kasm.o : kernel.asm
+kernel/kasm.o : kernel/kernel.asm
 	$(ASM) $(ASMKFLAGS) $< -o $@ 
 
-kc.o : kernel.c include/const.h include/protect.h include/type.h
+kernel/kc.o : kernel/kernel.c include/const.h include/protect.h include/type.h
 	$(CC) $(CFLAGS)  $< -o $@
 
 lib/klib.o : lib/klib.asm
