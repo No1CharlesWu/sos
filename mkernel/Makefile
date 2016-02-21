@@ -57,7 +57,7 @@ $(KERNEL) : $(OBJS)
 kernel/kasm.o : kernel/kernel.asm
 	$(ASM) $(ASMKFLAGS) $< -o $@ 
 
-kernel/kc.o : kernel/kernel.c include/const.h include/protect.h include/type.h
+kernel/kc.o : kernel/kernel.c include/const.h include/protect.h include/type.h  include/print.h
 	$(CC) $(CFLAGS)  $< -o $@
 
 lib/klib.o : lib/klib.asm
