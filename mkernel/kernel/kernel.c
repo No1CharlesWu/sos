@@ -13,20 +13,10 @@ PUBLIC void disp_str(char * pszInfo);
 
 void cstart(void)
 {
-	const char *str = "first kernel";
+	char *str = "first kernel\n";
 	CleanScreen();
-	/* this loop writes the string to video memory */
-	char *vidptr = (char*)0xb8000;
-	int j = 0;
-	int i = 0;
-	while (str[j] != '\0') {
-		/* the character's ascii */
-		vidptr[i] = str[j];
-		/* attribute-byte: give character black bg and light grey fg */
-		vidptr[i+1] = 0x07;
-		++j;
-		i = i + 2;
-	}
+	Puts("123456789012345678901234567890123456789012345678901234567890123456789012345678901234\n567890\n");
+	Puts(str);
 	return;
 }
 
