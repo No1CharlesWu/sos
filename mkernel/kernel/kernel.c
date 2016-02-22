@@ -11,12 +11,29 @@
 PUBLIC void* memcpy(void* pDst, void* pSrc, int iSize);
 PUBLIC void disp_str(char * pszInfo);
 
+void sleep();
+
 void cstart(void)
 {
-	char *str = "first kernel\n";
+	char *str = "1";
 	CleanScreen();
-	Puts("123456789012345678901234567890123456789012345678901234567890123456789012345678901234\n567890\n");
-	Puts(str);
+	int i , j ,k,a;
+	for(i = 0;i < 100 ;i++)	
+	{
+		for(j = i; j < 79 ; j ++ )
+		{
+			Puts(str);
+		}
+		sleep();
+		Puts("\na");
+	}
 	return;
 }
 
+void sleep()
+{
+	int i,j,k;
+	for(i = 0 ; i <1000;i++)
+		for(k = 0; k < 10000;k ++)
+			j = 1;
+}

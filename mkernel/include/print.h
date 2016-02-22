@@ -6,12 +6,15 @@
 #define BYTES_FOR_EACH_ELEMENT 2
 #define SCREENSIZE LINES * COLUMNS * BYTES_FOR_EACH_ELEMENT
 #define TXT_COLOR 0x07
+
 char *VIDPTR = (char*)0xb8000;
-static char *INDEX = (char*)0xb8000;
-static int count = 0;
+static int INDEX = 0;
+
 void CleanScreen();
+void RollScreen();  
 void Putc(char c);
 void Puts(char *str);
+
 void CleanScreen()
 {
 	int i = 0;
@@ -21,8 +24,7 @@ void CleanScreen()
 		VIDPTR[i+1] = TXT_COLOR;
 		i = i + 2;
 	}
-	INDEX = VIDPTR;
-	count = 0;
+	INDEX = 0;
 }
 
 void Putc(char c)
@@ -30,15 +32,20 @@ void Putc(char c)
 	switch(c)
 	{
 		case '\n' :
-			count = (count / (COLUMNS * BYTES_FOR_EACH_ELEMENT) + 1)*(COLUMNS * BYTES_FOR_EACH_ELEMENT);
+			INDEX = (INDEX / (COLUMNS * BYTES_FOR_EACH_ELEMENT) + 1)*(COLUMNS * BYTES_FOR_EACH_ELEMENT);
 			break;
 		default :
-			VIDPTR[count] = c;
-			VIDPTR[count+1] = TXT_COLOR;
-			count = count + 2;
+			if(INDEX == SCREENSIZE)
+			{
+				RollScreen();	
+			}
+			VIDPTR[INDEX ] = c;
+			VIDPTR[INDEX +1] = TXT_COLOR;
+			INDEX = INDEX + 2;
 			break;
 	}
 }
+
 void Puts(char *str)
 {
 	int i = 0;
@@ -47,5 +54,19 @@ void Puts(char *str)
 		Putc(str[i]);
 		i++;
 	}
+}  
+void RollScreen()
+{
+	int i, j;
+	for(i = 0,j = COLUMNS * BYTES_FOR_EACH_ELEMENT;j < SCREENSIZE;i++,j++)
+	{
+		VIDPTR[i] = VIDPTR[j];
+	}
+	for(i = (COLUMNS * BYTES_FOR_EACH_ELEMENT * (LINES - 1));i < SCREENSIZE;i = i + 2)
+	{
+		VIDPTR[i] = ' ';
+		VIDPTR[i+1] = TXT_COLOR;
+	}
+	INDEX =  (COLUMNS * BYTES_FOR_EACH_ELEMENT * (LINES -1 ));
 }
 #endif 
