@@ -11,13 +11,14 @@
 PUBLIC void* memcpy(void* pDst, void* pSrc, int iSize);
 PUBLIC void disp_str(char * pszInfo);
 
+extern char set_cursor(int data);
 void sleep();
 
 void cstart(void)
 {
 	char *str = "1";
 	CleanScreen();
-	int i , j ,k,a;
+/*	int i , j ,k,a;
 	for(i = 0;i < 100 ;i++)	
 	{
 		for(j = i; j < 79 ; j ++ )
@@ -27,13 +28,23 @@ void cstart(void)
 		sleep();
 		Puts("\na");
 	}
+	*/
+	int i;
+	char c;
+	for(i = 0; i < 10; i++)
+	{
+		Puts("1234567890");
+		c=set_cursor(1);
+		sleep();
+	}
+
 	return;
 }
 
 void sleep()
 {
 	int i,j,k;
-	for(i = 0 ; i <1000;i++)
+	for(i = 0 ; i <10000;i++)
 		for(k = 0; k < 10000;k ++)
 			j = 1;
 }

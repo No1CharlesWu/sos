@@ -15,6 +15,7 @@ KERNEL 		= kernel.bin
 OBJS		= kernel/kc.o kernel/kasm.o lib/klib.o lib/string.o
 
 run : everything
+	make clean
 	qemu-system-i386 -kernel $(KERNEL)
 
 debug : everything
