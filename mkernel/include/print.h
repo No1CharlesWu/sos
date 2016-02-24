@@ -25,6 +25,7 @@ void CleanScreen()
 		i = i + 2;
 	}
 	INDEX = 0;
+	set_cursor(INDEX/2);
 }
 
 void Putc(char c)
@@ -33,6 +34,7 @@ void Putc(char c)
 	{
 		case '\n' :
 			INDEX = (INDEX / (COLUMNS * BYTES_FOR_EACH_ELEMENT) + 1)*(COLUMNS * BYTES_FOR_EACH_ELEMENT);
+			set_cursor(INDEX/2);
 			break;
 		default :
 			if(INDEX == SCREENSIZE)
@@ -42,6 +44,7 @@ void Putc(char c)
 			VIDPTR[INDEX ] = c;
 			VIDPTR[INDEX +1] = TXT_COLOR;
 			INDEX = INDEX + 2;
+			set_cursor(INDEX/2);
 			break;
 	}
 }
@@ -68,5 +71,6 @@ void RollScreen()
 		VIDPTR[i+1] = TXT_COLOR;
 	}
 	INDEX =  (COLUMNS * BYTES_FOR_EACH_ELEMENT * (LINES -1 ));
+	set_cursor(INDEX/2);
 }
 #endif 
