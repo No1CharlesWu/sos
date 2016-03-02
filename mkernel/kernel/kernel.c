@@ -12,7 +12,8 @@ void cstart(void)
 {
 	char *str = "1";
 	CleanScreen();
-	int i , j ,k,a;
+	int i=0 , j=2 ,k,a;
+	Printf("s%df%d",i,j);
 	for(i = 0;i < 100 ;i++)	
 	{
 		for(j = i; j < 79 ; j ++ )
