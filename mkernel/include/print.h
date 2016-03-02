@@ -118,27 +118,6 @@ static void itoa (char *buf, int base, int d)
 		p2--;  
 	}  
 }  
-/*
-static void putchar (int c)  
-{  
-	if (c == '\n' || c == '\r')  
-	{  
-newline:  
-		xpos = 0;  
-		ypos++;  
-		if (ypos >= LINES)  
-			ypos = 0;  
-		return;  
-	}  
-
-	*(video + (xpos + ypos * COLUMNS) * 2) = c & 0xFF;  
-	*(video + (xpos + ypos * COLUMNS) * 2 + 1) = ATTRIBUTE;  
-
-	xpos++;  
-	if (xpos >= COLUMNS)  
-		goto newline;  
-}  
-*/
 /* 格式化字符串并在屏幕上输出，就像 libc 函数 printf 一样。 */  
 void Printf(const char *format, ...)  
 {  

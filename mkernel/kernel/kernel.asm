@@ -3,8 +3,8 @@ section .text
         ;multiboot spec
         align 4
         dd 0x1BADB002              	;magic
-        dd 0x00                    	;flags
-        dd - (0x1BADB002 + 0x00)   	;checksum. m+f+c should be zero
+        dd 0x00000003              	;flags
+        dd - (0x1BADB002 + 0x00000003)   	;checksum. m+f+c should be zero
 
 global start
 extern cstart 				;this is defined in the c file
@@ -12,10 +12,15 @@ extern cstart 				;this is defined in the c file
 start:
 	cli 				;block interrupts
 	mov esp, stack_space		;set stack pointer
+	pushl 
+	popf
+	push ebx
+	push eax
 	call cstart
 	hlt 				;halt the CPU
 
 global set_cursor
+
 set_cursor:
 	push ax
 	push bx
