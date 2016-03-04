@@ -45,6 +45,7 @@ typedef struct multiboot_info
 #define CHECK_FLAG(flags,bit)   ((flags) & (1 << (bit))) 
 
 void sleep();
+void TestForPrint();
 
 void cstart(unsigned long magic,unsigned long addr)
 {
@@ -54,11 +55,15 @@ void cstart(unsigned long magic,unsigned long addr)
 
 	if(CHECK_FLAG(mbi->flags,0))
 		Printf("mem_lower = %u KB,mem_upper = %u KB\n",(unsigned)mbi->mem_lower,(unsigned)mbi->mem_upper);
-/*
+
+	TestForPrint();
+	
+	return;
+}
+void TestForPrint()
+{
 	char *str = "1";
-	CleanScreen();
 	int i=0 , j=2 ,k,a;
-	Printf("s%df%d",i,j);
 	for(i = 0;i < 100 ;i++)	
 	{
 		for(j = i; j < 79 ; j ++ )
@@ -66,16 +71,14 @@ void cstart(unsigned long magic,unsigned long addr)
 			Puts(str);
 		}
 		sleep();
-		Puts("\na");
+		Puts("\n");
 	}
-*/
-	return;
 }
 
 void sleep()
 {
 	int i,j,k;
-	for(i = 0 ; i <10000;i++)
+	for(i = 0 ; i <5000;i++)
 		for(k = 0; k < 10000;k ++)
 			j = 1;
 }

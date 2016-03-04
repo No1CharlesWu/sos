@@ -55,7 +55,7 @@ boot/loader.bin : boot/loader.asm boot/include/load.inc \
 $(KERNEL) : $(OBJS)
 	$(LD) $(LDFLAGS) -o $(KERNEL) $(OBJS)
 
-kernel/kasm.o : kernel/kernel.asm
+kernel/kasm.o : kernel/kernel.asm include/pm.inc
 	$(ASM) $(ASMKFLAGS) $< -o $@ 
 
 kernel/kc.o : kernel/kernel.c include/const.h include/protect.h include/type.h  include/print.h
