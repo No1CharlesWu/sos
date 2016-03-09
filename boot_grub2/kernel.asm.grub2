@@ -1,0 +1,50 @@
+[bits 32]
+[section .text]
+
+load_base equ 0x100000
+
+align 8
+multiboot_header:
+MBH_magic 		equ 0xE85250D6
+MBH_architecture	equ 0
+MBH_header_length	equ multiboot_header_end - multiboot_header
+MBH_checksum		equ -(MBH_magic + MBH_architecture + MBH_header_length)
+
+dd MBH_magic
+dd MBH_architecture
+dd MBH_header_length
+dd MBH_checksum
+
+info_request_tag:
+dw	1
+dw	0
+dd 	info_request_tag_end - info_request_tag
+dd	5
+dd 	6
+info_request_tag_end:
+align 8
+address_tag:
+dw	2
+dw	0
+dd 	address_tag_end - address_tag
+dd	load_base
+dd	load_base
+dd	0
+dd 	0
+address_tag_end:
+align 8
+entry_address_tag:
+dw	3
+dw	0
+dd	entry_address_tag_end - entry_address_tag
+dd	load_base + kernel_entry
+entry_address_tag_end:
+align 8
+dw	0
+dw	0
+dd	8
+multiboot_header_end:
+
+kernel_entry:
+xchg bx,bx
+jmp $
