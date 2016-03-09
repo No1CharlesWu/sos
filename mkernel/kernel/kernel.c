@@ -53,6 +53,7 @@ void cstart(unsigned long magic,unsigned long addr)
 	mbi = (multiboot_info_t*)addr;
 	CleanScreen();
 
+	Printf("Hello World\n");
 	if(CHECK_FLAG(mbi->flags,0))
 		Printf("mem_lower = %u KB,mem_upper = %u KB\n",(unsigned)mbi->mem_lower,(unsigned)mbi->mem_upper);
 
@@ -62,7 +63,7 @@ void cstart(unsigned long magic,unsigned long addr)
 }
 void TestForPrint()
 {
-	char *str = "1";
+	char *str = "5";
 	int i=0 , j=2 ,k,a;
 	for(i = 0;i < 100 ;i++)	
 	{
