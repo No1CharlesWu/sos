@@ -23,24 +23,49 @@ global start
 global Test
 extern cstart 				;this is defined in the c file
 
-Test:
-	mov ax, SelectorVideo
-	mov gs,ax
-	mov edi,(80 * 19 + 79) * 2
-	mov ah,0Ch
-	mov al,'P'
-	mov [gs:edi],ax
-	jmp $
-
 start:
-	cli 				;block interrupts
 	xchg bx,bx
+	cli 				;block interrupts
 	mov esp, stack_space		;set stack pointer
 	push ebx
 	push eax
 	call cstart
-	xchg bx,bx
+;	xchg bx,bx
+	;jmp Test
 	hlt 				;halt the CPU
+
+Test:
+;	mov ax,cs
+;	mov ds,ax
+;	mov es,ax
+;	mov ss,ax
+;	mov sp, 0100h
+
+	;xor eax,eax
+	;mov ax,cs
+	;shl eax,4
+	;add eax,Test
+	;mov word [LABEL_DESC_CODE32 + 2],ax
+	;shr eax,16
+	;mov byte [LABEL_DESC_CODE32 + 4],al
+	;mov byte [LABEL_DESC_CODE32 + 7],ah
+
+	;xor eax,eax
+	;mov ax,ds
+	;shr eax,4
+	;add eax,LABEL_GDT
+	;mov dword [GdtPtr + 2],eax
+
+	;lgdt [GdtPtr]
+	;
+	;mov ax, SelectorVideo
+	;mov gs,ax
+	;mov edi,(80 * 19 + 79) * 2
+	;mov ah,0Ch
+	;mov al,'P'
+	;mov [gs:edi],ax
+	;hlt
+SegCode32Len	equ 	$-start	
 
 global set_cursor
 
@@ -90,7 +115,6 @@ set_cursor:
 	pop ax
 
 	ret
-SegCode32Len	equ 	$-start	
 section .bss
 resb 8192				;8KB for stack
 stack_space:
