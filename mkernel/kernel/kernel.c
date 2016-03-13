@@ -17,7 +17,7 @@ void cstart(unsigned long magic,unsigned long addr)
 	int i;
 	for(i=0xb8001;i<=0xb8fff;i=i+2)
 		write_mem8(i,15);
-	io_hlt();
+//	io_hlt();
 //	TestForPrint();
 //	TestForMultiboot(magic,addr);
 	Printf("\n======cstart end======\n");

@@ -12,6 +12,7 @@ global io_out32		;void io_out32(int port,int data)
 global io_load_eflags	;int io_load_eflags(void)
 global io_store_eflags	;void io_store_eflags(int eflags)
 global write_mem8	;void write_mem8(int addr,int data);
+global set_cursor
 
 section .text
 io_hlt:		;void io_hlt(void);
@@ -82,4 +83,49 @@ write_mem8:	;void write_mem8(int addr,int data);
 	mov [ecx],al
 	ret
 
+set_cursor:
+	push ax
+	push bx
+	push cx
+	push dx
+	push ds
+	push es
 
+	mov dx,0x3d4
+	mov al,0x0e
+	out dx,al
+	mov dx,0x3d5
+	in al,dx
+	mov ah,al
+
+	mov dx,0x3d4
+	mov al,0x0f
+	out dx,al
+	mov dx,0x3d5
+	in al,dx
+	mov bx,ax
+	
+	mov bx,[esp+20]
+
+	mov dx,0x3d4
+	mov al,0x0e
+	out dx,al
+	mov dx,0x3d5
+	mov al,bh
+	out dx,al
+	
+	mov dx,0x3d4
+	mov al,0x0f
+	out dx,al
+	mov dx,0x3d5
+	mov al,bl
+	out dx,al
+	
+	pop es
+	pop ds
+	pop dx
+	pop cx
+	pop bx
+	pop ax
+
+	ret
