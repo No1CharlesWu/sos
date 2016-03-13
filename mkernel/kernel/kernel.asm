@@ -34,10 +34,12 @@ Test:
 
 start:
 	cli 				;block interrupts
+	xchg bx,bx
 	mov esp, stack_space		;set stack pointer
 	push ebx
 	push eax
 	call cstart
+	xchg bx,bx
 	hlt 				;halt the CPU
 
 global set_cursor

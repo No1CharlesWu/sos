@@ -36,7 +36,11 @@ void Putc(char c)
 	{
 		case '\n' :
 			INDEX = (INDEX / (COLUMNS * BYTES_FOR_EACH_ELEMENT) + 1)*(COLUMNS * BYTES_FOR_EACH_ELEMENT);
-			set_cursor(INDEX/2);
+			if(INDEX >= SCREENSIZE)
+			{
+				RollScreen();
+			}
+			//set_cursor(INDEX/2);
 			break;
 		default :
 			if(INDEX == SCREENSIZE)
