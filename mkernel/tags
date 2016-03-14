@@ -10,13 +10,16 @@ ASM	boot/Makefile	/^ASM		= nasm$/;"	m
 ASMBFLAGS	Makefile	/^ASMBFLAGS 	= -I boot\/include\/$/;"	m
 ASMFLAGS	boot/Makefile	/^ASMFLAGS	= -I include\/$/;"	m
 ASMKFLAGS	Makefile	/^ASMKFLAGS	= -I include\/ -f elf$/;"	m
-BOOT	Makefile	/^BOOT		= boot\/boot.bin boot\/loader.bin$/;"	m
+BYTES_FOR_EACH_ELEMENT	include/print.h	6;"	d
 BaseOfStack	boot/boot.asm	/^BaseOfStack		equ	0100h	; 调试状态下堆栈基地址(栈底, 从这个位置向低地址生长)$/;"	d
 BaseOfStack	boot/boot.asm	/^BaseOfStack		equ	07c00h	; Boot状态下堆栈基地址(栈底, 从这个位置向低地址生长)$/;"	d
 BaseOfStack	boot/loader.asm	/^BaseOfStack	equ	0100h$/;"	d
 BootMessage	boot/boot.asm	/^BootMessage:		db	"Booting  "; 9字节, 不够则用空格补齐. 序号 0$/;"	d
 CC	Makefile	/^CC		= gcc$/;"	m
 CFLAGS	Makefile	/^CFLAGS		= -I include -fno-stack-protector -m32 -c $/;"	m
+CHECK_FLAG	include/multiboot.h	40;"	d
+COLUMNS	include/print.h	5;"	d
+CleanScreen	include/print.h	/^void CleanScreen()$/;"	f
 DASM	Makefile	/^DASM 		= ndisasm$/;"	m
 DESCRIPTOR	include/protect.h	/^}DESCRIPTOR;$/;"	t	typeref:struct:s_descriptor
 DispAL	boot/loader.asm	/^DispAL:$/;"	l
@@ -31,6 +34,8 @@ GdtLen	boot/loader.asm	/^GdtLen		equ	$ - LABEL_GDT$/;"	d
 GdtPtr	boot/loader.asm	/^GdtPtr		dw	GdtLen - 1				; 段界限$/;"	d
 GetFATEntry	boot/boot.asm	/^GetFATEntry:$/;"	l
 GetFATEntry	boot/loader.asm	/^GetFATEntry:$/;"	l
+IMG	Makefile	/^IMG		= os.img$/;"	m
+INDEX	include/print.h	/^static int INDEX = 0;$/;"	v
 InitKernel	boot/loader.asm	/^InitKernel:	; 遍历每一个 Program Header，根据 Program Header 中的信息来确定把什么放进内存，放到什么位置，以及放多少。$/;"	l
 KERNEL	Makefile	/^KERNEL 		= kernel.bin$/;"	m
 KernelFileName	boot/loader.asm	/^KernelFileName		db	"KERNEL  BIN", 0	; KERNEL.BIN 之文件名$/;"	d
@@ -69,6 +74,7 @@ LABEL_START	boot/boot.asm	/^LABEL_START:	$/;"	l
 LABEL_START	boot/loader.asm	/^LABEL_START:			; <--- 从这里开始 *************$/;"	l
 LD	Makefile	/^LD 		= ld$/;"	m
 LDFLAGS	Makefile	/^LDFLAGS		= -m elf_i386 -T link.ld$/;"	m
+LINES	include/print.h	4;"	d
 LoadMessage	boot/loader.asm	/^LoadMessage:		db	"Loading  "$/;"	d
 LoaderFileName	boot/boot.asm	/^LoaderFileName		db	"LOADER  BIN", 0	; LOADER.BIN 之文件名$/;"	d
 MemChkBuf	boot/loader.asm	/^MemChkBuf		equ	BaseOfLoaderPhyAddr + _MemChkBuf$/;"	d
@@ -79,23 +85,35 @@ Message2	boot/boot.asm	/^Message2		db	"No LOADER"; 9字节, 不够则用空格�
 Message2	boot/loader.asm	/^Message2		db	"No KERNEL"$/;"	d
 MessageLength	boot/boot.asm	/^MessageLength		equ	9$/;"	d
 MessageLength	boot/loader.asm	/^MessageLength		equ	9$/;"	d
-OBJS	Makefile	/^OBJS		= kernel\/kc.o kernel\/kasm.o lib\/klib.o lib\/string.o$/;"	m
+OBJS	Makefile	/^OBJS		= kernel\/kc.o kernel\/kasm.o lib\/klib.o lib\/string.o include\/func.o$/;"	m
 PRIVATE	include/const.h	14;"	d
 PUBLIC	include/const.h	13;"	d
+Printf	include/print.h	/^void Printf(const char *format, ...)  $/;"	f
+Putc	include/print.h	/^void Putc(char c)$/;"	f
+Puts	include/print.h	/^void Puts(char *str)$/;"	f
 ReadSector	boot/boot.asm	/^ReadSector:$/;"	l
 ReadSector	boot/loader.asm	/^ReadSector:$/;"	l
+RollScreen	include/print.h	/^void RollScreen()$/;"	f
+SCREENSIZE	include/print.h	7;"	d
 SelectorFlatC	boot/loader.asm	/^SelectorFlatC		equ	LABEL_DESC_FLAT_C	- LABEL_GDT$/;"	d
 SelectorFlatRW	boot/loader.asm	/^SelectorFlatRW		equ	LABEL_DESC_FLAT_RW	- LABEL_GDT$/;"	d
 SelectorVideo	boot/loader.asm	/^SelectorVideo		equ	LABEL_DESC_VIDEO	- LABEL_GDT + SA_RPL3$/;"	d
 SetupPaging	boot/loader.asm	/^SetupPaging:$/;"	l
 StackSpace	boot/loader.asm	/^StackSpace:	times	1000h	db	0$/;"	l
 TARGET	boot/Makefile	/^TARGET		= boot.bin loader.bin$/;"	m
+TXT_COLOR	include/print.h	8;"	d
+TestForMultiboot	kernel/kernel.c	/^void TestForMultiboot(unsigned long magic,unsigned long addr)$/;"	f
+TestForPrint	kernel/kernel.c	/^void TestForPrint()$/;"	f
 TopOfStack	boot/loader.asm	/^TopOfStack	equ	BaseOfLoaderPhyAddr + $	; 栈顶$/;"	d
+VIDPTR	include/print.h	/^char *VIDPTR = (char*)0xb8000;$/;"	v
 _ARDStruct	boot/loader.asm	/^_ARDStruct:			; Address Range Descriptor Structure$/;"	l
+_MULTIBOOT_H_	include/multiboot.h	2;"	d
 _MemChkBuf	boot/loader.asm	/^_MemChkBuf:	times	256	db	0$/;"	l
 _ORANGES_CONST_H_	include/const.h	9;"	d
 _ORANGES_PROTECT_H_	include/protect.h	9;"	d
 _ORANGES_TYPE_H_	include/type.h	9;"	d
+_PRINT_H_	include/print.h	2;"	d
+__SYSTEM_H	include/system.h	7;"	d
 _dwBaseAddrHigh	boot/loader.asm	/^	_dwBaseAddrHigh:	dd	0$/;"	d
 _dwBaseAddrLow	boot/loader.asm	/^	_dwBaseAddrLow:		dd	0$/;"	d
 _dwDispPos	boot/loader.asm	/^_dwDispPos:			dd	(80 * 6 + 0) * 2	; 屏幕第 6 行, 第 0 列。$/;"	d
@@ -107,19 +125,33 @@ _dwType	boot/loader.asm	/^	_dwType:		dd	0$/;"	d
 _szMemChkTitle	boot/loader.asm	/^_szMemChkTitle:			db	"BaseAddrL BaseAddrH LengthLow LengthHigh   Type", 0Ah, 0$/;"	d
 _szRAMSize	boot/loader.asm	/^_szRAMSize:			db	"RAM size:", 0$/;"	d
 _szReturn	boot/loader.asm	/^_szReturn:			db	0Ah, 0$/;"	d
+access	include/gdt.c	/^    unsigned char access;$/;"	m	struct:gdt_entry	file:
+addr	include/multiboot.h	/^	unsigned long addr;  $/;"	m	struct:aout_symbol_table
+addr	include/multiboot.h	/^	unsigned long addr;  $/;"	m	struct:elf_section_header_table
+aout_sym	include/multiboot.h	/^		aout_symbol_table_t aout_sym;  $/;"	m	union:multiboot_info::__anon1
+aout_symbol_table	include/multiboot.h	/^typedef struct aout_symbol_table  $/;"	s
+aout_symbol_table_t	include/multiboot.h	/^} aout_symbol_table_t;  $/;"	t	typeref:struct:aout_symbol_table
 attr1	include/protect.h	/^	u8	attr1;			\/* P(1) DPL(2) DT(1) TYPE(4) *\/$/;"	m	struct:s_descriptor
 bOdd	boot/boot.asm	/^bOdd			db	0		; 奇数还是偶数$/;"	d
 bOdd	boot/loader.asm	/^bOdd			db	0		; 奇数还是偶数$/;"	d
+base	include/gdt.c	/^    unsigned int base;$/;"	m	struct:gdt_ptr	file:
+base_high	include/gdt.c	/^    unsigned char base_high;$/;"	m	struct:gdt_entry	file:
 base_high	include/protect.h	/^	u8	base_high;		\/* Base *\/$/;"	m	struct:s_descriptor
+base_low	include/gdt.c	/^    unsigned short base_low;$/;"	m	struct:gdt_entry	file:
 base_low	include/protect.h	/^	u16	base_low;		\/* Base *\/$/;"	m	struct:s_descriptor
 base_mid	include/protect.h	/^	u8	base_mid;		\/* Base *\/$/;"	m	struct:s_descriptor
+base_middle	include/gdt.c	/^    unsigned char base_middle;$/;"	m	struct:gdt_entry	file:
 bits	kernel/kernel.asm	/^bits 32$/;"	l
-cstart	kernel/kernel.c	/^void cstart(void)$/;"	f
+boot_device	include/multiboot.h	/^	unsigned long boot_device;  $/;"	m	struct:multiboot_info
+cmdline	include/multiboot.h	/^	unsigned long cmdline;  $/;"	m	struct:multiboot_info
+cs	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
+cstart	kernel/kernel.c	/^void cstart(unsigned long magic,unsigned long addr)$/;"	f
 dec	boot/boot.asm	/^	dec	dx					; ┛就跳到下一个 Sector$/;"	d
 dec	boot/boot.asm	/^dec	cx$/;"	l
 dec	boot/loader.asm	/^	dec	dx					; ┛$/;"	d
 disp_pos	lib/klib.asm	/^disp_pos			dd	0$/;"	d
 disp_str	lib/klib.asm	/^disp_str:$/;"	l
+ds	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
 dw	boot/boot.asm	/^dw 	0xaa55				; 结束标志$/;"	l
 dwBaseAddrHigh	boot/loader.asm	/^	dwBaseAddrHigh	equ	BaseOfLoaderPhyAddr + _dwBaseAddrHigh$/;"	d
 dwBaseAddrLow	boot/loader.asm	/^	dwBaseAddrLow	equ	BaseOfLoaderPhyAddr + _dwBaseAddrLow$/;"	d
@@ -130,36 +162,89 @@ dwLengthLow	boot/loader.asm	/^	dwLengthLow	equ	BaseOfLoaderPhyAddr + _dwLengthLo
 dwMCRNumber	boot/loader.asm	/^dwMCRNumber		equ	BaseOfLoaderPhyAddr + _dwMCRNumber$/;"	d
 dwMemSize	boot/loader.asm	/^dwMemSize		equ	BaseOfLoaderPhyAddr + _dwMemSize$/;"	d
 dwType	boot/loader.asm	/^	dwType		equ	BaseOfLoaderPhyAddr + _dwType$/;"	d
+eax	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+ebp	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+ebx	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+ecx	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+edi	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+edx	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+eflags	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
+eip	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
+elf_sec	include/multiboot.h	/^		elf_section_header_table_t elf_sec;  $/;"	m	union:multiboot_info::__anon1
+elf_section_header_table	include/multiboot.h	/^typedef struct elf_section_header_table  $/;"	s
+elf_section_header_table_t	include/multiboot.h	/^} elf_section_header_table_t;  $/;"	t	typeref:struct:elf_section_header_table
+err_code	include/system.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
+es	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
+esi	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+esp	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
 extern	kernel/kernel.asm	/^extern cstart 				;this is defined in the c file$/;"	l
+extern	kernel/kernel.asm	/^extern gp$/;"	l
+flags	include/multiboot.h	/^	unsigned long flags;  $/;"	m	struct:multiboot_info
+flush2	kernel/kernel.asm	/^flush2:$/;"	l
+fs	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
+gdt	include/gdt.c	/^struct gdt_entry gdt[3];$/;"	v	typeref:struct:gdt_entry
+gdt_entry	include/gdt.c	/^struct gdt_entry$/;"	s	file:
+gdt_flush	kernel/kernel.asm	/^gdt_flush:$/;"	l
+gdt_install	include/gdt.c	/^void gdt_install()$/;"	f
+gdt_ptr	include/gdt.c	/^struct gdt_ptr$/;"	s	file:
+gdt_set_gate	include/gdt.c	/^void gdt_set_gate(int num, unsigned long base, unsigned long limit, unsigned char access, unsigned char gran)$/;"	f
+global	kernel/kernel.asm	/^global gdt_flush$/;"	l
 global	kernel/kernel.asm	/^global start$/;"	l
 global	lib/klib.asm	/^global	disp_str$/;"	l
 global	lib/string.asm	/^global	memcpy$/;"	l
+gp	include/gdt.c	/^struct gdt_ptr gp;$/;"	v	typeref:struct:gdt_ptr
+granularity	include/gdt.c	/^    unsigned char granularity;$/;"	m	struct:gdt_entry	file:
+gs	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
 inc	boot/boot.asm	/^	inc	di$/;"	d
 inc	boot/loader.asm	/^	inc	di$/;"	d
+int_no	include/system.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
+itoa	include/print.h	/^static void itoa (char *buf, int base, int d)  $/;"	f
 keyboard_map	keyboard_map.h	/^unsigned char keyboard_map[128] =$/;"	v
+limit	include/gdt.c	/^    unsigned short limit;$/;"	m	struct:gdt_ptr	file:
 limit_high_attr2	include/protect.h	/^	u8	limit_high_attr2;	\/* G(1) D(1) 0(1) AVL(1) LimitHigh(4) *\/$/;"	m	struct:s_descriptor
+limit_low	include/gdt.c	/^    unsigned short limit_low;$/;"	m	struct:gdt_entry	file:
 limit_low	include/protect.h	/^	u16	limit_low;		\/* Limit *\/$/;"	m	struct:s_descriptor
+mem_lower	include/multiboot.h	/^	unsigned long mem_lower;  $/;"	m	struct:multiboot_info
+mem_upper	include/multiboot.h	/^	unsigned long mem_upper;  $/;"	m	struct:multiboot_info
 memcpy	lib/string.asm	/^memcpy:$/;"	l
+mmap_addr	include/multiboot.h	/^	unsigned long mmap_addr;  $/;"	m	struct:multiboot_info
+mmap_length	include/multiboot.h	/^	unsigned long mmap_length;  $/;"	m	struct:multiboot_info
+mods_addr	include/multiboot.h	/^	unsigned long mods_addr;  $/;"	m	struct:multiboot_info
+mods_count	include/multiboot.h	/^	unsigned long mods_count;  $/;"	m	struct:multiboot_info
 mul	boot/boot.asm	/^	mul	dh$/;"	d
 mul	boot/loader.asm	/^	mul	dh$/;"	d
+multiboot_info	include/multiboot.h	/^typedef struct multiboot_info  $/;"	s
+multiboot_info_t	include/multiboot.h	/^} multiboot_info_t; $/;"	t	typeref:struct:multiboot_info
+num	include/multiboot.h	/^	unsigned long num;  $/;"	m	struct:elf_section_header_table
 org	boot/loader.asm	/^org  0100h$/;"	l
 pop	boot/boot.asm	/^	pop	dx$/;"	d
 pop	boot/loader.asm	/^	pop	dx$/;"	d
 push	boot/boot.asm	/^	push	dx$/;"	d
 push	boot/loader.asm	/^	push	dx$/;"	d
+regs	include/system.h	/^struct regs$/;"	s
 resb	kernel/kernel.asm	/^resb 8192				;8KB for stack$/;"	l
+reserved	include/multiboot.h	/^	unsigned long reserved;  $/;"	m	struct:aout_symbol_table
 s_descriptor	include/protect.h	/^typedef struct s_descriptor		\/* 共 8 个字节 *\/$/;"	s
 section	kernel/kernel.asm	/^section .bss$/;"	l
 section	kernel/kernel.asm	/^section .text$/;"	l
+shndx	include/multiboot.h	/^	unsigned long shndx;  $/;"	m	struct:elf_section_header_table
+size	include/multiboot.h	/^	unsigned long size;  $/;"	m	struct:elf_section_header_table
+size_t	include/system.h	/^typedef int size_t;$/;"	t
+sleep	kernel/kernel.c	/^void sleep()$/;"	f
+ss	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
 stack_space	kernel/kernel.asm	/^stack_space:$/;"	l
 start	kernel/kernel.asm	/^start:$/;"	l
+strsize	include/multiboot.h	/^	unsigned long strsize;  $/;"	m	struct:aout_symbol_table
 szMemChkTitle	boot/loader.asm	/^szMemChkTitle		equ	BaseOfLoaderPhyAddr + _szMemChkTitle$/;"	d
 szRAMSize	boot/loader.asm	/^szRAMSize		equ	BaseOfLoaderPhyAddr + _szRAMSize$/;"	d
 szReturn	boot/loader.asm	/^szReturn		equ	BaseOfLoaderPhyAddr + _szReturn$/;"	d
+tabsize	include/multiboot.h	/^	unsigned long tabsize;  $/;"	m	struct:aout_symbol_table
 times	boot/boot.asm	/^times 	510-($-$$)	db	0	; 填充剩下的空间，使生成的二进制代码恰好为512字节$/;"	l
+u	include/multiboot.h	/^	} u;  $/;"	m	struct:multiboot_info	typeref:union:multiboot_info::__anon1
 u16	include/type.h	/^typedef	unsigned short		u16;$/;"	t
 u32	include/type.h	/^typedef	unsigned int		u32;$/;"	t
 u8	include/type.h	/^typedef	unsigned char		u8;$/;"	t
+useresp	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
 wRootDirSizeForLoop	boot/boot.asm	/^wRootDirSizeForLoop	dw	RootDirSectors	; Root Directory 占用的扇区数, 在循环中会递减至零.$/;"	d
 wRootDirSizeForLoop	boot/loader.asm	/^wRootDirSizeForLoop	dw	RootDirSectors	; Root Directory 占用的扇区数$/;"	d
 wSectorNo	boot/boot.asm	/^wSectorNo		dw	0		; 要读取的扇区号$/;"	d

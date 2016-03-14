@@ -1,15 +1,15 @@
 %include "pm.inc"
-[SECTION .gdt]
-LABEL_GDT:		Descriptor	0,		0,			0
-LABEL_DESC_CODE32:	Descriptor	0,		SegCode32Len- 1,	DA_C + DA_32
-LABEL_DESC_VIDEO:	Descriptor	0B8000h,	0ffffh,			DA_DRW
-
-GdtLen		equ 	$ - LABEL_GDT
-GdtPtr 		dw 	GdtLen - 1
-		dd	0
-
-SelectorCode32 	equ 	LABEL_DESC_CODE32 - LABEL_GDT
-SelectorVideo	equ 	LABEL_DESC_VIDEO  - LABEL_GDT	
+;[SECTION .gdt]
+;LABEL_GDT:		Descriptor	0,		0,			0
+;LABEL_DESC_CODE32:	Descriptor	0,		SegCode32Len- 1,	DA_C + DA_32
+;LABEL_DESC_VIDEO:	Descriptor	0B8000h,	0ffffh,			DA_DRW
+;
+;GdtLen		equ 	$ - LABEL_GDT
+;GdtPtr 		dw 	GdtLen - 1
+;		dd	0
+;
+;SelectorCode32 	equ 	LABEL_DESC_CODE32 - LABEL_GDT
+;SelectorVideo	equ 	LABEL_DESC_VIDEO  - LABEL_GDT	
 
 bits 32
 section .text
@@ -20,7 +20,6 @@ section .text
         dd - (0x1BADB002 + 0x00000003)   	;checksum. m+f+c should be zero
 
 global start
-global Test
 extern cstart 				;this is defined in the c file
 
 start:
@@ -30,11 +29,26 @@ start:
 	push ebx
 	push eax
 	call cstart
-;	xchg bx,bx
+	xchg bx,bx
 	;jmp Test
 	hlt 				;halt the CPU
 
-Test:
+global gdt_flush
+extern gp
+gdt_flush:
+	lgdt [gp]
+	mov ax,0x10
+	mov ds,ax
+	mov es,ax
+	mov fs,ax
+	mov gs,ax
+	mov ss,ax
+	jmp 0x08:flush2
+flush2:
+	ret
+
+;global Test
+;Test:
 ;	mov ax,cs
 ;	mov ds,ax
 ;	mov es,ax
@@ -65,7 +79,7 @@ Test:
 	;mov al,'P'
 	;mov [gs:edi],ax
 	;hlt
-SegCode32Len	equ 	$-start	
+;SegCode32Len	equ 	$-start	
 
 section .bss
 resb 8192				;8KB for stack

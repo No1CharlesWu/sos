@@ -13,7 +13,7 @@ LDFLAGS		= -m elf_i386 -T link.ld
 #BOOT		= boot/boot.bin boot/loader.bin
 IMG		= os.img
 KERNEL 		= kernel.bin
-OBJS		= kernel/kc.o kernel/kasm.o lib/klib.o lib/string.o include/func.o
+OBJS		= kernel/kc.o kernel/kasm.o lib/klib.o lib/string.o include/func.o 
 
 run : everything
 	make clean
@@ -48,7 +48,7 @@ $(KERNEL) : $(OBJS)
 kernel/kasm.o : kernel/kernel.asm include/pm.inc
 	$(ASM) $(ASMKFLAGS) $< -o $@ 
 
-kernel/kc.o : kernel/kernel.c include/const.h include/protect.h include/type.h  include/print.h include/multiboot.h
+kernel/kc.o : kernel/kernel.c include/const.h include/protect.h include/type.h  include/print.h include/multiboot.h include/system.h
 	$(CC) $(CFLAGS)  $< -o $@
 
 lib/klib.o : lib/klib.asm
@@ -59,7 +59,6 @@ lib/string.o : lib/string.asm
 
 include/func.o : include/func.inc
 	$(ASM) $(ASMKFLAGS) $< -o $@
-	
 
 #final : all clean
 #image : final buildimg
