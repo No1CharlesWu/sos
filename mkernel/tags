@@ -79,13 +79,16 @@ LoadMessage	boot/loader.asm	/^LoadMessage:		db	"Loading  "$/;"	d
 LoaderFileName	boot/boot.asm	/^LoaderFileName		db	"LOADER  BIN", 0	; LOADER.BIN 之文件名$/;"	d
 MemChkBuf	boot/loader.asm	/^MemChkBuf		equ	BaseOfLoaderPhyAddr + _MemChkBuf$/;"	d
 MemCpy	boot/loader.asm	/^MemCpy:$/;"	l
+Memcpy	include/system.h	/^void *Memcpy(void *dest, const void *src, size_t count)$/;"	f
+Memset	include/system.h	/^void *Memset(void *dest, char val, size_t count)$/;"	f
+Memsetw	include/system.h	/^unsigned short *Memsetw(unsigned short *dest, unsigned short val, size_t count)$/;"	f
 Message1	boot/boot.asm	/^Message1		db	"Ready.   "; 9字节, 不够则用空格补齐. 序号 1$/;"	d
 Message1	boot/loader.asm	/^Message1		db	"Ready.   "$/;"	d
 Message2	boot/boot.asm	/^Message2		db	"No LOADER"; 9字节, 不够则用空格补齐. 序号 2$/;"	d
 Message2	boot/loader.asm	/^Message2		db	"No KERNEL"$/;"	d
 MessageLength	boot/boot.asm	/^MessageLength		equ	9$/;"	d
 MessageLength	boot/loader.asm	/^MessageLength		equ	9$/;"	d
-OBJS	Makefile	/^OBJS		= kernel\/kc.o kernel\/kasm.o lib\/klib.o lib\/string.o include\/func.o$/;"	m
+OBJS	Makefile	/^OBJS		= kernel\/kc.o kernel\/kasm.o lib\/klib.o lib\/string.o include\/func.o $/;"	m
 PRIVATE	include/const.h	14;"	d
 PUBLIC	include/const.h	13;"	d
 Printf	include/print.h	/^void Printf(const char *format, ...)  $/;"	f
@@ -125,22 +128,26 @@ _dwType	boot/loader.asm	/^	_dwType:		dd	0$/;"	d
 _szMemChkTitle	boot/loader.asm	/^_szMemChkTitle:			db	"BaseAddrL BaseAddrH LengthLow LengthHigh   Type", 0Ah, 0$/;"	d
 _szRAMSize	boot/loader.asm	/^_szRAMSize:			db	"RAM size:", 0$/;"	d
 _szReturn	boot/loader.asm	/^_szReturn:			db	0Ah, 0$/;"	d
-access	include/gdt.c	/^    unsigned char access;$/;"	m	struct:gdt_entry	file:
+access	include/system.h	/^    unsigned char access;$/;"	m	struct:gdt_entry
 addr	include/multiboot.h	/^	unsigned long addr;  $/;"	m	struct:aout_symbol_table
 addr	include/multiboot.h	/^	unsigned long addr;  $/;"	m	struct:elf_section_header_table
+always0	include/system.h	/^    unsigned char always0;$/;"	m	struct:idt_entry
 aout_sym	include/multiboot.h	/^		aout_symbol_table_t aout_sym;  $/;"	m	union:multiboot_info::__anon1
 aout_symbol_table	include/multiboot.h	/^typedef struct aout_symbol_table  $/;"	s
 aout_symbol_table_t	include/multiboot.h	/^} aout_symbol_table_t;  $/;"	t	typeref:struct:aout_symbol_table
 attr1	include/protect.h	/^	u8	attr1;			\/* P(1) DPL(2) DT(1) TYPE(4) *\/$/;"	m	struct:s_descriptor
 bOdd	boot/boot.asm	/^bOdd			db	0		; 奇数还是偶数$/;"	d
 bOdd	boot/loader.asm	/^bOdd			db	0		; 奇数还是偶数$/;"	d
-base	include/gdt.c	/^    unsigned int base;$/;"	m	struct:gdt_ptr	file:
-base_high	include/gdt.c	/^    unsigned char base_high;$/;"	m	struct:gdt_entry	file:
+base	include/system.h	/^    unsigned int base;$/;"	m	struct:gdt_ptr
+base	include/system.h	/^    unsigned int base;$/;"	m	struct:idt_ptr
+base_hi	include/system.h	/^    unsigned short base_hi;$/;"	m	struct:idt_entry
 base_high	include/protect.h	/^	u8	base_high;		\/* Base *\/$/;"	m	struct:s_descriptor
-base_low	include/gdt.c	/^    unsigned short base_low;$/;"	m	struct:gdt_entry	file:
+base_high	include/system.h	/^    unsigned char base_high;$/;"	m	struct:gdt_entry
+base_lo	include/system.h	/^    unsigned short base_lo;$/;"	m	struct:idt_entry
 base_low	include/protect.h	/^	u16	base_low;		\/* Base *\/$/;"	m	struct:s_descriptor
+base_low	include/system.h	/^    unsigned short base_low;$/;"	m	struct:gdt_entry
 base_mid	include/protect.h	/^	u8	base_mid;		\/* Base *\/$/;"	m	struct:s_descriptor
-base_middle	include/gdt.c	/^    unsigned char base_middle;$/;"	m	struct:gdt_entry	file:
+base_middle	include/system.h	/^    unsigned char base_middle;$/;"	m	struct:gdt_entry
 bits	kernel/kernel.asm	/^bits 32$/;"	l
 boot_device	include/multiboot.h	/^	unsigned long boot_device;  $/;"	m	struct:multiboot_info
 cmdline	include/multiboot.h	/^	unsigned long cmdline;  $/;"	m	struct:multiboot_info
@@ -179,31 +186,43 @@ esi	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$
 esp	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
 extern	kernel/kernel.asm	/^extern cstart 				;this is defined in the c file$/;"	l
 extern	kernel/kernel.asm	/^extern gp$/;"	l
+extern	kernel/kernel.asm	/^extern idtp$/;"	l
 flags	include/multiboot.h	/^	unsigned long flags;  $/;"	m	struct:multiboot_info
+flags	include/system.h	/^    unsigned char flags;$/;"	m	struct:idt_entry
 flush2	kernel/kernel.asm	/^flush2:$/;"	l
 fs	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
-gdt	include/gdt.c	/^struct gdt_entry gdt[3];$/;"	v	typeref:struct:gdt_entry
-gdt_entry	include/gdt.c	/^struct gdt_entry$/;"	s	file:
+gdt	include/system.h	/^struct gdt_entry gdt[5];$/;"	v	typeref:struct:gdt_entry
+gdt_entry	include/system.h	/^struct gdt_entry$/;"	s
 gdt_flush	kernel/kernel.asm	/^gdt_flush:$/;"	l
-gdt_install	include/gdt.c	/^void gdt_install()$/;"	f
-gdt_ptr	include/gdt.c	/^struct gdt_ptr$/;"	s	file:
-gdt_set_gate	include/gdt.c	/^void gdt_set_gate(int num, unsigned long base, unsigned long limit, unsigned char access, unsigned char gran)$/;"	f
+gdt_install	include/system.h	/^void gdt_install()$/;"	f
+gdt_ptr	include/system.h	/^struct gdt_ptr$/;"	s
+gdt_set_gate	include/system.h	/^void gdt_set_gate(int num, unsigned long base, unsigned long limit, unsigned char access, unsigned char gran)$/;"	f
 global	kernel/kernel.asm	/^global gdt_flush$/;"	l
+global	kernel/kernel.asm	/^global idt_load$/;"	l
 global	kernel/kernel.asm	/^global start$/;"	l
 global	lib/klib.asm	/^global	disp_str$/;"	l
 global	lib/string.asm	/^global	memcpy$/;"	l
-gp	include/gdt.c	/^struct gdt_ptr gp;$/;"	v	typeref:struct:gdt_ptr
-granularity	include/gdt.c	/^    unsigned char granularity;$/;"	m	struct:gdt_entry	file:
+gp	include/system.h	/^struct gdt_ptr gp;$/;"	v	typeref:struct:gdt_ptr
+granularity	include/system.h	/^    unsigned char granularity;$/;"	m	struct:gdt_entry
 gs	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
+idt	include/system.h	/^struct idt_entry idt[256];$/;"	v	typeref:struct:idt_entry
+idt_entry	include/system.h	/^struct idt_entry$/;"	s
+idt_install	include/system.h	/^void idt_install()$/;"	f
+idt_load	kernel/kernel.asm	/^idt_load:$/;"	l
+idt_ptr	include/system.h	/^struct idt_ptr$/;"	s
+idt_set_gate	include/system.h	/^void idt_set_gate(unsigned char num, unsigned long base, unsigned short sel, unsigned char flags)$/;"	f
+idtp	include/system.h	/^struct idt_ptr idtp;$/;"	v	typeref:struct:idt_ptr
 inc	boot/boot.asm	/^	inc	di$/;"	d
 inc	boot/loader.asm	/^	inc	di$/;"	d
+inportb	include/system.h	/^unsigned char inportb (unsigned short _port)$/;"	f
 int_no	include/system.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
 itoa	include/print.h	/^static void itoa (char *buf, int base, int d)  $/;"	f
 keyboard_map	keyboard_map.h	/^unsigned char keyboard_map[128] =$/;"	v
-limit	include/gdt.c	/^    unsigned short limit;$/;"	m	struct:gdt_ptr	file:
+limit	include/system.h	/^    unsigned short limit;$/;"	m	struct:gdt_ptr
+limit	include/system.h	/^    unsigned short limit;$/;"	m	struct:idt_ptr
 limit_high_attr2	include/protect.h	/^	u8	limit_high_attr2;	\/* G(1) D(1) 0(1) AVL(1) LimitHigh(4) *\/$/;"	m	struct:s_descriptor
-limit_low	include/gdt.c	/^    unsigned short limit_low;$/;"	m	struct:gdt_entry	file:
 limit_low	include/protect.h	/^	u16	limit_low;		\/* Limit *\/$/;"	m	struct:s_descriptor
+limit_low	include/system.h	/^    unsigned short limit_low;$/;"	m	struct:gdt_entry
 mem_lower	include/multiboot.h	/^	unsigned long mem_lower;  $/;"	m	struct:multiboot_info
 mem_upper	include/multiboot.h	/^	unsigned long mem_upper;  $/;"	m	struct:multiboot_info
 memcpy	lib/string.asm	/^memcpy:$/;"	l
@@ -217,6 +236,7 @@ multiboot_info	include/multiboot.h	/^typedef struct multiboot_info  $/;"	s
 multiboot_info_t	include/multiboot.h	/^} multiboot_info_t; $/;"	t	typeref:struct:multiboot_info
 num	include/multiboot.h	/^	unsigned long num;  $/;"	m	struct:elf_section_header_table
 org	boot/loader.asm	/^org  0100h$/;"	l
+outportb	include/system.h	/^void outportb (unsigned short _port, unsigned char _data)$/;"	f
 pop	boot/boot.asm	/^	pop	dx$/;"	d
 pop	boot/loader.asm	/^	pop	dx$/;"	d
 push	boot/boot.asm	/^	push	dx$/;"	d
@@ -227,6 +247,7 @@ reserved	include/multiboot.h	/^	unsigned long reserved;  $/;"	m	struct:aout_symb
 s_descriptor	include/protect.h	/^typedef struct s_descriptor		\/* 共 8 个字节 *\/$/;"	s
 section	kernel/kernel.asm	/^section .bss$/;"	l
 section	kernel/kernel.asm	/^section .text$/;"	l
+sel	include/system.h	/^    unsigned short sel;$/;"	m	struct:idt_entry
 shndx	include/multiboot.h	/^	unsigned long shndx;  $/;"	m	struct:elf_section_header_table
 size	include/multiboot.h	/^	unsigned long size;  $/;"	m	struct:elf_section_header_table
 size_t	include/system.h	/^typedef int size_t;$/;"	t
@@ -234,6 +255,7 @@ sleep	kernel/kernel.c	/^void sleep()$/;"	f
 ss	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
 stack_space	kernel/kernel.asm	/^stack_space:$/;"	l
 start	kernel/kernel.asm	/^start:$/;"	l
+strlen	include/system.h	/^size_t strlen(const char *str)$/;"	f
 strsize	include/multiboot.h	/^	unsigned long strsize;  $/;"	m	struct:aout_symbol_table
 szMemChkTitle	boot/loader.asm	/^szMemChkTitle		equ	BaseOfLoaderPhyAddr + _szMemChkTitle$/;"	d
 szRAMSize	boot/loader.asm	/^szRAMSize		equ	BaseOfLoaderPhyAddr + _szRAMSize$/;"	d

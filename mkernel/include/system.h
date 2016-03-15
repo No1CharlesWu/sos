@@ -17,19 +17,59 @@ struct regs
     unsigned int eip, cs, eflags, useresp, ss;    
 };
 
-///* MAIN.C */
-//extern void *memcpy(void *dest, const void *src, size_t count);
-//extern void *memset(void *dest, char val, size_t count);
-//extern unsigned short *memsetw(unsigned short *dest, unsigned short val, size_t count);
-//extern size_t strlen(const char *str);
-//extern unsigned char inportb (unsigned short _port);
-//extern void outportb (unsigned short _port, unsigned char _data);
-//
+/* MAIN.C */
+extern void *Memcpy(void *dest, const void *src, size_t count);
+extern void *Memset(void *dest, char val, size_t count);
+extern unsigned short *Memsetw(unsigned short *dest, unsigned short val, size_t count);
+extern size_t strlen(const char *str);
+extern unsigned char inportb (unsigned short _port);
+extern void outportb (unsigned short _port, unsigned char _data);
+
 ///* CONSOLE.C */
 //extern void init_video(void);
 //extern void puts(unsigned char *text);
 //extern void putch(unsigned char c);
 //extern void cls();
+void *Memcpy(void *dest, const void *src, size_t count)
+{
+    const char *sp = (const char *)src;
+    char *dp = (char *)dest;
+    for(; count != 0; count--) *dp++ = *sp++;
+    return dest;
+}
+
+void *Memset(void *dest, char val, size_t count)
+{
+    char *temp = (char *)dest;
+    for( ; count != 0; count--) *temp++ = val;
+    return dest;
+}
+
+unsigned short *Memsetw(unsigned short *dest, unsigned short val, size_t count)
+{
+    unsigned short *temp = (unsigned short *)dest;
+    for( ; count != 0; count--) *temp++ = val;
+    return dest;
+}
+
+size_t strlen(const char *str)
+{
+    size_t retval;
+    for(retval = 0; *str != '\0'; str++) retval++;
+    return retval;
+}
+
+unsigned char inportb (unsigned short _port)
+{
+    unsigned char rv;
+    __asm__ __volatile__ ("inb %1, %0" : "=a" (rv) : "dN" (_port));
+    return rv;
+}
+
+void outportb (unsigned short _port, unsigned char _data)
+{
+    __asm__ __volatile__ ("outb %1, %0" : : "dN" (_port), "a" (_data));
+}
 
 /* GDT.C */
 extern void gdt_set_gate(int num, unsigned long base, unsigned long limit, unsigned char access, unsigned char gran);
@@ -105,7 +145,7 @@ void gdt_install()
 {
     /* Setup the GDT pointer and limit */
     gp.limit = (sizeof(struct gdt_entry) * 5) - 1;
-    gp.base = &gdt;
+    gp.base = (unsigned int)&gdt;
 
     /* Our NULL descriptor */
     gdt_set_gate(0, 0, 0, 0, 0);
@@ -126,5 +166,66 @@ void gdt_install()
     gdt_set_gate(4, 0x00500000, 0x00000fff, 0x92, 0xcf);
     /* Flush out the old GDT and install the new changes! */
     gdt_flush();
+}
+
+/* Defines an IDT entry */
+struct idt_entry
+{
+    unsigned short base_lo;
+    unsigned short sel;
+    unsigned char always0;
+    unsigned char flags;
+    unsigned short base_hi;
+} __attribute__((packed));
+
+struct idt_ptr
+{
+    unsigned short limit;
+    unsigned int base;
+} __attribute__((packed));
+
+/* Declare an IDT of 256 entries. Although we will only use the
+*  first 32 entries in this tutorial, the rest exists as a bit
+*  of a trap. If any undefined IDT entry is hit, it normally
+*  will cause an "Unhandled Interrupt" exception. Any descriptor
+*  for which the 'presence' bit is cleared (0) will generate an
+*  "Unhandled Interrupt" exception */
+struct idt_entry idt[256];
+struct idt_ptr idtp;
+
+/* This exists in 'start.asm', and is used to load our IDT */
+extern void idt_load();
+
+/* Use this function to set an entry in the IDT. Alot simpler
+*  than twiddling with the GDT ;) */
+void idt_set_gate(unsigned char num, unsigned long base, unsigned short sel, unsigned char flags)
+{
+    /* The interrupt routine's base address */
+    idt[num].base_lo = (base & 0xFFFF);
+    idt[num].base_hi = (base >> 16) & 0xFFFF;
+
+    /* The segment or 'selector' that this IDT entry will use
+    *  is set here, along with any access flags */
+    idt[num].sel = sel;
+    idt[num].always0 = 0;
+    idt[num].flags = flags;
+}
+
+/* Installs the IDT */
+void idt_install()
+{
+    /* Sets the special IDT pointer up, just like in 'gdt.c' */
+    idtp.limit = (sizeof (struct idt_entry) * 256) - 1;
+    idtp.base = (unsigned int)&idt;
+
+    /* Clear out the entire IDT, initializing it to zeros */
+    Memset(&idt, 0, sizeof(struct idt_entry) * 256);
+
+    /* Add any new ISRs to the IDT here using idt_set_gate */
+
+
+
+    /* Points the processor's internal register to the new IDT */
+    idt_load();
 }
 #endif
