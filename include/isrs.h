@@ -1,10 +1,5 @@
 #ifndef _ISRS_H_
 #define _ISRS_H_
-/* bkerndev - Bran's Kernel Development Tutorial
-*  By:   Brandon F. (friesenb@gmail.com)
-*  Desc: Interrupt Service Routines installer and exceptions
-*
-*  Notes: No warranty expressed or implied. Use at own risk. */
 #include <system.h>
 
 /* These are function prototypes for all of the exception
@@ -89,6 +84,8 @@ void isrs_install()
     idt_set_gate(29, (unsigned)isr29, 0x08, 0x8E);
     idt_set_gate(30, (unsigned)isr30, 0x08, 0x8E);
     idt_set_gate(31, (unsigned)isr31, 0x08, 0x8E);
+    
+    Puts("isrs_install Ready.\n");
 }
 
 /* This is a simple string array. It contains the message that
@@ -144,8 +141,8 @@ void fault_handler(struct regs *r)
 {
     if (r->int_no < 32)
     {
-        puts(exception_messages[r->int_no]);
-        puts(" Exception. System Halted!\n");
+        Puts(exception_messages[r->int_no]);
+        Puts(" Exception. System Halted!\n");
         for (;;);
     }
 }

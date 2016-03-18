@@ -13,8 +13,13 @@ global io_load_eflags	;int io_load_eflags(void)
 global io_store_eflags	;void io_store_eflags(int eflags)
 global write_mem8	;void write_mem8(int addr,int data);
 global set_cursor
+global io_xchg
 
 section .text
+io_xchg:
+	xchg bx,bx
+	ret
+
 io_hlt:		;void io_hlt(void);
 	HLT
 	RET
