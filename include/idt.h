@@ -62,7 +62,7 @@ void idt_install()
     /* Points the processor's internal register to the new IDT */
     idt_load();
 
-    Printf("idt_install Ready.\n");
+    Puts("idt_install Ready.\n");
 }
 
 #endif

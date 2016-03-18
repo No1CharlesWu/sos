@@ -11,10 +11,16 @@ void *Memcpy(void *dest, const void *src, size_t count);
 void *Memset(void *dest, char val, size_t count);
 unsigned short *Memsetw(unsigned short *dest, unsigned short val, size_t count);
 size_t strlen(const char *str);
+unsigned char inportb (unsigned short _port);
+void outportb (unsigned short _port, unsigned char _data);
 
 void cstart()
 {
 	cls();
+	Printf("======cstart begin======\n");
+	Printf("======cstart begin======\n");
+	Printf("======cstart begin======\n");
+	Printf("======cstart begin======\n");
 	Printf("======cstart begin======\n");
 	init_video();
 	gdt_install();
@@ -90,3 +96,14 @@ size_t strlen(const char *str)
     return retval;
 }
 
+unsigned char inportb (unsigned short _port)
+{
+    unsigned char rv;
+    __asm__ __volatile__ ("inb %1, %0" : "=a" (rv) : "dN" (_port));
+    return rv;
+}
+
+void outportb (unsigned short _port, unsigned char _data)
+{
+    __asm__ __volatile__ ("outb %1, %0" : : "dN" (_port), "a" (_data));
+}

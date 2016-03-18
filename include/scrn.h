@@ -67,10 +67,10 @@ void move_csr(void)
 
     temp = csr_y *  COLUMNS + csr_x;
 
-    io_out8(0x3D4, 14);
-    io_out8(0x3D5, temp >> 8);
-    io_out8(0x3D4, 15);
-    io_out8(0x3D5, temp);
+    outportb(0x3D4, 14);
+    outportb(0x3D5, temp >> 8);
+    outportb(0x3D4, 15);
+    outportb(0x3D5, temp);
 }
 
 /* Clears the screen */
