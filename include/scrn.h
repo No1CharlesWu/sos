@@ -1,5 +1,5 @@
-#ifndef _PRINT_H_
-#define _PRINT_H_
+#ifndef _SCRN_H_
+#define _SCRN_H_
 
 #include <system.h>
 #define LINES 25
@@ -15,6 +15,7 @@ void CleanScreen();
 void RollScreen();  
 static void itoa (char *buf, int base, int d);
 void Printf(const char *format, ...);
+
 unsigned short *textmemptr;
 int attrib = 0x0F;
 int csr_x = 0, csr_y = 0;

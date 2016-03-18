@@ -1,0 +1,162 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ASM	Makefile	/^ASM		= nasm$/;"	m
+ASMKFLAGS	Makefile	/^ASMKFLAGS	= -I include\/ -f elf$/;"	m
+BYTES_FOR_EACH_ELEMENT	include/print.h	6;"	d
+BYTES_FOR_EACH_ELEMENT	include/scrn.h	7;"	d
+CC	Makefile	/^CC		= gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS		= -I include\/ -fno-stack-protector -m32 -c $/;"	m
+CHECK_FLAG	include/multiboot.h	40;"	d
+COLUMNS	include/print.h	5;"	d
+COLUMNS	include/scrn.h	6;"	d
+CleanScreen	include/print.h	/^void CleanScreen()$/;"	f
+CleanScreen	include/scrn.h	/^void CleanScreen()$/;"	f
+DASM	Makefile	/^DASM 		= ndisasm$/;"	m
+IMG	Makefile	/^IMG		= os.img$/;"	m
+INDEX	include/print.h	/^static int INDEX = 0;$/;"	v
+INDEX	include/scrn.h	/^static int INDEX = 0;$/;"	v
+KERNEL	Makefile	/^KERNEL 		= kernel.bin$/;"	m
+LD	Makefile	/^LD 		= ld$/;"	m
+LDFLAGS	Makefile	/^LDFLAGS		= -m elf_i386 -T link.ld$/;"	m
+LINES	include/print.h	4;"	d
+LINES	include/scrn.h	5;"	d
+Memcpy	main.c	/^void *Memcpy(void *dest, const void *src, size_t count)$/;"	f
+Memset	main.c	/^void *Memset(void *dest, char val, size_t count)$/;"	f
+Memsetw	main.c	/^unsigned short *Memsetw(unsigned short *dest, unsigned short val, size_t count)$/;"	f
+MyPutc	include/scrn.h	/^void MyPutc(char c)$/;"	f
+MyPuts	include/scrn.h	/^void MyPuts(char *str)$/;"	f
+OBJS	Makefile	/^OBJS		= main.o start.o func.o$/;"	m
+Printf	include/print.h	/^void Printf(const char *format, ...)  $/;"	f
+Printf	include/scrn.h	/^void Printf(const char *format, ...)  $/;"	f
+Putc	include/print.h	/^void Putc(char c)$/;"	f
+Putc	include/scrn.h	/^void Putc(unsigned char c)$/;"	f
+Puts	include/print.h	/^void Puts(char *str)$/;"	f
+Puts	include/scrn.h	/^void Puts(unsigned char *text)$/;"	f
+RollScreen	include/print.h	/^void RollScreen()$/;"	f
+RollScreen	include/scrn.h	/^void RollScreen()$/;"	f
+SCREENSIZE	include/print.h	7;"	d
+SCREENSIZE	include/scrn.h	8;"	d
+TXT_COLOR	include/print.h	8;"	d
+TXT_COLOR	include/scrn.h	9;"	d
+TestForMultiboot	main.c	/^void TestForMultiboot(unsigned long magic,unsigned long addr)$/;"	f
+TestForPrint	main.c	/^void TestForPrint()$/;"	f
+VIDPTR	include/print.h	/^char *VIDPTR = (char*)0xb8000;$/;"	v
+VIDPTR	include/scrn.h	/^char *VIDPTR = (char*)0xb8000;$/;"	v
+_GDT_H_	include/gdt.h	2;"	d
+_IDT_H_	include/idt.h	2;"	d
+_MULTIBOOT_H_	include/multiboot.h	2;"	d
+_PRINT_H_	include/print.h	2;"	d
+_SCRN_H_	include/scrn.h	2;"	d
+_SYSTEM_H_	include/system.h	2;"	d
+_TYPE_H_	include/type.h	2;"	d
+access	include/gdt.h	/^    unsigned char access;$/;"	m	struct:gdt_entry
+addr	include/multiboot.h	/^	unsigned long addr;  $/;"	m	struct:aout_symbol_table
+addr	include/multiboot.h	/^	unsigned long addr;  $/;"	m	struct:elf_section_header_table
+always0	include/idt.h	/^    unsigned char always0;$/;"	m	struct:idt_entry
+aout_sym	include/multiboot.h	/^		aout_symbol_table_t aout_sym;  $/;"	m	union:multiboot_info::__anon1
+aout_symbol_table	include/multiboot.h	/^typedef struct aout_symbol_table  $/;"	s
+aout_symbol_table_t	include/multiboot.h	/^} aout_symbol_table_t;  $/;"	t	typeref:struct:aout_symbol_table
+attrib	include/scrn.h	/^int attrib = 0x0F;$/;"	v
+base	include/gdt.h	/^    unsigned int base;$/;"	m	struct:gdt_ptr
+base	include/idt.h	/^    unsigned int base;$/;"	m	struct:idt_ptr
+base_hi	include/idt.h	/^    unsigned short base_hi;$/;"	m	struct:idt_entry
+base_high	include/gdt.h	/^    unsigned char base_high;$/;"	m	struct:gdt_entry
+base_lo	include/idt.h	/^    unsigned short base_lo;$/;"	m	struct:idt_entry
+base_low	include/gdt.h	/^    unsigned short base_low;$/;"	m	struct:gdt_entry
+base_middle	include/gdt.h	/^    unsigned char base_middle;$/;"	m	struct:gdt_entry
+bits	start.asm	/^bits 32$/;"	l
+boot_device	include/multiboot.h	/^	unsigned long boot_device;  $/;"	m	struct:multiboot_info
+cls	include/scrn.h	/^void cls()$/;"	f
+cmdline	include/multiboot.h	/^	unsigned long cmdline;  $/;"	m	struct:multiboot_info
+cs	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
+csr_x	include/scrn.h	/^int csr_x = 0, csr_y = 0;$/;"	v
+csr_y	include/scrn.h	/^int csr_x = 0, csr_y = 0;$/;"	v
+cstart	main.c	/^void cstart()$/;"	f
+ds	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
+eax	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+ebp	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+ebx	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+ecx	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+edi	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+edx	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+eflags	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
+eip	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
+elf_sec	include/multiboot.h	/^		elf_section_header_table_t elf_sec;  $/;"	m	union:multiboot_info::__anon1
+elf_section_header_table	include/multiboot.h	/^typedef struct elf_section_header_table  $/;"	s
+elf_section_header_table_t	include/multiboot.h	/^} elf_section_header_table_t;  $/;"	t	typeref:struct:elf_section_header_table
+err_code	include/system.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
+es	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
+esi	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+esp	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+extern	start.asm	/^extern cstart 				;this is defined in the c file$/;"	l
+extern	start.asm	/^extern gp$/;"	l
+extern	start.asm	/^extern idtp$/;"	l
+flags	include/idt.h	/^    unsigned char flags;$/;"	m	struct:idt_entry
+flags	include/multiboot.h	/^	unsigned long flags;  $/;"	m	struct:multiboot_info
+flush2	start.asm	/^flush2:$/;"	l
+fs	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
+gdt	include/gdt.h	/^struct gdt_entry gdt[gdt_size];$/;"	v	typeref:struct:gdt_entry
+gdt_entry	include/gdt.h	/^struct gdt_entry$/;"	s
+gdt_flush	start.asm	/^gdt_flush:$/;"	l
+gdt_install	include/gdt.h	/^void gdt_install()$/;"	f
+gdt_ptr	include/gdt.h	/^struct gdt_ptr$/;"	s
+gdt_set_gate	include/gdt.h	/^void gdt_set_gate(int num, unsigned long base, unsigned long limit, unsigned char access, unsigned char gran)$/;"	f
+gdt_size	include/gdt.h	23;"	d
+global	start.asm	/^global gdt_flush$/;"	l
+global	start.asm	/^global idt_load$/;"	l
+global	start.asm	/^global start$/;"	l
+gp	include/gdt.h	/^struct gdt_ptr gp;$/;"	v	typeref:struct:gdt_ptr
+granularity	include/gdt.h	/^    unsigned char granularity;$/;"	m	struct:gdt_entry
+gs	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
+idt	include/idt.h	/^struct idt_entry idt[256];$/;"	v	typeref:struct:idt_entry
+idt_entry	include/idt.h	/^struct idt_entry$/;"	s
+idt_install	include/idt.h	/^void idt_install()$/;"	f
+idt_load	start.asm	/^idt_load:$/;"	l
+idt_ptr	include/idt.h	/^struct idt_ptr$/;"	s
+idt_set_gate	include/idt.h	/^void idt_set_gate(unsigned char num, unsigned long base, unsigned short sel, unsigned char flags)$/;"	f
+idtp	include/idt.h	/^struct idt_ptr idtp;$/;"	v	typeref:struct:idt_ptr
+init_video	include/scrn.h	/^void init_video(void)$/;"	f
+int_no	include/system.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
+itoa	include/print.h	/^static void itoa (char *buf, int base, int d)  $/;"	f
+itoa	include/scrn.h	/^static void itoa (char *buf, int base, int d)  $/;"	f
+limit	include/gdt.h	/^    unsigned short limit;$/;"	m	struct:gdt_ptr
+limit	include/idt.h	/^    unsigned short limit;$/;"	m	struct:idt_ptr
+limit_low	include/gdt.h	/^    unsigned short limit_low;$/;"	m	struct:gdt_entry
+mem_lower	include/multiboot.h	/^	unsigned long mem_lower;  $/;"	m	struct:multiboot_info
+mem_upper	include/multiboot.h	/^	unsigned long mem_upper;  $/;"	m	struct:multiboot_info
+mmap_addr	include/multiboot.h	/^	unsigned long mmap_addr;  $/;"	m	struct:multiboot_info
+mmap_length	include/multiboot.h	/^	unsigned long mmap_length;  $/;"	m	struct:multiboot_info
+mods_addr	include/multiboot.h	/^	unsigned long mods_addr;  $/;"	m	struct:multiboot_info
+mods_count	include/multiboot.h	/^	unsigned long mods_count;  $/;"	m	struct:multiboot_info
+move_csr	include/scrn.h	/^void move_csr(void)$/;"	f
+multiboot_info	include/multiboot.h	/^typedef struct multiboot_info  $/;"	s
+multiboot_info_t	include/multiboot.h	/^} multiboot_info_t; $/;"	t	typeref:struct:multiboot_info
+num	include/multiboot.h	/^	unsigned long num;  $/;"	m	struct:elf_section_header_table
+regs	include/system.h	/^struct regs$/;"	s
+resb	start.asm	/^resb 8192				;8KB for stack$/;"	l
+reserved	include/multiboot.h	/^	unsigned long reserved;  $/;"	m	struct:aout_symbol_table
+scroll	include/scrn.h	/^void scroll(void)$/;"	f
+section	start.asm	/^section .bss$/;"	l
+section	start.asm	/^section .text$/;"	l
+sel	include/idt.h	/^    unsigned short sel;$/;"	m	struct:idt_entry
+settextcolor	include/scrn.h	/^void settextcolor(unsigned char forecolor, unsigned char backcolor)$/;"	f
+shndx	include/multiboot.h	/^	unsigned long shndx;  $/;"	m	struct:elf_section_header_table
+size	include/multiboot.h	/^	unsigned long size;  $/;"	m	struct:elf_section_header_table
+size_t	include/system.h	/^typedef int size_t;$/;"	t
+sleep	main.c	/^void sleep()$/;"	f
+ss	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
+stack_space	start.asm	/^stack_space:$/;"	l
+start	start.asm	/^start:$/;"	l
+strlen	main.c	/^size_t strlen(const char *str)$/;"	f
+strsize	include/multiboot.h	/^	unsigned long strsize;  $/;"	m	struct:aout_symbol_table
+tabsize	include/multiboot.h	/^	unsigned long tabsize;  $/;"	m	struct:aout_symbol_table
+textmemptr	include/scrn.h	/^unsigned short *textmemptr;$/;"	v
+u	include/multiboot.h	/^	} u;  $/;"	m	struct:multiboot_info	typeref:union:multiboot_info::__anon1
+u16	include/type.h	/^typedef	unsigned short		u16;$/;"	t
+u32	include/type.h	/^typedef	unsigned int		u32;$/;"	t
+u8	include/type.h	/^typedef	unsigned char		u8;$/;"	t
+useresp	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
