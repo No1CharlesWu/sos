@@ -14,11 +14,12 @@ size_t strlen(const char *str);
 
 void cstart()
 {
+	cls();
+	Printf("\n======cstart begin======\n");
 	init_video();
 	gdt_install();
 	idt_install();
 //	TestForPrint();
-	Printf("\n======cstart begin======\n");
 	Printf("\n======cstart end========\n");
 //	io_hlt();
 	return;

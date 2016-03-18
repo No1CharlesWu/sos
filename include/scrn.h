@@ -16,7 +16,7 @@ void RollScreen();
 static void itoa (char *buf, int base, int d);
 void Printf(const char *format, ...);
 
-unsigned short *textmemptr;
+unsigned short *textmemptr = (unsigned short *)0xB8000;
 int attrib = 0x0F;
 int csr_x = 0, csr_y = 0;
 
@@ -156,7 +156,8 @@ void settextcolor(unsigned char forecolor, unsigned char backcolor)
 void init_video(void)
 {
     textmemptr = (unsigned short *)0xB8000;
-    cls();
+    //cls();
+    Printf("init_video Ready.\n");
 }
 
 void CleanScreen()

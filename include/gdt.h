@@ -73,6 +73,8 @@ void gdt_install()
 
     /* Flush out the old GDT and install the new changes! */
     gdt_flush();
+
+    Printf("gdt_install Ready.\n");
 }
 
 #endif
