@@ -15,7 +15,7 @@ size_t strlen(const char *str);
 void cstart()
 {
 	cls();
-	Printf("\n======cstart begin======\n");
+	Printf("======cstart begin======\n");
 	init_video();
 	gdt_install();
 	idt_install();

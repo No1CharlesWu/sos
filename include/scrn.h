@@ -6,7 +6,24 @@
 #define COLUMNS 80
 #define BYTES_FOR_EACH_ELEMENT 2
 #define SCREENSIZE LINES * COLUMNS * BYTES_FOR_EACH_ELEMENT
-#define TXT_COLOR 0x07
+
+#define black	0x00
+#define blue 	0x01
+#define green	0x02
+#define	cyan	0x03
+#define red	0x04
+#define	magenta	0x05
+#define	brown	0x06
+#define light_grey	0x07
+#define dark_grey	0x08
+#define	light_green	0x09
+#define	light_cyan	0x0a
+#define light_red	0x0b
+#define	light_magenta	0x0c
+#define light_brown	0x0d
+#define white	0x0f
+
+#define TXT_COLOR white
 
 char *VIDPTR = (char*)0xb8000;
 static int INDEX = 0;
@@ -17,7 +34,7 @@ static void itoa (char *buf, int base, int d);
 void Printf(const char *format, ...);
 
 unsigned short *textmemptr = (unsigned short *)0xB8000;
-int attrib = 0x0F;
+int attrib = TXT_COLOR;
 int csr_x = 0, csr_y = 0;
 
 /* Scrolls the screen */
@@ -30,17 +47,17 @@ void scroll(void)
     blank = 0x20 | (attrib << 8);
 
     /* Row 25 is the end, this means we need to scroll up */
-    if(csr_y >= 25)
+    if(csr_y >= LINES)
     {
         /* Move the current text chunk that makes up the screen
         *  back in the buffer by a line */
-        temp = csr_y - 25 + 1;
-        Memcpy (textmemptr, textmemptr + temp * 80, (25 - temp) * 80 * 2);
+        temp = csr_y - LINES + 1;
+        Memcpy (textmemptr, textmemptr + temp * COLUMNS , (LINES - temp) *  COLUMNS * 2);
 
         /* Finally, we set the chunk of memory that occupies
         *  the last line of text to our 'blank' character */
-        Memsetw (textmemptr + (25 - temp) * 80, blank, 80);
-        csr_y = 25 - 1;
+        Memsetw (textmemptr + (LINES - temp) * COLUMNS , blank, COLUMNS );
+        csr_y = LINES - 1;
     }
 }
 
@@ -48,7 +65,7 @@ void move_csr(void)
 {
     unsigned temp;
 
-    temp = csr_y * 80 + csr_x;
+    temp = csr_y *  COLUMNS + csr_x;
 
     io_out8(0x3D4, 14);
     io_out8(0x3D5, temp >> 8);
@@ -68,8 +85,8 @@ void cls()
 
     /* Sets the entire screen to spaces in our current
     *  color */
-    for(i = 0; i < 25; i++)
-        Memsetw (textmemptr + i * 80, blank, 80);
+    for(i = 0; i <LINES ; i++)
+        Memsetw (textmemptr + i * COLUMNS , blank, COLUMNS );
 
     /* Update out virtual cursor, and then move the
     *  hardware cursor */
@@ -115,14 +132,14 @@ void Putc(unsigned char c)
     *  Index = [(y * width) + x] */
     else if(c >= ' ')
     {
-        where = textmemptr + (csr_y * 80 + csr_x);
+        where = textmemptr + (csr_y *  COLUMNS + csr_x);
         *where = c | att;	/* Character AND attributes: color */
         csr_x++;
     }
 
     /* If the cursor has reached the edge of the screen's width, we
     *  insert a new line in there */
-    if(csr_x >= 80)
+    if(csr_x >= COLUMNS )
     {
         csr_x = 0;
         csr_y++;

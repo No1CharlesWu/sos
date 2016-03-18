@@ -60,7 +60,7 @@ always0	include/idt.h	/^    unsigned char always0;$/;"	m	struct:idt_entry
 aout_sym	include/multiboot.h	/^		aout_symbol_table_t aout_sym;  $/;"	m	union:multiboot_info::__anon1
 aout_symbol_table	include/multiboot.h	/^typedef struct aout_symbol_table  $/;"	s
 aout_symbol_table_t	include/multiboot.h	/^} aout_symbol_table_t;  $/;"	t	typeref:struct:aout_symbol_table
-attrib	include/scrn.h	/^int attrib = 0x0F;$/;"	v
+attrib	include/scrn.h	/^int attrib = TXT_COLOR;$/;"	v
 base	include/gdt.h	/^    unsigned int base;$/;"	m	struct:gdt_ptr
 base	include/idt.h	/^    unsigned int base;$/;"	m	struct:idt_ptr
 base_hi	include/idt.h	/^    unsigned short base_hi;$/;"	m	struct:idt_entry
@@ -154,7 +154,7 @@ start	start.asm	/^start:$/;"	l
 strlen	main.c	/^size_t strlen(const char *str)$/;"	f
 strsize	include/multiboot.h	/^	unsigned long strsize;  $/;"	m	struct:aout_symbol_table
 tabsize	include/multiboot.h	/^	unsigned long tabsize;  $/;"	m	struct:aout_symbol_table
-textmemptr	include/scrn.h	/^unsigned short *textmemptr;$/;"	v
+textmemptr	include/scrn.h	/^unsigned short *textmemptr = (unsigned short *)0xB8000;$/;"	v
 u	include/multiboot.h	/^	} u;  $/;"	m	struct:multiboot_info	typeref:union:multiboot_info::__anon1
 u16	include/type.h	/^typedef	unsigned short		u16;$/;"	t
 u32	include/type.h	/^typedef	unsigned int		u32;$/;"	t
