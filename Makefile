@@ -1,15 +1,55 @@
-MAKE	= make -r
-NASM 	= nasm
+# Programs, flags
+ASM		= nasm
+DASM 		= ndisasm
+CC		= gcc
+LD 		= ld
 
+ASMKFLAGS	= -I include/ -f elf
+CFLAGS		= -I include/ -fno-stack-protector -m32 -c 
+LDFLAGS		= -m elf_i386 -T link.ld
 
-debug: a.img bochsrc
-	bochs -f bochsrc
-	
-a_boot.bin: a_boot.asm Makefile
-	nasm a_boot.asm -o a_boot.bin
+# This Program
+IMG		= os.img
+KERNEL 		= kernel.bin
+OBJS		= main.o start.o func.o
 
-a.img: a_boot.bin a.img Makefile
-	dd if=a_boot.bin of=a.img bs=512 count=1 conv=notrunc
-	
-run: a.img
-	qemu-system-i386 a.img
+run : everything
+	make clean
+	qemu-system-i386 -kernel $(KERNEL)
+
+debug : everything img
+	make clean
+	bochs -f os.bxrc
+
+# All Phony Targets
+.PHONY : everything all final clean realclean image buildimg
+
+everything : $(KERNEL) $(IMG)
+
+all : realclean everything
+
+clean : 
+	rm -f $(OBJS)
+
+realclean : 
+	rm -f $(OBJS) $(KERNEL)
+
+img:
+	sudo kpartx -av ./os.img
+	sudo mount -text2 /dev/mapper/loop0p1 /mnt
+	sudo cp ./kernel.bin /mnt/
+	sudo umount /mnt
+	sudo kpartx -dv ./os.img
+
+$(KERNEL) : $(OBJS)
+	$(LD) $(LDFLAGS) -o $(KERNEL) $(OBJS)
+
+start.o : start.asm
+	$(ASM) $(ASMKFLAGS) $< -o $@ 
+
+main.o : main.c include/type.h include/multiboot.h include/gdt.h include/idt.h include/scrn.h
+	$(CC) $(CFLAGS)  $< -o $@
+
+func.o : include/func.inc
+	$(ASM) $(ASMKFLAGS) $< -o $@
+
