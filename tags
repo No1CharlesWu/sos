@@ -41,13 +41,15 @@ RollScreen	include/scrn.h	/^void RollScreen()$/;"	f
 SCREENSIZE	include/print.h	7;"	d
 SCREENSIZE	include/scrn.h	8;"	d
 TXT_COLOR	include/print.h	8;"	d
-TXT_COLOR	include/scrn.h	9;"	d
+TXT_COLOR	include/scrn.h	26;"	d
 TestForMultiboot	main.c	/^void TestForMultiboot(unsigned long magic,unsigned long addr)$/;"	f
 TestForPrint	main.c	/^void TestForPrint()$/;"	f
 VIDPTR	include/print.h	/^char *VIDPTR = (char*)0xb8000;$/;"	v
 VIDPTR	include/scrn.h	/^char *VIDPTR = (char*)0xb8000;$/;"	v
 _GDT_H_	include/gdt.h	2;"	d
 _IDT_H_	include/idt.h	2;"	d
+_IRQ_H_	include/irq.h	2;"	d
+_ISRS_H_	include/isrs.h	2;"	d
 _MULTIBOOT_H_	include/multiboot.h	2;"	d
 _PRINT_H_	include/print.h	2;"	d
 _SCRN_H_	include/scrn.h	2;"	d
@@ -69,13 +71,18 @@ base_lo	include/idt.h	/^    unsigned short base_lo;$/;"	m	struct:idt_entry
 base_low	include/gdt.h	/^    unsigned short base_low;$/;"	m	struct:gdt_entry
 base_middle	include/gdt.h	/^    unsigned char base_middle;$/;"	m	struct:gdt_entry
 bits	start.asm	/^bits 32$/;"	l
+black	include/scrn.h	10;"	d
+blue	include/scrn.h	11;"	d
 boot_device	include/multiboot.h	/^	unsigned long boot_device;  $/;"	m	struct:multiboot_info
+brown	include/scrn.h	16;"	d
 cls	include/scrn.h	/^void cls()$/;"	f
 cmdline	include/multiboot.h	/^	unsigned long cmdline;  $/;"	m	struct:multiboot_info
 cs	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
 csr_x	include/scrn.h	/^int csr_x = 0, csr_y = 0;$/;"	v
 csr_y	include/scrn.h	/^int csr_x = 0, csr_y = 0;$/;"	v
 cstart	main.c	/^void cstart()$/;"	f
+cyan	include/scrn.h	13;"	d
+dark_grey	include/scrn.h	18;"	d
 ds	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
 eax	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
 ebp	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
@@ -92,9 +99,13 @@ err_code	include/system.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
 es	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
 esi	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
 esp	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+exception_messages	include/isrs.h	/^unsigned char *exception_messages[] =$/;"	v
 extern	start.asm	/^extern cstart 				;this is defined in the c file$/;"	l
+extern	start.asm	/^extern fault_handler$/;"	l
 extern	start.asm	/^extern gp$/;"	l
 extern	start.asm	/^extern idtp$/;"	l
+extern	start.asm	/^extern irq_handler$/;"	l
+fault_handler	include/isrs.h	/^void fault_handler(struct regs *r)$/;"	f
 flags	include/idt.h	/^    unsigned char flags;$/;"	m	struct:idt_entry
 flags	include/multiboot.h	/^	unsigned long flags;  $/;"	m	struct:multiboot_info
 flush2	start.asm	/^flush2:$/;"	l
@@ -108,9 +119,58 @@ gdt_set_gate	include/gdt.h	/^void gdt_set_gate(int num, unsigned long base, unsi
 gdt_size	include/gdt.h	23;"	d
 global	start.asm	/^global gdt_flush$/;"	l
 global	start.asm	/^global idt_load$/;"	l
+global	start.asm	/^global irq0$/;"	l
+global	start.asm	/^global irq1$/;"	l
+global	start.asm	/^global irq10$/;"	l
+global	start.asm	/^global irq11$/;"	l
+global	start.asm	/^global irq12$/;"	l
+global	start.asm	/^global irq13$/;"	l
+global	start.asm	/^global irq14$/;"	l
+global	start.asm	/^global irq15$/;"	l
+global	start.asm	/^global irq2$/;"	l
+global	start.asm	/^global irq3$/;"	l
+global	start.asm	/^global irq4$/;"	l
+global	start.asm	/^global irq5$/;"	l
+global	start.asm	/^global irq6$/;"	l
+global	start.asm	/^global irq7$/;"	l
+global	start.asm	/^global irq8$/;"	l
+global	start.asm	/^global irq9$/;"	l
+global	start.asm	/^global isr0$/;"	l
+global	start.asm	/^global isr1$/;"	l
+global	start.asm	/^global isr10$/;"	l
+global	start.asm	/^global isr11$/;"	l
+global	start.asm	/^global isr12$/;"	l
+global	start.asm	/^global isr13$/;"	l
+global	start.asm	/^global isr14$/;"	l
+global	start.asm	/^global isr15$/;"	l
+global	start.asm	/^global isr16$/;"	l
+global	start.asm	/^global isr17$/;"	l
+global	start.asm	/^global isr18$/;"	l
+global	start.asm	/^global isr19$/;"	l
+global	start.asm	/^global isr2$/;"	l
+global	start.asm	/^global isr20$/;"	l
+global	start.asm	/^global isr21$/;"	l
+global	start.asm	/^global isr22$/;"	l
+global	start.asm	/^global isr23$/;"	l
+global	start.asm	/^global isr24$/;"	l
+global	start.asm	/^global isr25$/;"	l
+global	start.asm	/^global isr26$/;"	l
+global	start.asm	/^global isr27$/;"	l
+global	start.asm	/^global isr28$/;"	l
+global	start.asm	/^global isr29$/;"	l
+global	start.asm	/^global isr3$/;"	l
+global	start.asm	/^global isr30$/;"	l
+global	start.asm	/^global isr31$/;"	l
+global	start.asm	/^global isr4$/;"	l
+global	start.asm	/^global isr5$/;"	l
+global	start.asm	/^global isr6$/;"	l
+global	start.asm	/^global isr7$/;"	l
+global	start.asm	/^global isr8$/;"	l
+global	start.asm	/^global isr9$/;"	l
 global	start.asm	/^global start$/;"	l
 gp	include/gdt.h	/^struct gdt_ptr gp;$/;"	v	typeref:struct:gdt_ptr
 granularity	include/gdt.h	/^    unsigned char granularity;$/;"	m	struct:gdt_entry
+green	include/scrn.h	12;"	d
 gs	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
 idt	include/idt.h	/^struct idt_entry idt[256];$/;"	v	typeref:struct:idt_entry
 idt_entry	include/idt.h	/^struct idt_entry$/;"	s
@@ -121,11 +181,75 @@ idt_set_gate	include/idt.h	/^void idt_set_gate(unsigned char num, unsigned long 
 idtp	include/idt.h	/^struct idt_ptr idtp;$/;"	v	typeref:struct:idt_ptr
 init_video	include/scrn.h	/^void init_video(void)$/;"	f
 int_no	include/system.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
+irq0	start.asm	/^irq0:$/;"	l
+irq1	start.asm	/^irq1:$/;"	l
+irq10	start.asm	/^irq10:$/;"	l
+irq11	start.asm	/^irq11:$/;"	l
+irq12	start.asm	/^irq12:$/;"	l
+irq13	start.asm	/^irq13:$/;"	l
+irq14	start.asm	/^irq14:$/;"	l
+irq15	start.asm	/^irq15:$/;"	l
+irq2	start.asm	/^irq2:$/;"	l
+irq3	start.asm	/^irq3:$/;"	l
+irq4	start.asm	/^irq4:$/;"	l
+irq5	start.asm	/^irq5:$/;"	l
+irq6	start.asm	/^irq6:$/;"	l
+irq7	start.asm	/^irq7:$/;"	l
+irq8	start.asm	/^irq8:$/;"	l
+irq9	start.asm	/^irq9:$/;"	l
+irq_common_stub	start.asm	/^irq_common_stub:$/;"	l
+irq_handler	include/irq.h	/^void irq_handler(struct regs *r)$/;"	f
+irq_install	include/irq.h	/^void irq_install()$/;"	f
+irq_install_handler	include/irq.h	/^void irq_install_handler(int irq, void (*handler)(struct regs *r))$/;"	f
+irq_remap	include/irq.h	/^void irq_remap(void)$/;"	f
+irq_routines	include/irq.h	/^void *irq_routines[16] =$/;"	v
+irq_uninstall_handler	include/irq.h	/^void irq_uninstall_handler(int irq)$/;"	f
+isr0	start.asm	/^isr0:$/;"	l
+isr1	start.asm	/^isr1:$/;"	l
+isr10	start.asm	/^isr10:$/;"	l
+isr11	start.asm	/^isr11:$/;"	l
+isr12	start.asm	/^isr12:$/;"	l
+isr13	start.asm	/^isr13:$/;"	l
+isr14	start.asm	/^isr14:$/;"	l
+isr15	start.asm	/^isr15:$/;"	l
+isr16	start.asm	/^isr16:$/;"	l
+isr17	start.asm	/^isr17:$/;"	l
+isr18	start.asm	/^isr18:$/;"	l
+isr19	start.asm	/^isr19:$/;"	l
+isr2	start.asm	/^isr2:$/;"	l
+isr20	start.asm	/^isr20:$/;"	l
+isr21	start.asm	/^isr21:$/;"	l
+isr22	start.asm	/^isr22:$/;"	l
+isr23	start.asm	/^isr23:$/;"	l
+isr24	start.asm	/^isr24:$/;"	l
+isr25	start.asm	/^isr25:$/;"	l
+isr26	start.asm	/^isr26:$/;"	l
+isr27	start.asm	/^isr27:$/;"	l
+isr28	start.asm	/^isr28:$/;"	l
+isr29	start.asm	/^isr29:$/;"	l
+isr3	start.asm	/^isr3:$/;"	l
+isr30	start.asm	/^isr30:$/;"	l
+isr31	start.asm	/^isr31:$/;"	l
+isr4	start.asm	/^isr4:$/;"	l
+isr5	start.asm	/^isr5:$/;"	l
+isr6	start.asm	/^isr6:$/;"	l
+isr7	start.asm	/^isr7:$/;"	l
+isr8	start.asm	/^isr8:$/;"	l
+isr9	start.asm	/^isr9:$/;"	l
+isr_common_stub	start.asm	/^isr_common_stub:$/;"	l
+isrs_install	include/isrs.h	/^void isrs_install()$/;"	f
 itoa	include/print.h	/^static void itoa (char *buf, int base, int d)  $/;"	f
 itoa	include/scrn.h	/^static void itoa (char *buf, int base, int d)  $/;"	f
+light_brown	include/scrn.h	23;"	d
+light_cyan	include/scrn.h	20;"	d
+light_green	include/scrn.h	19;"	d
+light_grey	include/scrn.h	17;"	d
+light_magenta	include/scrn.h	22;"	d
+light_red	include/scrn.h	21;"	d
 limit	include/gdt.h	/^    unsigned short limit;$/;"	m	struct:gdt_ptr
 limit	include/idt.h	/^    unsigned short limit;$/;"	m	struct:idt_ptr
 limit_low	include/gdt.h	/^    unsigned short limit_low;$/;"	m	struct:gdt_entry
+magenta	include/scrn.h	15;"	d
 mem_lower	include/multiboot.h	/^	unsigned long mem_lower;  $/;"	m	struct:multiboot_info
 mem_upper	include/multiboot.h	/^	unsigned long mem_upper;  $/;"	m	struct:multiboot_info
 mmap_addr	include/multiboot.h	/^	unsigned long mmap_addr;  $/;"	m	struct:multiboot_info
@@ -136,6 +260,9 @@ move_csr	include/scrn.h	/^void move_csr(void)$/;"	f
 multiboot_info	include/multiboot.h	/^typedef struct multiboot_info  $/;"	s
 multiboot_info_t	include/multiboot.h	/^} multiboot_info_t; $/;"	t	typeref:struct:multiboot_info
 num	include/multiboot.h	/^	unsigned long num;  $/;"	m	struct:elf_section_header_table
+pop	start.asm	/^    pop ds$/;"	d
+push	start.asm	/^    push ds$/;"	d
+red	include/scrn.h	14;"	d
 regs	include/system.h	/^struct regs$/;"	s
 resb	start.asm	/^resb 8192				;8KB for stack$/;"	l
 reserved	include/multiboot.h	/^	unsigned long reserved;  $/;"	m	struct:aout_symbol_table
@@ -160,3 +287,4 @@ u16	include/type.h	/^typedef	unsigned short		u16;$/;"	t
 u32	include/type.h	/^typedef	unsigned int		u32;$/;"	t
 u8	include/type.h	/^typedef	unsigned char		u8;$/;"	t
 useresp	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
+white	include/scrn.h	24;"	d

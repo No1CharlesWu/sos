@@ -4,7 +4,7 @@
 #include "idt.h"
 #include "scrn.h"
 #include "isrs.h"
-
+//#include "irq.h"
 void sleep();
 void TestForPrint();
 void TestForMultiboot();
@@ -21,10 +21,7 @@ void cstart()
 	gdt_install();
 	idt_install();
 	isrs_install();
-	io_xchg();
-	int a = 3;
-	int b = 0;
-	int c = a/b;
+//	irq_install();
 //	io_hlt();
 //	TestForPrint();
 	Printf("\n======cstart end========\n");
