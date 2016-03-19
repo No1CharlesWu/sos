@@ -6,13 +6,13 @@
 *  handlers: The first 32 entries in the IDT are reserved
 *  by Intel, and are designed to service exceptions! */
 extern void isr0();
-//extern void isr1();
-//extern void isr2();
-//extern void isr3();
-//extern void isr4();
-//extern void isr5();
-//extern void isr6();
-//extern void isr7();
+extern void isr1();
+extern void isr2();
+extern void isr3();
+extern void isr4();
+extern void isr5();
+extern void isr6();
+extern void isr7();
 //extern void isr8();
 //extern void isr9();
 //extern void isr10();
@@ -50,14 +50,14 @@ extern void isr0();
 void isrs_install()
 {
     idt_set_gate(0, (unsigned)isr0, 0x08, 0x8E);
-//    idt_set_gate(1, (unsigned)isr1, 0x08, 0x8E);
-//    idt_set_gate(2, (unsigned)isr2, 0x08, 0x8E);
-//    idt_set_gate(3, (unsigned)isr3, 0x08, 0x8E);
-//    idt_set_gate(4, (unsigned)isr4, 0x08, 0x8E);
-//    idt_set_gate(5, (unsigned)isr5, 0x08, 0x8E);
-//    idt_set_gate(6, (unsigned)isr6, 0x08, 0x8E);
-//    idt_set_gate(7, (unsigned)isr7, 0x08, 0x8E);
-//
+    idt_set_gate(1, (unsigned)isr1, 0x08, 0x8E);
+    idt_set_gate(2, (unsigned)isr2, 0x08, 0x8E);
+    idt_set_gate(3, (unsigned)isr3, 0x08, 0x8E);
+    idt_set_gate(4, (unsigned)isr4, 0x08, 0x8E);
+    idt_set_gate(5, (unsigned)isr5, 0x08, 0x8E);
+    idt_set_gate(6, (unsigned)isr6, 0x08, 0x8E);
+    idt_set_gate(7, (unsigned)isr7, 0x08, 0x8E);
+
 //    idt_set_gate(8, (unsigned)isr8, 0x08, 0x8E);
 //    idt_set_gate(9, (unsigned)isr9, 0x08, 0x8E);
 //    idt_set_gate(10, (unsigned)isr10, 0x08, 0x8E);
