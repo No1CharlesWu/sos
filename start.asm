@@ -58,14 +58,14 @@ global isr20
 global isr21
 global isr22
 global isr23
-;global isr24
-;global isr25
-;global isr26
-;global isr27
-;global isr28
-;global isr29
-;global isr30
-;global isr31
+global isr24
+global isr25
+global isr26
+global isr27
+global isr28
+global isr29
+global isr30
+global isr31
 
 isr0:
 	cli 

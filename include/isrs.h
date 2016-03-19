@@ -29,14 +29,14 @@ extern void isr20();
 extern void isr21();
 extern void isr22();
 extern void isr23();
-//extern void isr24();
-//extern void isr25();
-//extern void isr26();
-//extern void isr27();
-//extern void isr28();
-//extern void isr29();
-//extern void isr30();
-//extern void isr31();
+extern void isr24();
+extern void isr25();
+extern void isr26();
+extern void isr27();
+extern void isr28();
+extern void isr29();
+extern void isr30();
+extern void isr31();
 
 /* This is a very repetitive function... it's not hard, it's
 *  just annoying. As you can see, we set the first 32 entries
@@ -76,15 +76,14 @@ void isrs_install()
     idt_set_gate(22, (unsigned)isr22, 0x08, 0x8E);
     idt_set_gate(23, (unsigned)isr23, 0x08, 0x8E);
 
-//    idt_set_gate(24, (unsigned)isr24, 0x08, 0x8E);
-//    idt_set_gate(25, (unsigned)isr25, 0x08, 0x8E);
-//    idt_set_gate(26, (unsigned)isr26, 0x08, 0x8E);
-//    idt_set_gate(27, (unsigned)isr27, 0x08, 0x8E);
-//    idt_set_gate(28, (unsigned)isr28, 0x08, 0x8E);
+    idt_set_gate(24, (unsigned)isr24, 0x08, 0x8E);
+    idt_set_gate(25, (unsigned)isr25, 0x08, 0x8E);
+    idt_set_gate(26, (unsigned)isr26, 0x08, 0x8E);
+    idt_set_gate(27, (unsigned)isr27, 0x08, 0x8E);
+    idt_set_gate(28, (unsigned)isr28, 0x08, 0x8E);
 //    idt_set_gate(29, (unsigned)isr29, 0x08, 0x8E);
 //    idt_set_gate(30, (unsigned)isr30, 0x08, 0x8E);
 //    idt_set_gate(31, (unsigned)isr31, 0x08, 0x8E);
-    
     Puts("isrs_install Ready.\n");
 }
 
