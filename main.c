@@ -9,6 +9,7 @@
 #include "gdt.h"
 #include "idt.h"
 #include "isrs.h"
+#include "irq.h"
 void *memcpy(void *dest, const void *src, size_t count)
 {
     const char *sp = (const char *)src;
@@ -57,6 +58,7 @@ void main()
     gdt_install();
     idt_install();
     isrs_install();
+    irq_install();
     cls();
     init_video();
 
