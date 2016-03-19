@@ -1,5 +1,10 @@
-#ifndef _SYSTEM_H_
-#define _SYSTEM_H_
+/* bkerndev - Bran's Kernel Development Tutorial
+*  By:   Brandon F. (friesenb@gmail.com)
+*  Desc: Global function declarations and type definitions
+*
+*  Notes: No warranty expressed or implied. Use at own risk. */
+#ifndef __SYSTEM_H
+#define __SYSTEM_H
 
 typedef int size_t;
 
@@ -13,19 +18,18 @@ struct regs
 };
 
 /* MAIN.C */
-extern void *Memcpy(void *dest, const void *src, size_t count);
-extern void *Memset(void *dest, char val, size_t count);
-extern unsigned short *Memsetw(unsigned short *dest, unsigned short val, size_t count);
+extern void *memcpy(void *dest, const void *src, size_t count);
+extern void *memset(void *dest, char val, size_t count);
+extern unsigned short *memsetw(unsigned short *dest, unsigned short val, size_t count);
 extern size_t strlen(const char *str);
 extern unsigned char inportb (unsigned short _port);
 extern void outportb (unsigned short _port, unsigned char _data);
 
 /* CONSOLE.C */
 extern void init_video(void);
-extern void Puts(unsigned char *text);
-extern void Putc(unsigned char c);
+extern void puts(unsigned char *text);
+extern void putch(unsigned char c);
 extern void cls();
-extern void settextcolor(unsigned char forecolor, unsigned char backcolor);
 
 /* GDT.C */
 extern void gdt_set_gate(int num, unsigned long base, unsigned long limit, unsigned char access, unsigned char gran);

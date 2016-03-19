@@ -52,11 +52,11 @@ void scroll(void)
         /* Move the current text chunk that makes up the screen
         *  back in the buffer by a line */
         temp = csr_y - LINES + 1;
-        Memcpy (textmemptr, textmemptr + temp * COLUMNS , (LINES - temp) *  COLUMNS * 2);
+        memcpy (textmemptr, textmemptr + temp * COLUMNS , (LINES - temp) *  COLUMNS * 2);
 
         /* Finally, we set the chunk of memory that occupies
         *  the last line of text to our 'blank' character */
-        Memsetw (textmemptr + (LINES - temp) * COLUMNS , blank, COLUMNS );
+        memsetw (textmemptr + (LINES - temp) * COLUMNS , blank, COLUMNS );
         csr_y = LINES - 1;
     }
 }
@@ -86,7 +86,7 @@ void cls()
     /* Sets the entire screen to spaces in our current
     *  color */
     for(i = 0; i <LINES ; i++)
-        Memsetw (textmemptr + i * COLUMNS , blank, COLUMNS );
+        memsetw (textmemptr + i * COLUMNS , blank, COLUMNS );
 
     /* Update out virtual cursor, and then move the
     *  hardware cursor */
@@ -151,7 +151,7 @@ void Putc(unsigned char c)
 }
 
 /* Uses the above routine to output a string... */
-void Puts(unsigned char *text)
+void puts(unsigned char *text)
 {
     int i;
 

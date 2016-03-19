@@ -74,7 +74,6 @@ void gdt_install()
     /* Flush out the old GDT and install the new changes! */
     gdt_flush();
 
-    Puts("gdt_install Ready.\n");
 }
 
 #endif

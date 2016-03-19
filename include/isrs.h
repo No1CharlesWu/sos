@@ -81,10 +81,10 @@ void isrs_install()
     idt_set_gate(26, (unsigned)isr26, 0x08, 0x8E);
     idt_set_gate(27, (unsigned)isr27, 0x08, 0x8E);
     idt_set_gate(28, (unsigned)isr28, 0x08, 0x8E);
-//    idt_set_gate(29, (unsigned)isr29, 0x08, 0x8E);
-//    idt_set_gate(30, (unsigned)isr30, 0x08, 0x8E);
-//    idt_set_gate(31, (unsigned)isr31, 0x08, 0x8E);
-    Puts("isrs_install Ready.\n");
+    idt_set_gate(29, (unsigned)isr29, 0x08, 0x8E);
+    idt_set_gate(30, (unsigned)isr30, 0x08, 0x8E);
+    idt_set_gate(31, (unsigned)isr31, 0x08, 0x8E);
+    
 }
 
 /* This is a simple string array. It contains the message that
@@ -140,8 +140,8 @@ void fault_handler(struct regs *r)
 {
     if (r->int_no < 32)
     {
-        Puts(exception_messages[r->int_no]);
-        Puts(" Exception. System Halted!\n");
+        puts(exception_messages[r->int_no]);
+        puts(" Exception. System Halted!\n");
         for (;;);
     }
 }
