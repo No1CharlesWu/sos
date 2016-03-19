@@ -1,10 +1,5 @@
 #ifndef _IRQ_H_
 #define _IRQ_H_
-/* bkerndev - Bran's Kernel Development Tutorial
-*  By:   Brandon F. (friesenb@gmail.com)
-*  Desc: Interrupt Request management
-*
-*  Notes: No warranty expressed or implied. Use at own risk. */
 #include <system.h>
 
 /* These are own ISRs that point to our special IRQ handler

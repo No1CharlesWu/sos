@@ -1,10 +1,5 @@
-/* bkerndev - Bran's Kernel Development Tutorial
-*  By:   Brandon F. (friesenb@gmail.com)
-*  Desc: Global function declarations and type definitions
-*
-*  Notes: No warranty expressed or implied. Use at own risk. */
-#ifndef __SYSTEM_H
-#define __SYSTEM_H
+#ifndef _SYSTEM_H_
+#define _SYSTEM_H_
 
 typedef int size_t;
 
@@ -28,7 +23,7 @@ extern void outportb (unsigned short _port, unsigned char _data);
 /* CONSOLE.C */
 extern void init_video(void);
 extern void puts(unsigned char *text);
-extern void putch(unsigned char c);
+extern void putc(unsigned char c);
 extern void cls();
 
 /* GDT.C */

@@ -95,8 +95,8 @@ void cls()
     move_csr();
 }
 
-/* Puts a single character on the screen */
-void Putc(unsigned char c)
+/* puts a single character on the screen */
+void putc(unsigned char c)
 {
     unsigned short *where;
     unsigned att = attrib << 8;
@@ -157,7 +157,7 @@ void puts(unsigned char *text)
 
     for (i = 0; i < strlen(text); i++)
     {
-        Putc(text[i]);
+        putc(text[i]);
     }
 }
 
@@ -220,7 +220,7 @@ void MyPuts(char *str)
 	int i = 0;
 	while(str[i] != '\0')
 	{
-		Putc(str[i]);
+		putc(str[i]);
 		i++;
 	}
 }  
@@ -294,7 +294,7 @@ void Printf(const char *format, ...)
 	while ((c = *format++) != 0)  
 	{  
 		if (c != '%')  
-			Putc(c);  
+			putc(c);  
 		else  
 		{  
 			char *p;  
@@ -317,11 +317,11 @@ void Printf(const char *format, ...)
 
 string:  
 					while (*p)  
-						Putc(*p++);  
+						putc(*p++);  
 					break;  
 
 				default:  
-					Putc(*((int *) arg++));  
+					putc(*((int *) arg++));  
 					break;  
 			}  
 		}  

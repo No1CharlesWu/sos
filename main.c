@@ -55,14 +55,12 @@ void main()
 {
     int i;
 
+    cls();
     gdt_install();
     idt_install();
     isrs_install();
     irq_install();
-    cls();
     init_video();
 
-//    i = 10 / 0;
-//    putch(i);
 
 }
