@@ -3,6 +3,7 @@
 #include "gdt.h"
 #include "idt.h"
 #include "scrn.h"
+#include "isrs.h"
 void sleep();
 void TestForPrint();
 void TestForMultiboot();
@@ -22,6 +23,7 @@ void cstart()
 	init_video();
 	gdt_install();
 	idt_install();
+	isrs_install();
 	io_xchg();
 //	TestForPrint();
 	Printf("\n======cstart end========\n");
