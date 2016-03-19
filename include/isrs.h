@@ -13,14 +13,14 @@ extern void isr4();
 extern void isr5();
 extern void isr6();
 extern void isr7();
-//extern void isr8();
-//extern void isr9();
-//extern void isr10();
-//extern void isr11();
-//extern void isr12();
-//extern void isr13();
-//extern void isr14();
-//extern void isr15();
+extern void isr8();
+extern void isr9();
+extern void isr10();
+extern void isr11();
+extern void isr12();
+extern void isr13();
+extern void isr14();
+extern void isr15();
 //extern void isr16();
 //extern void isr17();
 //extern void isr18();
@@ -58,15 +58,15 @@ void isrs_install()
     idt_set_gate(6, (unsigned)isr6, 0x08, 0x8E);
     idt_set_gate(7, (unsigned)isr7, 0x08, 0x8E);
 
-//    idt_set_gate(8, (unsigned)isr8, 0x08, 0x8E);
-//    idt_set_gate(9, (unsigned)isr9, 0x08, 0x8E);
-//    idt_set_gate(10, (unsigned)isr10, 0x08, 0x8E);
-//    idt_set_gate(11, (unsigned)isr11, 0x08, 0x8E);
-//    idt_set_gate(12, (unsigned)isr12, 0x08, 0x8E);
-//    idt_set_gate(13, (unsigned)isr13, 0x08, 0x8E);
-//    idt_set_gate(14, (unsigned)isr14, 0x08, 0x8E);
-//    idt_set_gate(15, (unsigned)isr15, 0x08, 0x8E);
-//
+    idt_set_gate(8, (unsigned)isr8, 0x08, 0x8E);
+    idt_set_gate(9, (unsigned)isr9, 0x08, 0x8E);
+    idt_set_gate(10, (unsigned)isr10, 0x08, 0x8E);
+    idt_set_gate(11, (unsigned)isr11, 0x08, 0x8E);
+    idt_set_gate(12, (unsigned)isr12, 0x08, 0x8E);
+    idt_set_gate(13, (unsigned)isr13, 0x08, 0x8E);
+    idt_set_gate(14, (unsigned)isr14, 0x08, 0x8E);
+    idt_set_gate(15, (unsigned)isr15, 0x08, 0x8E);
+
 //    idt_set_gate(16, (unsigned)isr16, 0x08, 0x8E);
 //    idt_set_gate(17, (unsigned)isr17, 0x08, 0x8E);
 //    idt_set_gate(18, (unsigned)isr18, 0x08, 0x8E);

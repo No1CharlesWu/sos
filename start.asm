@@ -42,6 +42,14 @@ global isr4
 global isr5
 global isr6
 global isr7
+global isr8
+global isr9
+global isr10
+global isr11
+global isr12
+global isr13
+global isr14
+global isr15
 isr0:
 	cli 
 	push byte 0
@@ -88,6 +96,48 @@ isr7:
     cli
     push byte 0
     push byte 7
+    jmp isr_common_stub
+
+isr8:
+    cli
+    push byte 8
+    jmp isr_common_stub
+
+isr9:
+    cli
+    push byte 0
+    push byte 9
+    jmp isr_common_stub
+
+isr10:
+    cli
+    push byte 10
+    jmp isr_common_stub
+
+isr11:
+    cli
+    push byte 11
+    jmp isr_common_stub
+
+isr12:
+    cli
+    push byte 12
+    jmp isr_common_stub
+
+isr13:
+    cli
+    push byte 13
+    jmp isr_common_stub
+
+isr14:
+    cli
+    push byte 14
+    jmp isr_common_stub
+
+isr15:
+    cli
+    push byte 0
+    push byte 15
     jmp isr_common_stub
 
 extern fault_handler
