@@ -47,7 +47,7 @@ $(KERNEL) : $(OBJS)
 start.o : start.asm
 	$(ASM) $(ASMKFLAGS) $< -o $@ 
 
-main.o : main.c include/type.h include/multiboot.h include/gdt.h include/idt.h include/scrn.h include/isrs.h include/irq.h include/timer.h
+main.o : main.c include/type.h include/multiboot.h include/gdt.h include/idt.h include/scrn.h include/isrs.h include/irq.h include/timer.h include/kb.h
 	$(CC) $(CFLAGS)  $< -o $@
 
 func.o : include/func.inc

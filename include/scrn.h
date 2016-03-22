@@ -105,6 +105,9 @@ void putc(unsigned char c)
     if(c == 0x08)
     {
         if(csr_x != 0) csr_x--;
+	char tmp = ' ';
+	where = textmemptr + (csr_y * COLUMNS + csr_x);
+	*where = tmp | att;	
     }
     /* Handles a tab by incrementing the cursor's x, but only
     *  to a point that will make it divisible by 8 */
@@ -136,7 +139,6 @@ void putc(unsigned char c)
         *where = c | att;	/* Character AND attributes: color */
         csr_x++;
     }
-
     /* If the cursor has reached the edge of the screen's width, we
     *  insert a new line in there */
     if(csr_x >= COLUMNS )

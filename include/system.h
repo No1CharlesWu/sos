@@ -20,7 +20,7 @@ extern size_t strlen(const char *str);
 extern unsigned char inportb (unsigned short _port);
 extern void outportb (unsigned short _port, unsigned char _data);
 
-/* CONSOLE.C */
+/* SCRN.C */
 extern void init_video(void);
 extern void puts(unsigned char *text);
 extern void putc(unsigned char c);
@@ -45,6 +45,7 @@ extern void irq_install();
 /* TIMER.C */
 extern void timer_wait(int ticks);
 extern void timer_install();
+extern void timer_test(int count);
 
 /* KEYBOARD.C */
 extern void keyboard_install();

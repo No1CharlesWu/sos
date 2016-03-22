@@ -1,8 +1,3 @@
-/* bkerndev - Bran's Kernel Development Tutorial
-*  By:   Brandon F. (friesenb@gmail.com)
-*  Desc: Main.c: C code entry.
-*
-*  Notes: No warranty expressed or implied. Use at own risk. */
 #include <system.h>
 #include "type.h"
 #include "scrn.h"
@@ -11,6 +6,7 @@
 #include "isrs.h"
 #include "irq.h"
 #include "timer.h"
+#include "kb.h"
 
 void *memcpy(void *dest, const void *src, size_t count)
 {
@@ -71,6 +67,8 @@ void main()
     Printf("irq install ready.\n");
     timer_install();
     Printf("timer install ready.\n");
+    keyboard_install();
+    Printf("keyboard install ready.\n");
     __asm__ __volatile__ ("sti");	
 
 }

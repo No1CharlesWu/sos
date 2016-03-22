@@ -1,8 +1,5 @@
-/* bkerndev - Bran's Kernel Development Tutorial
-*  By:   Brandon F. (friesenb@gmail.com)
-*  Desc: Keyboard driver
-*
-*  Notes: No warranty expressed or implied. Use at own risk. */
+#ifndef _KB_H_
+#define _KB_H_
 #include <system.h>
 
 /* KBDUS means US Keyboard Layout. This is a scancode table
@@ -79,7 +76,7 @@ void keyboard_handler(struct regs *r)
         *  to the above layout to correspond to 'shift' being
         *  held. If shift is held using the larger lookup table,
         *  you would add 128 to the scancode when you look for it */
-        putch(kbdus[scancode]);
+        putc(kbdus[scancode]);
     }
 }
 
@@ -88,3 +85,5 @@ void keyboard_install()
 {
     irq_install_handler(1, keyboard_handler);
 }
+
+#endif
