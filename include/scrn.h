@@ -174,7 +174,6 @@ void init_video(void)
 {
     textmemptr = (unsigned short *)0xB8000;
     //cls();
-    Printf("init_video Ready.\n");
 }
 
 void CleanScreen()

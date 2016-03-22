@@ -5,7 +5,7 @@ CC		= gcc
 LD 		= ld
 
 ASMKFLAGS	= -I include/ -f elf
-CFLAGS		= -I include/ -fno-stack-protector -m32 -c 
+CFLAGS		= -I include/ -fno-stack-protector -fno-builtin -m32 -c 
 LDFLAGS		= -m elf_i386 -T link.ld
 
 # This Program
@@ -47,7 +47,7 @@ $(KERNEL) : $(OBJS)
 start.o : start.asm
 	$(ASM) $(ASMKFLAGS) $< -o $@ 
 
-main.o : main.c include/type.h include/multiboot.h include/gdt.h include/idt.h include/scrn.h include/isrs.h include/irq.h
+main.o : main.c include/type.h include/multiboot.h include/gdt.h include/idt.h include/scrn.h include/isrs.h include/irq.h include/timer.h
 	$(CC) $(CFLAGS)  $< -o $@
 
 func.o : include/func.inc
