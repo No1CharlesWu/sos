@@ -16,8 +16,12 @@ struct regs
 extern void *memcpy(void *dest, const void *src, size_t count);
 extern void *memset(void *dest, char val, size_t count);
 extern unsigned short *memsetw(unsigned short *dest, unsigned short val, size_t count);
+extern int strcmp(char *str1, char *str2);
+extern char *strcpy(char *dest, const char *src);
+extern char *strcat(char *dest, const char *src);
 extern size_t strlen(const char *str);
 extern unsigned char inportb (unsigned short _port);
+extern unsigned short inportw(unsigned short port);
 extern void outportb (unsigned short _port, unsigned char _data);
 
 /* SCRN.C */
