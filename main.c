@@ -8,6 +8,7 @@
 #include "timer.h"
 #include "kb.h"
 #include "common.h"
+#include "paging.h"
 
 void main()
 {
