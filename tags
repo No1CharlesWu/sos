@@ -296,11 +296,10 @@ exception_messages	include/isrs.h	/^unsigned char *exception_messages[] =$/;"	v
 expand	src/kheap.c	/^static void expand(u32int new_size, heap_t *heap)$/;"	f	file:
 extern	src/interrupt.s	/^extern irq_handler$/;"	l
 extern	src/interrupt.s	/^extern isr_handler$/;"	l
-extern	start.asm	/^extern fault_handler$/;"	l
 extern	start.asm	/^extern gp$/;"	l
 extern	start.asm	/^extern idtp$/;"	l
 extern	start.asm	/^extern irq_handler$/;"	l
-fault_handler	include/isrs.h	/^void fault_handler(struct regs *r)$/;"	f
+extern	start.asm	/^extern isr_handler$/;"	l
 file_headers	src/initrd.c	/^initrd_file_header_t *file_headers; \/\/ The list of file headers.$/;"	v
 find_smallest_hole	src/kheap.c	/^static s32int find_smallest_hole(u32int size, u8int page_align, heap_t *heap)$/;"	f	file:
 finddir	src/fs.h	/^    finddir_type_t finddir;$/;"	m	struct:fs_node
@@ -434,7 +433,6 @@ init_timer	src/timer.c	/^void init_timer(u32int frequency)$/;"	f
 init_video	include/scrn.h	/^void init_video(void)$/;"	f
 initial_esp	src/main.c	/^u32int initial_esp;$/;"	v
 initialise_initrd	src/initrd.c	/^fs_node_t *initialise_initrd(u32int location)$/;"	f
-initialise_paging	include/paging.h	/^void initialise_paging()$/;"	f
 initialise_paging	src/paging.c	/^void initialise_paging()$/;"	f
 initialise_syscalls	src/syscall.c	/^void initialise_syscalls()$/;"	f
 initialise_tasking	src/task.c	/^void initialise_tasking()$/;"	f
@@ -516,8 +514,12 @@ isr8	start.asm	/^isr8:$/;"	l
 isr9	start.asm	/^isr9:$/;"	l
 isr_common_stub	src/interrupt.s	/^isr_common_stub:$/;"	l
 isr_common_stub	start.asm	/^isr_common_stub:$/;"	l
+isr_handler	include/isrs.h	/^void isr_handler(struct regs *r)$/;"	f
 isr_handler	src/isr.c	/^void isr_handler(registers_t regs)$/;"	f
+isr_install_handler	include/isrs.h	/^void isr_install_handler(int isr,void (*handler)(struct regs * r))$/;"	f
+isr_routines	include/isrs.h	/^void *isr_routines[32] = $/;"	v
 isr_t	src/isr.h	/^typedef void (*isr_t)(registers_t*);$/;"	t
+isr_uninstall_handler	include/isrs.h	/^void isr_uninstall_handler(int isr)$/;"	f
 isrs_install	include/isrs.h	/^void isrs_install()$/;"	f
 itoa	include/scrn.h	/^static void itoa (char *buf, int base, int d)  $/;"	f
 kbdus	include/kb.h	/^unsigned char kbdus[128] =$/;"	v
@@ -616,7 +618,7 @@ page_directory	src/paging.h	/^typedef struct page_directory$/;"	s
 page_directory	src/task.h	/^    page_directory_t *page_directory; \/\/ Page directory.$/;"	m	struct:task
 page_directory_t	include/paging.h	/^} page_directory_t;$/;"	t	typeref:struct:page_directory
 page_directory_t	src/paging.h	/^} page_directory_t;$/;"	t	typeref:struct:page_directory
-page_fault	include/paging.h	/^void page_fault(registers_t *regs)$/;"	f
+page_fault	include/paging.h	/^void page_fault(struct regs *regs)$/;"	f
 page_fault	src/paging.c	/^void page_fault(registers_t *regs)$/;"	f
 page_t	include/paging.h	/^} page_t;$/;"	t	typeref:struct:page
 page_t	src/paging.h	/^} page_t;$/;"	t	typeref:struct:page
@@ -626,6 +628,7 @@ page_table_t	include/paging.h	/^} page_table_t;$/;"	t	typeref:struct:page_table
 page_table_t	src/paging.h	/^} page_table_t;$/;"	t	typeref:struct:page_table
 pages	include/paging.h	/^    page_t pages[1024];$/;"	m	struct:page_table
 pages	src/paging.h	/^    page_t pages[1024];$/;"	m	struct:page_table
+paging_install	include/paging.h	/^void paging_install()$/;"	f
 panic	src/common.c	/^extern void panic(const char *message, const char *file, u32int line)$/;"	f
 panic_assert	src/common.c	/^extern void panic_assert(const char *file, u32int line, const char *desc)$/;"	f
 physicalAddr	include/paging.h	/^    unsigned int physicalAddr;$/;"	m	struct:page_directory

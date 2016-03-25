@@ -43,7 +43,7 @@ typedef struct page_directory
    Sets up the environment, page directories etc and
    enables paging.
 **/
-void initialise_paging();
+void paging_install();
 
 /**
    Causes the specified page directory to be loaded into the
@@ -172,7 +172,7 @@ void free_frame(page_t *page)
     }
 }
 
-void initialise_paging()
+void paging_install()
 {
     // The size of physical memory. For the moment we 
     // assume it is 16MB big.
@@ -219,7 +219,7 @@ void initialise_paging()
         alloc_frame( get_page(i, 1, kernel_directory), 0, 0);
 
     // Before we enable paging, we must register our page fault handler.
-    register_interrupt_handler(14, page_fault);
+    isr_install_handler(14, page_fault);
 
     // Now, enable paging!
     switch_page_directory(kernel_directory);

@@ -45,6 +45,7 @@ mboot:
 stublet:
     extern main
     call main
+    int 14
     xchg bx,bx
     jmp $
 
@@ -330,7 +331,7 @@ isr31:
 
 ; We call a C function in here. We need to let the assembler know
 ; that '_fault_handler' exists in another file
-extern fault_handler
+extern isr_handler
 
 ; This is our common ISR stub. It saves the processor state, sets
 ; up for kernel mode segments, calls the C-level fault handler,
@@ -348,7 +349,7 @@ isr_common_stub:
     mov gs, ax
     mov eax, esp
     push eax
-    mov eax, fault_handler
+    mov eax, isr_handler
     call eax
     pop eax
     pop gs
