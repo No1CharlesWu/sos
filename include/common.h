@@ -99,4 +99,34 @@ void outportb (unsigned short _port, unsigned char _data)
     __asm__ __volatile__ ("outb %1, %0" : : "dN" (_port), "a" (_data));
 }
 
+#define PANIC(msg) panic(msg, __FILE__, __LINE__);
+#define ASSERT(b) ((b) ? (void)0 : panic_assert(__FILE__, __LINE__, #b))
+extern void panic(char *message,char *file, unsigned int line)
+{
+    // We encountered a massive problem and have to stop.
+    __asm__ __volatile__ ("cli"); // Disable interrupts.
+    Printf("PANIC(");
+    puts(message);
+    Printf(") at ");
+    puts(file);
+    Printf(":");
+    Printf("%d\n",line);
+    // Halt by going into an infinite loop.
+    for(;;);
+}
+
+extern void panic_assert(char *file, unsigned int line, char *desc)
+{
+    // An assertion failed, and we have to panic.
+    __asm__ __volatile__ ("cli"); // Disable interrupts.
+
+    Printf("ASSERTION-FAILED(");
+    puts(desc);
+    Printf(") at ");
+    puts(file);
+    Printf(":");
+    Printf("%d\n",line);
+    // Halt by going into an infinite loop.
+    for(;;);
+}
 #endif

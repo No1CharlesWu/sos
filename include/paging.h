@@ -2,7 +2,7 @@
 #define _PAGING_H_
 
 #include "system.h"
-
+#include "kheap.h"
 typedef struct page
 {
     unsigned int present    : 1;   // Page present in memory
