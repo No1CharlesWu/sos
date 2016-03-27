@@ -9,11 +9,17 @@
 #include "kb.h"
 #include "common.h"
 
+extern unsigned int end;
+extern unsigned int code;
+extern unsigned int bss;
 void main()
 {
     int i;
 
     cls();
+    Printf("code: 0x%x\n",&code);
+    Printf("bss: 0x%x\n",&bss);
+    Printf("end: 0x%x\n",&end);
     Printf("main start.\n");
     init_video();
     Printf("init video ready.\n");
