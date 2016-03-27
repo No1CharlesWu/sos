@@ -9,9 +9,9 @@
 #include "kb.h"
 #include "common.h"
 
-extern unsigned int end;
 extern unsigned int code;
 extern unsigned int bss;
+extern unsigned int end;
 void main()
 {
     int i;

@@ -282,16 +282,12 @@ void page_fault(struct regs *regs)
     int id = regs->err_code & 0x10;          // Caused by an instruction fetch?
 
     // Output an error message.
-    monitor_write("Page fault! ( ");
-    if (present) {monitor_write("present ");}
-    if (rw) {monitor_write("read-only ");}
-    if (us) {monitor_write("user-mode ");}
-    if (reserved) {monitor_write("reserved ");}
-    monitor_write(") at 0x");
-    monitor_write_hex(faulting_address);
-    monitor_write(" - EIP: ");
-    monitor_write_hex(regs->eip);
-    monitor_write("\n");
+    Printf("Page fault! ( ");
+    if (present) {Printf("present ");}
+    if (rw) {Printf("read-only ");}
+    if (us) {Printf("user-mode ");}
+    if (reserved) {Printf("reserved ");}
+    Printf(") at 0x%x - EIP: %x\n",faulting_address,regs->eip);
     PANIC("Page fault");
 }
 
