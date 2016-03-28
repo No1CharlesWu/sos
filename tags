@@ -7,6 +7,7 @@
 ASFLAGS	src/Makefile	/^ASFLAGS=-felf$/;"	m
 ASM	Makefile	/^ASM		= nasm$/;"	m
 ASMKFLAGS	Makefile	/^ASMKFLAGS	= -I include\/ -f elf$/;"	m
+ASSERT	include/common.h	103;"	d
 ASSERT	src/common.h	21;"	d
 BYTES_FOR_EACH_ELEMENT	include/scrn.h	7;"	d
 CC	Makefile	/^CC		= gcc$/;"	m
@@ -38,12 +39,15 @@ FS_H	src/fs.h	5;"	d
 FS_MOUNTPOINT	src/fs.h	15;"	d
 FS_PIPE	src/fs.h	13;"	d
 FS_SYMLINK	src/fs.h	14;"	d
+HEAP_INDEX_SIZE	include/system.h	62;"	d
 HEAP_INDEX_SIZE	src/kheap.h	15;"	d
+HEAP_MAGIC	include/system.h	63;"	d
 HEAP_MAGIC	src/kheap.h	16;"	d
+HEAP_MIN_SIZE	include/system.h	64;"	d
 HEAP_MIN_SIZE	src/kheap.h	17;"	d
 IMG	Makefile	/^IMG		= os.img$/;"	m
 INDEX	include/scrn.h	/^static int INDEX = 0;$/;"	v
-INDEX_FROM_BIT	include/paging.h	87;"	d
+INDEX_FROM_BIT	include/paging.h	20;"	d
 INDEX_FROM_BIT	src/paging.c	22;"	d	file:
 INITRD_H	src/initrd.h	5;"	d
 IRQ	src/interrupt.s	/^IRQ   0,    32$/;"	l
@@ -114,7 +118,9 @@ ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 9$/;"	l
 KERNEL	Makefile	/^KERNEL 		= kernel.bin$/;"	m
 KERNEL_STACK_SIZE	src/task.h	12;"	d
 KHEAP_H	src/kheap.h	7;"	d
+KHEAP_INITIAL_SIZE	include/system.h	60;"	d
 KHEAP_INITIAL_SIZE	src/kheap.h	13;"	d
+KHEAP_START	include/system.h	59;"	d
 KHEAP_START	src/kheap.h	12;"	d
 LD	Makefile	/^LD 		= ld$/;"	m
 LDFLAGS	Makefile	/^LDFLAGS		= -m elf_i386 -T link.ld$/;"	m
@@ -142,10 +148,11 @@ MULTIBOOT_PAGE_ALIGN	start.asm	/^    MULTIBOOT_PAGE_ALIGN	equ 1<<0$/;"	d
 MyPutc	include/scrn.h	/^void MyPutc(char c)$/;"	f
 MyPuts	include/scrn.h	/^void MyPuts(char *str)$/;"	f
 OBJS	Makefile	/^OBJS		= main.o start.o func.o$/;"	m
-OFFSET_FROM_BIT	include/paging.h	88;"	d
+OFFSET_FROM_BIT	include/paging.h	21;"	d
 OFFSET_FROM_BIT	src/paging.c	23;"	d	file:
 ORDERED_ARRAY_H	src/ordered_array.h	6;"	d
 PAGING_H	src/paging.h	5;"	d
+PANIC	include/common.h	102;"	d
 PANIC	src/common.h	20;"	d
 Printf	include/scrn.h	/^void Printf(const char *format, ...)  $/;"	f
 RollScreen	include/scrn.h	/^void RollScreen()$/;"	f
@@ -163,7 +170,9 @@ _IDT_H_	include/idt.h	2;"	d
 _IRQ_H_	include/irq.h	2;"	d
 _ISRS_H_	include/isrs.h	2;"	d
 _KB_H_	include/kb.h	2;"	d
+_KHEAP_H_	include/kheap.h	2;"	d
 _MULTIBOOT_H_	include/multiboot.h	2;"	d
+_ORDERED_ARRAY_H_	include/ordered_array.h	2;"	d
 _PAGING_H_	include/paging.h	2;"	d
 _SCRN_H_	include/scrn.h	2;"	d
 _SYSTEM_H_	include/system.h	2;"	d
@@ -172,12 +181,13 @@ _TYPE_H_	include/type.h	2;"	d
 _sys_stack	start.asm	/^_sys_stack:$/;"	l
 access	include/gdt.h	/^    unsigned char access;$/;"	m	struct:gdt_entry
 access	src/descriptor_tables.h	/^    u8int  access;              \/\/ Access flags, determine what ring this segment can be used in.$/;"	m	struct:gdt_entry_struct
-accessed	include/paging.h	/^    unsigned int accessed   : 1;   \/\/ Has the page been accessed since last refresh?$/;"	m	struct:page
+accessed	include/system.h	/^    unsigned int accessed   : 1;   \/\/ Has the page been accessed since last refresh?$/;"	m	struct:page
 accessed	src/paging.h	/^    u32int accessed   : 1;   \/\/ Has the page been accessed since last refresh?$/;"	m	struct:page
 addr	include/multiboot.h	/^	unsigned long addr;  $/;"	m	struct:aout_symbol_table
 addr	include/multiboot.h	/^	unsigned long addr;  $/;"	m	struct:elf_section_header_table
 addr	src/multiboot.h	/^    u32int addr;$/;"	m	struct:multiboot
-alloc	src/kheap.c	/^void *alloc(u32int size, u8int page_align, heap_t *heap)$/;"	f
+alloc	include/kheap.h	/^void *alloc(unsigned int size, unsigned char page_align, heap_t *heap)$/;"	f
+alloc	src/kheap.c	/^void *alloc(unsigned int size, u8int page_align, heap_t *heap)$/;"	f
 alloc_frame	include/paging.h	/^void alloc_frame(page_t *page, int is_kernel, int is_writeable)$/;"	f
 alloc_frame	src/paging.c	/^void alloc_frame(page_t *page, int is_kernel, int is_writeable)$/;"	f
 always0	include/idt.h	/^    unsigned char always0;$/;"	m	struct:idt_entry
@@ -186,6 +196,7 @@ aout_sym	include/multiboot.h	/^		aout_symbol_table_t aout_sym;  $/;"	m	union:mul
 aout_symbol_table	include/multiboot.h	/^typedef struct aout_symbol_table  $/;"	s
 aout_symbol_table_t	include/multiboot.h	/^} aout_symbol_table_t;  $/;"	t	typeref:struct:aout_symbol_table
 apm_table	src/multiboot.h	/^    u32int apm_table;$/;"	m	struct:multiboot
+array	include/system.h	/^    void*  *array;$/;"	m	struct:__anon11
 array	src/ordered_array.h	/^    type_t *array;$/;"	m	struct:__anon3
 attrib	include/scrn.h	/^int attrib = TXT_COLOR;$/;"	v
 base	include/gdt.h	/^    unsigned int base;$/;"	m	struct:gdt_ptr
@@ -221,10 +232,13 @@ cls	include/scrn.h	/^void cls()$/;"	f
 cmdline	include/multiboot.h	/^	unsigned long cmdline;  $/;"	m	struct:multiboot_info
 cmdline	src/multiboot.h	/^    u32int cmdline;$/;"	m	struct:multiboot
 config_table	src/multiboot.h	/^    u32int config_table;$/;"	m	struct:multiboot
-contract	src/kheap.c	/^static u32int contract(u32int new_size, heap_t *heap)$/;"	f	file:
+contract	include/kheap.h	/^static unsigned int contract(unsigned int new_size, heap_t *heap)$/;"	f
+contract	src/kheap.c	/^static unsigned int contract(unsigned int new_size, heap_t *heap)$/;"	f	file:
 copy_page_physical	src/process.s	/^copy_page_physical:$/;"	l
 cr3	src/descriptor_tables.h	/^    u32int cr3;   $/;"	m	struct:tss_entry_struct
-create_heap	src/kheap.c	/^heap_t *create_heap(u32int start, u32int end_addr, u32int max, u8int supervisor, u8int readonly)$/;"	f
+create_heap	include/kheap.h	/^heap_t *create_heap(unsigned int start, unsigned int end_addr, unsigned int max, unsigned char supervisor, unsigned char readonly)$/;"	f
+create_heap	src/kheap.c	/^heap_t *create_heap(unsigned int start, unsigned int end_addr, unsigned int max, u8int supervisor, u8int readonly)$/;"	f
+create_ordered_array	include/ordered_array.h	/^ordered_array_t create_ordered_array(unsigned int max_size, lessthan_predicate_t less_than)$/;"	f
 create_ordered_array	src/ordered_array.c	/^ordered_array_t create_ordered_array(u32int max_size, lessthan_predicate_t less_than)$/;"	f
 cs	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
 cs	src/descriptor_tables.h	/^    u32int cs;         \/\/ The value to load into CS when we change to kernel mode.$/;"	m	struct:tss_entry_struct
@@ -238,10 +252,11 @@ cursor_x	src/monitor.c	/^u8int cursor_x = 0;$/;"	v
 cursor_y	src/monitor.c	/^u8int cursor_y = 0;$/;"	v
 cyan	include/scrn.h	13;"	d
 dark_grey	include/scrn.h	18;"	d
+destroy_ordered_array	include/ordered_array.h	/^void destroy_ordered_array(ordered_array_t *array)$/;"	f
 destroy_ordered_array	src/ordered_array.c	/^void destroy_ordered_array(ordered_array_t *array)$/;"	f
 dirent	src/fs.h	/^struct dirent$/;"	s
 dirent	src/initrd.c	/^struct dirent dirent;$/;"	v	typeref:struct:dirent
-dirty	include/paging.h	/^    unsigned int dirty      : 1;   \/\/ Has the page been written to since last refresh?$/;"	m	struct:page
+dirty	include/system.h	/^    unsigned int dirty      : 1;   \/\/ Has the page been written to since last refresh?$/;"	m	struct:page
 dirty	src/paging.h	/^    u32int dirty      : 1;   \/\/ Has the page been written to since last refresh?$/;"	m	struct:page
 drives_addr	src/multiboot.h	/^    u32int drives_addr;$/;"	m	struct:multiboot
 drives_length	src/multiboot.h	/^    u32int drives_length;$/;"	m	struct:multiboot
@@ -277,6 +292,7 @@ eip	src/task.h	/^    u32int eip;            \/\/ Instruction pointer.$/;"	m	stru
 elf_sec	include/multiboot.h	/^		elf_section_header_table_t elf_sec;  $/;"	m	union:multiboot_info::__anon7
 elf_section_header_table	include/multiboot.h	/^typedef struct elf_section_header_table  $/;"	s
 elf_section_header_table_t	include/multiboot.h	/^} elf_section_header_table_t;  $/;"	t	typeref:struct:elf_section_header_table
+end_address	include/system.h	/^    unsigned int end_address;   \/\/ The end of our allocated space. May be expanded up to max_address.$/;"	m	struct:__anon10
 end_address	src/kheap.h	/^    u32int end_address;   \/\/ The end of our allocated space. May be expanded up to max_address.$/;"	m	struct:__anon6
 err_code	include/system.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
 err_code	src/isr.h	/^    u32int int_no, err_code;    \/\/ Interrupt number and error code (if applicable)$/;"	m	struct:registers
@@ -293,7 +309,8 @@ esp0	src/descriptor_tables.h	/^    u32int esp0;       \/\/ The stack pointer to 
 esp1	src/descriptor_tables.h	/^    u32int esp1;       \/\/ Unused...$/;"	m	struct:tss_entry_struct
 esp2	src/descriptor_tables.h	/^    u32int esp2;  $/;"	m	struct:tss_entry_struct
 exception_messages	include/isrs.h	/^unsigned char *exception_messages[] =$/;"	v
-expand	src/kheap.c	/^static void expand(u32int new_size, heap_t *heap)$/;"	f	file:
+expand	include/kheap.h	/^static void expand(unsigned int new_size, heap_t *heap)$/;"	f
+expand	src/kheap.c	/^static void expand(unsigned int new_size, heap_t *heap)$/;"	f	file:
 extern	src/interrupt.s	/^extern irq_handler$/;"	l
 extern	src/interrupt.s	/^extern isr_handler$/;"	l
 extern	start.asm	/^extern gp$/;"	l
@@ -301,7 +318,8 @@ extern	start.asm	/^extern idtp$/;"	l
 extern	start.asm	/^extern irq_handler$/;"	l
 extern	start.asm	/^extern isr_handler$/;"	l
 file_headers	src/initrd.c	/^initrd_file_header_t *file_headers; \/\/ The list of file headers.$/;"	v
-find_smallest_hole	src/kheap.c	/^static s32int find_smallest_hole(u32int size, u8int page_align, heap_t *heap)$/;"	f	file:
+find_smallest_hole	include/kheap.h	/^static int find_smallest_hole(unsigned int size, unsigned char page_align, heap_t *heap)$/;"	f
+find_smallest_hole	src/kheap.c	/^static int find_smallest_hole(unsigned int size, u8int page_align, heap_t *heap)$/;"	f	file:
 finddir	src/fs.h	/^    finddir_type_t finddir;$/;"	m	struct:fs_node
 finddir_fs	src/fs.c	/^fs_node_t *finddir_fs(fs_node_t *node, char *name)$/;"	f
 finddir_type_t	src/fs.h	/^typedef struct fs_node * (*finddir_type_t)(struct fs_node*,char *name);$/;"	t	typeref:struct:finddir_type_t
@@ -313,12 +331,14 @@ flags	src/descriptor_tables.h	/^    u8int  flags;               \/\/ More flags.
 flags	src/fs.h	/^    u32int flags;       \/\/ Includes the node type. See #defines above.$/;"	m	struct:fs_node
 flags	src/multiboot.h	/^    u32int flags;$/;"	m	struct:multiboot
 flush2	start.asm	/^flush2:$/;"	l
+footer_t	include/system.h	/^} footer_t;$/;"	t	typeref:struct:__anon9
 footer_t	src/kheap.h	/^} footer_t;$/;"	t	typeref:struct:__anon5
 fork	src/task.c	/^int fork()$/;"	f
-frame	include/paging.h	/^    unsigned int frame      : 20;  \/\/ Frame address (shifted right 12 bits)$/;"	m	struct:page
+frame	include/system.h	/^    unsigned int frame      : 20;  \/\/ Frame address (shifted right 12 bits)$/;"	m	struct:page
 frame	src/paging.h	/^    u32int frame      : 20;  \/\/ Frame address (shifted right 12 bits)$/;"	m	struct:page
 frames	include/paging.h	/^unsigned int *frames;$/;"	v
 frames	src/paging.c	/^u32int *frames;$/;"	v
+free	include/kheap.h	/^void free(void *p, heap_t *heap)$/;"	f
 free	src/kheap.c	/^void free(void *p, heap_t *heap)$/;"	f
 free_frame	include/paging.h	/^void free_frame(page_t *page)$/;"	f
 free_frame	src/paging.c	/^void free_frame(page_t *page)$/;"	f
@@ -403,9 +423,13 @@ granularity	src/descriptor_tables.h	/^    u8int  granularity;$/;"	m	struct:gdt_e
 green	include/scrn.h	12;"	d
 gs	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
 gs	src/descriptor_tables.h	/^    u32int gs;         \/\/ The value to load into GS when we change to kernel mode.$/;"	m	struct:tss_entry_struct
+header	include/system.h	/^    header_t *header; \/\/ Pointer to the block header.$/;"	m	struct:__anon9
 header	src/kheap.h	/^    header_t *header; \/\/ Pointer to the block header.$/;"	m	struct:__anon5
+header_t	include/system.h	/^} header_t;$/;"	t	typeref:struct:__anon8
 header_t	src/kheap.h	/^} header_t;$/;"	t	typeref:struct:__anon4
+header_t_less_than	include/kheap.h	/^static char header_t_less_than(void*a, void *b)$/;"	f
 header_t_less_than	src/kheap.c	/^static s8int header_t_less_than(void*a, void *b)$/;"	f	file:
+heap_t	include/system.h	/^} heap_t;$/;"	t	typeref:struct:__anon10
 heap_t	src/kheap.h	/^} heap_t;$/;"	t	typeref:struct:__anon6
 id	src/task.h	/^    int id;                \/\/ Process ID.$/;"	m	struct:task
 idt	include/idt.h	/^struct idt_entry idt[256];$/;"	v	typeref:struct:idt_entry
@@ -425,6 +449,7 @@ idt_set_gate	src/descriptor_tables.c	/^static void idt_set_gate(u8int num, u32in
 idtp	include/idt.h	/^struct idt_ptr idtp;$/;"	v	typeref:struct:idt_ptr
 impl	src/fs.h	/^    u32int impl;        \/\/ An implementation-defined number.$/;"	m	struct:fs_node
 inb	src/common.c	/^u8int inb(u16int port)$/;"	f
+index	include/system.h	/^    ordered_array_t index;$/;"	m	struct:__anon10
 index	src/kheap.h	/^    ordered_array_t index;$/;"	m	struct:__anon6
 init_descriptor_tables	src/descriptor_tables.c	/^void init_descriptor_tables()$/;"	f
 init_gdt	src/descriptor_tables.c	/^static void init_gdt()$/;"	f	file:
@@ -448,6 +473,7 @@ ino	src/fs.h	/^    u32int ino;     \/\/ Inode number. Required by POSIX.$/;"	m	s
 inode	src/fs.h	/^    u32int inode;       \/\/ This is device-specific - provides a way for a filesystem to identify files.$/;"	m	struct:fs_node
 inportb	include/common.h	/^unsigned char inportb (unsigned short _port)$/;"	f
 inportw	include/common.h	/^unsigned short inportw(unsigned short port)$/;"	f
+insert_ordered_array	include/ordered_array.h	/^void insert_ordered_array(void*  item, ordered_array_t *array)$/;"	f
 insert_ordered_array	src/ordered_array.c	/^void insert_ordered_array(type_t item, ordered_array_t *array)$/;"	f
 int_no	include/system.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
 int_no	src/isr.h	/^    u32int int_no, err_code;    \/\/ Interrupt number and error code (if applicable)$/;"	m	struct:registers
@@ -479,6 +505,7 @@ irq_install_handler	include/irq.h	/^void irq_install_handler(int irq, void (*han
 irq_remap	include/irq.h	/^void irq_remap(void)$/;"	f
 irq_routines	include/irq.h	/^void *irq_routines[16] =$/;"	v
 irq_uninstall_handler	include/irq.h	/^void irq_uninstall_handler(int irq)$/;"	f
+is_hole	include/system.h	/^    unsigned char is_hole;   \/\/ 1 if this is a hole. 0 if this is a block.$/;"	m	struct:__anon8
 is_hole	src/kheap.h	/^    u8int is_hole;   \/\/ 1 if this is a hole. 0 if this is a block.$/;"	m	struct:__anon4
 isr0	start.asm	/^isr0:$/;"	l
 isr1	start.asm	/^isr1:$/;"	l
@@ -528,17 +555,26 @@ kernel_directory	src/paging.c	/^page_directory_t *kernel_directory=0;$/;"	v
 kernel_stack	src/task.h	/^    u32int kernel_stack;   \/\/ Kernel stack location.$/;"	m	struct:task
 keyboard_handler	include/kb.h	/^void keyboard_handler(struct regs *r)$/;"	f
 keyboard_install	include/kb.h	/^void keyboard_install()$/;"	f
+kfree	include/kheap.h	/^void kfree(void *p)$/;"	f
 kfree	src/kheap.c	/^void kfree(void *p)$/;"	f
+kheap	include/kheap.h	/^heap_t *kheap=0;$/;"	v
 kheap	src/kheap.c	/^heap_t *kheap=0;$/;"	v
-kmalloc	src/kheap.c	/^u32int kmalloc(u32int sz)$/;"	f
-kmalloc_a	src/kheap.c	/^u32int kmalloc_a(u32int sz)$/;"	f
-kmalloc_ap	src/kheap.c	/^u32int kmalloc_ap(u32int sz, u32int *phys)$/;"	f
-kmalloc_int	src/kheap.c	/^u32int kmalloc_int(u32int sz, int align, u32int *phys)$/;"	f
-kmalloc_p	src/kheap.c	/^u32int kmalloc_p(u32int sz, u32int *phys)$/;"	f
+kmalloc	include/kheap.h	/^unsigned int kmalloc(unsigned int sz)$/;"	f
+kmalloc	src/kheap.c	/^unsigned int kmalloc(unsigned int sz)$/;"	f
+kmalloc_a	include/kheap.h	/^unsigned int kmalloc_a(unsigned int sz)$/;"	f
+kmalloc_a	src/kheap.c	/^unsigned int kmalloc_a(unsigned int sz)$/;"	f
+kmalloc_ap	include/kheap.h	/^unsigned int kmalloc_ap(unsigned int sz, unsigned int *phys)$/;"	f
+kmalloc_ap	src/kheap.c	/^unsigned int kmalloc_ap(unsigned int sz, unsigned int *phys)$/;"	f
+kmalloc_int	include/kheap.h	/^unsigned int kmalloc_int(unsigned int sz, int align, unsigned int *phys)$/;"	f
+kmalloc_int	src/kheap.c	/^unsigned int kmalloc_int(unsigned int sz, int align, unsigned int *phys)$/;"	f
+kmalloc_p	include/kheap.h	/^unsigned int kmalloc_p(unsigned int sz, unsigned int *phys)$/;"	f
+kmalloc_p	src/kheap.c	/^unsigned int kmalloc_p(unsigned int sz, unsigned int *phys)$/;"	f
 ldt	src/descriptor_tables.h	/^    u32int ldt;        \/\/ Unused...$/;"	m	struct:tss_entry_struct
 length	src/fs.h	/^    u32int length;      \/\/ Size of the file, in bytes.$/;"	m	struct:fs_node
 length	src/initrd.h	/^    u32int length;   \/\/ Length of the file.$/;"	m	struct:__anon2
+less_than	include/system.h	/^    lessthan_predicate_t less_than;$/;"	m	struct:__anon11
 less_than	src/ordered_array.h	/^    lessthan_predicate_t less_than;$/;"	m	struct:__anon3
+lessthan_predicate_t	include/system.h	/^typedef char (*lessthan_predicate_t)(void* ,void* );$/;"	t
 lessthan_predicate_t	src/ordered_array.h	/^typedef s8int (*lessthan_predicate_t)(type_t,type_t);$/;"	t
 light_brown	include/scrn.h	23;"	d
 light_cyan	include/scrn.h	20;"	d
@@ -552,15 +588,20 @@ limit	src/descriptor_tables.h	/^    u16int limit;               \/\/ The upper 1
 limit	src/descriptor_tables.h	/^    u16int limit;$/;"	m	struct:idt_ptr_struct
 limit_low	include/gdt.h	/^    unsigned short limit_low;$/;"	m	struct:gdt_entry
 limit_low	src/descriptor_tables.h	/^    u16int limit_low;           \/\/ The lower 16 bits of the limit.$/;"	m	struct:gdt_entry_struct
+lookup_ordered_array	include/ordered_array.h	/^void*  lookup_ordered_array(unsigned int i, ordered_array_t *array)$/;"	f
 lookup_ordered_array	src/ordered_array.c	/^type_t lookup_ordered_array(u32int i, ordered_array_t *array)$/;"	f
 magenta	include/scrn.h	15;"	d
+magic	include/system.h	/^    unsigned int magic;     \/\/ Magic number, same as in header_t.$/;"	m	struct:__anon9
+magic	include/system.h	/^    unsigned int magic;   \/\/ Magic number, used for error checking and identification.$/;"	m	struct:__anon8
 magic	src/initrd.h	/^    u8int magic;     \/\/ Magic number, for error checking.$/;"	m	struct:__anon2
 magic	src/kheap.h	/^    u32int magic;     \/\/ Magic number, same as in header_t.$/;"	m	struct:__anon5
 magic	src/kheap.h	/^    u32int magic;   \/\/ Magic number, used for error checking and identification.$/;"	m	struct:__anon4
 main	main.c	/^void main()$/;"	f
 main	src/main.c	/^int main(struct multiboot *mboot_ptr, u32int initial_stack)$/;"	f
 mask	src/fs.h	/^    u32int mask;        \/\/ The permissions mask.$/;"	m	struct:fs_node
+max_address	include/system.h	/^    unsigned int max_address;   \/\/ The maximum address the heap can be expanded to.$/;"	m	struct:__anon10
 max_address	src/kheap.h	/^    u32int max_address;   \/\/ The maximum address the heap can be expanded to.$/;"	m	struct:__anon6
+max_size	include/system.h	/^    unsigned int max_size;$/;"	m	struct:__anon11
 max_size	src/ordered_array.h	/^    u32int max_size;$/;"	m	struct:__anon3
 mboot	start.asm	/^mboot:$/;"	l
 mem_lower	include/multiboot.h	/^	unsigned long mem_lower;  $/;"	m	struct:multiboot_info
@@ -608,35 +649,40 @@ offset	src/initrd.h	/^    u32int offset;   \/\/ Offset in the initrd that the fi
 open	src/fs.h	/^    open_type_t open;$/;"	m	struct:fs_node
 open_fs	src/fs.c	/^void open_fs(fs_node_t *node, u8int read, u8int write)$/;"	f
 open_type_t	src/fs.h	/^typedef void (*open_type_t)(struct fs_node*);$/;"	t
+ordered_array_t	include/system.h	/^} ordered_array_t;$/;"	t	typeref:struct:__anon11
 ordered_array_t	src/ordered_array.h	/^} ordered_array_t;$/;"	t	typeref:struct:__anon3
 outb	src/common.c	/^void outb(u16int port, u8int value)$/;"	f
 outportb	include/common.h	/^void outportb (unsigned short _port, unsigned char _data)$/;"	f
-page	include/paging.h	/^typedef struct page$/;"	s
+page	include/system.h	/^typedef struct page$/;"	s
 page	src/paging.h	/^typedef struct page$/;"	s
-page_directory	include/paging.h	/^typedef struct page_directory$/;"	s
+page_directory	include/system.h	/^typedef struct page_directory$/;"	s
 page_directory	src/paging.h	/^typedef struct page_directory$/;"	s
 page_directory	src/task.h	/^    page_directory_t *page_directory; \/\/ Page directory.$/;"	m	struct:task
-page_directory_t	include/paging.h	/^} page_directory_t;$/;"	t	typeref:struct:page_directory
+page_directory_t	include/system.h	/^} page_directory_t;$/;"	t	typeref:struct:page_directory
 page_directory_t	src/paging.h	/^} page_directory_t;$/;"	t	typeref:struct:page_directory
 page_fault	include/paging.h	/^void page_fault(struct regs *regs)$/;"	f
 page_fault	src/paging.c	/^void page_fault(registers_t *regs)$/;"	f
-page_t	include/paging.h	/^} page_t;$/;"	t	typeref:struct:page
+page_t	include/system.h	/^} page_t;$/;"	t	typeref:struct:page
 page_t	src/paging.h	/^} page_t;$/;"	t	typeref:struct:page
-page_table	include/paging.h	/^typedef struct page_table$/;"	s
+page_table	include/system.h	/^typedef struct page_table$/;"	s
 page_table	src/paging.h	/^typedef struct page_table$/;"	s
-page_table_t	include/paging.h	/^} page_table_t;$/;"	t	typeref:struct:page_table
+page_table_t	include/system.h	/^} page_table_t;$/;"	t	typeref:struct:page_table
 page_table_t	src/paging.h	/^} page_table_t;$/;"	t	typeref:struct:page_table
-pages	include/paging.h	/^    page_t pages[1024];$/;"	m	struct:page_table
+pages	include/system.h	/^    page_t pages[1024];$/;"	m	struct:page_table
 pages	src/paging.h	/^    page_t pages[1024];$/;"	m	struct:page_table
 paging_install	include/paging.h	/^void paging_install()$/;"	f
+panic	include/common.h	/^extern void panic(char *message,char *file, unsigned int line)$/;"	f
 panic	src/common.c	/^extern void panic(const char *message, const char *file, u32int line)$/;"	f
+panic_assert	include/common.h	/^extern void panic_assert(char *file, unsigned int line, char *desc)$/;"	f
 panic_assert	src/common.c	/^extern void panic_assert(const char *file, u32int line, const char *desc)$/;"	f
-physicalAddr	include/paging.h	/^    unsigned int physicalAddr;$/;"	m	struct:page_directory
+physicalAddr	include/system.h	/^    unsigned int physicalAddr;$/;"	m	struct:page_directory
 physicalAddr	src/paging.h	/^    u32int physicalAddr;$/;"	m	struct:page_directory
+place_ordered_array	include/ordered_array.h	/^ordered_array_t place_ordered_array(void *addr, unsigned int max_size, lessthan_predicate_t less_than)$/;"	f
 place_ordered_array	src/ordered_array.c	/^ordered_array_t place_ordered_array(void *addr, u32int max_size, lessthan_predicate_t less_than)$/;"	f
-placement_address	src/kheap.c	/^u32int placement_address = (u32int)&end;$/;"	v
+placement_address	include/kheap.h	/^unsigned int placement_address = (unsigned int)&end;$/;"	v
+placement_address	src/kheap.c	/^unsigned int placement_address = (unsigned int)&end;$/;"	v
 pop	start.asm	/^    pop ds$/;"	d
-present	include/paging.h	/^    unsigned int present    : 1;   \/\/ Page present in memory$/;"	m	struct:page
+present	include/system.h	/^    unsigned int present    : 1;   \/\/ Page present in memory$/;"	m	struct:page
 present	src/paging.h	/^    u32int present    : 1;   \/\/ Page present in memory$/;"	m	struct:page
 prev_tss	src/descriptor_tables.h	/^    u32int prev_tss;   \/\/ The previous TSS - if we used hardware task switching this would form a linked list.$/;"	m	struct:tss_entry_struct
 ptr	src/fs.h	/^    struct fs_node *ptr; \/\/ Used by mountpoints and symlinks.$/;"	m	struct:fs_node	typeref:struct:fs_node::fs_node
@@ -650,6 +696,7 @@ read_type_t	src/fs.h	/^typedef u32int (*read_type_t)(struct fs_node*,u32int,u32i
 readdir	src/fs.h	/^    readdir_type_t readdir;$/;"	m	struct:fs_node
 readdir_fs	src/fs.c	/^struct dirent *readdir_fs(fs_node_t *node, u32int index)$/;"	f
 readdir_type_t	src/fs.h	/^typedef struct dirent * (*readdir_type_t)(struct fs_node*,u32int);$/;"	t	typeref:struct:readdir_type_t
+readonly	include/system.h	/^    unsigned char readonly;       \/\/ Should extra pages requested by us be mapped as read-only?$/;"	m	struct:__anon10
 readonly	src/kheap.h	/^    u8int readonly;       \/\/ Should extra pages requested by us be mapped as read-only?$/;"	m	struct:__anon6
 ready_queue	src/task.c	/^volatile task_t *ready_queue;$/;"	v
 red	include/scrn.h	14;"	d
@@ -657,10 +704,11 @@ register_interrupt_handler	src/isr.c	/^void register_interrupt_handler(u8int n, 
 registers	src/isr.h	/^typedef struct registers$/;"	s
 registers_t	src/isr.h	/^} registers_t;$/;"	t	typeref:struct:registers
 regs	include/system.h	/^struct regs$/;"	s
+remove_ordered_array	include/ordered_array.h	/^void remove_ordered_array(unsigned int i, ordered_array_t *array)$/;"	f
 remove_ordered_array	src/ordered_array.c	/^void remove_ordered_array(u32int i, ordered_array_t *array)$/;"	f
 reserved	include/multiboot.h	/^	unsigned long reserved;  $/;"	m	struct:aout_symbol_table
 root_nodes	src/initrd.c	/^fs_node_t *root_nodes;              \/\/ List of file nodes.$/;"	v
-rw	include/paging.h	/^    unsigned int rw         : 1;   \/\/ Read-only if clear, readwrite if set$/;"	m	struct:page
+rw	include/system.h	/^    unsigned int rw         : 1;   \/\/ Read-only if clear, readwrite if set$/;"	m	struct:page
 rw	src/paging.h	/^    u32int rw         : 1;   \/\/ Read-only if clear, readwrite if set$/;"	m	struct:page
 s16	include/type.h	/^typedef	         short		s16;$/;"	t
 s16int	src/common.h	/^typedef          short s16int;$/;"	t
@@ -680,6 +728,8 @@ settextcolor	include/scrn.h	/^void settextcolor(unsigned char forecolor, unsigne
 shndx	include/multiboot.h	/^	unsigned long shndx;  $/;"	m	struct:elf_section_header_table
 shndx	src/multiboot.h	/^    u32int shndx;$/;"	m	struct:multiboot
 size	include/multiboot.h	/^	unsigned long size;  $/;"	m	struct:elf_section_header_table
+size	include/system.h	/^    unsigned int size;    \/\/ size of the block, including the end footer.$/;"	m	struct:__anon8
+size	include/system.h	/^    unsigned int size;$/;"	m	struct:__anon11
 size	src/kheap.h	/^    u32int size;    \/\/ size of the block, including the end footer.$/;"	m	struct:__anon4
 size	src/multiboot.h	/^    u32int size;$/;"	m	struct:multiboot
 size	src/ordered_array.h	/^    u32int size;$/;"	m	struct:__anon3
@@ -690,8 +740,10 @@ ss	src/isr.h	/^    u32int eip, cs, eflags, useresp, ss; \/\/ Pushed by the proce
 ss0	src/descriptor_tables.h	/^    u32int ss0;        \/\/ The stack segment to load when we change to kernel mode.$/;"	m	struct:tss_entry_struct
 ss1	src/descriptor_tables.h	/^    u32int ss1;$/;"	m	struct:tss_entry_struct
 ss2	src/descriptor_tables.h	/^    u32int ss2;   $/;"	m	struct:tss_entry_struct
+standard_lessthan_predicate	include/ordered_array.h	/^char standard_lessthan_predicate(void*  a, void*  b)$/;"	f
 standard_lessthan_predicate	src/ordered_array.c	/^s8int standard_lessthan_predicate(type_t a, type_t b)$/;"	f
 start	start.asm	/^start:$/;"	l
+start_address	include/system.h	/^    unsigned int start_address; \/\/ The start of our allocated space.$/;"	m	struct:__anon10
 start_address	src/kheap.h	/^    u32int start_address; \/\/ The start of our allocated space.$/;"	m	struct:__anon6
 strcat	include/common.h	/^char *strcat(char *dest, const char *src)$/;"	f
 strcat	src/common.c	/^char *strcat(char *dest, const char *src)$/;"	f
@@ -703,6 +755,7 @@ strlen	include/common.h	/^size_t strlen(const char *str)$/;"	f
 strlen	src/common.c	/^int strlen(char *src)$/;"	f
 strsize	include/multiboot.h	/^	unsigned long strsize;  $/;"	m	struct:aout_symbol_table
 stublet	start.asm	/^stublet:$/;"	l
+supervisor	include/system.h	/^    unsigned char supervisor;     \/\/ Should extra pages requested by us be mapped as supervisor-only?$/;"	m	struct:__anon10
 supervisor	src/kheap.h	/^    u8int supervisor;     \/\/ Should extra pages requested by us be mapped as supervisor-only?$/;"	m	struct:__anon6
 switch_page_directory	include/paging.h	/^void switch_page_directory(page_directory_t *dir)$/;"	f
 switch_page_directory	src/paging.c	/^void switch_page_directory(page_directory_t *dir)$/;"	f
@@ -710,9 +763,9 @@ switch_task	src/task.c	/^void switch_task()$/;"	f
 switch_to_user_mode	src/task.c	/^void switch_to_user_mode()$/;"	f
 syscall_handler	src/syscall.c	/^void syscall_handler(registers_t *regs)$/;"	f
 syscalls	src/syscall.c	/^static void *syscalls[3] =$/;"	v	file:
-tables	include/paging.h	/^    page_table_t *tables[1024];$/;"	m	struct:page_directory
+tables	include/system.h	/^    page_table_t *tables[1024];$/;"	m	struct:page_directory
 tables	src/paging.h	/^    page_table_t *tables[1024];$/;"	m	struct:page_directory
-tablesPhysical	include/paging.h	/^    unsigned int tablesPhysical[1024];$/;"	m	struct:page_directory
+tablesPhysical	include/system.h	/^    unsigned int tablesPhysical[1024];$/;"	m	struct:page_directory
 tablesPhysical	src/paging.h	/^    u32int tablesPhysical[1024];$/;"	m	struct:page_directory
 tabsize	include/multiboot.h	/^	unsigned long tabsize;  $/;"	m	struct:aout_symbol_table
 task	src/task.h	/^typedef struct task$/;"	s
@@ -742,9 +795,9 @@ u32int	src/common.h	/^typedef unsigned int   u32int;$/;"	t
 u8	include/type.h	/^typedef	unsigned char		u8;$/;"	t
 u8int	src/common.h	/^typedef unsigned char  u8int;$/;"	t
 uid	src/fs.h	/^    u32int uid;         \/\/ The owning user.$/;"	m	struct:fs_node
-unused	include/paging.h	/^    unsigned int unused     : 7;   \/\/ Amalgamation of unused and reserved bits$/;"	m	struct:page
+unused	include/system.h	/^    unsigned int unused     : 7;   \/\/ Amalgamation of unused and reserved bits$/;"	m	struct:page
 unused	src/paging.h	/^    u32int unused     : 7;   \/\/ Amalgamation of unused and reserved bits$/;"	m	struct:page
-user	include/paging.h	/^    unsigned int user       : 1;   \/\/ Supervisor level only if clear$/;"	m	struct:page
+user	include/system.h	/^    unsigned int user       : 1;   \/\/ Supervisor level only if clear$/;"	m	struct:page
 user	src/paging.h	/^    u32int user       : 1;   \/\/ Supervisor level only if clear$/;"	m	struct:page
 useresp	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
 useresp	src/isr.h	/^    u32int eip, cs, eflags, useresp, ss; \/\/ Pushed by the processor automatically.$/;"	m	struct:registers

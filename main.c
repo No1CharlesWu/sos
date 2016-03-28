@@ -8,6 +8,9 @@
 #include "timer.h"
 #include "kb.h"
 #include "common.h"
+//#include "ordered_array.h"
+//#include "kheap.h"
+//#include "paging.h"
 
 extern unsigned int code;
 extern unsigned int bss;
