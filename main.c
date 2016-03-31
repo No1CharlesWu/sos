@@ -1,4 +1,4 @@
-#include <system.h>
+#include "system.h"
 #include "type.h"
 #include "scrn.h"
 #include "gdt.h"

@@ -45,7 +45,6 @@ mboot:
 stublet:
     extern main
     call main
-    int 14
     xchg bx,bx
     jmp $
 
