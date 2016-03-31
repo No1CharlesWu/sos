@@ -124,7 +124,7 @@ struct segdesc {
 #define SEG16(type, base, lim, dpl)                        \
     (struct segdesc){                                    \
         (lim) & 0xffff, (base) & 0xffff,                \
-        ((base) >> 16) & 0xff, type, 1, dpl, 1,            \
+        ((base) >> 16) & 0xff, type, 0, dpl, 1,            \
         (unsigned) (lim) >> 16, 0, 0, 1, 0,                \
         (unsigned) (base) >> 24                            \
     }

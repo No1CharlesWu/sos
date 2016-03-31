@@ -48,6 +48,13 @@ void gdt_set_gate(int num, unsigned long base, unsigned long limit, unsigned cha
     gdt[num].access = access;
 }
 
+static inline void
+ltr(uint16_t sel) {
+    asm volatile ("ltr %0" :: "r" (sel));
+}
+uint8_t stack0[1024];
+
+
 /* Should be called by main. This will setup the special GDT
 *  pointer, set up the first 3 entries in our GDT, and then
 *  finally call gdt_flush() in our assembler file in order
@@ -65,11 +72,16 @@ void gdt_install()
     gdt_set_gate(2, 0, 0xFFFFFFFF, 0x92, 0xCF);
     gdt_set_gate(3, 0, 0xFFFFFFFF, 0xFA, 0xCF);
     gdt_set_gate(4, 0, 0xFFFFFFFF, 0xF2, 0xCF);
-    gdt_set_gate(5, 0, 0, 0, 0);
 
+    ts.ts_esp0 = (uint32_t)&stack0 + sizeof(stack0);
+    ts.ts_ss0 = ((2 << 3) | (0));  
+    unsigned int base =(unsigned int) &ts;
+    unsigned int limit = base + sizeof(ts);
+   // gdt_set_gate(5, base, limit,0xE9,0x00);
+    gdt_set_gate(5, base, limit,0x89,0x40);
     /* Flush out the old GDT and install the new changes! */
     gdt_flush();
-
+    ltr((5 << 3));
 }
 
 #endif
