@@ -38,6 +38,8 @@ void main()
     Printf("timer install ready.\n");
     keyboard_install();
     Printf("keyboard install ready.\n");
+    switch_install();
+    Printf("simple switch test install ready.\n");
     __asm__ __volatile__ ("sti");	
-
+    switch_test();
 }

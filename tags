@@ -85,26 +85,47 @@ E_INVAL	lab1_result/libs/error.h	7;"	d
 E_NO_FREE_PROC	lab1_result/libs/error.h	9;"	d
 E_NO_MEM	lab1_result/libs/error.h	8;"	d
 E_UNSPECIFIED	lab1_result/libs/error.h	5;"	d
+FL_AC	include/mmu.h	22;"	d
 FL_AC	lab1_result/kern/mm/mmu.h	22;"	d
+FL_AF	include/mmu.h	7;"	d
 FL_AF	lab1_result/kern/mm/mmu.h	7;"	d
+FL_CF	include/mmu.h	5;"	d
 FL_CF	lab1_result/kern/mm/mmu.h	5;"	d
+FL_DF	include/mmu.h	12;"	d
 FL_DF	lab1_result/kern/mm/mmu.h	12;"	d
+FL_ID	include/mmu.h	25;"	d
 FL_ID	lab1_result/kern/mm/mmu.h	25;"	d
+FL_IF	include/mmu.h	11;"	d
 FL_IF	lab1_result/kern/mm/mmu.h	11;"	d
+FL_IOPL_0	include/mmu.h	15;"	d
 FL_IOPL_0	lab1_result/kern/mm/mmu.h	15;"	d
+FL_IOPL_1	include/mmu.h	16;"	d
 FL_IOPL_1	lab1_result/kern/mm/mmu.h	16;"	d
+FL_IOPL_2	include/mmu.h	17;"	d
 FL_IOPL_2	lab1_result/kern/mm/mmu.h	17;"	d
+FL_IOPL_3	include/mmu.h	18;"	d
 FL_IOPL_3	lab1_result/kern/mm/mmu.h	18;"	d
+FL_IOPL_MASK	include/mmu.h	14;"	d
 FL_IOPL_MASK	lab1_result/kern/mm/mmu.h	14;"	d
+FL_NT	include/mmu.h	19;"	d
 FL_NT	lab1_result/kern/mm/mmu.h	19;"	d
+FL_OF	include/mmu.h	13;"	d
 FL_OF	lab1_result/kern/mm/mmu.h	13;"	d
+FL_PF	include/mmu.h	6;"	d
 FL_PF	lab1_result/kern/mm/mmu.h	6;"	d
+FL_RF	include/mmu.h	20;"	d
 FL_RF	lab1_result/kern/mm/mmu.h	20;"	d
+FL_SF	include/mmu.h	9;"	d
 FL_SF	lab1_result/kern/mm/mmu.h	9;"	d
+FL_TF	include/mmu.h	10;"	d
 FL_TF	lab1_result/kern/mm/mmu.h	10;"	d
+FL_VIF	include/mmu.h	23;"	d
 FL_VIF	lab1_result/kern/mm/mmu.h	23;"	d
+FL_VIP	include/mmu.h	24;"	d
 FL_VIP	lab1_result/kern/mm/mmu.h	24;"	d
+FL_VM	include/mmu.h	21;"	d
 FL_VM	lab1_result/kern/mm/mmu.h	21;"	d
+FL_ZF	include/mmu.h	8;"	d
 FL_ZF	lab1_result/kern/mm/mmu.h	8;"	d
 FS_BLOCKDEVICE	src/fs.h	12;"	d
 FS_CHARDEVICE	src/fs.h	11;"	d
@@ -131,6 +152,7 @@ HEAP_MIN_SIZE	include/system.h	80;"	d
 HEAP_MIN_SIZE	src/kheap.h	17;"	d
 HOSTCC	lab1_result/Makefile	/^HOSTCC		:= gcc$/;"	m
 HOSTCFLAGS	lab1_result/Makefile	/^HOSTCFLAGS	:= -g -Wall -O2$/;"	m
+IA32flags	include/trap.c	/^static const char *IA32flags[] = {$/;"	v	file:
 IA32flags	lab1_result/kern/trap/trap.c	/^static const char *IA32flags[] = {$/;"	v	file:
 IGNORE_ALLDEPS	lab1_result/Makefile	/^IGNORE_ALLDEPS	= clean \\$/;"	m
 IMG	Makefile	/^IMG		= os.img$/;"	m
@@ -326,6 +348,7 @@ MyPutc	include/scrn.h	/^void MyPutc(char c)$/;"	f
 MyPuts	include/scrn.h	/^void MyPuts(char *str)$/;"	f
 NCOMMANDS	lab1_result/kern/debug/kmonitor.c	25;"	d	file:
 NO	lab1_result/kern/driver/console.c	254;"	d	file:
+NULL	include/type.h	12;"	d
 NULL	lab1_result/libs/defs.h	5;"	d
 NUMLOCK	lab1_result/kern/driver/console.c	261;"	d	file:
 N_BCOMM	lab1_result/kern/debug/stab.h	39;"	d
@@ -369,7 +392,9 @@ PROJ	lab1_result/Makefile	/^PROJ	:= challenge$/;"	m
 Printf	include/scrn.h	/^void Printf(const char *format, ...)  $/;"	f
 QEMU	lab1_result/Makefile	/^QEMU := $(shell if which qemu-system-i386 > \/dev\/null; \\$/;"	m
 RM	lab1_result/Makefile	/^RM		:= rm -f$/;"	m
+ROUNDDOWN	include/type.h	47;"	d
 ROUNDDOWN	lab1_result/libs/defs.h	43;"	d
+ROUNDUP	include/type.h	53;"	d
 ROUNDUP	lab1_result/libs/defs.h	49;"	d
 RollScreen	include/scrn.h	/^void RollScreen()$/;"	f
 SCREENSIZE	include/scrn.h	8;"	d
@@ -377,17 +402,22 @@ SCROLLLOCK	lab1_result/kern/driver/console.c	262;"	d	file:
 SECTION	start.asm	/^SECTION .bss$/;"	l
 SECTSIZE	lab1_result/boot/bootmain.c	/^unsigned int    SECTSIZE  =      512 ;$/;"	v
 SED	lab1_result/Makefile	/^SED		:= sed$/;"	m
+SEG	include/mmu.h	116;"	d
 SEG	lab1_result/kern/mm/mmu.h	116;"	d
+SEG16	include/mmu.h	124;"	d
 SEG16	lab1_result/kern/mm/mmu.h	124;"	d
 SEG_ASM	lab1_result/boot/asm.h	11;"	d
 SEG_KDATA	lab1_result/kern/mm/memlayout.h	8;"	d
 SEG_KTEXT	lab1_result/kern/mm/memlayout.h	7;"	d
+SEG_NULL	include/mmu.h	113;"	d
 SEG_NULL	lab1_result/kern/mm/mmu.h	113;"	d
 SEG_NULLASM	lab1_result/boot/asm.h	7;"	d
 SEG_TSS	lab1_result/kern/mm/memlayout.h	11;"	d
 SEG_UDATA	lab1_result/kern/mm/memlayout.h	10;"	d
 SEG_UTEXT	lab1_result/kern/mm/memlayout.h	9;"	d
+SETCALLGATE	include/mmu.h	84;"	d
 SETCALLGATE	lab1_result/kern/mm/mmu.h	84;"	d
+SETGATE	include/mmu.h	71;"	d
 SETGATE	lab1_result/kern/mm/mmu.h	71;"	d
 SH	lab1_result/Makefile	/^SH		:= sh$/;"	m
 SHIFT	lab1_result/kern/driver/console.c	256;"	d	file:
@@ -395,34 +425,53 @@ SLASH	lab1_result/Makefile	/^SLASH	:= \/$/;"	m
 SOURCES	src/Makefile	/^SOURCES=boot.o main.o monitor.o common.o descriptor_tables.o isr.o interrupt.o gdt.o timer.o \\$/;"	m
 SPACE	lab1_result/Makefile	/^SPACE	:= $(EMPTY) $(EMPTY)$/;"	m
 STACKFRAME_DEPTH	lab1_result/kern/debug/kdebug.c	8;"	d	file:
+STA_A	include/mmu.h	33;"	d
 STA_A	lab1_result/boot/asm.h	23;"	d
 STA_A	lab1_result/kern/mm/mmu.h	33;"	d
+STA_C	include/mmu.h	30;"	d
 STA_C	lab1_result/boot/asm.h	20;"	d
 STA_C	lab1_result/kern/mm/mmu.h	30;"	d
+STA_E	include/mmu.h	29;"	d
 STA_E	lab1_result/boot/asm.h	19;"	d
 STA_E	lab1_result/kern/mm/mmu.h	29;"	d
+STA_R	include/mmu.h	32;"	d
 STA_R	lab1_result/boot/asm.h	22;"	d
 STA_R	lab1_result/kern/mm/mmu.h	32;"	d
+STA_W	include/mmu.h	31;"	d
 STA_W	lab1_result/boot/asm.h	21;"	d
 STA_W	lab1_result/kern/mm/mmu.h	31;"	d
+STA_X	include/mmu.h	28;"	d
 STA_X	lab1_result/boot/asm.h	18;"	d
 STA_X	lab1_result/kern/mm/mmu.h	28;"	d
+STS_CG16	include/mmu.h	39;"	d
 STS_CG16	lab1_result/kern/mm/mmu.h	39;"	d
+STS_CG32	include/mmu.h	45;"	d
 STS_CG32	lab1_result/kern/mm/mmu.h	45;"	d
+STS_IG16	include/mmu.h	41;"	d
 STS_IG16	lab1_result/kern/mm/mmu.h	41;"	d
+STS_IG32	include/mmu.h	46;"	d
 STS_IG32	lab1_result/kern/mm/mmu.h	46;"	d
+STS_LDT	include/mmu.h	37;"	d
 STS_LDT	lab1_result/kern/mm/mmu.h	37;"	d
+STS_T16A	include/mmu.h	36;"	d
 STS_T16A	lab1_result/kern/mm/mmu.h	36;"	d
+STS_T16B	include/mmu.h	38;"	d
 STS_T16B	lab1_result/kern/mm/mmu.h	38;"	d
+STS_T32A	include/mmu.h	43;"	d
 STS_T32A	lab1_result/kern/mm/mmu.h	43;"	d
+STS_T32B	include/mmu.h	44;"	d
 STS_T32B	lab1_result/kern/mm/mmu.h	44;"	d
+STS_TG	include/mmu.h	40;"	d
 STS_TG	lab1_result/kern/mm/mmu.h	40;"	d
+STS_TG16	include/mmu.h	42;"	d
 STS_TG16	lab1_result/kern/mm/mmu.h	42;"	d
+STS_TG32	include/mmu.h	47;"	d
 STS_TG32	lab1_result/kern/mm/mmu.h	47;"	d
 SYSCALL_H	src/syscall.h	5;"	d
 TARGETS	lab1_result/Makefile	/^TARGETS	:=$/;"	m
 TASK_H	src/task.h	7;"	d
 TERMINAL	lab1_result/Makefile	/^TERMINAL        :=gnome-terminal$/;"	m
+TICK_NUM	include/trap.c	12;"	d	file:
 TICK_NUM	lab1_result/kern/trap/trap.c	12;"	d	file:
 TIMER_16BIT	lab1_result/kern/driver/clock.c	24;"	d	file:
 TIMER_DIV	lab1_result/kern/driver/clock.c	19;"	d	file:
@@ -452,7 +501,9 @@ T_PGFLT	lab1_result/kern/trap/trap.h	23;"	d
 T_SEGNP	lab1_result/kern/trap/trap.h	20;"	d
 T_SIMDERR	lab1_result/kern/trap/trap.h	28;"	d
 T_STACK	lab1_result/kern/trap/trap.h	21;"	d
+T_SWITCH_TOK	include/isrs.h	41;"	d
 T_SWITCH_TOK	lab1_result/kern/trap/trap.h	48;"	d
+T_SWITCH_TOU	include/isrs.h	40;"	d
 T_SWITCH_TOU	lab1_result/kern/trap/trap.h	47;"	d
 T_SYSCALL	lab1_result/kern/trap/trap.h	30;"	d
 T_TSS	lab1_result/kern/trap/trap.h	19;"	d
@@ -469,6 +520,7 @@ _IRQ_H_	include/irq.h	2;"	d
 _ISRS_H_	include/isrs.h	2;"	d
 _KB_H_	include/kb.h	2;"	d
 _KHEAP_H_	include/kheap.h	2;"	d
+_MMU_H_	include/mmu.h	2;"	d
 _MULTIBOOT_H_	include/multiboot.h	2;"	d
 _ORDERED_ARRAY_H_	include/ordered_array.h	2;"	d
 _PAGING_H_	include/paging.h	2;"	d
@@ -503,11 +555,14 @@ __LIBS_STDIO_H__	lab1_result/libs/stdio.h	2;"	d
 __LIBS_STRING_H__	lab1_result/libs/string.h	2;"	d
 __LIBS_X86_H__	lab1_result/libs/x86.h	2;"	d
 __alltraps	lab1_result/kern/trap/trapentry.S	/^__alltraps:$/;"	l
+__always_inline	include/type.h	15;"	d
 __always_inline	lab1_result/libs/defs.h	8;"	d
 __memcpy	lab1_result/libs/x86.h	/^__memcpy(void *dst, const void *src, size_t n) {$/;"	f
 __memmove	lab1_result/libs/x86.h	/^__memmove(void *dst, const void *src, size_t n) {$/;"	f
 __memset	lab1_result/libs/x86.h	/^__memset(void *s, char c, size_t n) {$/;"	f
+__noinline	include/type.h	16;"	d
 __noinline	lab1_result/libs/defs.h	9;"	d
+__noreturn	include/type.h	17;"	d
 __noreturn	lab1_result/libs/defs.h	10;"	d
 __panic	lab1_result/kern/debug/panic.c	/^__panic(const char *file, int line, const char *fmt, ...) {$/;"	f
 __strcmp	lab1_result/libs/x86.h	/^__strcmp(const char *s1, const char *s2) {$/;"	f
@@ -560,6 +615,7 @@ base_middle	include/gdt.h	/^    unsigned char base_middle;$/;"	m	struct:gdt_entr
 base_middle	src/descriptor_tables.h	/^    u8int  base_middle;         \/\/ The next 8 bits of the base.$/;"	m	struct:gdt_entry_struct
 black	include/scrn.h	10;"	d
 blue	include/scrn.h	11;"	d
+bool	include/type.h	/^typedef int bool;$/;"	t
 bool	lab1_result/libs/defs.h	/^typedef int bool;$/;"	t
 boot_device	include/multiboot.h	/^	unsigned long boot_device;  $/;"	m	struct:multiboot_info
 boot_device	src/multiboot.h	/^    u32int boot_device;$/;"	m	struct:multiboot
@@ -767,15 +823,25 @@ fs_node	src/fs.h	/^typedef struct fs_node$/;"	s
 fs_node_t	src/fs.h	/^} fs_node_t;$/;"	t	typeref:struct:fs_node
 fs_root	src/fs.c	/^fs_node_t *fs_root = 0; \/\/ The root of the filesystem.$/;"	v
 func	lab1_result/kern/debug/kmonitor.c	/^    int(*func)(int argc, char **argv, struct trapframe *tf);$/;"	m	struct:command	file:
+gatedesc	include/mmu.h	/^struct gatedesc {$/;"	s
 gatedesc	lab1_result/kern/mm/mmu.h	/^struct gatedesc {$/;"	s
+gd_args	include/mmu.h	/^    unsigned gd_args : 5;            \/\/ # args, 0 for interrupt\/trap gates$/;"	m	struct:gatedesc
 gd_args	lab1_result/kern/mm/mmu.h	/^    unsigned gd_args : 5;            \/\/ # args, 0 for interrupt\/trap gates$/;"	m	struct:gatedesc
+gd_dpl	include/mmu.h	/^    unsigned gd_dpl : 2;            \/\/ descriptor(meaning new) privilege level$/;"	m	struct:gatedesc
 gd_dpl	lab1_result/kern/mm/mmu.h	/^    unsigned gd_dpl : 2;            \/\/ descriptor(meaning new) privilege level$/;"	m	struct:gatedesc
+gd_off_15_0	include/mmu.h	/^    unsigned gd_off_15_0 : 16;        \/\/ low 16 bits of offset in segment$/;"	m	struct:gatedesc
 gd_off_15_0	lab1_result/kern/mm/mmu.h	/^    unsigned gd_off_15_0 : 16;        \/\/ low 16 bits of offset in segment$/;"	m	struct:gatedesc
+gd_off_31_16	include/mmu.h	/^    unsigned gd_off_31_16 : 16;        \/\/ high bits of offset in segment$/;"	m	struct:gatedesc
 gd_off_31_16	lab1_result/kern/mm/mmu.h	/^    unsigned gd_off_31_16 : 16;        \/\/ high bits of offset in segment$/;"	m	struct:gatedesc
+gd_p	include/mmu.h	/^    unsigned gd_p : 1;                \/\/ Present$/;"	m	struct:gatedesc
 gd_p	lab1_result/kern/mm/mmu.h	/^    unsigned gd_p : 1;                \/\/ Present$/;"	m	struct:gatedesc
+gd_rsv1	include/mmu.h	/^    unsigned gd_rsv1 : 3;            \/\/ reserved(should be zero I guess)$/;"	m	struct:gatedesc
 gd_rsv1	lab1_result/kern/mm/mmu.h	/^    unsigned gd_rsv1 : 3;            \/\/ reserved(should be zero I guess)$/;"	m	struct:gatedesc
+gd_s	include/mmu.h	/^    unsigned gd_s : 1;                \/\/ must be 0 (system)$/;"	m	struct:gatedesc
 gd_s	lab1_result/kern/mm/mmu.h	/^    unsigned gd_s : 1;                \/\/ must be 0 (system)$/;"	m	struct:gatedesc
+gd_ss	include/mmu.h	/^    unsigned gd_ss : 16;            \/\/ segment selector$/;"	m	struct:gatedesc
 gd_ss	lab1_result/kern/mm/mmu.h	/^    unsigned gd_ss : 16;            \/\/ segment selector$/;"	m	struct:gatedesc
+gd_type	include/mmu.h	/^    unsigned gd_type : 4;            \/\/ type(STS_{TG,IG32,TG32})$/;"	m	struct:gatedesc
 gd_type	lab1_result/kern/mm/mmu.h	/^    unsigned gd_type : 4;            \/\/ type(STS_{TG,IG32,TG32})$/;"	m	struct:gatedesc
 gdt	include/gdt.h	/^struct gdt_entry gdt[gdt_size];$/;"	v	typeref:struct:gdt_entry
 gdt	lab1_result/boot/bootasm.S	/^gdt:$/;"	l
@@ -795,7 +861,7 @@ gdt_ptr_struct	src/descriptor_tables.h	/^struct gdt_ptr_struct$/;"	s
 gdt_ptr_t	src/descriptor_tables.h	/^typedef struct gdt_ptr_struct gdt_ptr_t;$/;"	t	typeref:struct:gdt_ptr_struct
 gdt_set_gate	include/gdt.h	/^void gdt_set_gate(int num, unsigned long base, unsigned long limit, unsigned char access, unsigned char gran)$/;"	f
 gdt_set_gate	src/descriptor_tables.c	/^static void gdt_set_gate(s32int num, u32int base, u32int limit, u8int access, u8int gran)$/;"	f	file:
-gdt_size	include/gdt.h	23;"	d
+gdt_size	include/gdt.h	26;"	d
 gdtdesc	lab1_result/boot/bootasm.S	/^gdtdesc:$/;"	l
 get_page	include/paging.h	/^page_t *get_page(unsigned int address, int make, page_directory_t *dir)$/;"	f
 get_page	src/paging.c	/^page_t *get_page(u32int address, int make, page_directory_t *dir)$/;"	f
@@ -877,15 +943,18 @@ heap_t	include/system.h	/^} heap_t;$/;"	t	typeref:struct:__anon11
 heap_t	src/kheap.h	/^} heap_t;$/;"	t	typeref:struct:__anon6
 id	src/task.h	/^    int id;                \/\/ Process ID.$/;"	m	struct:task
 idt	include/idt.h	/^struct idt_entry idt[256];$/;"	v	typeref:struct:idt_entry
+idt	include/trap.c	/^static struct gatedesc idt[256] = {{0}};$/;"	v	typeref:struct:gatedesc	file:
 idt	lab1_result/kern/trap/trap.c	/^static struct gatedesc idt[256] = {{0}};$/;"	v	typeref:struct:gatedesc	file:
 idt_entries	src/descriptor_tables.c	/^idt_entry_t idt_entries[256];$/;"	v
 idt_entry	include/idt.h	/^struct idt_entry$/;"	s
 idt_entry_struct	src/descriptor_tables.h	/^struct idt_entry_struct$/;"	s
 idt_entry_t	src/descriptor_tables.h	/^typedef struct idt_entry_struct idt_entry_t;$/;"	t	typeref:struct:idt_entry_struct
 idt_flush	src/gdt.s	/^idt_flush:$/;"	l
+idt_init	include/trap.c	/^idt_init(void) {$/;"	f
 idt_init	lab1_result/kern/trap/trap.c	/^idt_init(void) {$/;"	f
 idt_install	include/idt.h	/^void idt_install()$/;"	f
 idt_load	start.asm	/^idt_load:$/;"	l
+idt_pd	include/trap.c	/^static struct pseudodesc idt_pd = {$/;"	v	typeref:struct:pseudodesc	file:
 idt_pd	lab1_result/kern/trap/trap.c	/^static struct pseudodesc idt_pd = {$/;"	v	typeref:struct:pseudodesc	file:
 idt_ptr	include/idt.h	/^struct idt_ptr$/;"	s
 idt_ptr	src/descriptor_tables.c	/^idt_ptr_t   idt_ptr;$/;"	v
@@ -924,13 +993,18 @@ inportw	include/common.h	/^unsigned short inportw(unsigned short port)$/;"	f
 insert_ordered_array	include/ordered_array.h	/^void insert_ordered_array(void*  item, ordered_array_t *array)$/;"	f
 insert_ordered_array	src/ordered_array.c	/^void insert_ordered_array(type_t item, ordered_array_t *array)$/;"	f
 insl	lab1_result/libs/x86.h	/^insl(uint32_t port, void *addr, int cnt) {$/;"	f
+int16_t	include/type.h	/^typedef short int16_t;$/;"	t
 int16_t	lab1_result/libs/defs.h	/^typedef short int16_t;$/;"	t
+int32_t	include/type.h	/^typedef int int32_t;$/;"	t
 int32_t	lab1_result/libs/defs.h	/^typedef int int32_t;$/;"	t
+int64_t	include/type.h	/^typedef long long int64_t;$/;"	t
 int64_t	lab1_result/libs/defs.h	/^typedef long long int64_t;$/;"	t
+int8_t	include/type.h	/^typedef char int8_t;$/;"	t
 int8_t	lab1_result/libs/defs.h	/^typedef char int8_t;$/;"	t
 int_no	include/system.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
 int_no	src/isr.h	/^    u32int int_no, err_code;    \/\/ Interrupt number and error code (if applicable)$/;"	m	struct:registers
 interrupt_handlers	src/isr.c	/^isr_t interrupt_handlers[256];$/;"	v
+intptr_t	include/type.h	/^typedef int32_t intptr_t;$/;"	t
 intptr_t	lab1_result/libs/defs.h	/^typedef int32_t intptr_t;$/;"	t
 intr_disable	lab1_result/kern/driver/intr.c	/^intr_disable(void) {$/;"	f
 intr_enable	lab1_result/kern/driver/intr.c	/^intr_enable(void) {$/;"	f
@@ -1065,6 +1139,7 @@ lookup_ordered_array	include/ordered_array.h	/^void*  lookup_ordered_array(unsig
 lookup_ordered_array	src/ordered_array.c	/^type_t lookup_ordered_array(u32int i, ordered_array_t *array)$/;"	f
 lpt_putc	lab1_result/kern/driver/console.c	/^lpt_putc(int c) {$/;"	f	file:
 lpt_putc_sub	lab1_result/kern/driver/console.c	/^lpt_putc_sub(int c) {$/;"	f	file:
+ltr	include/gdt.h	/^ltr(uint16_t sel) {$/;"	f
 ltr	lab1_result/libs/x86.h	/^ltr(uint16_t sel) {$/;"	f
 magenta	include/scrn.h	15;"	d
 magic	include/system.h	/^    unsigned int magic;     \/\/ Magic number, same as in header_t.$/;"	m	struct:__anon10
@@ -1141,6 +1216,7 @@ num	src/multiboot.h	/^    u32int num;$/;"	m	struct:multiboot
 num_syscalls	src/syscall.c	/^u32int num_syscalls = 3;$/;"	v
 objfile	lab1_result/Makefile	/^objfile = $(call toobj,$(1))$/;"	m
 offset	src/initrd.h	/^    u32int offset;   \/\/ Offset in the initrd that the file starts.$/;"	m	struct:__anon2
+offsetof	include/type.h	59;"	d
 offsetof	lab1_result/libs/defs.h	55;"	d
 open	src/fs.h	/^    open_type_t open;$/;"	m	struct:fs_node
 open_fs	src/fs.c	/^void open_fs(fs_node_t *node, u8int read, u8int write)$/;"	f
@@ -1199,15 +1275,20 @@ placement_address	include/kheap.h	/^unsigned int placement_address = (unsigned i
 placement_address	src/kheap.c	/^unsigned int placement_address = (unsigned int)&end;$/;"	v
 pmm_init	lab1_result/kern/mm/pmm.c	/^pmm_init(void) {$/;"	f
 pop	start.asm	/^    pop ds$/;"	d
+ppn_t	include/type.h	/^typedef uintptr_t ppn_t;$/;"	t
 ppn_t	lab1_result/libs/defs.h	/^typedef size_t ppn_t;$/;"	t
 present	include/system.h	/^    unsigned int present    : 1;   \/\/ Page present in memory$/;"	m	struct:page
 present	src/paging.h	/^    u32int present    : 1;   \/\/ Page present in memory$/;"	m	struct:page
 prev_tss	src/descriptor_tables.h	/^    u32int prev_tss;   \/\/ The previous TSS - if we used hardware task switching this would form a linked list.$/;"	m	struct:tss_entry_struct
+print_cur_status	include/isrs.h	/^void print_cur_status(void) {$/;"	f
 print_debuginfo	lab1_result/kern/debug/kdebug.c	/^print_debuginfo(uintptr_t eip) {$/;"	f
 print_kerninfo	lab1_result/kern/debug/kdebug.c	/^print_kerninfo(void) {$/;"	f
+print_regs	include/trap.c	/^print_regs(struct pushregs *regs) {$/;"	f
 print_regs	lab1_result/kern/trap/trap.c	/^print_regs(struct pushregs *regs) {$/;"	f
 print_stackframe	lab1_result/kern/debug/kdebug.c	/^print_stackframe(void) {$/;"	f
+print_ticks	include/trap.c	/^static void print_ticks() {$/;"	f	file:
 print_ticks	lab1_result/kern/trap/trap.c	/^static void print_ticks() {$/;"	f	file:
+print_trapframe	include/trap.c	/^print_trapframe(struct trapframe *tf) {$/;"	f
 print_trapframe	lab1_result/kern/trap/trap.c	/^print_trapframe(struct trapframe *tf) {$/;"	f
 printfmt	lab1_result/libs/printfmt.c	/^printfmt(void (*putch)(int, void*), void *putdat, const char *fmt, ...) {$/;"	f
 printnum	lab1_result/libs/printfmt.c	/^printnum(void (*putch)(int, void*), void *putdat,$/;"	f	file:
@@ -1268,20 +1349,34 @@ s8	include/type.h	/^typedef	         char		s8;$/;"	t
 s8int	src/common.h	/^typedef          char  s8int;$/;"	t
 scroll	include/scrn.h	/^void scroll(void)$/;"	f
 scroll	src/monitor.c	/^static void scroll()$/;"	f	file:
+sd_avl	include/mmu.h	/^    unsigned sd_avl : 1;            \/\/ unused (available for software use)$/;"	m	struct:segdesc
 sd_avl	lab1_result/kern/mm/mmu.h	/^    unsigned sd_avl : 1;            \/\/ unused (available for software use)$/;"	m	struct:segdesc
+sd_base_15_0	include/mmu.h	/^    unsigned sd_base_15_0 : 16;        \/\/ low bits of segment base address$/;"	m	struct:segdesc
 sd_base_15_0	lab1_result/kern/mm/mmu.h	/^    unsigned sd_base_15_0 : 16;        \/\/ low bits of segment base address$/;"	m	struct:segdesc
+sd_base_23_16	include/mmu.h	/^    unsigned sd_base_23_16 : 8;        \/\/ middle bits of segment base address$/;"	m	struct:segdesc
 sd_base_23_16	lab1_result/kern/mm/mmu.h	/^    unsigned sd_base_23_16 : 8;        \/\/ middle bits of segment base address$/;"	m	struct:segdesc
+sd_base_31_24	include/mmu.h	/^    unsigned sd_base_31_24 : 8;        \/\/ high bits of segment base address$/;"	m	struct:segdesc
 sd_base_31_24	lab1_result/kern/mm/mmu.h	/^    unsigned sd_base_31_24 : 8;        \/\/ high bits of segment base address$/;"	m	struct:segdesc
+sd_db	include/mmu.h	/^    unsigned sd_db : 1;                \/\/ 0 = 16-bit segment, 1 = 32-bit segment$/;"	m	struct:segdesc
 sd_db	lab1_result/kern/mm/mmu.h	/^    unsigned sd_db : 1;                \/\/ 0 = 16-bit segment, 1 = 32-bit segment$/;"	m	struct:segdesc
+sd_dpl	include/mmu.h	/^    unsigned sd_dpl : 2;            \/\/ descriptor Privilege Level$/;"	m	struct:segdesc
 sd_dpl	lab1_result/kern/mm/mmu.h	/^    unsigned sd_dpl : 2;            \/\/ descriptor Privilege Level$/;"	m	struct:segdesc
+sd_g	include/mmu.h	/^    unsigned sd_g : 1;                \/\/ granularity: limit scaled by 4K when set$/;"	m	struct:segdesc
 sd_g	lab1_result/kern/mm/mmu.h	/^    unsigned sd_g : 1;                \/\/ granularity: limit scaled by 4K when set$/;"	m	struct:segdesc
+sd_lim_15_0	include/mmu.h	/^    unsigned sd_lim_15_0 : 16;        \/\/ low bits of segment limit$/;"	m	struct:segdesc
 sd_lim_15_0	lab1_result/kern/mm/mmu.h	/^    unsigned sd_lim_15_0 : 16;        \/\/ low bits of segment limit$/;"	m	struct:segdesc
+sd_lim_19_16	include/mmu.h	/^    unsigned sd_lim_19_16 : 4;        \/\/ high bits of segment limit$/;"	m	struct:segdesc
 sd_lim_19_16	lab1_result/kern/mm/mmu.h	/^    unsigned sd_lim_19_16 : 4;        \/\/ high bits of segment limit$/;"	m	struct:segdesc
+sd_p	include/mmu.h	/^    unsigned sd_p : 1;                \/\/ present$/;"	m	struct:segdesc
 sd_p	lab1_result/kern/mm/mmu.h	/^    unsigned sd_p : 1;                \/\/ present$/;"	m	struct:segdesc
+sd_rsv1	include/mmu.h	/^    unsigned sd_rsv1 : 1;            \/\/ reserved$/;"	m	struct:segdesc
 sd_rsv1	lab1_result/kern/mm/mmu.h	/^    unsigned sd_rsv1 : 1;            \/\/ reserved$/;"	m	struct:segdesc
+sd_s	include/mmu.h	/^    unsigned sd_s : 1;                \/\/ 0 = system, 1 = application$/;"	m	struct:segdesc
 sd_s	lab1_result/kern/mm/mmu.h	/^    unsigned sd_s : 1;                \/\/ 0 = system, 1 = application$/;"	m	struct:segdesc
+sd_type	include/mmu.h	/^    unsigned sd_type : 4;            \/\/ segment type (see STS_ constants)$/;"	m	struct:segdesc
 sd_type	lab1_result/kern/mm/mmu.h	/^    unsigned sd_type : 4;            \/\/ segment type (see STS_ constants)$/;"	m	struct:segdesc
 second	include/timer.h	/^int second = 0;$/;"	v
+segdesc	include/mmu.h	/^struct segdesc {$/;"	s
 segdesc	lab1_result/kern/mm/mmu.h	/^struct segdesc {$/;"	s
 sel	include/idt.h	/^    unsigned short sel;$/;"	m	struct:idt_entry
 sel	src/descriptor_tables.h	/^    u16int sel;                 \/\/ Kernel segment selector.$/;"	m	struct:idt_entry_struct
@@ -1325,6 +1420,7 @@ ss1	src/descriptor_tables.h	/^    u32int ss1;$/;"	m	struct:tss_entry_struct
 ss2	src/descriptor_tables.h	/^    u32int ss2;   $/;"	m	struct:tss_entry_struct
 stab	lab1_result/kern/debug/stab.h	/^struct stab {$/;"	s
 stab_binsearch	lab1_result/kern/debug/kdebug.c	/^stab_binsearch(const struct stab *stabs, int *region_left, int *region_right,$/;"	f	file:
+stack0	include/gdt.h	/^uint8_t stack0[1024];$/;"	v
 stack0	lab1_result/kern/mm/pmm.c	/^uint8_t stack0[1024];$/;"	v
 standard_lessthan_predicate	include/ordered_array.h	/^char standard_lessthan_predicate(void*  a, void*  b)$/;"	f
 standard_lessthan_predicate	src/ordered_array.c	/^s8int standard_lessthan_predicate(type_t a, type_t b)$/;"	f
@@ -1355,11 +1451,19 @@ strtol	lab1_result/libs/string.c	/^strtol(const char *s, char **endptr, int base
 stublet	start.asm	/^stublet:$/;"	l
 supervisor	include/system.h	/^    unsigned char supervisor;     \/\/ Should extra pages requested by us be mapped as supervisor-only?$/;"	m	struct:__anon11
 supervisor	src/kheap.h	/^    u8int supervisor;     \/\/ Should extra pages requested by us be mapped as supervisor-only?$/;"	m	struct:__anon6
+switch_install	include/isrs.h	/^void switch_install()$/;"	f
 switch_page_directory	include/paging.h	/^void switch_page_directory(page_directory_t *dir)$/;"	f
 switch_page_directory	src/paging.c	/^void switch_page_directory(page_directory_t *dir)$/;"	f
 switch_task	src/task.c	/^void switch_task()$/;"	f
+switch_test	include/isrs.h	/^void switch_test()$/;"	f
+switch_to_kernel	include/isrs.h	/^void switch_to_kernel(void) {$/;"	f
+switch_to_user	include/isrs.h	/^void switch_to_user(void) {$/;"	f
 switch_to_user_mode	src/task.c	/^void switch_to_user_mode()$/;"	f
+switch_tok_handler	include/isrs.h	/^void switch_tok_handler(struct regs *r)$/;"	f
+switch_tou_handler	include/isrs.h	/^void switch_tou_handler(struct regs *r)$/;"	f
+switchk2u	include/trap.c	/^struct trapframe switchk2u, *switchu2k;$/;"	v	typeref:struct:trapframe
 switchk2u	lab1_result/kern/trap/trap.c	/^struct trapframe switchk2u, *switchu2k;$/;"	v	typeref:struct:trapframe
+switchu2k	include/trap.c	/^struct trapframe switchk2u, *switchu2k;$/;"	v	typeref:struct:
 switchu2k	lab1_result/kern/trap/trap.c	/^struct trapframe switchk2u, *switchu2k;$/;"	v	typeref:struct:
 symfile	lab1_result/Makefile	/^symfile = $(call cgtype,$(call toobj,$(1)),o,sym)$/;"	m
 syscall_handler	src/syscall.c	/^void syscall_handler(registers_t *regs)$/;"	f
@@ -1371,6 +1475,7 @@ tablesPhysical	src/paging.h	/^    u32int tablesPhysical[1024];$/;"	m	struct:page
 tabsize	include/multiboot.h	/^	unsigned long tabsize;  $/;"	m	struct:aout_symbol_table
 task	src/task.h	/^typedef struct task$/;"	s
 task_t	src/task.h	/^} task_t;$/;"	t	typeref:struct:task
+taskstate	include/mmu.h	/^struct taskstate {$/;"	s
 taskstate	lab1_result/kern/mm/mmu.h	/^struct taskstate {$/;"	s
 test_frame	include/paging.h	/^static unsigned int test_frame(unsigned int frame_addr)$/;"	f
 test_frame	src/paging.c	/^static u32int test_frame(u32int frame_addr)$/;"	f	file:
@@ -1402,54 +1507,97 @@ timer_phase	include/timer.h	/^void timer_phase(int hz)$/;"	f
 timer_test	include/timer.h	/^void timer_test(int count)$/;"	f
 timer_ticks	include/timer.h	/^int timer_ticks = 0;$/;"	v
 timer_wait	include/timer.h	/^void timer_wait(int ticks)$/;"	f
+to_struct	include/type.h	68;"	d
 to_struct	lab1_result/libs/defs.h	64;"	d
 todep	lab1_result/tools/function.mk	/^todep = $(patsubst %.o,%.d,$(call toobj,$(1),$(2)))$/;"	m
 togglecode	lab1_result/kern/driver/console.c	/^static uint8_t togglecode[256] = {$/;"	v	file:
 toobj	lab1_result/tools/function.mk	/^toobj = $(addprefix $(OBJDIR)$(SLASH)$(if $(2),$(2)$(SLASH)),\\$/;"	m
 totarget	lab1_result/tools/function.mk	/^totarget = $(addprefix $(BINDIR)$(SLASH),$(1))$/;"	m
+trap	include/trap.c	/^trap(struct trapframe *tf) {$/;"	f
 trap	lab1_result/kern/trap/trap.c	/^trap(struct trapframe *tf) {$/;"	f
 trap	src/descriptor_tables.h	/^    u16int trap;$/;"	m	struct:tss_entry_struct
+trap_dispatch	include/trap.c	/^trap_dispatch(struct trapframe *tf) {$/;"	f	file:
 trap_dispatch	lab1_result/kern/trap/trap.c	/^trap_dispatch(struct trapframe *tf) {$/;"	f	file:
+trap_in_kernel	include/trap.c	/^trap_in_kernel(struct trapframe *tf) {$/;"	f
 trap_in_kernel	lab1_result/kern/trap/trap.c	/^trap_in_kernel(struct trapframe *tf) {$/;"	f
 trapframe	lab1_result/kern/trap/trap.h	/^struct trapframe {$/;"	s
+trapname	include/trap.c	/^trapname(int trapno) {$/;"	f	file:
 trapname	lab1_result/kern/trap/trap.c	/^trapname(int trapno) {$/;"	f	file:
+ts	include/gdt.h	/^static struct taskstate ts = {0};$/;"	v	typeref:struct:taskstate
 ts	lab1_result/kern/mm/pmm.c	/^static struct taskstate ts = {0};$/;"	v	typeref:struct:taskstate	file:
+ts_cr3	include/mmu.h	/^    uintptr_t ts_cr3;        \/\/ page directory base$/;"	m	struct:taskstate
 ts_cr3	lab1_result/kern/mm/mmu.h	/^    uintptr_t ts_cr3;        \/\/ page directory base$/;"	m	struct:taskstate
+ts_cs	include/mmu.h	/^    uint16_t ts_cs;$/;"	m	struct:taskstate
 ts_cs	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_cs;$/;"	m	struct:taskstate
+ts_ds	include/mmu.h	/^    uint16_t ts_ds;$/;"	m	struct:taskstate
 ts_ds	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_ds;$/;"	m	struct:taskstate
+ts_eax	include/mmu.h	/^    uint32_t ts_eax;        \/\/ more saved state (registers)$/;"	m	struct:taskstate
 ts_eax	lab1_result/kern/mm/mmu.h	/^    uint32_t ts_eax;        \/\/ more saved state (registers)$/;"	m	struct:taskstate
+ts_ebp	include/mmu.h	/^    uintptr_t ts_ebp;$/;"	m	struct:taskstate
 ts_ebp	lab1_result/kern/mm/mmu.h	/^    uintptr_t ts_ebp;$/;"	m	struct:taskstate
+ts_ebx	include/mmu.h	/^    uint32_t ts_ebx;$/;"	m	struct:taskstate
 ts_ebx	lab1_result/kern/mm/mmu.h	/^    uint32_t ts_ebx;$/;"	m	struct:taskstate
+ts_ecx	include/mmu.h	/^    uint32_t ts_ecx;$/;"	m	struct:taskstate
 ts_ecx	lab1_result/kern/mm/mmu.h	/^    uint32_t ts_ecx;$/;"	m	struct:taskstate
+ts_edi	include/mmu.h	/^    uint32_t ts_edi;$/;"	m	struct:taskstate
 ts_edi	lab1_result/kern/mm/mmu.h	/^    uint32_t ts_edi;$/;"	m	struct:taskstate
+ts_edx	include/mmu.h	/^    uint32_t ts_edx;$/;"	m	struct:taskstate
 ts_edx	lab1_result/kern/mm/mmu.h	/^    uint32_t ts_edx;$/;"	m	struct:taskstate
+ts_eflags	include/mmu.h	/^    uint32_t ts_eflags;$/;"	m	struct:taskstate
 ts_eflags	lab1_result/kern/mm/mmu.h	/^    uint32_t ts_eflags;$/;"	m	struct:taskstate
+ts_eip	include/mmu.h	/^    uintptr_t ts_eip;        \/\/ saved state from last task switch$/;"	m	struct:taskstate
 ts_eip	lab1_result/kern/mm/mmu.h	/^    uintptr_t ts_eip;        \/\/ saved state from last task switch$/;"	m	struct:taskstate
+ts_es	include/mmu.h	/^    uint16_t ts_es;            \/\/ even more saved state (segment selectors)$/;"	m	struct:taskstate
 ts_es	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_es;            \/\/ even more saved state (segment selectors)$/;"	m	struct:taskstate
+ts_esi	include/mmu.h	/^    uint32_t ts_esi;$/;"	m	struct:taskstate
 ts_esi	lab1_result/kern/mm/mmu.h	/^    uint32_t ts_esi;$/;"	m	struct:taskstate
+ts_esp	include/mmu.h	/^    uintptr_t ts_esp;$/;"	m	struct:taskstate
 ts_esp	lab1_result/kern/mm/mmu.h	/^    uintptr_t ts_esp;$/;"	m	struct:taskstate
+ts_esp0	include/mmu.h	/^    uintptr_t ts_esp0;        \/\/ stack pointers and segment selectors$/;"	m	struct:taskstate
 ts_esp0	lab1_result/kern/mm/mmu.h	/^    uintptr_t ts_esp0;        \/\/ stack pointers and segment selectors$/;"	m	struct:taskstate
+ts_esp1	include/mmu.h	/^    uintptr_t ts_esp1;$/;"	m	struct:taskstate
 ts_esp1	lab1_result/kern/mm/mmu.h	/^    uintptr_t ts_esp1;$/;"	m	struct:taskstate
+ts_esp2	include/mmu.h	/^    uintptr_t ts_esp2;$/;"	m	struct:taskstate
 ts_esp2	lab1_result/kern/mm/mmu.h	/^    uintptr_t ts_esp2;$/;"	m	struct:taskstate
+ts_fs	include/mmu.h	/^    uint16_t ts_fs;$/;"	m	struct:taskstate
 ts_fs	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_fs;$/;"	m	struct:taskstate
+ts_gs	include/mmu.h	/^    uint16_t ts_gs;$/;"	m	struct:taskstate
 ts_gs	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_gs;$/;"	m	struct:taskstate
+ts_iomb	include/mmu.h	/^    uint16_t ts_iomb;        \/\/ i\/o map base address$/;"	m	struct:taskstate
 ts_iomb	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_iomb;        \/\/ i\/o map base address$/;"	m	struct:taskstate
+ts_ldt	include/mmu.h	/^    uint16_t ts_ldt;$/;"	m	struct:taskstate
 ts_ldt	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_ldt;$/;"	m	struct:taskstate
+ts_link	include/mmu.h	/^    uint32_t ts_link;        \/\/ old ts selector$/;"	m	struct:taskstate
 ts_link	lab1_result/kern/mm/mmu.h	/^    uint32_t ts_link;        \/\/ old ts selector$/;"	m	struct:taskstate
+ts_padding1	include/mmu.h	/^    uint16_t ts_padding1;$/;"	m	struct:taskstate
 ts_padding1	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding1;$/;"	m	struct:taskstate
+ts_padding10	include/mmu.h	/^    uint16_t ts_padding10;$/;"	m	struct:taskstate
 ts_padding10	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding10;$/;"	m	struct:taskstate
+ts_padding2	include/mmu.h	/^    uint16_t ts_padding2;$/;"	m	struct:taskstate
 ts_padding2	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding2;$/;"	m	struct:taskstate
+ts_padding3	include/mmu.h	/^    uint16_t ts_padding3;$/;"	m	struct:taskstate
 ts_padding3	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding3;$/;"	m	struct:taskstate
+ts_padding4	include/mmu.h	/^    uint16_t ts_padding4;$/;"	m	struct:taskstate
 ts_padding4	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding4;$/;"	m	struct:taskstate
+ts_padding5	include/mmu.h	/^    uint16_t ts_padding5;$/;"	m	struct:taskstate
 ts_padding5	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding5;$/;"	m	struct:taskstate
+ts_padding6	include/mmu.h	/^    uint16_t ts_padding6;$/;"	m	struct:taskstate
 ts_padding6	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding6;$/;"	m	struct:taskstate
+ts_padding7	include/mmu.h	/^    uint16_t ts_padding7;$/;"	m	struct:taskstate
 ts_padding7	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding7;$/;"	m	struct:taskstate
+ts_padding8	include/mmu.h	/^    uint16_t ts_padding8;$/;"	m	struct:taskstate
 ts_padding8	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding8;$/;"	m	struct:taskstate
+ts_padding9	include/mmu.h	/^    uint16_t ts_padding9;$/;"	m	struct:taskstate
 ts_padding9	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding9;$/;"	m	struct:taskstate
+ts_ss	include/mmu.h	/^    uint16_t ts_ss;$/;"	m	struct:taskstate
 ts_ss	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_ss;$/;"	m	struct:taskstate
+ts_ss0	include/mmu.h	/^    uint16_t ts_ss0;        \/\/ after an increase in privilege level$/;"	m	struct:taskstate
 ts_ss0	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_ss0;        \/\/ after an increase in privilege level$/;"	m	struct:taskstate
+ts_ss1	include/mmu.h	/^    uint16_t ts_ss1;$/;"	m	struct:taskstate
 ts_ss1	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_ss1;$/;"	m	struct:taskstate
+ts_ss2	include/mmu.h	/^    uint16_t ts_ss2;$/;"	m	struct:taskstate
 ts_ss2	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_ss2;$/;"	m	struct:taskstate
+ts_t	include/mmu.h	/^    uint16_t ts_t;            \/\/ trap on task switch$/;"	m	struct:taskstate
 ts_t	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_t;            \/\/ trap on task switch$/;"	m	struct:taskstate
 tss_entry	src/descriptor_tables.c	/^tss_entry_t tss_entry;$/;"	v
 tss_entry_struct	src/descriptor_tables.h	/^struct tss_entry_struct$/;"	s
@@ -1464,10 +1612,15 @@ u32int	src/common.h	/^typedef unsigned int   u32int;$/;"	t
 u8	include/type.h	/^typedef	unsigned char		u8;$/;"	t
 u8int	src/common.h	/^typedef unsigned char  u8int;$/;"	t
 uid	src/fs.h	/^    u32int uid;         \/\/ The owning user.$/;"	m	struct:fs_node
+uint16_t	include/type.h	/^typedef unsigned short uint16_t;$/;"	t
 uint16_t	lab1_result/libs/defs.h	/^typedef unsigned short uint16_t;$/;"	t
+uint32_t	include/type.h	/^typedef unsigned int uint32_t;$/;"	t
 uint32_t	lab1_result/libs/defs.h	/^typedef unsigned int uint32_t;$/;"	t
+uint64_t	include/type.h	/^typedef unsigned long long uint64_t;$/;"	t
 uint64_t	lab1_result/libs/defs.h	/^typedef unsigned long long uint64_t;$/;"	t
+uint8_t	include/type.h	/^typedef unsigned char uint8_t;$/;"	t
 uint8_t	lab1_result/libs/defs.h	/^typedef unsigned char uint8_t;$/;"	t
+uintptr_t	include/type.h	/^typedef uint32_t uintptr_t;$/;"	t
 uintptr_t	lab1_result/libs/defs.h	/^typedef uint32_t uintptr_t;$/;"	t
 unused	include/system.h	/^    unsigned int unused     : 7;   \/\/ Amalgamation of unused and reserved bits$/;"	m	struct:page
 unused	src/paging.h	/^    u32int unused     : 7;   \/\/ Amalgamation of unused and reserved bits$/;"	m	struct:page

@@ -60,7 +60,7 @@ gdt_flush:
     mov ds, ax
     mov es, ax
     mov ss, ax
-    mov ax, 0x20
+    mov ax, 0x23
     mov fs, ax
     mov gs, ax
     jmp 0x08:flush2
@@ -352,6 +352,7 @@ isr_common_stub:
     mov eax, isr_handler
     call eax
     pop eax
+    mov esp,eax ;add. switch test
     pop gs
     pop fs
     pop es
