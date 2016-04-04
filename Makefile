@@ -1,25 +1,29 @@
 # Programs, flags
 ASM		= nasm
-DASM 		= ndisasm
 CC		= gcc
 LD 		= ld
 
-ASMKFLAGS	= -I include/ -f elf
-CFLAGS		= -I include/ -fno-stack-protector -fno-builtin -m32 -c 
-LDFLAGS		= -m elf_i386 -T link.ld
+ASMKFLAGS	= -I kernel/include/ -f elf
+CFLAGS		= -I kernel/include/ -fno-stack-protector -fno-builtin -m32 -c 
+LDFLAGS		= -m elf_i386 -T tools/kernel.ld
 
 # This Program
-IMG		= os.img
-KERNEL 		= kernel.bin
-OBJS		= main.o start.o func.o
+IMG		= tools/os.img
+KERNEL 		= tools/kernel.bin
+C_SOURCES = $(shell find . -name "*.c")
+C_OBJECTS = $(patsubst %.c, %.o, $(C_SOURCES))
+S_SOURCES = $(shell find . -name "*.s")
+S_OBJECTS = $(patsubst %.s, %.o, $(S_SOURCES))
 
 run : everything
 	make clean
 	qemu-system-i386 -kernel $(KERNEL)
+	make clean
 
 debug : everything img
 	make clean
-	bochs -f os.bxrc
+	bochs -f tools/os.bxrc
+	make clean
 
 # All Phony Targets
 .PHONY : everything all final clean realclean image buildimg
@@ -29,27 +33,28 @@ everything : $(KERNEL) $(IMG)
 all : realclean everything
 
 clean : 
-	rm -f $(OBJS)
+	rm -f $(C_OBJECTS) $(S_OBJECTS)
 
 realclean : 
-	rm -f $(OBJS) $(KERNEL)
+	rm -f $(C_OBJECTS) $(S_OBJECTS) $(KERNEL)
 
 img:
-	sudo kpartx -av ./os.img
+	sudo kpartx -av ./tools/os.img
 	sudo mount -text2 /dev/mapper/loop0p1 /mnt
-	sudo cp ./kernel.bin /mnt/
+	sudo cp ./tools/kernel.bin /mnt/
 	sudo umount /mnt
-	sudo kpartx -dv ./os.img
+	sudo kpartx -dv ./tools/os.img
 
-$(KERNEL) : $(OBJS)
-	$(LD) $(LDFLAGS) -o $(KERNEL) $(OBJS)
-
-start.o : start.asm
+.s.o:
+	@echo 编译汇编文件 $< ...
 	$(ASM) $(ASMKFLAGS) $< -o $@ 
-
-main.o : main.c include/type.h include/multiboot.h include/gdt.h include/idt.h include/scrn.h include/isrs.h include/irq.h include/timer.h include/kb.h include/common.h include/ordered_array.h include/paging.h include/kheap.h
+.c.o:
+	@echo 编译代码文件 $< ...
 	$(CC) $(CFLAGS)  $< -o $@
 
-func.o : include/func.inc
-	$(ASM) $(ASMKFLAGS) $< -o $@
+
+$(KERNEL) : $(C_OBJECTS) $(S_OBJECTS)
+	@echo 链接内核文件...
+	$(LD) $(LDFLAGS) $(C_OBJECTS) $(S_OBJECTS) -o $(KERNEL)
+
 

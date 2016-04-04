@@ -4,1906 +4,477 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-.DEFAULT_GOAL	lab1_result/Makefile	/^.DEFAULT_GOAL := TARGETS$/;"	m
-ALLDEPS	lab1_result/Makefile	/^ALLDEPS	:=$/;"	m
-ALLOBJS	lab1_result/Makefile	/^ALLOBJS	:=$/;"	m
-ALT	lab1_result/kern/driver/console.c	258;"	d	file:
-ASFLAGS	src/Makefile	/^ASFLAGS=-felf$/;"	m
 ASM	Makefile	/^ASM		= nasm$/;"	m
-ASMKFLAGS	Makefile	/^ASMKFLAGS	= -I include\/ -f elf$/;"	m
-ASSERT	include/common.h	103;"	d
-ASSERT	src/common.h	21;"	d
-AWK	lab1_result/Makefile	/^AWK		:= awk$/;"	m
-BINDIR	lab1_result/Makefile	/^BINDIR	:= bin$/;"	m
-BS_OCMD	lab1_result/kern/driver/kbdreg.h	23;"	d
-BUFSIZE	lab1_result/kern/libs/readline.c	3;"	d	file:
-BYTES_FOR_EACH_ELEMENT	include/scrn.h	7;"	d
-C	lab1_result/kern/driver/console.c	321;"	d	file:
-CAPSLOCK	lab1_result/kern/driver/console.c	260;"	d	file:
+ASMKFLAGS	Makefile	/^ASMKFLAGS	= -I kernel\/include\/ -f elf$/;"	m
+ASSERT	kernel/include/debug.h	5;"	d
+BYTES_FOR_EACH_ELEMENT	kernel/include/scrn.h	6;"	d
 CC	Makefile	/^CC		= gcc$/;"	m
-CC	lab1_result/Makefile	/^CC		:= $(GCCPREFIX)gcc$/;"	m
-CFLAGS	Makefile	/^CFLAGS		= -I include\/ -fno-stack-protector -fno-builtin -m32 -c $/;"	m
-CFLAGS	lab1_result/Makefile	/^CFLAGS	:= -fno-builtin -Wall -ggdb -m32 -gstabs -nostdinc $(DEFS)$/;"	m
-CFLAGS	src/Makefile	/^CFLAGS=-nostdlib -nostdinc -fno-builtin$/;"	m
-CGA_BASE	lab1_result/kern/driver/console.c	43;"	d	file:
-CGA_BUF	lab1_result/kern/driver/console.c	44;"	d	file:
-CHECK_FLAG	include/multiboot.h	40;"	d
-CMDBYTE	lab1_result/kern/driver/kbdreg.h	60;"	d
-COLUMNS	include/scrn.h	6;"	d
-COM1	lab1_result/kern/driver/console.c	19;"	d	file:
-COMMON_H	src/common.h	5;"	d
-COM_DLL	lab1_result/kern/driver/console.c	23;"	d	file:
-COM_DLM	lab1_result/kern/driver/console.c	24;"	d	file:
-COM_FCR	lab1_result/kern/driver/console.c	28;"	d	file:
-COM_IER	lab1_result/kern/driver/console.c	25;"	d	file:
-COM_IER_RDI	lab1_result/kern/driver/console.c	26;"	d	file:
-COM_IIR	lab1_result/kern/driver/console.c	27;"	d	file:
-COM_LCR	lab1_result/kern/driver/console.c	29;"	d	file:
-COM_LCR_DLAB	lab1_result/kern/driver/console.c	30;"	d	file:
-COM_LCR_WLEN8	lab1_result/kern/driver/console.c	31;"	d	file:
-COM_LSR	lab1_result/kern/driver/console.c	36;"	d	file:
-COM_LSR_DATA	lab1_result/kern/driver/console.c	37;"	d	file:
-COM_LSR_TSRE	lab1_result/kern/driver/console.c	39;"	d	file:
-COM_LSR_TXRDY	lab1_result/kern/driver/console.c	38;"	d	file:
-COM_MCR	lab1_result/kern/driver/console.c	32;"	d	file:
-COM_MCR_DTR	lab1_result/kern/driver/console.c	34;"	d	file:
-COM_MCR_OUT2	lab1_result/kern/driver/console.c	35;"	d	file:
-COM_MCR_RTS	lab1_result/kern/driver/console.c	33;"	d	file:
-COM_RX	lab1_result/kern/driver/console.c	21;"	d	file:
-COM_TX	lab1_result/kern/driver/console.c	22;"	d	file:
-CONSBUFSIZE	lab1_result/kern/driver/console.c	206;"	d	file:
-COPY	lab1_result/Makefile	/^COPY	:= cp$/;"	m
-CRT_COLS	lab1_result/kern/driver/console.c	46;"	d	file:
-CRT_ROWS	lab1_result/kern/driver/console.c	45;"	d	file:
-CRT_SIZE	lab1_result/kern/driver/console.c	47;"	d	file:
-CTL	lab1_result/kern/driver/console.c	257;"	d	file:
-CTYPE	lab1_result/Makefile	/^CTYPE	:= c S$/;"	m
-CleanScreen	include/scrn.h	/^void CleanScreen()$/;"	f
-DASM	Makefile	/^DASM 		= ndisasm$/;"	m
-DECL_SYSCALL0	src/syscall.h	11;"	d
-DECL_SYSCALL1	src/syscall.h	12;"	d
-DECL_SYSCALL2	src/syscall.h	13;"	d
-DECL_SYSCALL3	src/syscall.h	14;"	d
-DECL_SYSCALL4	src/syscall.h	15;"	d
-DECL_SYSCALL5	src/syscall.h	16;"	d
-DEFN_SYSCALL0	src/syscall.h	18;"	d
-DEFN_SYSCALL1	src/syscall.h	26;"	d
-DEFN_SYSCALL2	src/syscall.h	34;"	d
-DEFN_SYSCALL3	src/syscall.h	42;"	d
-DEFN_SYSCALL4	src/syscall.h	50;"	d
-DEFN_SYSCALL5	src/syscall.h	58;"	d
-DESCRIPTOR_TABLES_H	src/descriptor_tables.h	9;"	d
-DPL_KERNEL	lab1_result/kern/mm/memlayout.h	20;"	d
-DPL_USER	lab1_result/kern/mm/memlayout.h	21;"	d
-E0ESC	lab1_result/kern/driver/console.c	264;"	d	file:
-ELFHDR	lab1_result/boot/bootmain.c	/^struct elfhdr * ELFHDR    =      ((struct elfhdr *)0x10000) ;     \/\/ scratch space$/;"	v	typeref:struct:elfhdr
-ELF_MAGIC	lab1_result/libs/elf.h	6;"	d
-EMPTY	lab1_result/Makefile	/^EMPTY	:=$/;"	m
-E_BAD_PROC	lab1_result/libs/error.h	6;"	d
-E_FAULT	lab1_result/libs/error.h	10;"	d
-E_INVAL	lab1_result/libs/error.h	7;"	d
-E_NO_FREE_PROC	lab1_result/libs/error.h	9;"	d
-E_NO_MEM	lab1_result/libs/error.h	8;"	d
-E_UNSPECIFIED	lab1_result/libs/error.h	5;"	d
-FL_AC	include/mmu.h	22;"	d
-FL_AC	lab1_result/kern/mm/mmu.h	22;"	d
-FL_AF	include/mmu.h	7;"	d
-FL_AF	lab1_result/kern/mm/mmu.h	7;"	d
-FL_CF	include/mmu.h	5;"	d
-FL_CF	lab1_result/kern/mm/mmu.h	5;"	d
-FL_DF	include/mmu.h	12;"	d
-FL_DF	lab1_result/kern/mm/mmu.h	12;"	d
-FL_ID	include/mmu.h	25;"	d
-FL_ID	lab1_result/kern/mm/mmu.h	25;"	d
-FL_IF	include/mmu.h	11;"	d
-FL_IF	lab1_result/kern/mm/mmu.h	11;"	d
-FL_IOPL_0	include/mmu.h	15;"	d
-FL_IOPL_0	lab1_result/kern/mm/mmu.h	15;"	d
-FL_IOPL_1	include/mmu.h	16;"	d
-FL_IOPL_1	lab1_result/kern/mm/mmu.h	16;"	d
-FL_IOPL_2	include/mmu.h	17;"	d
-FL_IOPL_2	lab1_result/kern/mm/mmu.h	17;"	d
-FL_IOPL_3	include/mmu.h	18;"	d
-FL_IOPL_3	lab1_result/kern/mm/mmu.h	18;"	d
-FL_IOPL_MASK	include/mmu.h	14;"	d
-FL_IOPL_MASK	lab1_result/kern/mm/mmu.h	14;"	d
-FL_NT	include/mmu.h	19;"	d
-FL_NT	lab1_result/kern/mm/mmu.h	19;"	d
-FL_OF	include/mmu.h	13;"	d
-FL_OF	lab1_result/kern/mm/mmu.h	13;"	d
-FL_PF	include/mmu.h	6;"	d
-FL_PF	lab1_result/kern/mm/mmu.h	6;"	d
-FL_RF	include/mmu.h	20;"	d
-FL_RF	lab1_result/kern/mm/mmu.h	20;"	d
-FL_SF	include/mmu.h	9;"	d
-FL_SF	lab1_result/kern/mm/mmu.h	9;"	d
-FL_TF	include/mmu.h	10;"	d
-FL_TF	lab1_result/kern/mm/mmu.h	10;"	d
-FL_VIF	include/mmu.h	23;"	d
-FL_VIF	lab1_result/kern/mm/mmu.h	23;"	d
-FL_VIP	include/mmu.h	24;"	d
-FL_VIP	lab1_result/kern/mm/mmu.h	24;"	d
-FL_VM	include/mmu.h	21;"	d
-FL_VM	lab1_result/kern/mm/mmu.h	21;"	d
-FL_ZF	include/mmu.h	8;"	d
-FL_ZF	lab1_result/kern/mm/mmu.h	8;"	d
-FS_BLOCKDEVICE	src/fs.h	12;"	d
-FS_CHARDEVICE	src/fs.h	11;"	d
-FS_DIRECTORY	src/fs.h	10;"	d
-FS_FILE	src/fs.h	9;"	d
-FS_H	src/fs.h	5;"	d
-FS_MOUNTPOINT	src/fs.h	15;"	d
-FS_PIPE	src/fs.h	13;"	d
-FS_SYMLINK	src/fs.h	14;"	d
-GCCPREFIX	lab1_result/Makefile	/^GCCPREFIX := $(shell if i386-elf-objdump -i 2>&1 | grep '^elf32-i386$$' >\/dev\/null 2>&1; \\$/;"	m
-GD_KDATA	lab1_result/kern/mm/memlayout.h	15;"	d
-GD_KTEXT	lab1_result/kern/mm/memlayout.h	14;"	d
-GD_TSS	lab1_result/kern/mm/memlayout.h	18;"	d
-GD_UDATA	lab1_result/kern/mm/memlayout.h	17;"	d
-GD_UTEXT	lab1_result/kern/mm/memlayout.h	16;"	d
-GRADE_GDB_IN	lab1_result/Makefile	/^GRADE_GDB_IN	:= .gdb.in$/;"	m
-GRADE_QEMU_OUT	lab1_result/Makefile	/^GRADE_QEMU_OUT	:= .qemu.out$/;"	m
-HANDIN	lab1_result/Makefile	/^HANDIN			:= proj$(PROJ)-handin.tar.gz$/;"	m
-HEAP_INDEX_SIZE	include/system.h	78;"	d
-HEAP_INDEX_SIZE	src/kheap.h	15;"	d
-HEAP_MAGIC	include/system.h	79;"	d
-HEAP_MAGIC	src/kheap.h	16;"	d
-HEAP_MIN_SIZE	include/system.h	80;"	d
-HEAP_MIN_SIZE	src/kheap.h	17;"	d
-HOSTCC	lab1_result/Makefile	/^HOSTCC		:= gcc$/;"	m
-HOSTCFLAGS	lab1_result/Makefile	/^HOSTCFLAGS	:= -g -Wall -O2$/;"	m
-IA32flags	include/trap.c	/^static const char *IA32flags[] = {$/;"	v	file:
-IA32flags	lab1_result/kern/trap/trap.c	/^static const char *IA32flags[] = {$/;"	v	file:
-IGNORE_ALLDEPS	lab1_result/Makefile	/^IGNORE_ALLDEPS	= clean \\$/;"	m
-IMG	Makefile	/^IMG		= os.img$/;"	m
-INDEX	include/scrn.h	/^static int INDEX = 0;$/;"	v
-INDEX_FROM_BIT	include/paging.h	15;"	d
-INDEX_FROM_BIT	src/paging.c	22;"	d	file:
-INITRD_H	src/initrd.h	5;"	d
-IO_PIC1	lab1_result/kern/driver/picirq.c	6;"	d	file:
-IO_PIC2	lab1_result/kern/driver/picirq.c	7;"	d	file:
-IO_TIMER1	lab1_result/kern/driver/clock.c	11;"	d	file:
-IRQ	src/interrupt.s	/^IRQ   0,    32$/;"	l
-IRQ	src/interrupt.s	/^IRQ   1,    33$/;"	l
-IRQ	src/interrupt.s	/^IRQ   2,    34$/;"	l
-IRQ	src/interrupt.s	/^IRQ   3,    35$/;"	l
-IRQ	src/interrupt.s	/^IRQ   4,    36$/;"	l
-IRQ	src/interrupt.s	/^IRQ   5,    37$/;"	l
-IRQ	src/interrupt.s	/^IRQ   6,    38$/;"	l
-IRQ	src/interrupt.s	/^IRQ   7,    39$/;"	l
-IRQ	src/interrupt.s	/^IRQ   8,    40$/;"	l
-IRQ	src/interrupt.s	/^IRQ   9,    41$/;"	l
-IRQ	src/interrupt.s	/^IRQ  10,    42$/;"	l
-IRQ	src/interrupt.s	/^IRQ  11,    43$/;"	l
-IRQ	src/interrupt.s	/^IRQ  12,    44$/;"	l
-IRQ	src/interrupt.s	/^IRQ  13,    45$/;"	l
-IRQ	src/interrupt.s	/^IRQ  14,    46$/;"	l
-IRQ	src/interrupt.s	/^IRQ  15,    47$/;"	l
-IRQ0	src/isr.h	10;"	d
-IRQ1	src/isr.h	11;"	d
-IRQ10	src/isr.h	20;"	d
-IRQ11	src/isr.h	21;"	d
-IRQ12	src/isr.h	22;"	d
-IRQ13	src/isr.h	23;"	d
-IRQ14	src/isr.h	24;"	d
-IRQ15	src/isr.h	25;"	d
-IRQ2	src/isr.h	12;"	d
-IRQ3	src/isr.h	13;"	d
-IRQ4	src/isr.h	14;"	d
-IRQ5	src/isr.h	15;"	d
-IRQ6	src/isr.h	16;"	d
-IRQ7	src/isr.h	17;"	d
-IRQ8	src/isr.h	18;"	d
-IRQ9	src/isr.h	19;"	d
-IRQ_COM1	lab1_result/kern/trap/trap.h	37;"	d
-IRQ_ERROR	lab1_result/kern/trap/trap.h	40;"	d
-IRQ_IDE1	lab1_result/kern/trap/trap.h	38;"	d
-IRQ_IDE2	lab1_result/kern/trap/trap.h	39;"	d
-IRQ_KBD	lab1_result/kern/trap/trap.h	36;"	d
-IRQ_OFFSET	lab1_result/kern/driver/picirq.h	7;"	d
-IRQ_OFFSET	lab1_result/kern/trap/trap.h	33;"	d
-IRQ_SLAVE	lab1_result/kern/driver/picirq.c	9;"	d	file:
-IRQ_SPURIOUS	lab1_result/kern/trap/trap.h	41;"	d
-IRQ_TIMER	lab1_result/kern/trap/trap.h	35;"	d
-ISR_ERRCODE	src/interrupt.s	/^ISR_ERRCODE   10$/;"	l
-ISR_ERRCODE	src/interrupt.s	/^ISR_ERRCODE   11$/;"	l
-ISR_ERRCODE	src/interrupt.s	/^ISR_ERRCODE   12$/;"	l
-ISR_ERRCODE	src/interrupt.s	/^ISR_ERRCODE   13$/;"	l
-ISR_ERRCODE	src/interrupt.s	/^ISR_ERRCODE   14$/;"	l
-ISR_ERRCODE	src/interrupt.s	/^ISR_ERRCODE   8$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 0$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 1$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 128$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 15$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 16$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 17$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 18$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 19$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 2$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 20$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 21$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 22$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 23$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 24$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 25$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 26$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 27$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 28$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 29$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 3$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 30$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 31$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 4$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 5$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 6$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 7$/;"	l
-ISR_NOERRCODE	src/interrupt.s	/^ISR_NOERRCODE 9$/;"	l
-KBCMDP	lab1_result/kern/driver/kbdreg.h	29;"	d
-KBC_AUXDISABLE	lab1_result/kern/driver/kbdreg.h	32;"	d
-KBC_AUXECHO	lab1_result/kern/driver/kbdreg.h	36;"	d
-KBC_AUXENABLE	lab1_result/kern/driver/kbdreg.h	33;"	d
-KBC_AUXTEST	lab1_result/kern/driver/kbdreg.h	34;"	d
-KBC_AUXWRITE	lab1_result/kern/driver/kbdreg.h	37;"	d
-KBC_DISABLE	lab1_result/kern/driver/kbdreg.h	66;"	d
-KBC_ECHO	lab1_result/kern/driver/kbdreg.h	71;"	d
-KBC_ENABLE	lab1_result/kern/driver/kbdreg.h	67;"	d
-KBC_KBDDISABLE	lab1_result/kern/driver/kbdreg.h	40;"	d
-KBC_KBDECHO	lab1_result/kern/driver/kbdreg.h	35;"	d
-KBC_KBDENABLE	lab1_result/kern/driver/kbdreg.h	41;"	d
-KBC_KBDTEST	lab1_result/kern/driver/kbdreg.h	39;"	d
-KBC_MODEIND	lab1_result/kern/driver/kbdreg.h	70;"	d
-KBC_PULSE0	lab1_result/kern/driver/kbdreg.h	42;"	d
-KBC_PULSE1	lab1_result/kern/driver/kbdreg.h	43;"	d
-KBC_PULSE2	lab1_result/kern/driver/kbdreg.h	44;"	d
-KBC_PULSE3	lab1_result/kern/driver/kbdreg.h	45;"	d
-KBC_RAMREAD	lab1_result/kern/driver/kbdreg.h	30;"	d
-KBC_RAMWRITE	lab1_result/kern/driver/kbdreg.h	31;"	d
-KBC_RESEND	lab1_result/kern/driver/kbdreg.h	64;"	d
-KBC_RESET	lab1_result/kern/driver/kbdreg.h	63;"	d
-KBC_SELFTEST	lab1_result/kern/driver/kbdreg.h	38;"	d
-KBC_SETDEFAULT	lab1_result/kern/driver/kbdreg.h	65;"	d
-KBC_SETTABLE	lab1_result/kern/driver/kbdreg.h	69;"	d
-KBC_TYPEMATIC	lab1_result/kern/driver/kbdreg.h	68;"	d
-KBDATAP	lab1_result/kern/driver/kbdreg.h	47;"	d
-KBOUTP	lab1_result/kern/driver/kbdreg.h	48;"	d
-KBR_ACK	lab1_result/kern/driver/kbdreg.h	76;"	d
-KBR_BREAK	lab1_result/kern/driver/kbdreg.h	79;"	d
-KBR_ECHO	lab1_result/kern/driver/kbdreg.h	81;"	d
-KBR_EXTENDED	lab1_result/kern/driver/kbdreg.h	74;"	d
-KBR_FAILURE	lab1_result/kern/driver/kbdreg.h	78;"	d
-KBR_OVERRUN	lab1_result/kern/driver/kbdreg.h	77;"	d
-KBR_RESEND	lab1_result/kern/driver/kbdreg.h	75;"	d
-KBR_RSTDONE	lab1_result/kern/driver/kbdreg.h	80;"	d
-KBSTATP	lab1_result/kern/driver/kbdreg.h	19;"	d
-KBS_DIB	lab1_result/kern/driver/kbdreg.h	20;"	d
-KBS_IBF	lab1_result/kern/driver/kbdreg.h	21;"	d
-KBS_NOSEC	lab1_result/kern/driver/kbdreg.h	24;"	d
-KBS_PERR	lab1_result/kern/driver/kbdreg.h	27;"	d
-KBS_RERR	lab1_result/kern/driver/kbdreg.h	26;"	d
-KBS_TERR	lab1_result/kern/driver/kbdreg.h	25;"	d
-KBS_WARM	lab1_result/kern/driver/kbdreg.h	22;"	d
-KC8_CPU	lab1_result/kern/driver/kbdreg.h	57;"	d
-KC8_IGNSEC	lab1_result/kern/driver/kbdreg.h	56;"	d
-KC8_KDISABLE	lab1_result/kern/driver/kbdreg.h	55;"	d
-KC8_KENABLE	lab1_result/kern/driver/kbdreg.h	59;"	d
-KC8_MDISABLE	lab1_result/kern/driver/kbdreg.h	54;"	d
-KC8_MENABLE	lab1_result/kern/driver/kbdreg.h	58;"	d
-KC8_TRANS	lab1_result/kern/driver/kbdreg.h	53;"	d
-KERNEL	Makefile	/^KERNEL 		= kernel.bin$/;"	m
-KERNEL_CS	lab1_result/kern/mm/memlayout.h	23;"	d
-KERNEL_DS	lab1_result/kern/mm/memlayout.h	24;"	d
-KERNEL_STACK_SIZE	src/task.h	12;"	d
-KEY_DEL	lab1_result/kern/driver/kbdreg.h	14;"	d
-KEY_DN	lab1_result/kern/driver/kbdreg.h	8;"	d
-KEY_END	lab1_result/kern/driver/kbdreg.h	6;"	d
-KEY_HOME	lab1_result/kern/driver/kbdreg.h	5;"	d
-KEY_INS	lab1_result/kern/driver/kbdreg.h	13;"	d
-KEY_LF	lab1_result/kern/driver/kbdreg.h	9;"	d
-KEY_PGDN	lab1_result/kern/driver/kbdreg.h	12;"	d
-KEY_PGUP	lab1_result/kern/driver/kbdreg.h	11;"	d
-KEY_RT	lab1_result/kern/driver/kbdreg.h	10;"	d
-KEY_UP	lab1_result/kern/driver/kbdreg.h	7;"	d
-KHEAP_H	src/kheap.h	7;"	d
-KHEAP_INITIAL_SIZE	include/system.h	76;"	d
-KHEAP_INITIAL_SIZE	src/kheap.h	13;"	d
-KHEAP_START	include/system.h	75;"	d
-KHEAP_START	src/kheap.h	12;"	d
-KOBJS	lab1_result/Makefile	/^KOBJS	= $(call read_packet,kernel libs)$/;"	m
-K_LDCMDBYTE	lab1_result/kern/driver/kbdreg.h	51;"	d
-K_RDCMDBYTE	lab1_result/kern/driver/kbdreg.h	50;"	d
+CFLAGS	Makefile	/^CFLAGS		= -I kernel\/include\/ -fno-stack-protector -fno-builtin -m32 -c $/;"	m
+COLUMNS	kernel/include/scrn.h	5;"	d
+C_OBJECTS	Makefile	/^C_OBJECTS = $(patsubst %.c, %.o, $(C_SOURCES))$/;"	m
+C_SOURCES	Makefile	/^C_SOURCES = $(shell find . -name "*.c")$/;"	m
+CleanScreen	kernel/driver/scrn.c	/^void CleanScreen()$/;"	f
+ELF32_ST_TYPE	kernel/include/elf.h	7;"	d
+FL_AC	kernel/include/mmu.h	22;"	d
+FL_AF	kernel/include/mmu.h	7;"	d
+FL_CF	kernel/include/mmu.h	5;"	d
+FL_DF	kernel/include/mmu.h	12;"	d
+FL_ID	kernel/include/mmu.h	25;"	d
+FL_IF	kernel/include/mmu.h	11;"	d
+FL_IOPL_0	kernel/include/mmu.h	15;"	d
+FL_IOPL_1	kernel/include/mmu.h	16;"	d
+FL_IOPL_2	kernel/include/mmu.h	17;"	d
+FL_IOPL_3	kernel/include/mmu.h	18;"	d
+FL_IOPL_MASK	kernel/include/mmu.h	14;"	d
+FL_NT	kernel/include/mmu.h	19;"	d
+FL_OF	kernel/include/mmu.h	13;"	d
+FL_PF	kernel/include/mmu.h	6;"	d
+FL_RF	kernel/include/mmu.h	20;"	d
+FL_SF	kernel/include/mmu.h	9;"	d
+FL_TF	kernel/include/mmu.h	10;"	d
+FL_VIF	kernel/include/mmu.h	23;"	d
+FL_VIP	kernel/include/mmu.h	24;"	d
+FL_VM	kernel/include/mmu.h	21;"	d
+FL_ZF	kernel/include/mmu.h	8;"	d
+IMG	Makefile	/^IMG		= tools\/os.img$/;"	m
+INDEX	kernel/driver/scrn.c	/^static int INDEX = 0;$/;"	v	file:
+KERNEL	Makefile	/^KERNEL 		= tools\/kernel.bin$/;"	m
 LD	Makefile	/^LD 		= ld$/;"	m
-LD	lab1_result/Makefile	/^LD      := $(GCCPREFIX)ld$/;"	m
-LDFLAGS	Makefile	/^LDFLAGS		= -m elf_i386 -T link.ld$/;"	m
-LDFLAGS	lab1_result/Makefile	/^LDFLAGS	:= -m $(shell $(LD) -V | grep elf_i386 2>\/dev\/null)$/;"	m
-LDFLAGS	src/Makefile	/^LDFLAGS=-Tlink.ld$/;"	m
-LINES	include/scrn.h	5;"	d
-LPTPORT	lab1_result/kern/driver/console.c	49;"	d	file:
-MAKEOPTS	lab1_result/Makefile	/^MAKEOPTS		:= --quiet --no-print-directory$/;"	m
-MAXARGS	lab1_result/kern/debug/kmonitor.c	29;"	d	file:
-MAXERROR	lab1_result/libs/error.h	13;"	d
-MKDIR	lab1_result/Makefile	/^MKDIR   := mkdir -p$/;"	m
-MONITOR_H	src/monitor.h	5;"	d
-MONO_BASE	lab1_result/kern/driver/console.c	41;"	d	file:
-MONO_BUF	lab1_result/kern/driver/console.c	42;"	d	file:
-MULTIBOOT_AOUT_KLUDGE	start.asm	/^    MULTIBOOT_AOUT_KLUDGE	equ 1<<16$/;"	d
-MULTIBOOT_CHECKSUM	start.asm	/^    MULTIBOOT_CHECKSUM	equ -(MULTIBOOT_HEADER_MAGIC + MULTIBOOT_HEADER_FLAGS)$/;"	d
-MULTIBOOT_FLAG_AOUT	src/multiboot.h	13;"	d
-MULTIBOOT_FLAG_APM	src/multiboot.h	18;"	d
-MULTIBOOT_FLAG_CMDLINE	src/multiboot.h	11;"	d
-MULTIBOOT_FLAG_CONFIG	src/multiboot.h	16;"	d
-MULTIBOOT_FLAG_DEVICE	src/multiboot.h	10;"	d
-MULTIBOOT_FLAG_ELF	src/multiboot.h	14;"	d
-MULTIBOOT_FLAG_LOADER	src/multiboot.h	17;"	d
-MULTIBOOT_FLAG_MEM	src/multiboot.h	9;"	d
-MULTIBOOT_FLAG_MMAP	src/multiboot.h	15;"	d
-MULTIBOOT_FLAG_MODS	src/multiboot.h	12;"	d
-MULTIBOOT_FLAG_VBE	src/multiboot.h	19;"	d
-MULTIBOOT_H	src/multiboot.h	5;"	d
-MULTIBOOT_HEADER_FLAGS	start.asm	/^    MULTIBOOT_HEADER_FLAGS	equ MULTIBOOT_PAGE_ALIGN | MULTIBOOT_MEMORY_INFO | MULTIBOOT_AOUT_KLUDGE$/;"	d
-MULTIBOOT_HEADER_MAGIC	start.asm	/^    MULTIBOOT_HEADER_MAGIC	equ 0x1BADB002$/;"	d
-MULTIBOOT_MEMORY_INFO	start.asm	/^    MULTIBOOT_MEMORY_INFO	equ 1<<1$/;"	d
-MULTIBOOT_PAGE_ALIGN	start.asm	/^    MULTIBOOT_PAGE_ALIGN	equ 1<<0$/;"	d
-MV	lab1_result/Makefile	/^MV		:= mv$/;"	m
-MyPutc	include/scrn.h	/^void MyPutc(char c)$/;"	f
-MyPuts	include/scrn.h	/^void MyPuts(char *str)$/;"	f
-NCOMMANDS	lab1_result/kern/debug/kmonitor.c	25;"	d	file:
-NO	lab1_result/kern/driver/console.c	254;"	d	file:
-NULL	include/type.h	12;"	d
-NULL	lab1_result/libs/defs.h	5;"	d
-NUMLOCK	lab1_result/kern/driver/console.c	261;"	d	file:
-N_BCOMM	lab1_result/kern/debug/stab.h	39;"	d
-N_BINCL	lab1_result/kern/debug/stab.h	31;"	d
-N_BSLINE	lab1_result/kern/debug/stab.h	27;"	d
-N_DSLINE	lab1_result/kern/debug/stab.h	26;"	d
-N_ECOML	lab1_result/kern/debug/stab.h	41;"	d
-N_ECOMM	lab1_result/kern/debug/stab.h	40;"	d
-N_EINCL	lab1_result/kern/debug/stab.h	34;"	d
-N_ENTRY	lab1_result/kern/debug/stab.h	35;"	d
-N_EXCL	lab1_result/kern/debug/stab.h	37;"	d
-N_FNAME	lab1_result/kern/debug/stab.h	18;"	d
-N_FUN	lab1_result/kern/debug/stab.h	19;"	d
-N_GSYM	lab1_result/kern/debug/stab.h	17;"	d
-N_LBRAC	lab1_result/kern/debug/stab.h	36;"	d
-N_LCSYM	lab1_result/kern/debug/stab.h	21;"	d
-N_LENG	lab1_result/kern/debug/stab.h	42;"	d
-N_LSYM	lab1_result/kern/debug/stab.h	30;"	d
-N_MAIN	lab1_result/kern/debug/stab.h	22;"	d
-N_PC	lab1_result/kern/debug/stab.h	23;"	d
-N_PSYM	lab1_result/kern/debug/stab.h	33;"	d
-N_RBRAC	lab1_result/kern/debug/stab.h	38;"	d
-N_RSYM	lab1_result/kern/debug/stab.h	24;"	d
-N_SLINE	lab1_result/kern/debug/stab.h	25;"	d
-N_SO	lab1_result/kern/debug/stab.h	29;"	d
-N_SOL	lab1_result/kern/debug/stab.h	32;"	d
-N_SSYM	lab1_result/kern/debug/stab.h	28;"	d
-N_STSYM	lab1_result/kern/debug/stab.h	20;"	d
-OBJCOPY	lab1_result/Makefile	/^OBJCOPY := $(GCCPREFIX)objcopy$/;"	m
-OBJDIR	lab1_result/Makefile	/^OBJDIR	:= obj$/;"	m
-OBJDUMP	lab1_result/Makefile	/^OBJDUMP := $(GCCPREFIX)objdump$/;"	m
-OBJPREFIX	lab1_result/tools/function.mk	/^OBJPREFIX	:= __objs_$/;"	m
-OBJS	Makefile	/^OBJS		= main.o start.o func.o$/;"	m
-OFFSET_FROM_BIT	include/paging.h	16;"	d
-OFFSET_FROM_BIT	src/paging.c	23;"	d	file:
-ORDERED_ARRAY_H	src/ordered_array.h	6;"	d
-PAGING_H	src/paging.h	5;"	d
-PANIC	include/common.h	102;"	d
-PANIC	src/common.h	20;"	d
-PROJ	lab1_result/Makefile	/^PROJ	:= challenge$/;"	m
-Printf	include/scrn.h	/^void Printf(const char *format, ...)  $/;"	f
-QEMU	lab1_result/Makefile	/^QEMU := $(shell if which qemu-system-i386 > \/dev\/null; \\$/;"	m
-RM	lab1_result/Makefile	/^RM		:= rm -f$/;"	m
-ROUNDDOWN	include/type.h	47;"	d
-ROUNDDOWN	lab1_result/libs/defs.h	43;"	d
-ROUNDUP	include/type.h	53;"	d
-ROUNDUP	lab1_result/libs/defs.h	49;"	d
-RollScreen	include/scrn.h	/^void RollScreen()$/;"	f
-SCREENSIZE	include/scrn.h	8;"	d
-SCROLLLOCK	lab1_result/kern/driver/console.c	262;"	d	file:
-SECTION	start.asm	/^SECTION .bss$/;"	l
-SECTSIZE	lab1_result/boot/bootmain.c	/^unsigned int    SECTSIZE  =      512 ;$/;"	v
-SED	lab1_result/Makefile	/^SED		:= sed$/;"	m
-SEG	include/mmu.h	116;"	d
-SEG	lab1_result/kern/mm/mmu.h	116;"	d
-SEG16	include/mmu.h	124;"	d
-SEG16	lab1_result/kern/mm/mmu.h	124;"	d
-SEG_ASM	lab1_result/boot/asm.h	11;"	d
-SEG_KDATA	lab1_result/kern/mm/memlayout.h	8;"	d
-SEG_KTEXT	lab1_result/kern/mm/memlayout.h	7;"	d
-SEG_NULL	include/mmu.h	113;"	d
-SEG_NULL	lab1_result/kern/mm/mmu.h	113;"	d
-SEG_NULLASM	lab1_result/boot/asm.h	7;"	d
-SEG_TSS	lab1_result/kern/mm/memlayout.h	11;"	d
-SEG_UDATA	lab1_result/kern/mm/memlayout.h	10;"	d
-SEG_UTEXT	lab1_result/kern/mm/memlayout.h	9;"	d
-SETCALLGATE	include/mmu.h	84;"	d
-SETCALLGATE	lab1_result/kern/mm/mmu.h	84;"	d
-SETGATE	include/mmu.h	71;"	d
-SETGATE	lab1_result/kern/mm/mmu.h	71;"	d
-SH	lab1_result/Makefile	/^SH		:= sh$/;"	m
-SHIFT	lab1_result/kern/driver/console.c	256;"	d	file:
-SLASH	lab1_result/Makefile	/^SLASH	:= \/$/;"	m
-SOURCES	src/Makefile	/^SOURCES=boot.o main.o monitor.o common.o descriptor_tables.o isr.o interrupt.o gdt.o timer.o \\$/;"	m
-SPACE	lab1_result/Makefile	/^SPACE	:= $(EMPTY) $(EMPTY)$/;"	m
-STACKFRAME_DEPTH	lab1_result/kern/debug/kdebug.c	8;"	d	file:
-STA_A	include/mmu.h	33;"	d
-STA_A	lab1_result/boot/asm.h	23;"	d
-STA_A	lab1_result/kern/mm/mmu.h	33;"	d
-STA_C	include/mmu.h	30;"	d
-STA_C	lab1_result/boot/asm.h	20;"	d
-STA_C	lab1_result/kern/mm/mmu.h	30;"	d
-STA_E	include/mmu.h	29;"	d
-STA_E	lab1_result/boot/asm.h	19;"	d
-STA_E	lab1_result/kern/mm/mmu.h	29;"	d
-STA_R	include/mmu.h	32;"	d
-STA_R	lab1_result/boot/asm.h	22;"	d
-STA_R	lab1_result/kern/mm/mmu.h	32;"	d
-STA_W	include/mmu.h	31;"	d
-STA_W	lab1_result/boot/asm.h	21;"	d
-STA_W	lab1_result/kern/mm/mmu.h	31;"	d
-STA_X	include/mmu.h	28;"	d
-STA_X	lab1_result/boot/asm.h	18;"	d
-STA_X	lab1_result/kern/mm/mmu.h	28;"	d
-STS_CG16	include/mmu.h	39;"	d
-STS_CG16	lab1_result/kern/mm/mmu.h	39;"	d
-STS_CG32	include/mmu.h	45;"	d
-STS_CG32	lab1_result/kern/mm/mmu.h	45;"	d
-STS_IG16	include/mmu.h	41;"	d
-STS_IG16	lab1_result/kern/mm/mmu.h	41;"	d
-STS_IG32	include/mmu.h	46;"	d
-STS_IG32	lab1_result/kern/mm/mmu.h	46;"	d
-STS_LDT	include/mmu.h	37;"	d
-STS_LDT	lab1_result/kern/mm/mmu.h	37;"	d
-STS_T16A	include/mmu.h	36;"	d
-STS_T16A	lab1_result/kern/mm/mmu.h	36;"	d
-STS_T16B	include/mmu.h	38;"	d
-STS_T16B	lab1_result/kern/mm/mmu.h	38;"	d
-STS_T32A	include/mmu.h	43;"	d
-STS_T32A	lab1_result/kern/mm/mmu.h	43;"	d
-STS_T32B	include/mmu.h	44;"	d
-STS_T32B	lab1_result/kern/mm/mmu.h	44;"	d
-STS_TG	include/mmu.h	40;"	d
-STS_TG	lab1_result/kern/mm/mmu.h	40;"	d
-STS_TG16	include/mmu.h	42;"	d
-STS_TG16	lab1_result/kern/mm/mmu.h	42;"	d
-STS_TG32	include/mmu.h	47;"	d
-STS_TG32	lab1_result/kern/mm/mmu.h	47;"	d
-SYSCALL_H	src/syscall.h	5;"	d
-TARGETS	lab1_result/Makefile	/^TARGETS	:=$/;"	m
-TASK_H	src/task.h	7;"	d
-TERMINAL	lab1_result/Makefile	/^TERMINAL        :=gnome-terminal$/;"	m
-TICK_NUM	include/trap.c	12;"	d	file:
-TICK_NUM	lab1_result/kern/trap/trap.c	12;"	d	file:
-TIMER_16BIT	lab1_result/kern/driver/clock.c	24;"	d	file:
-TIMER_DIV	lab1_result/kern/driver/clock.c	19;"	d	file:
-TIMER_FREQ	lab1_result/kern/driver/clock.c	18;"	d	file:
-TIMER_H	src/timer.h	5;"	d
-TIMER_MODE	lab1_result/kern/driver/clock.c	21;"	d	file:
-TIMER_RATEGEN	lab1_result/kern/driver/clock.c	23;"	d	file:
-TIMER_SEL0	lab1_result/kern/driver/clock.c	22;"	d	file:
-TOUCH	lab1_result/Makefile	/^TOUCH	:= touch -c$/;"	m
-TOUCH_FILES	lab1_result/Makefile	/^TOUCH_FILES		:= kern\/trap\/trap.c$/;"	m
-TR	lab1_result/Makefile	/^TR		:= tr$/;"	m
-TXT_COLOR	include/scrn.h	26;"	d
-T_ALIGN	lab1_result/kern/trap/trap.h	26;"	d
-T_BOUND	lab1_result/kern/trap/trap.h	14;"	d
-T_BRKPT	lab1_result/kern/trap/trap.h	12;"	d
-T_DBLFLT	lab1_result/kern/trap/trap.h	17;"	d
-T_DEBUG	lab1_result/kern/trap/trap.h	10;"	d
-T_DEVICE	lab1_result/kern/trap/trap.h	16;"	d
-T_DIVIDE	lab1_result/kern/trap/trap.h	9;"	d
-T_FPERR	lab1_result/kern/trap/trap.h	25;"	d
-T_GPFLT	lab1_result/kern/trap/trap.h	22;"	d
-T_ILLOP	lab1_result/kern/trap/trap.h	15;"	d
-T_MCHK	lab1_result/kern/trap/trap.h	27;"	d
-T_NMI	lab1_result/kern/trap/trap.h	11;"	d
-T_OFLOW	lab1_result/kern/trap/trap.h	13;"	d
-T_PGFLT	lab1_result/kern/trap/trap.h	23;"	d
-T_SEGNP	lab1_result/kern/trap/trap.h	20;"	d
-T_SIMDERR	lab1_result/kern/trap/trap.h	28;"	d
-T_STACK	lab1_result/kern/trap/trap.h	21;"	d
-T_SWITCH_TOK	include/isrs.h	41;"	d
-T_SWITCH_TOK	lab1_result/kern/trap/trap.h	48;"	d
-T_SWITCH_TOU	include/isrs.h	40;"	d
-T_SWITCH_TOU	lab1_result/kern/trap/trap.h	47;"	d
-T_SYSCALL	lab1_result/kern/trap/trap.h	30;"	d
-T_TSS	lab1_result/kern/trap/trap.h	19;"	d
-UCOREIMG	lab1_result/Makefile	/^UCOREIMG	:= $(call totarget,ucore.img)$/;"	m
-USER_CS	lab1_result/kern/mm/memlayout.h	25;"	d
-USER_DS	lab1_result/kern/mm/memlayout.h	26;"	d
-V	lab1_result/Makefile	/^V       := @$/;"	m
-VIDPTR	include/scrn.h	/^char *VIDPTR = (char*)0xb8000;$/;"	v
-WHITESPACE	lab1_result/kern/debug/kmonitor.c	30;"	d	file:
-_COMMON_H_	include/common.h	2;"	d
-_GDT_H_	include/gdt.h	2;"	d
-_IDT_H_	include/idt.h	2;"	d
-_IRQ_H_	include/irq.h	2;"	d
-_ISRS_H_	include/isrs.h	2;"	d
-_KB_H_	include/kb.h	2;"	d
-_KHEAP_H_	include/kheap.h	2;"	d
-_MMU_H_	include/mmu.h	2;"	d
-_MULTIBOOT_H_	include/multiboot.h	2;"	d
-_ORDERED_ARRAY_H_	include/ordered_array.h	2;"	d
-_PAGING_H_	include/paging.h	2;"	d
-_SCRN_H_	include/scrn.h	2;"	d
-_SYSTEM_H_	include/system.h	2;"	d
-_TIMER_H_	include/timer.h	2;"	d
-_TYPE_H_	include/type.h	2;"	d
-__BOOT_ASM_H__	lab1_result/boot/asm.h	2;"	d
-__HAVE_ARCH_MEMCPY	lab1_result/libs/x86.h	172;"	d
-__HAVE_ARCH_MEMMOVE	lab1_result/libs/x86.h	153;"	d
-__HAVE_ARCH_MEMSET	lab1_result/libs/x86.h	139;"	d
-__HAVE_ARCH_STRCMP	lab1_result/libs/x86.h	99;"	d
-__HAVE_ARCH_STRCPY	lab1_result/libs/x86.h	123;"	d
-__KERN_DEBUG_ASSERT_H__	lab1_result/kern/debug/assert.h	2;"	d
-__KERN_DEBUG_KDEBUG_H__	lab1_result/kern/debug/kdebug.h	2;"	d
-__KERN_DEBUG_MONITOR_H__	lab1_result/kern/debug/kmonitor.h	2;"	d
-__KERN_DEBUG_STAB_H__	lab1_result/kern/debug/stab.h	2;"	d
-__KERN_DRIVER_CLOCK_H__	lab1_result/kern/driver/clock.h	2;"	d
-__KERN_DRIVER_CONSOLE_H__	lab1_result/kern/driver/console.h	2;"	d
-__KERN_DRIVER_INTR_H__	lab1_result/kern/driver/intr.h	2;"	d
-__KERN_DRIVER_KBDREG_H__	lab1_result/kern/driver/kbdreg.h	2;"	d
-__KERN_DRIVER_PICIRQ_H__	lab1_result/kern/driver/picirq.h	2;"	d
-__KERN_MM_MEMLAYOUT_H__	lab1_result/kern/mm/memlayout.h	2;"	d
-__KERN_MM_MMU_H__	lab1_result/kern/mm/mmu.h	2;"	d
-__KERN_MM_PMM_H__	lab1_result/kern/mm/pmm.h	2;"	d
-__KERN_TRAP_TRAP_H__	lab1_result/kern/trap/trap.h	2;"	d
-__LIBS_DEFS_H__	lab1_result/libs/defs.h	2;"	d
-__LIBS_ELF_H__	lab1_result/libs/elf.h	2;"	d
-__LIBS_ERROR_H__	lab1_result/libs/error.h	2;"	d
-__LIBS_STDARG_H__	lab1_result/libs/stdarg.h	2;"	d
-__LIBS_STDIO_H__	lab1_result/libs/stdio.h	2;"	d
-__LIBS_STRING_H__	lab1_result/libs/string.h	2;"	d
-__LIBS_X86_H__	lab1_result/libs/x86.h	2;"	d
-__alltraps	lab1_result/kern/trap/trapentry.S	/^__alltraps:$/;"	l
-__always_inline	include/type.h	15;"	d
-__always_inline	lab1_result/libs/defs.h	8;"	d
-__memcpy	lab1_result/libs/x86.h	/^__memcpy(void *dst, const void *src, size_t n) {$/;"	f
-__memmove	lab1_result/libs/x86.h	/^__memmove(void *dst, const void *src, size_t n) {$/;"	f
-__memset	lab1_result/libs/x86.h	/^__memset(void *s, char c, size_t n) {$/;"	f
-__noinline	include/type.h	16;"	d
-__noinline	lab1_result/libs/defs.h	9;"	d
-__noreturn	include/type.h	17;"	d
-__noreturn	lab1_result/libs/defs.h	10;"	d
-__panic	lab1_result/kern/debug/panic.c	/^__panic(const char *file, int line, const char *fmt, ...) {$/;"	f
-__strcmp	lab1_result/libs/x86.h	/^__strcmp(const char *s1, const char *s2) {$/;"	f
-__strcpy	lab1_result/libs/x86.h	/^__strcpy(char *dst, const char *src) {$/;"	f
-__trapret	lab1_result/kern/trap/trapentry.S	/^__trapret:$/;"	l
-__vectors	lab1_result/kern/trap/vectors.S	/^__vectors:$/;"	l
-__warn	lab1_result/kern/debug/panic.c	/^__warn(const char *file, int line, const char *fmt, ...) {$/;"	f
-_sys_stack	start.asm	/^_sys_stack:$/;"	l
-access	include/gdt.h	/^    unsigned char access;$/;"	m	struct:gdt_entry
-access	src/descriptor_tables.h	/^    u8int  access;              \/\/ Access flags, determine what ring this segment can be used in.$/;"	m	struct:gdt_entry_struct
-accessed	include/system.h	/^    unsigned int accessed   : 1;   \/\/ Has the page been accessed since last refresh?$/;"	m	struct:page
-accessed	src/paging.h	/^    u32int accessed   : 1;   \/\/ Has the page been accessed since last refresh?$/;"	m	struct:page
-add_dependency	lab1_result/tools/function.mk	/^add_dependency = $(eval $(1): $(2))$/;"	m
-add_files	lab1_result/tools/function.mk	/^add_files = $(eval $(call do_add_files_to_packet,$(1),$(2),$(3),$(4),$(5)))$/;"	m
-add_files_cc	lab1_result/Makefile	/^add_files_cc = $(call add_files,$(1),$(CC),$(CFLAGS) $(3),$(2),$(4))$/;"	m
-add_files_host	lab1_result/Makefile	/^add_files_host = $(call add_files,$(1),$(HOSTCC),$(HOSTCFLAGS),$(2),$(3))$/;"	m
-add_objs	lab1_result/tools/function.mk	/^add_objs = $(eval $(call do_add_objs_to_packet,$(1),$(2)))$/;"	m
-addr	include/multiboot.h	/^	unsigned long addr;  $/;"	m	struct:aout_symbol_table
-addr	include/multiboot.h	/^	unsigned long addr;  $/;"	m	struct:elf_section_header_table
-addr	src/multiboot.h	/^    u32int addr;$/;"	m	struct:multiboot
-addr_6845	lab1_result/kern/driver/console.c	/^static uint16_t addr_6845;$/;"	v	file:
-alloc	include/kheap.h	/^void *alloc(unsigned int size, unsigned char page_align, heap_t *heap)$/;"	f
-alloc	src/kheap.c	/^void *alloc(unsigned int size, u8int page_align, heap_t *heap)$/;"	f
-alloc_frame	include/paging.h	/^void alloc_frame(page_t *page, int is_kernel, int is_writeable)$/;"	f
-alloc_frame	src/paging.c	/^void alloc_frame(page_t *page, int is_kernel, int is_writeable)$/;"	f
-always0	include/idt.h	/^    unsigned char always0;$/;"	m	struct:idt_entry
-always0	src/descriptor_tables.h	/^    u8int  always0;             \/\/ This must always be zero.$/;"	m	struct:idt_entry_struct
-aout_sym	include/multiboot.h	/^		aout_symbol_table_t aout_sym;  $/;"	m	union:multiboot_info::__anon7
-aout_symbol_table	include/multiboot.h	/^typedef struct aout_symbol_table  $/;"	s
-aout_symbol_table_t	include/multiboot.h	/^} aout_symbol_table_t;  $/;"	t	typeref:struct:aout_symbol_table
-apm_table	src/multiboot.h	/^    u32int apm_table;$/;"	m	struct:multiboot
-array	include/system.h	/^    void*  *array;$/;"	m	struct:__anon8
-array	src/ordered_array.h	/^    type_t *array;$/;"	m	struct:__anon3
-asmfile	lab1_result/Makefile	/^asmfile = $(call cgtype,$(call toobj,$(1)),o,asm)$/;"	m
-assert	lab1_result/kern/debug/assert.h	15;"	d
-attrib	include/scrn.h	/^int attrib = TXT_COLOR;$/;"	v
-base	include/gdt.h	/^    unsigned int base;$/;"	m	struct:gdt_ptr
-base	include/idt.h	/^    unsigned int base;$/;"	m	struct:idt_ptr
-base	src/descriptor_tables.h	/^    u32int base;                \/\/ The address of the first element in our idt_entry_t array.$/;"	m	struct:idt_ptr_struct
-base	src/descriptor_tables.h	/^    u32int base;                \/\/ The address of the first gdt_entry_t struct.$/;"	m	struct:gdt_ptr_struct
-base_hi	include/idt.h	/^    unsigned short base_hi;$/;"	m	struct:idt_entry
-base_hi	src/descriptor_tables.h	/^    u16int base_hi;             \/\/ The upper 16 bits of the address to jump to.$/;"	m	struct:idt_entry_struct
-base_high	include/gdt.h	/^    unsigned char base_high;$/;"	m	struct:gdt_entry
-base_high	src/descriptor_tables.h	/^    u8int  base_high;           \/\/ The last 8 bits of the base.$/;"	m	struct:gdt_entry_struct
-base_lo	include/idt.h	/^    unsigned short base_lo;$/;"	m	struct:idt_entry
-base_lo	src/descriptor_tables.h	/^    u16int base_lo;             \/\/ The lower 16 bits of the address to jump to when this interrupt fires.$/;"	m	struct:idt_entry_struct
-base_low	include/gdt.h	/^    unsigned short base_low;$/;"	m	struct:gdt_entry
-base_low	src/descriptor_tables.h	/^    u16int base_low;            \/\/ The lower 16 bits of the base.$/;"	m	struct:gdt_entry_struct
-base_middle	include/gdt.h	/^    unsigned char base_middle;$/;"	m	struct:gdt_entry
-base_middle	src/descriptor_tables.h	/^    u8int  base_middle;         \/\/ The next 8 bits of the base.$/;"	m	struct:gdt_entry_struct
-black	include/scrn.h	10;"	d
-blue	include/scrn.h	11;"	d
-bool	include/type.h	/^typedef int bool;$/;"	t
-bool	lab1_result/libs/defs.h	/^typedef int bool;$/;"	t
-boot_device	include/multiboot.h	/^	unsigned long boot_device;  $/;"	m	struct:multiboot_info
-boot_device	src/multiboot.h	/^    u32int boot_device;$/;"	m	struct:multiboot
-boot_loader_name	src/multiboot.h	/^    u32int boot_loader_name;$/;"	m	struct:multiboot
-bootblock	lab1_result/Makefile	/^bootblock = $(call totarget,bootblock)$/;"	m
-bootfiles	lab1_result/Makefile	/^bootfiles = $(call listf_cc,boot)$/;"	m
-bootmain	lab1_result/boot/bootmain.c	/^bootmain(void) {$/;"	f
-brown	include/scrn.h	16;"	d
-buf	lab1_result/kern/driver/console.c	/^    uint8_t buf[CONSBUFSIZE];$/;"	m	struct:__anon12	file:
-buf	lab1_result/kern/libs/readline.c	/^static char buf[BUFSIZE];$/;"	v	file:
-buf	lab1_result/libs/printfmt.c	/^    char *buf;            \/\/ address pointer points to the first unused memory$/;"	m	struct:sprintbuf	file:
-build_run	lab1_result/tools/grade.sh	/^build_run() {$/;"	f
-cc_compile	lab1_result/tools/function.mk	/^cc_compile = $(eval $(call do_cc_compile,$(1),$(2),$(3),$(4)))$/;"	m
-cc_template	lab1_result/tools/function.mk	/^define cc_template$/;"	m
-cga_init	lab1_result/kern/driver/console.c	/^cga_init(void) {$/;"	f	file:
-cga_putc	lab1_result/kern/driver/console.c	/^cga_putc(int c) {$/;"	f	file:
-cgtype	lab1_result/Makefile	/^cgtype = $(patsubst %.$(2),%.$(3),$(1))$/;"	m
-charcode	lab1_result/kern/driver/console.c	/^static uint8_t *charcode[4] = {$/;"	v	file:
-check_regexps	lab1_result/tools/grade.sh	/^check_regexps() {$/;"	f
-check_result	lab1_result/tools/grade.sh	/^check_result() {$/;"	f
-clear_frame	include/paging.h	/^static void clear_frame(unsigned int frame_addr)$/;"	f
-clear_frame	src/paging.c	/^static void clear_frame(u32int frame_addr)$/;"	f	file:
-cli	lab1_result/libs/x86.h	/^cli(void) {$/;"	f
-clock_init	lab1_result/kern/driver/clock.c	/^clock_init(void) {$/;"	f
-clone_directory	include/paging.h	/^page_directory_t *clone_directory(page_directory_t *src)$/;"	f
-clone_directory	src/paging.c	/^page_directory_t *clone_directory(page_directory_t *src)$/;"	f
-clone_table	include/paging.h	/^static page_table_t *clone_table(page_table_t *src, unsigned int *physAddr)$/;"	f
-clone_table	src/paging.c	/^static page_table_t *clone_table(page_table_t *src, u32int *physAddr)$/;"	f	file:
-close	src/fs.h	/^    close_type_t close;$/;"	m	struct:fs_node
-close_fs	src/fs.c	/^void close_fs(fs_node_t *node)$/;"	f
-close_type_t	src/fs.h	/^typedef void (*close_type_t)(struct fs_node*);$/;"	t
-cls	include/scrn.h	/^void cls()$/;"	f
-cmdline	include/multiboot.h	/^	unsigned long cmdline;  $/;"	m	struct:multiboot_info
-cmdline	src/multiboot.h	/^    u32int cmdline;$/;"	m	struct:multiboot
-cnt	lab1_result/libs/printfmt.c	/^    int cnt;            \/\/ the number of characters that have been placed in this buffer$/;"	m	struct:sprintbuf	file:
-command	lab1_result/kern/debug/kmonitor.c	/^struct command {$/;"	s	file:
-commands	lab1_result/kern/debug/kmonitor.c	/^static struct command commands[] = {$/;"	v	typeref:struct:command	file:
-config_table	src/multiboot.h	/^    u32int config_table;$/;"	m	struct:multiboot
-cons	lab1_result/kern/driver/console.c	/^} cons;$/;"	v	typeref:struct:__anon12	file:
-cons_getc	lab1_result/kern/driver/console.c	/^cons_getc(void) {$/;"	f
-cons_init	lab1_result/kern/driver/console.c	/^cons_init(void) {$/;"	f
-cons_intr	lab1_result/kern/driver/console.c	/^cons_intr(int (*proc)(void)) {$/;"	f	file:
-cons_putc	lab1_result/kern/driver/console.c	/^cons_putc(int c) {$/;"	f
-contract	include/kheap.h	/^static unsigned int contract(unsigned int new_size, heap_t *heap)$/;"	f
-contract	src/kheap.c	/^static unsigned int contract(unsigned int new_size, heap_t *heap)$/;"	f	file:
-copy_page_physical	src/process.s	/^copy_page_physical:$/;"	l
-copy_page_physical	start.asm	/^copy_page_physical:$/;"	l
-cprintf	lab1_result/kern/libs/stdio.c	/^cprintf(const char *fmt, ...) {$/;"	f
-cputch	lab1_result/kern/libs/stdio.c	/^cputch(int c, int *cnt) {$/;"	f	file:
-cputchar	lab1_result/kern/libs/stdio.c	/^cputchar(int c) {$/;"	f
-cputs	lab1_result/kern/libs/stdio.c	/^cputs(const char *str) {$/;"	f
-cr3	src/descriptor_tables.h	/^    u32int cr3;   $/;"	m	struct:tss_entry_struct
-create_heap	include/kheap.h	/^heap_t *create_heap(unsigned int start, unsigned int end_addr, unsigned int max, unsigned char supervisor, unsigned char readonly)$/;"	f
-create_heap	src/kheap.c	/^heap_t *create_heap(unsigned int start, unsigned int end_addr, unsigned int max, u8int supervisor, u8int readonly)$/;"	f
-create_ordered_array	include/ordered_array.h	/^ordered_array_t create_ordered_array(unsigned int max_size, lessthan_predicate_t less_than)$/;"	f
-create_ordered_array	src/ordered_array.c	/^ordered_array_t create_ordered_array(u32int max_size, lessthan_predicate_t less_than)$/;"	f
-create_target	lab1_result/tools/function.mk	/^create_target = $(eval $(call do_create_target,$(1),$(2),$(3),$(4),$(5)))$/;"	m
-create_target_cc	lab1_result/Makefile	/^create_target_cc = $(call create_target,$(1),$(2),$(3),$(CC),$(CFLAGS))$/;"	m
-create_target_host	lab1_result/Makefile	/^create_target_host = $(call create_target,$(1),$(2),$(3),$(HOSTCC),$(HOSTCFLAGS))$/;"	m
-crt_buf	lab1_result/kern/driver/console.c	/^static uint16_t *crt_buf;$/;"	v	file:
-crt_pos	lab1_result/kern/driver/console.c	/^static uint16_t crt_pos;$/;"	v	file:
-cs	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
-cs	src/descriptor_tables.h	/^    u32int cs;         \/\/ The value to load into CS when we change to kernel mode.$/;"	m	struct:tss_entry_struct
-cs	src/isr.h	/^    u32int eip, cs, eflags, useresp, ss; \/\/ Pushed by the processor automatically.$/;"	m	struct:registers
-csr_x	include/scrn.h	/^int csr_x = 0, csr_y = 0;$/;"	v
-csr_y	include/scrn.h	/^int csr_x = 0, csr_y = 0;$/;"	v
-ctlmap	lab1_result/kern/driver/console.c	/^static uint8_t ctlmap[256] = {$/;"	v	file:
-current_directory	include/system.h	/^page_directory_t *current_directory=0;$/;"	v
-current_directory	src/paging.c	/^page_directory_t *current_directory=0;$/;"	v
-current_task	src/task.c	/^volatile task_t *current_task;$/;"	v
-cursor_x	src/monitor.c	/^u8int cursor_x = 0;$/;"	v
-cursor_y	src/monitor.c	/^u8int cursor_y = 0;$/;"	v
-cyan	include/scrn.h	13;"	d
-dark_grey	include/scrn.h	18;"	d
-debuginfo_eip	lab1_result/kern/debug/kdebug.c	/^debuginfo_eip(uintptr_t addr, struct eipdebuginfo *info) {$/;"	f
-delay	lab1_result/kern/driver/console.c	/^delay(void) {$/;"	f	file:
-desc	lab1_result/kern/debug/kmonitor.c	/^    const char *desc;$/;"	m	struct:command	file:
-destroy_ordered_array	include/ordered_array.h	/^void destroy_ordered_array(ordered_array_t *array)$/;"	f
-destroy_ordered_array	src/ordered_array.c	/^void destroy_ordered_array(ordered_array_t *array)$/;"	f
-did_init	lab1_result/kern/driver/picirq.c	/^static bool did_init = 0;$/;"	v	file:
-dirent	src/fs.h	/^struct dirent$/;"	s
-dirent	src/initrd.c	/^struct dirent dirent;$/;"	v	typeref:struct:dirent
-dirty	include/system.h	/^    unsigned int dirty      : 1;   \/\/ Has the page been written to since last refresh?$/;"	m	struct:page
-dirty	src/paging.h	/^    u32int dirty      : 1;   \/\/ Has the page been written to since last refresh?$/;"	m	struct:page
-do_add_files_to_packet	lab1_result/tools/function.mk	/^define do_add_files_to_packet$/;"	m
-do_add_objs_to_packet	lab1_result/tools/function.mk	/^define do_add_objs_to_packet$/;"	m
-do_cc_compile	lab1_result/tools/function.mk	/^define do_cc_compile$/;"	m
-do_create_target	lab1_result/tools/function.mk	/^define do_create_target$/;"	m
-do_div	lab1_result/libs/x86.h	6;"	d
-do_finish_all	lab1_result/tools/function.mk	/^define do_finish_all$/;"	m
-drives_addr	src/multiboot.h	/^    u32int drives_addr;$/;"	m	struct:multiboot
-drives_length	src/multiboot.h	/^    u32int drives_length;$/;"	m	struct:multiboot
-ds	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
-ds	src/descriptor_tables.h	/^    u32int ds;         \/\/ The value to load into DS when we change to kernel mode.$/;"	m	struct:tss_entry_struct
-ds	src/isr.h	/^    u32int ds;                  \/\/ Data segment selector$/;"	m	struct:registers
-e_ehsize	lab1_result/libs/elf.h	/^    uint16_t e_ehsize;    \/\/ size of this elf header$/;"	m	struct:elfhdr
-e_elf	lab1_result/libs/elf.h	/^    uint8_t e_elf[12];$/;"	m	struct:elfhdr
-e_entry	lab1_result/libs/elf.h	/^    uint32_t e_entry;     \/\/ entry point if executable$/;"	m	struct:elfhdr
-e_flags	lab1_result/libs/elf.h	/^    uint32_t e_flags;     \/\/ architecture-specific flags, usually 0$/;"	m	struct:elfhdr
-e_machine	lab1_result/libs/elf.h	/^    uint16_t e_machine;   \/\/ 3=x86, 4=68K, etc.$/;"	m	struct:elfhdr
-e_magic	lab1_result/libs/elf.h	/^    uint32_t e_magic;     \/\/ must equal ELF_MAGIC$/;"	m	struct:elfhdr
-e_phentsize	lab1_result/libs/elf.h	/^    uint16_t e_phentsize; \/\/ size of an entry in program header$/;"	m	struct:elfhdr
-e_phnum	lab1_result/libs/elf.h	/^    uint16_t e_phnum;     \/\/ number of entries in program header or 0$/;"	m	struct:elfhdr
-e_phoff	lab1_result/libs/elf.h	/^    uint32_t e_phoff;     \/\/ file position of program header or 0$/;"	m	struct:elfhdr
-e_shentsize	lab1_result/libs/elf.h	/^    uint16_t e_shentsize; \/\/ size of an entry in section header$/;"	m	struct:elfhdr
-e_shnum	lab1_result/libs/elf.h	/^    uint16_t e_shnum;     \/\/ number of entries in section header or 0$/;"	m	struct:elfhdr
-e_shoff	lab1_result/libs/elf.h	/^    uint32_t e_shoff;     \/\/ file position of section header or 0$/;"	m	struct:elfhdr
-e_shstrndx	lab1_result/libs/elf.h	/^    uint16_t e_shstrndx;  \/\/ section number that contains section name strings$/;"	m	struct:elfhdr
-e_type	lab1_result/libs/elf.h	/^    uint16_t e_type;      \/\/ 1=relocatable, 2=executable, 3=shared object, 4=core image$/;"	m	struct:elfhdr
-e_version	lab1_result/libs/elf.h	/^    uint32_t e_version;   \/\/ file version, always 1$/;"	m	struct:elfhdr
-eax	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
-eax	src/descriptor_tables.h	/^    u32int eax;$/;"	m	struct:tss_entry_struct
-eax	src/isr.h	/^    u32int edi, esi, ebp, esp, ebx, edx, ecx, eax; \/\/ Pushed by pusha.$/;"	m	struct:registers
-ebp	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
-ebp	src/descriptor_tables.h	/^    u32int ebp;$/;"	m	struct:tss_entry_struct
-ebp	src/isr.h	/^    u32int edi, esi, ebp, esp, ebx, edx, ecx, eax; \/\/ Pushed by pusha.$/;"	m	struct:registers
-ebp	src/task.h	/^    u32int esp, ebp;       \/\/ Stack and base pointers.$/;"	m	struct:task
-ebuf	lab1_result/libs/printfmt.c	/^    char *ebuf;            \/\/ points the end of the buffer$/;"	m	struct:sprintbuf	file:
-ebx	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
-ebx	src/descriptor_tables.h	/^    u32int ebx;$/;"	m	struct:tss_entry_struct
-ebx	src/isr.h	/^    u32int edi, esi, ebp, esp, ebx, edx, ecx, eax; \/\/ Pushed by pusha.$/;"	m	struct:registers
-ecx	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
-ecx	src/descriptor_tables.h	/^    u32int ecx;$/;"	m	struct:tss_entry_struct
-ecx	src/isr.h	/^    u32int edi, esi, ebp, esp, ebx, edx, ecx, eax; \/\/ Pushed by pusha.$/;"	m	struct:registers
-edi	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
-edi	src/descriptor_tables.h	/^    u32int edi;$/;"	m	struct:tss_entry_struct
-edi	src/isr.h	/^    u32int edi, esi, ebp, esp, ebx, edx, ecx, eax; \/\/ Pushed by pusha.$/;"	m	struct:registers
-edx	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
-edx	src/descriptor_tables.h	/^    u32int edx;$/;"	m	struct:tss_entry_struct
-edx	src/isr.h	/^    u32int edi, esi, ebp, esp, ebx, edx, ecx, eax; \/\/ Pushed by pusha.$/;"	m	struct:registers
-eflags	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
-eflags	src/descriptor_tables.h	/^    u32int eflags;$/;"	m	struct:tss_entry_struct
-eflags	src/isr.h	/^    u32int eip, cs, eflags, useresp, ss; \/\/ Pushed by the processor automatically.$/;"	m	struct:registers
-eip	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
-eip	src/descriptor_tables.h	/^    u32int eip;   $/;"	m	struct:tss_entry_struct
-eip	src/isr.h	/^    u32int eip, cs, eflags, useresp, ss; \/\/ Pushed by the processor automatically.$/;"	m	struct:registers
-eip	src/task.h	/^    u32int eip;            \/\/ Instruction pointer.$/;"	m	struct:task
-eip_file	lab1_result/kern/debug/kdebug.c	/^    const char *eip_file;                   \/\/ source code filename for eip$/;"	m	struct:eipdebuginfo	file:
-eip_fn_addr	lab1_result/kern/debug/kdebug.c	/^    uintptr_t eip_fn_addr;                  \/\/ start address of function$/;"	m	struct:eipdebuginfo	file:
-eip_fn_name	lab1_result/kern/debug/kdebug.c	/^    const char *eip_fn_name;                \/\/ name of function containing eip$/;"	m	struct:eipdebuginfo	file:
-eip_fn_namelen	lab1_result/kern/debug/kdebug.c	/^    int eip_fn_namelen;                     \/\/ length of function's name$/;"	m	struct:eipdebuginfo	file:
-eip_fn_narg	lab1_result/kern/debug/kdebug.c	/^    int eip_fn_narg;                        \/\/ number of function arguments$/;"	m	struct:eipdebuginfo	file:
-eip_line	lab1_result/kern/debug/kdebug.c	/^    int eip_line;                           \/\/ source code line number for eip$/;"	m	struct:eipdebuginfo	file:
-eipdebuginfo	lab1_result/kern/debug/kdebug.c	/^struct eipdebuginfo {$/;"	s	file:
-elf_sec	include/multiboot.h	/^		elf_section_header_table_t elf_sec;  $/;"	m	union:multiboot_info::__anon7
-elf_section_header_table	include/multiboot.h	/^typedef struct elf_section_header_table  $/;"	s
-elf_section_header_table_t	include/multiboot.h	/^} elf_section_header_table_t;  $/;"	t	typeref:struct:elf_section_header_table
-elfhdr	lab1_result/libs/elf.h	/^struct elfhdr {$/;"	s
-end_address	include/system.h	/^    unsigned int end_address;   \/\/ The end of our allocated space. May be expanded up to max_address.$/;"	m	struct:__anon11
-end_address	src/kheap.h	/^    u32int end_address;   \/\/ The end of our allocated space. May be expanded up to max_address.$/;"	m	struct:__anon6
-err_code	include/system.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
-err_code	src/isr.h	/^    u32int int_no, err_code;    \/\/ Interrupt number and error code (if applicable)$/;"	m	struct:registers
-error_string	lab1_result/libs/printfmt.c	/^static const char * const error_string[MAXERROR + 1] = {$/;"	v	file:
-es	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
-es	src/descriptor_tables.h	/^    u32int es;         \/\/ The value to load into ES when we change to kernel mode.$/;"	m	struct:tss_entry_struct
-esi	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
-esi	src/descriptor_tables.h	/^    u32int esi;$/;"	m	struct:tss_entry_struct
-esi	src/isr.h	/^    u32int edi, esi, ebp, esp, ebx, edx, ecx, eax; \/\/ Pushed by pusha.$/;"	m	struct:registers
-esp	include/system.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
-esp	src/descriptor_tables.h	/^    u32int esp;$/;"	m	struct:tss_entry_struct
-esp	src/isr.h	/^    u32int edi, esi, ebp, esp, ebx, edx, ecx, eax; \/\/ Pushed by pusha.$/;"	m	struct:registers
-esp	src/task.h	/^    u32int esp, ebp;       \/\/ Stack and base pointers.$/;"	m	struct:task
-esp0	src/descriptor_tables.h	/^    u32int esp0;       \/\/ The stack pointer to load when we change to kernel mode.$/;"	m	struct:tss_entry_struct
-esp1	src/descriptor_tables.h	/^    u32int esp1;       \/\/ Unused...$/;"	m	struct:tss_entry_struct
-esp2	src/descriptor_tables.h	/^    u32int esp2;  $/;"	m	struct:tss_entry_struct
-exception_messages	include/isrs.h	/^unsigned char *exception_messages[] =$/;"	v
-expand	include/kheap.h	/^static void expand(unsigned int new_size, heap_t *heap)$/;"	f
-expand	src/kheap.c	/^static void expand(unsigned int new_size, heap_t *heap)$/;"	f	file:
-extern	src/interrupt.s	/^extern irq_handler$/;"	l
-extern	src/interrupt.s	/^extern isr_handler$/;"	l
-extern	start.asm	/^extern gp$/;"	l
-extern	start.asm	/^extern idtp$/;"	l
-extern	start.asm	/^extern irq_handler$/;"	l
-extern	start.asm	/^extern isr_handler$/;"	l
-fail	lab1_result/tools/grade.sh	/^fail() {$/;"	f
-file_headers	src/initrd.c	/^initrd_file_header_t *file_headers; \/\/ The list of file headers.$/;"	v
-find_smallest_hole	include/kheap.h	/^static int find_smallest_hole(unsigned int size, unsigned char page_align, heap_t *heap)$/;"	f
-find_smallest_hole	src/kheap.c	/^static int find_smallest_hole(unsigned int size, u8int page_align, heap_t *heap)$/;"	f	file:
-finddir	src/fs.h	/^    finddir_type_t finddir;$/;"	m	struct:fs_node
-finddir_fs	src/fs.c	/^fs_node_t *finddir_fs(fs_node_t *node, char *name)$/;"	f
-finddir_type_t	src/fs.h	/^typedef struct fs_node * (*finddir_type_t)(struct fs_node*,char *name);$/;"	t	typeref:struct:finddir_type_t
-finish_all	lab1_result/tools/function.mk	/^finish_all = $(eval $(call do_finish_all))$/;"	m
-first_frame	include/paging.h	/^static unsigned int first_frame()$/;"	f
-first_frame	src/paging.c	/^static u32int first_frame()$/;"	f	file:
-flags	include/idt.h	/^    unsigned char flags;$/;"	m	struct:idt_entry
-flags	include/multiboot.h	/^	unsigned long flags;  $/;"	m	struct:multiboot_info
-flags	src/descriptor_tables.h	/^    u8int  flags;               \/\/ More flags. See documentation.$/;"	m	struct:idt_entry_struct
-flags	src/fs.h	/^    u32int flags;       \/\/ Includes the node type. See #defines above.$/;"	m	struct:fs_node
-flags	src/multiboot.h	/^    u32int flags;$/;"	m	struct:multiboot
-flush2	start.asm	/^flush2:$/;"	l
-footer_t	include/system.h	/^} footer_t;$/;"	t	typeref:struct:__anon10
-footer_t	src/kheap.h	/^} footer_t;$/;"	t	typeref:struct:__anon5
-fork	src/task.c	/^int fork()$/;"	f
-frame	include/system.h	/^    unsigned int frame      : 20;  \/\/ Frame address (shifted right 12 bits)$/;"	m	struct:page
-frame	src/paging.h	/^    u32int frame      : 20;  \/\/ Frame address (shifted right 12 bits)$/;"	m	struct:page
-frames	include/paging.h	/^unsigned int *frames;$/;"	v
-frames	src/paging.c	/^u32int *frames;$/;"	v
-free	include/kheap.h	/^void free(void *p, heap_t *heap)$/;"	f
-free	src/kheap.c	/^void free(void *p, heap_t *heap)$/;"	f
-free_frame	include/paging.h	/^void free_frame(page_t *page)$/;"	f
-free_frame	src/paging.c	/^void free_frame(page_t *page)$/;"	f
-fs	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
-fs	src/descriptor_tables.h	/^    u32int fs;         \/\/ The value to load into FS when we change to kernel mode.$/;"	m	struct:tss_entry_struct
-fs_node	src/fs.h	/^typedef struct fs_node$/;"	s
-fs_node_t	src/fs.h	/^} fs_node_t;$/;"	t	typeref:struct:fs_node
-fs_root	src/fs.c	/^fs_node_t *fs_root = 0; \/\/ The root of the filesystem.$/;"	v
-func	lab1_result/kern/debug/kmonitor.c	/^    int(*func)(int argc, char **argv, struct trapframe *tf);$/;"	m	struct:command	file:
-gatedesc	include/mmu.h	/^struct gatedesc {$/;"	s
-gatedesc	lab1_result/kern/mm/mmu.h	/^struct gatedesc {$/;"	s
-gd_args	include/mmu.h	/^    unsigned gd_args : 5;            \/\/ # args, 0 for interrupt\/trap gates$/;"	m	struct:gatedesc
-gd_args	lab1_result/kern/mm/mmu.h	/^    unsigned gd_args : 5;            \/\/ # args, 0 for interrupt\/trap gates$/;"	m	struct:gatedesc
-gd_dpl	include/mmu.h	/^    unsigned gd_dpl : 2;            \/\/ descriptor(meaning new) privilege level$/;"	m	struct:gatedesc
-gd_dpl	lab1_result/kern/mm/mmu.h	/^    unsigned gd_dpl : 2;            \/\/ descriptor(meaning new) privilege level$/;"	m	struct:gatedesc
-gd_off_15_0	include/mmu.h	/^    unsigned gd_off_15_0 : 16;        \/\/ low 16 bits of offset in segment$/;"	m	struct:gatedesc
-gd_off_15_0	lab1_result/kern/mm/mmu.h	/^    unsigned gd_off_15_0 : 16;        \/\/ low 16 bits of offset in segment$/;"	m	struct:gatedesc
-gd_off_31_16	include/mmu.h	/^    unsigned gd_off_31_16 : 16;        \/\/ high bits of offset in segment$/;"	m	struct:gatedesc
-gd_off_31_16	lab1_result/kern/mm/mmu.h	/^    unsigned gd_off_31_16 : 16;        \/\/ high bits of offset in segment$/;"	m	struct:gatedesc
-gd_p	include/mmu.h	/^    unsigned gd_p : 1;                \/\/ Present$/;"	m	struct:gatedesc
-gd_p	lab1_result/kern/mm/mmu.h	/^    unsigned gd_p : 1;                \/\/ Present$/;"	m	struct:gatedesc
-gd_rsv1	include/mmu.h	/^    unsigned gd_rsv1 : 3;            \/\/ reserved(should be zero I guess)$/;"	m	struct:gatedesc
-gd_rsv1	lab1_result/kern/mm/mmu.h	/^    unsigned gd_rsv1 : 3;            \/\/ reserved(should be zero I guess)$/;"	m	struct:gatedesc
-gd_s	include/mmu.h	/^    unsigned gd_s : 1;                \/\/ must be 0 (system)$/;"	m	struct:gatedesc
-gd_s	lab1_result/kern/mm/mmu.h	/^    unsigned gd_s : 1;                \/\/ must be 0 (system)$/;"	m	struct:gatedesc
-gd_ss	include/mmu.h	/^    unsigned gd_ss : 16;            \/\/ segment selector$/;"	m	struct:gatedesc
-gd_ss	lab1_result/kern/mm/mmu.h	/^    unsigned gd_ss : 16;            \/\/ segment selector$/;"	m	struct:gatedesc
-gd_type	include/mmu.h	/^    unsigned gd_type : 4;            \/\/ type(STS_{TG,IG32,TG32})$/;"	m	struct:gatedesc
-gd_type	lab1_result/kern/mm/mmu.h	/^    unsigned gd_type : 4;            \/\/ type(STS_{TG,IG32,TG32})$/;"	m	struct:gatedesc
-gdt	include/gdt.h	/^struct gdt_entry gdt[gdt_size];$/;"	v	typeref:struct:gdt_entry
-gdt	lab1_result/boot/bootasm.S	/^gdt:$/;"	l
-gdt	lab1_result/kern/mm/pmm.c	/^static struct segdesc gdt[] = {$/;"	v	typeref:struct:segdesc	file:
-gdt_entries	src/descriptor_tables.c	/^gdt_entry_t gdt_entries[6];$/;"	v
-gdt_entry	include/gdt.h	/^struct gdt_entry$/;"	s
-gdt_entry_struct	src/descriptor_tables.h	/^struct gdt_entry_struct$/;"	s
-gdt_entry_t	src/descriptor_tables.h	/^typedef struct gdt_entry_struct gdt_entry_t;$/;"	t	typeref:struct:gdt_entry_struct
-gdt_flush	src/gdt.s	/^gdt_flush:$/;"	l
-gdt_flush	start.asm	/^gdt_flush:$/;"	l
-gdt_init	lab1_result/kern/mm/pmm.c	/^gdt_init(void) {$/;"	f	file:
-gdt_install	include/gdt.h	/^void gdt_install()$/;"	f
-gdt_pd	lab1_result/kern/mm/pmm.c	/^static struct pseudodesc gdt_pd = {$/;"	v	typeref:struct:pseudodesc	file:
-gdt_ptr	include/gdt.h	/^struct gdt_ptr$/;"	s
-gdt_ptr	src/descriptor_tables.c	/^gdt_ptr_t   gdt_ptr;$/;"	v
-gdt_ptr_struct	src/descriptor_tables.h	/^struct gdt_ptr_struct$/;"	s
-gdt_ptr_t	src/descriptor_tables.h	/^typedef struct gdt_ptr_struct gdt_ptr_t;$/;"	t	typeref:struct:gdt_ptr_struct
-gdt_set_gate	include/gdt.h	/^void gdt_set_gate(int num, unsigned long base, unsigned long limit, unsigned char access, unsigned char gran)$/;"	f
-gdt_set_gate	src/descriptor_tables.c	/^static void gdt_set_gate(s32int num, u32int base, u32int limit, u8int access, u8int gran)$/;"	f	file:
-gdt_size	include/gdt.h	26;"	d
-gdtdesc	lab1_result/boot/bootasm.S	/^gdtdesc:$/;"	l
-get_page	include/paging.h	/^page_t *get_page(unsigned int address, int make, page_directory_t *dir)$/;"	f
-get_page	src/paging.c	/^page_t *get_page(u32int address, int make, page_directory_t *dir)$/;"	f
-get_time	lab1_result/tools/grade.sh	/^get_time() {$/;"	f
-getchar	lab1_result/kern/libs/stdio.c	/^getchar(void) {$/;"	f
-getint	lab1_result/libs/printfmt.c	/^getint(va_list *ap, int lflag) {$/;"	f	file:
-getpid	src/task.c	/^int getpid()$/;"	f
-getuint	lab1_result/libs/printfmt.c	/^getuint(va_list *ap, int lflag) {$/;"	f	file:
-gid	src/fs.h	/^    u32int gid;         \/\/ The owning group.$/;"	m	struct:fs_node
-global	start.asm	/^global copy_page_physical$/;"	l
-global	start.asm	/^global gdt_flush$/;"	l
-global	start.asm	/^global idt_load$/;"	l
-global	start.asm	/^global irq0$/;"	l
-global	start.asm	/^global irq1$/;"	l
-global	start.asm	/^global irq10$/;"	l
-global	start.asm	/^global irq11$/;"	l
-global	start.asm	/^global irq12$/;"	l
-global	start.asm	/^global irq13$/;"	l
-global	start.asm	/^global irq14$/;"	l
-global	start.asm	/^global irq15$/;"	l
-global	start.asm	/^global irq2$/;"	l
-global	start.asm	/^global irq3$/;"	l
-global	start.asm	/^global irq4$/;"	l
-global	start.asm	/^global irq5$/;"	l
-global	start.asm	/^global irq6$/;"	l
-global	start.asm	/^global irq7$/;"	l
-global	start.asm	/^global irq8$/;"	l
-global	start.asm	/^global irq9$/;"	l
-global	start.asm	/^global isr0$/;"	l
-global	start.asm	/^global isr1$/;"	l
-global	start.asm	/^global isr10$/;"	l
-global	start.asm	/^global isr11$/;"	l
-global	start.asm	/^global isr12$/;"	l
-global	start.asm	/^global isr13$/;"	l
-global	start.asm	/^global isr14$/;"	l
-global	start.asm	/^global isr15$/;"	l
-global	start.asm	/^global isr16$/;"	l
-global	start.asm	/^global isr17$/;"	l
-global	start.asm	/^global isr18$/;"	l
-global	start.asm	/^global isr19$/;"	l
-global	start.asm	/^global isr2$/;"	l
-global	start.asm	/^global isr20$/;"	l
-global	start.asm	/^global isr21$/;"	l
-global	start.asm	/^global isr22$/;"	l
-global	start.asm	/^global isr23$/;"	l
-global	start.asm	/^global isr24$/;"	l
-global	start.asm	/^global isr25$/;"	l
-global	start.asm	/^global isr26$/;"	l
-global	start.asm	/^global isr27$/;"	l
-global	start.asm	/^global isr28$/;"	l
-global	start.asm	/^global isr29$/;"	l
-global	start.asm	/^global isr3$/;"	l
-global	start.asm	/^global isr30$/;"	l
-global	start.asm	/^global isr31$/;"	l
-global	start.asm	/^global isr4$/;"	l
-global	start.asm	/^global isr5$/;"	l
-global	start.asm	/^global isr6$/;"	l
-global	start.asm	/^global isr7$/;"	l
-global	start.asm	/^global isr8$/;"	l
-global	start.asm	/^global isr9$/;"	l
-global	start.asm	/^global start$/;"	l
-gp	include/gdt.h	/^struct gdt_ptr gp;$/;"	v	typeref:struct:gdt_ptr
-grade_backtrace	lab1_result/kern/init/init.c	/^grade_backtrace(void) {$/;"	f
-grade_backtrace0	lab1_result/kern/init/init.c	/^grade_backtrace0(int arg0, int arg1, int arg2) {$/;"	f
-grade_backtrace1	lab1_result/kern/init/init.c	/^grade_backtrace1(int arg0, int arg1) {$/;"	f
-grade_backtrace2	lab1_result/kern/init/init.c	/^grade_backtrace2(int arg0, int arg1, int arg2, int arg3) {$/;"	f
-granularity	include/gdt.h	/^    unsigned char granularity;$/;"	m	struct:gdt_entry
-granularity	src/descriptor_tables.h	/^    u8int  granularity;$/;"	m	struct:gdt_entry_struct
-green	include/scrn.h	12;"	d
-gs	include/system.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
-gs	src/descriptor_tables.h	/^    u32int gs;         \/\/ The value to load into GS when we change to kernel mode.$/;"	m	struct:tss_entry_struct
-header	include/system.h	/^    header_t *header; \/\/ Pointer to the block header.$/;"	m	struct:__anon10
-header	src/kheap.h	/^    header_t *header; \/\/ Pointer to the block header.$/;"	m	struct:__anon5
-header_t	include/system.h	/^} header_t;$/;"	t	typeref:struct:__anon9
-header_t	src/kheap.h	/^} header_t;$/;"	t	typeref:struct:__anon4
-header_t_less_than	include/kheap.h	/^static char header_t_less_than(void*a, void *b)$/;"	f
-header_t_less_than	src/kheap.c	/^static s8int header_t_less_than(void*a, void *b)$/;"	f	file:
-heap_t	include/system.h	/^} heap_t;$/;"	t	typeref:struct:__anon11
-heap_t	src/kheap.h	/^} heap_t;$/;"	t	typeref:struct:__anon6
-id	src/task.h	/^    int id;                \/\/ Process ID.$/;"	m	struct:task
-idt	include/idt.h	/^struct idt_entry idt[256];$/;"	v	typeref:struct:idt_entry
-idt	include/trap.c	/^static struct gatedesc idt[256] = {{0}};$/;"	v	typeref:struct:gatedesc	file:
-idt	lab1_result/kern/trap/trap.c	/^static struct gatedesc idt[256] = {{0}};$/;"	v	typeref:struct:gatedesc	file:
-idt_entries	src/descriptor_tables.c	/^idt_entry_t idt_entries[256];$/;"	v
-idt_entry	include/idt.h	/^struct idt_entry$/;"	s
-idt_entry_struct	src/descriptor_tables.h	/^struct idt_entry_struct$/;"	s
-idt_entry_t	src/descriptor_tables.h	/^typedef struct idt_entry_struct idt_entry_t;$/;"	t	typeref:struct:idt_entry_struct
-idt_flush	src/gdt.s	/^idt_flush:$/;"	l
-idt_init	include/trap.c	/^idt_init(void) {$/;"	f
-idt_init	lab1_result/kern/trap/trap.c	/^idt_init(void) {$/;"	f
-idt_install	include/idt.h	/^void idt_install()$/;"	f
-idt_load	start.asm	/^idt_load:$/;"	l
-idt_pd	include/trap.c	/^static struct pseudodesc idt_pd = {$/;"	v	typeref:struct:pseudodesc	file:
-idt_pd	lab1_result/kern/trap/trap.c	/^static struct pseudodesc idt_pd = {$/;"	v	typeref:struct:pseudodesc	file:
-idt_ptr	include/idt.h	/^struct idt_ptr$/;"	s
-idt_ptr	src/descriptor_tables.c	/^idt_ptr_t   idt_ptr;$/;"	v
-idt_ptr_struct	src/descriptor_tables.h	/^struct idt_ptr_struct$/;"	s
-idt_ptr_t	src/descriptor_tables.h	/^typedef struct idt_ptr_struct idt_ptr_t;$/;"	t	typeref:struct:idt_ptr_struct
-idt_set_gate	include/idt.h	/^void idt_set_gate(unsigned char num, unsigned long base, unsigned short sel, unsigned char flags)$/;"	f
-idt_set_gate	src/descriptor_tables.c	/^static void idt_set_gate(u8int num, u32int base, u16int sel, u8int flags)$/;"	f	file:
-idtp	include/idt.h	/^struct idt_ptr idtp;$/;"	v	typeref:struct:idt_ptr
-impl	src/fs.h	/^    u32int impl;        \/\/ An implementation-defined number.$/;"	m	struct:fs_node
-inb	lab1_result/libs/x86.h	/^inb(uint16_t port) {$/;"	f
-inb	src/common.c	/^u8int inb(u16int port)$/;"	f
-index	include/system.h	/^    ordered_array_t index;$/;"	m	struct:__anon11
-index	src/kheap.h	/^    ordered_array_t index;$/;"	m	struct:__anon6
-init_descriptor_tables	src/descriptor_tables.c	/^void init_descriptor_tables()$/;"	f
-init_gdt	src/descriptor_tables.c	/^static void init_gdt()$/;"	f	file:
-init_idt	src/descriptor_tables.c	/^static void init_idt()$/;"	f	file:
-init_timer	src/timer.c	/^void init_timer(u32int frequency)$/;"	f
-init_video	include/scrn.h	/^void init_video(void)$/;"	f
-initial_esp	src/main.c	/^u32int initial_esp;$/;"	v
-initialise_initrd	src/initrd.c	/^fs_node_t *initialise_initrd(u32int location)$/;"	f
-initialise_paging	src/paging.c	/^void initialise_paging()$/;"	f
-initialise_syscalls	src/syscall.c	/^void initialise_syscalls()$/;"	f
-initialise_tasking	src/task.c	/^void initialise_tasking()$/;"	f
-initrd_dev	src/initrd.c	/^fs_node_t *initrd_dev;              \/\/ We also add a directory node for \/dev, so we can mount devfs later on.$/;"	v
-initrd_file_header_t	src/initrd.h	/^} initrd_file_header_t;$/;"	t	typeref:struct:__anon2
-initrd_finddir	src/initrd.c	/^static fs_node_t *initrd_finddir(fs_node_t *node, char *name)$/;"	f	file:
-initrd_header	src/initrd.c	/^initrd_header_t *initrd_header;     \/\/ The header.$/;"	v
-initrd_header_t	src/initrd.h	/^} initrd_header_t;$/;"	t	typeref:struct:__anon1
-initrd_read	src/initrd.c	/^static u32int initrd_read(fs_node_t *node, u32int offset, u32int size, u8int *buffer)$/;"	f	file:
-initrd_readdir	src/initrd.c	/^static struct dirent *initrd_readdir(fs_node_t *node, u32int index)$/;"	f	file:
-initrd_root	src/initrd.c	/^fs_node_t *initrd_root;             \/\/ Our root directory node.$/;"	v
-ino	src/fs.h	/^    u32int ino;     \/\/ Inode number. Required by POSIX.$/;"	m	struct:dirent
-inode	src/fs.h	/^    u32int inode;       \/\/ This is device-specific - provides a way for a filesystem to identify files.$/;"	m	struct:fs_node
-inportb	include/common.h	/^unsigned char inportb (unsigned short _port)$/;"	f
-inportw	include/common.h	/^unsigned short inportw(unsigned short port)$/;"	f
-insert_ordered_array	include/ordered_array.h	/^void insert_ordered_array(void*  item, ordered_array_t *array)$/;"	f
-insert_ordered_array	src/ordered_array.c	/^void insert_ordered_array(type_t item, ordered_array_t *array)$/;"	f
-insl	lab1_result/libs/x86.h	/^insl(uint32_t port, void *addr, int cnt) {$/;"	f
-int16_t	include/type.h	/^typedef short int16_t;$/;"	t
-int16_t	lab1_result/libs/defs.h	/^typedef short int16_t;$/;"	t
-int32_t	include/type.h	/^typedef int int32_t;$/;"	t
-int32_t	lab1_result/libs/defs.h	/^typedef int int32_t;$/;"	t
-int64_t	include/type.h	/^typedef long long int64_t;$/;"	t
-int64_t	lab1_result/libs/defs.h	/^typedef long long int64_t;$/;"	t
-int8_t	include/type.h	/^typedef char int8_t;$/;"	t
-int8_t	lab1_result/libs/defs.h	/^typedef char int8_t;$/;"	t
-int_no	include/system.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
-int_no	src/isr.h	/^    u32int int_no, err_code;    \/\/ Interrupt number and error code (if applicable)$/;"	m	struct:registers
-interrupt_handlers	src/isr.c	/^isr_t interrupt_handlers[256];$/;"	v
-intptr_t	include/type.h	/^typedef int32_t intptr_t;$/;"	t
-intptr_t	lab1_result/libs/defs.h	/^typedef int32_t intptr_t;$/;"	t
-intr_disable	lab1_result/kern/driver/intr.c	/^intr_disable(void) {$/;"	f
-intr_enable	lab1_result/kern/driver/intr.c	/^intr_enable(void) {$/;"	f
-inw	src/common.c	/^u16int inw(u16int port)$/;"	f
-iomap_base	src/descriptor_tables.h	/^    u16int iomap_base;$/;"	m	struct:tss_entry_struct
-irq0	start.asm	/^irq0:$/;"	l
-irq1	start.asm	/^irq1:$/;"	l
-irq10	start.asm	/^irq10:$/;"	l
-irq11	start.asm	/^irq11:$/;"	l
-irq12	start.asm	/^irq12:$/;"	l
-irq13	start.asm	/^irq13:$/;"	l
-irq14	start.asm	/^irq14:$/;"	l
-irq15	start.asm	/^irq15:$/;"	l
-irq2	start.asm	/^irq2:$/;"	l
-irq3	start.asm	/^irq3:$/;"	l
-irq4	start.asm	/^irq4:$/;"	l
-irq5	start.asm	/^irq5:$/;"	l
-irq6	start.asm	/^irq6:$/;"	l
-irq7	start.asm	/^irq7:$/;"	l
-irq8	start.asm	/^irq8:$/;"	l
-irq9	start.asm	/^irq9:$/;"	l
-irq_common_stub	src/interrupt.s	/^irq_common_stub:$/;"	l
-irq_common_stub	start.asm	/^irq_common_stub:$/;"	l
-irq_handler	include/irq.h	/^void irq_handler(struct regs *r)$/;"	f
-irq_handler	src/isr.c	/^void irq_handler(registers_t regs)$/;"	f
-irq_install	include/irq.h	/^void irq_install()$/;"	f
-irq_install_handler	include/irq.h	/^void irq_install_handler(int irq, void (*handler)(struct regs *r))$/;"	f
-irq_mask	lab1_result/kern/driver/picirq.c	/^static uint16_t irq_mask = 0xFFFF & ~(1 << IRQ_SLAVE);$/;"	v	file:
-irq_remap	include/irq.h	/^void irq_remap(void)$/;"	f
-irq_routines	include/irq.h	/^void *irq_routines[16] =$/;"	v
-irq_uninstall_handler	include/irq.h	/^void irq_uninstall_handler(int irq)$/;"	f
-is_hole	include/system.h	/^    unsigned char is_hole;   \/\/ 1 if this is a hole. 0 if this is a block.$/;"	m	struct:__anon9
-is_hole	src/kheap.h	/^    u8int is_hole;   \/\/ 1 if this is a hole. 0 if this is a block.$/;"	m	struct:__anon4
-is_kernel_panic	lab1_result/kern/debug/panic.c	/^is_kernel_panic(void) {$/;"	f
-is_panic	lab1_result/kern/debug/panic.c	/^static bool is_panic = 0;$/;"	v	file:
-isr0	start.asm	/^isr0:$/;"	l
-isr1	start.asm	/^isr1:$/;"	l
-isr10	start.asm	/^isr10:$/;"	l
-isr11	start.asm	/^isr11:$/;"	l
-isr12	start.asm	/^isr12:$/;"	l
-isr13	start.asm	/^isr13:$/;"	l
-isr14	start.asm	/^isr14:$/;"	l
-isr15	start.asm	/^isr15:$/;"	l
-isr16	start.asm	/^isr16:$/;"	l
-isr17	start.asm	/^isr17:$/;"	l
-isr18	start.asm	/^isr18:$/;"	l
-isr19	start.asm	/^isr19:$/;"	l
-isr2	start.asm	/^isr2:$/;"	l
-isr20	start.asm	/^isr20:$/;"	l
-isr21	start.asm	/^isr21:$/;"	l
-isr22	start.asm	/^isr22:$/;"	l
-isr23	start.asm	/^isr23:$/;"	l
-isr24	start.asm	/^isr24:$/;"	l
-isr25	start.asm	/^isr25:$/;"	l
-isr26	start.asm	/^isr26:$/;"	l
-isr27	start.asm	/^isr27:$/;"	l
-isr28	start.asm	/^isr28:$/;"	l
-isr29	start.asm	/^isr29:$/;"	l
-isr3	start.asm	/^isr3:$/;"	l
-isr30	start.asm	/^isr30:$/;"	l
-isr31	start.asm	/^isr31:$/;"	l
-isr4	start.asm	/^isr4:$/;"	l
-isr5	start.asm	/^isr5:$/;"	l
-isr6	start.asm	/^isr6:$/;"	l
-isr7	start.asm	/^isr7:$/;"	l
-isr8	start.asm	/^isr8:$/;"	l
-isr9	start.asm	/^isr9:$/;"	l
-isr_common_stub	src/interrupt.s	/^isr_common_stub:$/;"	l
-isr_common_stub	start.asm	/^isr_common_stub:$/;"	l
-isr_handler	include/isrs.h	/^void isr_handler(struct regs *r)$/;"	f
-isr_handler	src/isr.c	/^void isr_handler(registers_t regs)$/;"	f
-isr_install_handler	include/isrs.h	/^void isr_install_handler(int isr,void (*handler)(struct regs * r))$/;"	f
-isr_routines	include/isrs.h	/^void *isr_routines[32] = $/;"	v
-isr_t	src/isr.h	/^typedef void (*isr_t)(registers_t*);$/;"	t
-isr_uninstall_handler	include/isrs.h	/^void isr_uninstall_handler(int isr)$/;"	f
-isrs_install	include/isrs.h	/^void isrs_install()$/;"	f
-itoa	include/scrn.h	/^static void itoa (char *buf, int base, int d)  $/;"	f
-kbd_init	lab1_result/kern/driver/console.c	/^kbd_init(void) {$/;"	f	file:
-kbd_intr	lab1_result/kern/driver/console.c	/^kbd_intr(void) {$/;"	f	file:
-kbd_proc_data	lab1_result/kern/driver/console.c	/^kbd_proc_data(void) {$/;"	f	file:
-kbdus	include/kb.h	/^unsigned char kbdus[128] =$/;"	v
-kern_init	lab1_result/kern/init/init.c	/^kern_init(void){$/;"	f
-kernel	lab1_result/Makefile	/^kernel = $(call totarget,kernel)$/;"	m
-kernel_directory	include/system.h	/^page_directory_t *kernel_directory=0;$/;"	v
-kernel_directory	src/paging.c	/^page_directory_t *kernel_directory=0;$/;"	v
-kernel_stack	src/task.h	/^    u32int kernel_stack;   \/\/ Kernel stack location.$/;"	m	struct:task
-keyboard_handler	include/kb.h	/^void keyboard_handler(struct regs *r)$/;"	f
-keyboard_install	include/kb.h	/^void keyboard_install()$/;"	f
-kfree	include/kheap.h	/^void kfree(void *p)$/;"	f
-kfree	src/kheap.c	/^void kfree(void *p)$/;"	f
-kheap	include/kheap.h	/^heap_t *kheap=0;$/;"	v
-kheap	src/kheap.c	/^heap_t *kheap=0;$/;"	v
-kmalloc	include/kheap.h	/^unsigned int kmalloc(unsigned int sz)$/;"	f
-kmalloc	src/kheap.c	/^unsigned int kmalloc(unsigned int sz)$/;"	f
-kmalloc_a	include/kheap.h	/^unsigned int kmalloc_a(unsigned int sz)$/;"	f
-kmalloc_a	src/kheap.c	/^unsigned int kmalloc_a(unsigned int sz)$/;"	f
-kmalloc_ap	include/kheap.h	/^unsigned int kmalloc_ap(unsigned int sz, unsigned int *phys)$/;"	f
-kmalloc_ap	src/kheap.c	/^unsigned int kmalloc_ap(unsigned int sz, unsigned int *phys)$/;"	f
-kmalloc_int	include/kheap.h	/^unsigned int kmalloc_int(unsigned int sz, int align, unsigned int *phys)$/;"	f
-kmalloc_int	src/kheap.c	/^unsigned int kmalloc_int(unsigned int sz, int align, unsigned int *phys)$/;"	f
-kmalloc_p	include/kheap.h	/^unsigned int kmalloc_p(unsigned int sz, unsigned int *phys)$/;"	f
-kmalloc_p	src/kheap.c	/^unsigned int kmalloc_p(unsigned int sz, unsigned int *phys)$/;"	f
-kmonitor	lab1_result/kern/debug/kmonitor.c	/^kmonitor(struct trapframe *tf) {$/;"	f
-lab1_print_cur_status	lab1_result/kern/init/init.c	/^lab1_print_cur_status(void) {$/;"	f	file:
-lab1_switch_test	lab1_result/kern/init/init.c	/^lab1_switch_test(void) {$/;"	f	file:
-lab1_switch_to_kernel	lab1_result/kern/init/init.c	/^lab1_switch_to_kernel(void) {$/;"	f	file:
-lab1_switch_to_user	lab1_result/kern/init/init.c	/^lab1_switch_to_user(void) {$/;"	f	file:
-ldt	src/descriptor_tables.h	/^    u32int ldt;        \/\/ Unused...$/;"	m	struct:tss_entry_struct
-length	src/fs.h	/^    u32int length;      \/\/ Size of the file, in bytes.$/;"	m	struct:fs_node
-length	src/initrd.h	/^    u32int length;   \/\/ Length of the file.$/;"	m	struct:__anon2
-less_than	include/system.h	/^    lessthan_predicate_t less_than;$/;"	m	struct:__anon8
-less_than	src/ordered_array.h	/^    lessthan_predicate_t less_than;$/;"	m	struct:__anon3
-lessthan_predicate_t	include/system.h	/^typedef char (*lessthan_predicate_t)(void* ,void* );$/;"	t
-lessthan_predicate_t	src/ordered_array.h	/^typedef s8int (*lessthan_predicate_t)(type_t,type_t);$/;"	t
-lgdt	lab1_result/kern/mm/pmm.c	/^lgdt(struct pseudodesc *pd) {$/;"	f	file:
-lidt	lab1_result/libs/x86.h	/^lidt(struct pseudodesc *pd) {$/;"	f
-light_brown	include/scrn.h	23;"	d
-light_cyan	include/scrn.h	20;"	d
-light_green	include/scrn.h	19;"	d
-light_grey	include/scrn.h	17;"	d
-light_magenta	include/scrn.h	22;"	d
-light_red	include/scrn.h	21;"	d
-limit	include/gdt.h	/^    unsigned short limit;$/;"	m	struct:gdt_ptr
-limit	include/idt.h	/^    unsigned short limit;$/;"	m	struct:idt_ptr
-limit	src/descriptor_tables.h	/^    u16int limit;               \/\/ The upper 16 bits of all selector limits.$/;"	m	struct:gdt_ptr_struct
-limit	src/descriptor_tables.h	/^    u16int limit;$/;"	m	struct:idt_ptr_struct
-limit_low	include/gdt.h	/^    unsigned short limit_low;$/;"	m	struct:gdt_entry
-limit_low	src/descriptor_tables.h	/^    u16int limit_low;           \/\/ The lower 16 bits of the limit.$/;"	m	struct:gdt_entry_struct
-listf	lab1_result/tools/function.mk	/^listf = $(filter $(if $(2),$(addprefix %.,$(2)),%),\\$/;"	m
-listf_cc	lab1_result/Makefile	/^listf_cc = $(call listf,$(1),$(CTYPE))$/;"	m
-lookup_ordered_array	include/ordered_array.h	/^void*  lookup_ordered_array(unsigned int i, ordered_array_t *array)$/;"	f
-lookup_ordered_array	src/ordered_array.c	/^type_t lookup_ordered_array(u32int i, ordered_array_t *array)$/;"	f
-lpt_putc	lab1_result/kern/driver/console.c	/^lpt_putc(int c) {$/;"	f	file:
-lpt_putc_sub	lab1_result/kern/driver/console.c	/^lpt_putc_sub(int c) {$/;"	f	file:
-ltr	include/gdt.h	/^ltr(uint16_t sel) {$/;"	f
-ltr	lab1_result/libs/x86.h	/^ltr(uint16_t sel) {$/;"	f
-magenta	include/scrn.h	15;"	d
-magic	include/system.h	/^    unsigned int magic;     \/\/ Magic number, same as in header_t.$/;"	m	struct:__anon10
-magic	include/system.h	/^    unsigned int magic;   \/\/ Magic number, used for error checking and identification.$/;"	m	struct:__anon9
-magic	src/initrd.h	/^    u8int magic;     \/\/ Magic number, for error checking.$/;"	m	struct:__anon2
-magic	src/kheap.h	/^    u32int magic;     \/\/ Magic number, same as in header_t.$/;"	m	struct:__anon5
-magic	src/kheap.h	/^    u32int magic;   \/\/ Magic number, used for error checking and identification.$/;"	m	struct:__anon4
-main	lab1_result/tools/sign.c	/^main(int argc, char *argv[]) {$/;"	f
-main	lab1_result/tools/vector.c	/^main(void) {$/;"	f
-main	main.c	/^void main()$/;"	f
-main	src/main.c	/^int main(struct multiboot *mboot_ptr, u32int initial_stack)$/;"	f
-make_print	lab1_result/tools/grade.sh	/^make_print() {$/;"	f
-mask	src/fs.h	/^    u32int mask;        \/\/ The permissions mask.$/;"	m	struct:fs_node
-match	lab1_result/Makefile	/^match = $(shell echo $(2) | $(AWK) '{for(i=1;i<=NF;i++){if(match("$(1)","^"$$(i)"$$")){exit 1;}}}'; echo $$?)$/;"	m
-max_address	include/system.h	/^    unsigned int max_address;   \/\/ The maximum address the heap can be expanded to.$/;"	m	struct:__anon11
-max_address	src/kheap.h	/^    u32int max_address;   \/\/ The maximum address the heap can be expanded to.$/;"	m	struct:__anon6
-max_size	include/system.h	/^    unsigned int max_size;$/;"	m	struct:__anon8
-max_size	src/ordered_array.h	/^    u32int max_size;$/;"	m	struct:__anon3
-mboot	start.asm	/^mboot:$/;"	l
-mem_lower	include/multiboot.h	/^	unsigned long mem_lower;  $/;"	m	struct:multiboot_info
-mem_lower	src/multiboot.h	/^    u32int mem_lower;$/;"	m	struct:multiboot
-mem_upper	include/multiboot.h	/^	unsigned long mem_upper;  $/;"	m	struct:multiboot_info
-mem_upper	src/multiboot.h	/^    u32int mem_upper;$/;"	m	struct:multiboot
-memcmp	lab1_result/libs/string.c	/^memcmp(const void *v1, const void *v2, size_t n) {$/;"	f
-memcpy	include/common.h	/^void *memcpy(void *dest, const void *src, size_t count)$/;"	f
-memcpy	lab1_result/libs/string.c	/^memcpy(void *dst, const void *src, size_t n) {$/;"	f
-memcpy	src/common.c	/^void memcpy(u8int *dest, const u8int *src, u32int len)$/;"	f
-memmove	lab1_result/libs/string.c	/^memmove(void *dst, const void *src, size_t n) {$/;"	f
-memset	include/common.h	/^void *memset(void *dest, char val, size_t count)$/;"	f
-memset	lab1_result/libs/string.c	/^memset(void *s, char c, size_t n) {$/;"	f
-memset	src/common.c	/^void memset(u8int *dest, u8int val, u32int len)$/;"	f
-memsetw	include/common.h	/^unsigned short *memsetw(unsigned short *dest, unsigned short val, size_t count)$/;"	f
-mmap_addr	include/multiboot.h	/^	unsigned long mmap_addr;  $/;"	m	struct:multiboot_info
-mmap_addr	src/multiboot.h	/^    u32int mmap_addr;$/;"	m	struct:multiboot
-mmap_length	include/multiboot.h	/^	unsigned long mmap_length;  $/;"	m	struct:multiboot_info
-mmap_length	src/multiboot.h	/^    u32int mmap_length;$/;"	m	struct:multiboot
-mods_addr	include/multiboot.h	/^	unsigned long mods_addr;  $/;"	m	struct:multiboot_info
-mods_addr	src/multiboot.h	/^    u32int mods_addr;$/;"	m	struct:multiboot
-mods_count	include/multiboot.h	/^	unsigned long mods_count;  $/;"	m	struct:multiboot_info
-mods_count	src/multiboot.h	/^    u32int mods_count;$/;"	m	struct:multiboot
-mon_backtrace	lab1_result/kern/debug/kmonitor.c	/^mon_backtrace(int argc, char **argv, struct trapframe *tf) {$/;"	f
-mon_help	lab1_result/kern/debug/kmonitor.c	/^mon_help(int argc, char **argv, struct trapframe *tf) {$/;"	f
-mon_kerninfo	lab1_result/kern/debug/kmonitor.c	/^mon_kerninfo(int argc, char **argv, struct trapframe *tf) {$/;"	f
-monitor_clear	src/monitor.c	/^void monitor_clear()$/;"	f
-monitor_put	src/monitor.c	/^void monitor_put(char c)$/;"	f
-monitor_write	src/monitor.c	/^void monitor_write(char *c)$/;"	f
-monitor_write_dec	src/monitor.c	/^void monitor_write_dec(u32int n)$/;"	f
-monitor_write_hex	src/monitor.c	/^void monitor_write_hex(u32int n)$/;"	f
-move_csr	include/scrn.h	/^void move_csr(void)$/;"	f
-move_cursor	src/monitor.c	/^static void move_cursor()$/;"	f	file:
-move_stack	src/task.c	/^void move_stack(void *new_stack_start, u32int size)$/;"	f
-multiboot	src/multiboot.h	/^struct multiboot$/;"	s
-multiboot_header_t	src/multiboot.h	/^typedef struct multiboot_header multiboot_header_t;$/;"	t	typeref:struct:multiboot_header
-multiboot_info	include/multiboot.h	/^typedef struct multiboot_info  $/;"	s
-multiboot_info_t	include/multiboot.h	/^} multiboot_info_t; $/;"	t	typeref:struct:multiboot_info
-n_desc	lab1_result/kern/debug/stab.h	/^    uint16_t n_desc;        \/\/ description field$/;"	m	struct:stab
-n_other	lab1_result/kern/debug/stab.h	/^    uint8_t n_other;        \/\/ misc info (usually empty)$/;"	m	struct:stab
-n_strx	lab1_result/kern/debug/stab.h	/^    uint32_t n_strx;        \/\/ index into string table of name$/;"	m	struct:stab
-n_type	lab1_result/kern/debug/stab.h	/^    uint8_t n_type;         \/\/ type of symbol$/;"	m	struct:stab
-n_value	lab1_result/kern/debug/stab.h	/^    uintptr_t n_value;      \/\/ value of symbol$/;"	m	struct:stab
-name	lab1_result/kern/debug/kmonitor.c	/^    const char *name;$/;"	m	struct:command	file:
-name	src/fs.h	/^    char name[128];     \/\/ The filename.$/;"	m	struct:fs_node
-name	src/fs.h	/^    char name[128]; \/\/ Filename.$/;"	m	struct:dirent
-name	src/initrd.h	/^    s8int name[64];  \/\/ Filename.$/;"	m	struct:__anon2
-next	src/task.h	/^    struct task *next;     \/\/ The next task in a linked list.$/;"	m	struct:task	typeref:struct:task::task
-next_pid	src/task.c	/^u32int next_pid = 1;$/;"	v
-nfiles	src/initrd.h	/^    u32int nfiles; \/\/ The number of files in the ramdisk.$/;"	m	struct:__anon1
-nframes	include/paging.h	/^unsigned int nframes;$/;"	v
-nframes	src/paging.c	/^u32int nframes;$/;"	v
-normalmap	lab1_result/kern/driver/console.c	/^static uint8_t normalmap[256] = {$/;"	v	file:
-nroot_nodes	src/initrd.c	/^int nroot_nodes;                    \/\/ Number of file nodes.$/;"	v
-num	include/multiboot.h	/^	unsigned long num;  $/;"	m	struct:elf_section_header_table
-num	src/multiboot.h	/^    u32int num;$/;"	m	struct:multiboot
-num_syscalls	src/syscall.c	/^u32int num_syscalls = 3;$/;"	v
-objfile	lab1_result/Makefile	/^objfile = $(call toobj,$(1))$/;"	m
-offset	src/initrd.h	/^    u32int offset;   \/\/ Offset in the initrd that the file starts.$/;"	m	struct:__anon2
-offsetof	include/type.h	59;"	d
-offsetof	lab1_result/libs/defs.h	55;"	d
-open	src/fs.h	/^    open_type_t open;$/;"	m	struct:fs_node
-open_fs	src/fs.c	/^void open_fs(fs_node_t *node, u8int read, u8int write)$/;"	f
-open_type_t	src/fs.h	/^typedef void (*open_type_t)(struct fs_node*);$/;"	t
-ordered_array_t	include/system.h	/^} ordered_array_t;$/;"	t	typeref:struct:__anon8
-ordered_array_t	src/ordered_array.h	/^} ordered_array_t;$/;"	t	typeref:struct:__anon3
-outb	lab1_result/libs/x86.h	/^outb(uint16_t port, uint8_t data) {$/;"	f
-outb	src/common.c	/^void outb(u16int port, u8int value)$/;"	f
-outfile	lab1_result/Makefile	/^outfile = $(call cgtype,$(call toobj,$(1)),o,out)$/;"	m
-outportb	include/common.h	/^void outportb (unsigned short _port, unsigned char _data)$/;"	f
-outw	lab1_result/libs/x86.h	/^outw(uint16_t port, uint16_t data) {$/;"	f
-p_align	lab1_result/libs/elf.h	/^    uint32_t p_align;  \/\/ required alignment, invariably hardware page size$/;"	m	struct:proghdr
-p_filesz	lab1_result/libs/elf.h	/^    uint32_t p_filesz; \/\/ size of segment in file$/;"	m	struct:proghdr
-p_flags	lab1_result/libs/elf.h	/^    uint32_t p_flags;  \/\/ read\/write\/execute bits$/;"	m	struct:proghdr
-p_memsz	lab1_result/libs/elf.h	/^    uint32_t p_memsz;  \/\/ size of segment in memory (bigger if contains bss）$/;"	m	struct:proghdr
-p_offset	lab1_result/libs/elf.h	/^    uint32_t p_offset; \/\/ file offset of segment$/;"	m	struct:proghdr
-p_pa	lab1_result/libs/elf.h	/^    uint32_t p_pa;     \/\/ physical address, not used$/;"	m	struct:proghdr
-p_type	lab1_result/libs/elf.h	/^    uint32_t p_type;   \/\/ loadable code or data, dynamic linking info,etc.$/;"	m	struct:proghdr
-p_va	lab1_result/libs/elf.h	/^    uint32_t p_va;     \/\/ virtual address to map segment$/;"	m	struct:proghdr
-packetname	lab1_result/tools/function.mk	/^packetname = $(if $(1),$(addprefix $(OBJPREFIX),$(1)),$(OBJPREFIX))$/;"	m
-page	include/system.h	/^typedef struct page$/;"	s
-page	src/paging.h	/^typedef struct page$/;"	s
-page_directory	include/system.h	/^typedef struct page_directory$/;"	s
-page_directory	src/paging.h	/^typedef struct page_directory$/;"	s
-page_directory	src/task.h	/^    page_directory_t *page_directory; \/\/ Page directory.$/;"	m	struct:task
-page_directory_t	include/system.h	/^} page_directory_t;$/;"	t	typeref:struct:page_directory
-page_directory_t	src/paging.h	/^} page_directory_t;$/;"	t	typeref:struct:page_directory
-page_fault	include/paging.h	/^void page_fault(struct regs *regs)$/;"	f
-page_fault	src/paging.c	/^void page_fault(registers_t *regs)$/;"	f
-page_t	include/system.h	/^} page_t;$/;"	t	typeref:struct:page
-page_t	src/paging.h	/^} page_t;$/;"	t	typeref:struct:page
-page_table	include/system.h	/^typedef struct page_table$/;"	s
-page_table	src/paging.h	/^typedef struct page_table$/;"	s
-page_table_t	include/system.h	/^} page_table_t;$/;"	t	typeref:struct:page_table
-page_table_t	src/paging.h	/^} page_table_t;$/;"	t	typeref:struct:page_table
-pages	include/system.h	/^    page_t pages[1024];$/;"	m	struct:page_table
-pages	src/paging.h	/^    page_t pages[1024];$/;"	m	struct:page_table
-paging_install	include/paging.h	/^void paging_install()$/;"	f
-panic	include/common.h	/^extern void panic(char *message,char *file, unsigned int line)$/;"	f
-panic	lab1_result/kern/debug/assert.h	12;"	d
-panic	src/common.c	/^extern void panic(const char *message, const char *file, u32int line)$/;"	f
-panic_assert	include/common.h	/^extern void panic_assert(char *file, unsigned int line, char *desc)$/;"	f
-panic_assert	src/common.c	/^extern void panic_assert(const char *file, u32int line, const char *desc)$/;"	f
-parse	lab1_result/kern/debug/kmonitor.c	/^parse(char *buf, char **argv) {$/;"	f	file:
-pass	lab1_result/tools/grade.sh	/^pass() {$/;"	f
-pd_base	lab1_result/libs/x86.h	/^    uint32_t pd_base;        \/\/ Base address$/;"	m	struct:pseudodesc
-pd_lim	lab1_result/libs/x86.h	/^    uint16_t pd_lim;        \/\/ Limit$/;"	m	struct:pseudodesc
-physicalAddr	include/system.h	/^    unsigned int physicalAddr;$/;"	m	struct:page_directory
-physicalAddr	src/paging.h	/^    u32int physicalAddr;$/;"	m	struct:page_directory
-pic_enable	lab1_result/kern/driver/picirq.c	/^pic_enable(unsigned int irq) {$/;"	f
-pic_init	lab1_result/kern/driver/picirq.c	/^pic_init(void) {$/;"	f
-pic_setmask	lab1_result/kern/driver/picirq.c	/^pic_setmask(uint16_t mask) {$/;"	f	file:
-place_ordered_array	include/ordered_array.h	/^ordered_array_t place_ordered_array(void *addr, unsigned int max_size, lessthan_predicate_t less_than)$/;"	f
-place_ordered_array	src/ordered_array.c	/^ordered_array_t place_ordered_array(void *addr, u32int max_size, lessthan_predicate_t less_than)$/;"	f
-placement_address	include/kheap.h	/^unsigned int placement_address = (unsigned int)&end;$/;"	v
-placement_address	src/kheap.c	/^unsigned int placement_address = (unsigned int)&end;$/;"	v
-pmm_init	lab1_result/kern/mm/pmm.c	/^pmm_init(void) {$/;"	f
-pop	start.asm	/^    pop ds$/;"	d
-ppn_t	include/type.h	/^typedef uintptr_t ppn_t;$/;"	t
-ppn_t	lab1_result/libs/defs.h	/^typedef size_t ppn_t;$/;"	t
-present	include/system.h	/^    unsigned int present    : 1;   \/\/ Page present in memory$/;"	m	struct:page
-present	src/paging.h	/^    u32int present    : 1;   \/\/ Page present in memory$/;"	m	struct:page
-prev_tss	src/descriptor_tables.h	/^    u32int prev_tss;   \/\/ The previous TSS - if we used hardware task switching this would form a linked list.$/;"	m	struct:tss_entry_struct
-print_cur_status	include/isrs.h	/^void print_cur_status(void) {$/;"	f
-print_debuginfo	lab1_result/kern/debug/kdebug.c	/^print_debuginfo(uintptr_t eip) {$/;"	f
-print_kerninfo	lab1_result/kern/debug/kdebug.c	/^print_kerninfo(void) {$/;"	f
-print_regs	include/trap.c	/^print_regs(struct pushregs *regs) {$/;"	f
-print_regs	lab1_result/kern/trap/trap.c	/^print_regs(struct pushregs *regs) {$/;"	f
-print_stackframe	lab1_result/kern/debug/kdebug.c	/^print_stackframe(void) {$/;"	f
-print_ticks	include/trap.c	/^static void print_ticks() {$/;"	f	file:
-print_ticks	lab1_result/kern/trap/trap.c	/^static void print_ticks() {$/;"	f	file:
-print_trapframe	include/trap.c	/^print_trapframe(struct trapframe *tf) {$/;"	f
-print_trapframe	lab1_result/kern/trap/trap.c	/^print_trapframe(struct trapframe *tf) {$/;"	f
-printfmt	lab1_result/libs/printfmt.c	/^printfmt(void (*putch)(int, void*), void *putdat, const char *fmt, ...) {$/;"	f
-printnum	lab1_result/libs/printfmt.c	/^printnum(void (*putch)(int, void*), void *putdat,$/;"	f	file:
-proghdr	lab1_result/libs/elf.h	/^struct proghdr {$/;"	s
-protcseg	lab1_result/boot/bootasm.S	/^protcseg:$/;"	l
-pseudodesc	lab1_result/libs/x86.h	/^struct pseudodesc {$/;"	s
-ptr	src/fs.h	/^    struct fs_node *ptr; \/\/ Used by mountpoints and symlinks.$/;"	m	struct:fs_node	typeref:struct:fs_node::fs_node
-push	start.asm	/^    push ds$/;"	d
-pushregs	lab1_result/kern/trap/trap.h	/^struct pushregs {$/;"	s
-putc	include/scrn.h	/^void putc(unsigned char c)$/;"	f
-puts	include/scrn.h	/^void puts(unsigned char *text)$/;"	f
-quick_check	lab1_result/tools/grade.sh	/^quick_check() {$/;"	f
-quick_run	lab1_result/tools/grade.sh	/^quick_run() {$/;"	f
-read	src/fs.h	/^    read_type_t read;$/;"	m	struct:fs_node
-read_ebp	lab1_result/libs/x86.h	/^read_ebp(void) {$/;"	f
-read_eip	lab1_result/kern/debug/kdebug.c	/^read_eip(void) {$/;"	f	file:
-read_eip	src/process.s	/^read_eip:$/;"	l
-read_fs	src/fs.c	/^u32int read_fs(fs_node_t *node, u32int offset, u32int size, u8int *buffer)$/;"	f
-read_packet	lab1_result/tools/function.mk	/^read_packet = $(foreach p,$(call packetname,$(1)),$($(p)))$/;"	m
-read_type_t	src/fs.h	/^typedef u32int (*read_type_t)(struct fs_node*,u32int,u32int,u8int*);$/;"	t
-readdir	src/fs.h	/^    readdir_type_t readdir;$/;"	m	struct:fs_node
-readdir_fs	src/fs.c	/^struct dirent *readdir_fs(fs_node_t *node, u32int index)$/;"	f
-readdir_type_t	src/fs.h	/^typedef struct dirent * (*readdir_type_t)(struct fs_node*,u32int);$/;"	t	typeref:struct:readdir_type_t
-readline	lab1_result/kern/libs/readline.c	/^readline(const char *prompt) {$/;"	f
-readonly	include/system.h	/^    unsigned char readonly;       \/\/ Should extra pages requested by us be mapped as read-only?$/;"	m	struct:__anon11
-readonly	src/kheap.h	/^    u8int readonly;       \/\/ Should extra pages requested by us be mapped as read-only?$/;"	m	struct:__anon6
-readsect	lab1_result/boot/bootmain.c	/^readsect(void *dst, uint32_t secno) {$/;"	f	file:
-readseg	lab1_result/boot/bootmain.c	/^readseg(uintptr_t va, uint32_t count, uint32_t offset) {$/;"	f	file:
-ready_queue	src/task.c	/^volatile task_t *ready_queue;$/;"	v
-red	include/scrn.h	14;"	d
-reg_eax	lab1_result/kern/trap/trap.h	/^    uint32_t reg_eax;$/;"	m	struct:pushregs
-reg_ebp	lab1_result/kern/trap/trap.h	/^    uint32_t reg_ebp;$/;"	m	struct:pushregs
-reg_ebx	lab1_result/kern/trap/trap.h	/^    uint32_t reg_ebx;$/;"	m	struct:pushregs
-reg_ecx	lab1_result/kern/trap/trap.h	/^    uint32_t reg_ecx;$/;"	m	struct:pushregs
-reg_edi	lab1_result/kern/trap/trap.h	/^    uint32_t reg_edi;$/;"	m	struct:pushregs
-reg_edx	lab1_result/kern/trap/trap.h	/^    uint32_t reg_edx;$/;"	m	struct:pushregs
-reg_esi	lab1_result/kern/trap/trap.h	/^    uint32_t reg_esi;$/;"	m	struct:pushregs
-reg_oesp	lab1_result/kern/trap/trap.h	/^    uint32_t reg_oesp;            \/* Useless *\/$/;"	m	struct:pushregs
-register_interrupt_handler	src/isr.c	/^void register_interrupt_handler(u8int n, isr_t handler)$/;"	f
-registers	src/isr.h	/^typedef struct registers$/;"	s
-registers_t	src/isr.h	/^} registers_t;$/;"	t	typeref:struct:registers
-regs	include/system.h	/^struct regs$/;"	s
-remove_ordered_array	include/ordered_array.h	/^void remove_ordered_array(unsigned int i, ordered_array_t *array)$/;"	f
-remove_ordered_array	src/ordered_array.c	/^void remove_ordered_array(u32int i, ordered_array_t *array)$/;"	f
-reserved	include/multiboot.h	/^	unsigned long reserved;  $/;"	m	struct:aout_symbol_table
-root_nodes	src/initrd.c	/^fs_node_t *root_nodes;              \/\/ List of file nodes.$/;"	v
-rpos	lab1_result/kern/driver/console.c	/^    uint32_t rpos;$/;"	m	struct:__anon12	file:
-run_qemu	lab1_result/tools/grade.sh	/^run_qemu() {$/;"	f
-run_test	lab1_result/tools/grade.sh	/^run_test() {$/;"	f
-runcmd	lab1_result/kern/debug/kmonitor.c	/^runcmd(char *buf, struct trapframe *tf) {$/;"	f	file:
-rw	include/system.h	/^    unsigned int rw         : 1;   \/\/ Read-only if clear, readwrite if set$/;"	m	struct:page
-rw	src/paging.h	/^    u32int rw         : 1;   \/\/ Read-only if clear, readwrite if set$/;"	m	struct:page
-s16	include/type.h	/^typedef	         short		s16;$/;"	t
-s16int	src/common.h	/^typedef          short s16int;$/;"	t
-s32	include/type.h	/^typedef	         int		s32;$/;"	t
-s32int	src/common.h	/^typedef          int   s32int;$/;"	t
-s8	include/type.h	/^typedef	         char		s8;$/;"	t
-s8int	src/common.h	/^typedef          char  s8int;$/;"	t
-scroll	include/scrn.h	/^void scroll(void)$/;"	f
-scroll	src/monitor.c	/^static void scroll()$/;"	f	file:
-sd_avl	include/mmu.h	/^    unsigned sd_avl : 1;            \/\/ unused (available for software use)$/;"	m	struct:segdesc
-sd_avl	lab1_result/kern/mm/mmu.h	/^    unsigned sd_avl : 1;            \/\/ unused (available for software use)$/;"	m	struct:segdesc
-sd_base_15_0	include/mmu.h	/^    unsigned sd_base_15_0 : 16;        \/\/ low bits of segment base address$/;"	m	struct:segdesc
-sd_base_15_0	lab1_result/kern/mm/mmu.h	/^    unsigned sd_base_15_0 : 16;        \/\/ low bits of segment base address$/;"	m	struct:segdesc
-sd_base_23_16	include/mmu.h	/^    unsigned sd_base_23_16 : 8;        \/\/ middle bits of segment base address$/;"	m	struct:segdesc
-sd_base_23_16	lab1_result/kern/mm/mmu.h	/^    unsigned sd_base_23_16 : 8;        \/\/ middle bits of segment base address$/;"	m	struct:segdesc
-sd_base_31_24	include/mmu.h	/^    unsigned sd_base_31_24 : 8;        \/\/ high bits of segment base address$/;"	m	struct:segdesc
-sd_base_31_24	lab1_result/kern/mm/mmu.h	/^    unsigned sd_base_31_24 : 8;        \/\/ high bits of segment base address$/;"	m	struct:segdesc
-sd_db	include/mmu.h	/^    unsigned sd_db : 1;                \/\/ 0 = 16-bit segment, 1 = 32-bit segment$/;"	m	struct:segdesc
-sd_db	lab1_result/kern/mm/mmu.h	/^    unsigned sd_db : 1;                \/\/ 0 = 16-bit segment, 1 = 32-bit segment$/;"	m	struct:segdesc
-sd_dpl	include/mmu.h	/^    unsigned sd_dpl : 2;            \/\/ descriptor Privilege Level$/;"	m	struct:segdesc
-sd_dpl	lab1_result/kern/mm/mmu.h	/^    unsigned sd_dpl : 2;            \/\/ descriptor Privilege Level$/;"	m	struct:segdesc
-sd_g	include/mmu.h	/^    unsigned sd_g : 1;                \/\/ granularity: limit scaled by 4K when set$/;"	m	struct:segdesc
-sd_g	lab1_result/kern/mm/mmu.h	/^    unsigned sd_g : 1;                \/\/ granularity: limit scaled by 4K when set$/;"	m	struct:segdesc
-sd_lim_15_0	include/mmu.h	/^    unsigned sd_lim_15_0 : 16;        \/\/ low bits of segment limit$/;"	m	struct:segdesc
-sd_lim_15_0	lab1_result/kern/mm/mmu.h	/^    unsigned sd_lim_15_0 : 16;        \/\/ low bits of segment limit$/;"	m	struct:segdesc
-sd_lim_19_16	include/mmu.h	/^    unsigned sd_lim_19_16 : 4;        \/\/ high bits of segment limit$/;"	m	struct:segdesc
-sd_lim_19_16	lab1_result/kern/mm/mmu.h	/^    unsigned sd_lim_19_16 : 4;        \/\/ high bits of segment limit$/;"	m	struct:segdesc
-sd_p	include/mmu.h	/^    unsigned sd_p : 1;                \/\/ present$/;"	m	struct:segdesc
-sd_p	lab1_result/kern/mm/mmu.h	/^    unsigned sd_p : 1;                \/\/ present$/;"	m	struct:segdesc
-sd_rsv1	include/mmu.h	/^    unsigned sd_rsv1 : 1;            \/\/ reserved$/;"	m	struct:segdesc
-sd_rsv1	lab1_result/kern/mm/mmu.h	/^    unsigned sd_rsv1 : 1;            \/\/ reserved$/;"	m	struct:segdesc
-sd_s	include/mmu.h	/^    unsigned sd_s : 1;                \/\/ 0 = system, 1 = application$/;"	m	struct:segdesc
-sd_s	lab1_result/kern/mm/mmu.h	/^    unsigned sd_s : 1;                \/\/ 0 = system, 1 = application$/;"	m	struct:segdesc
-sd_type	include/mmu.h	/^    unsigned sd_type : 4;            \/\/ segment type (see STS_ constants)$/;"	m	struct:segdesc
-sd_type	lab1_result/kern/mm/mmu.h	/^    unsigned sd_type : 4;            \/\/ segment type (see STS_ constants)$/;"	m	struct:segdesc
-second	include/timer.h	/^int second = 0;$/;"	v
-segdesc	include/mmu.h	/^struct segdesc {$/;"	s
-segdesc	lab1_result/kern/mm/mmu.h	/^struct segdesc {$/;"	s
-sel	include/idt.h	/^    unsigned short sel;$/;"	m	struct:idt_entry
-sel	src/descriptor_tables.h	/^    u16int sel;                 \/\/ Kernel segment selector.$/;"	m	struct:idt_entry_struct
-serial_exists	lab1_result/kern/driver/console.c	/^static bool serial_exists = 0;$/;"	v	file:
-serial_init	lab1_result/kern/driver/console.c	/^serial_init(void) {$/;"	f	file:
-serial_intr	lab1_result/kern/driver/console.c	/^serial_intr(void) {$/;"	f
-serial_proc_data	lab1_result/kern/driver/console.c	/^serial_proc_data(void) {$/;"	f	file:
-serial_putc	lab1_result/kern/driver/console.c	/^serial_putc(int c) {$/;"	f	file:
-serial_putc_sub	lab1_result/kern/driver/console.c	/^serial_putc_sub(int c) {$/;"	f	file:
-set_frame	include/paging.h	/^static void set_frame(unsigned int frame_addr)$/;"	f
-set_frame	src/paging.c	/^static void set_frame(u32int frame_addr)$/;"	f	file:
-set_kernel_stack	src/descriptor_tables.c	/^void set_kernel_stack(u32int stack)$/;"	f
-settextcolor	include/scrn.h	/^void settextcolor(unsigned char forecolor, unsigned char backcolor)$/;"	f
-shiftcode	lab1_result/kern/driver/console.c	/^static uint8_t shiftcode[256] = {$/;"	v	file:
-shiftmap	lab1_result/kern/driver/console.c	/^static uint8_t shiftmap[256] = {$/;"	v	file:
-shndx	include/multiboot.h	/^	unsigned long shndx;  $/;"	m	struct:elf_section_header_table
-shndx	src/multiboot.h	/^    u32int shndx;$/;"	m	struct:multiboot
-show_build_tag	lab1_result/tools/grade.sh	/^show_build_tag() {$/;"	f
-show_check_tag	lab1_result/tools/grade.sh	/^show_check_tag() {$/;"	f
-show_final	lab1_result/tools/grade.sh	/^show_final() {$/;"	f
-show_msg	lab1_result/tools/grade.sh	/^show_msg() {$/;"	f
-show_part	lab1_result/tools/grade.sh	/^show_part() {$/;"	f
-show_time	lab1_result/tools/grade.sh	/^show_time() {$/;"	f
-size	include/multiboot.h	/^	unsigned long size;  $/;"	m	struct:elf_section_header_table
-size	include/system.h	/^    unsigned int size;    \/\/ size of the block, including the end footer.$/;"	m	struct:__anon9
-size	include/system.h	/^    unsigned int size;$/;"	m	struct:__anon8
-size	src/kheap.h	/^    u32int size;    \/\/ size of the block, including the end footer.$/;"	m	struct:__anon4
-size	src/multiboot.h	/^    u32int size;$/;"	m	struct:multiboot
-size	src/ordered_array.h	/^    u32int size;$/;"	m	struct:__anon3
-size_t	include/system.h	/^typedef int size_t;$/;"	t
-size_t	lab1_result/libs/defs.h	/^typedef uintptr_t size_t;$/;"	t
-snprintf	lab1_result/libs/printfmt.c	/^snprintf(char *str, size_t size, const char *fmt, ...) {$/;"	f
-spin	lab1_result/boot/bootasm.S	/^spin:$/;"	l
-sprintbuf	lab1_result/libs/printfmt.c	/^struct sprintbuf {$/;"	s	file:
-sprintputch	lab1_result/libs/printfmt.c	/^sprintputch(int ch, struct sprintbuf *b) {$/;"	f	file:
-ss	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
-ss	src/descriptor_tables.h	/^    u32int ss;         \/\/ The value to load into SS when we change to kernel mode.$/;"	m	struct:tss_entry_struct
-ss	src/isr.h	/^    u32int eip, cs, eflags, useresp, ss; \/\/ Pushed by the processor automatically.$/;"	m	struct:registers
-ss0	src/descriptor_tables.h	/^    u32int ss0;        \/\/ The stack segment to load when we change to kernel mode.$/;"	m	struct:tss_entry_struct
-ss1	src/descriptor_tables.h	/^    u32int ss1;$/;"	m	struct:tss_entry_struct
-ss2	src/descriptor_tables.h	/^    u32int ss2;   $/;"	m	struct:tss_entry_struct
-stab	lab1_result/kern/debug/stab.h	/^struct stab {$/;"	s
-stab_binsearch	lab1_result/kern/debug/kdebug.c	/^stab_binsearch(const struct stab *stabs, int *region_left, int *region_right,$/;"	f	file:
-stack0	include/gdt.h	/^uint8_t stack0[1024];$/;"	v
-stack0	lab1_result/kern/mm/pmm.c	/^uint8_t stack0[1024];$/;"	v
-standard_lessthan_predicate	include/ordered_array.h	/^char standard_lessthan_predicate(void*  a, void*  b)$/;"	f
-standard_lessthan_predicate	src/ordered_array.c	/^s8int standard_lessthan_predicate(type_t a, type_t b)$/;"	f
-start	lab1_result/boot/bootasm.S	/^start:$/;"	l
-start	start.asm	/^start:$/;"	l
-start_address	include/system.h	/^    unsigned int start_address; \/\/ The start of our allocated space.$/;"	m	struct:__anon11
-start_address	src/kheap.h	/^    u32int start_address; \/\/ The start of our allocated space.$/;"	m	struct:__anon6
-static_assert	lab1_result/kern/debug/assert.h	23;"	d
-sti	lab1_result/libs/x86.h	/^sti(void) {$/;"	f
-strcat	include/common.h	/^char *strcat(char *dest, const char *src)$/;"	f
-strcat	src/common.c	/^char *strcat(char *dest, const char *src)$/;"	f
-strchr	lab1_result/libs/string.c	/^strchr(const char *s, char c) {$/;"	f
-strcmp	include/common.h	/^int strcmp(char *str1, char *str2)$/;"	f
-strcmp	lab1_result/libs/string.c	/^strcmp(const char *s1, const char *s2) {$/;"	f
-strcmp	src/common.c	/^int strcmp(char *str1, char *str2)$/;"	f
-strcpy	include/common.h	/^char *strcpy(char *dest, const char *src)$/;"	f
-strcpy	lab1_result/libs/string.c	/^strcpy(char *dst, const char *src) {$/;"	f
-strcpy	src/common.c	/^char *strcpy(char *dest, const char *src)$/;"	f
-strfind	lab1_result/libs/string.c	/^strfind(const char *s, char c) {$/;"	f
-strlen	include/common.h	/^size_t strlen(const char *str)$/;"	f
-strlen	lab1_result/libs/string.c	/^strlen(const char *s) {$/;"	f
-strlen	src/common.c	/^int strlen(char *src)$/;"	f
-strncmp	lab1_result/libs/string.c	/^strncmp(const char *s1, const char *s2, size_t n) {$/;"	f
-strncpy	lab1_result/libs/string.c	/^strncpy(char *dst, const char *src, size_t len) {$/;"	f
-strnlen	lab1_result/libs/string.c	/^strnlen(const char *s, size_t len) {$/;"	f
-strsize	include/multiboot.h	/^	unsigned long strsize;  $/;"	m	struct:aout_symbol_table
-strtol	lab1_result/libs/string.c	/^strtol(const char *s, char **endptr, int base) {$/;"	f
-stublet	start.asm	/^stublet:$/;"	l
-supervisor	include/system.h	/^    unsigned char supervisor;     \/\/ Should extra pages requested by us be mapped as supervisor-only?$/;"	m	struct:__anon11
-supervisor	src/kheap.h	/^    u8int supervisor;     \/\/ Should extra pages requested by us be mapped as supervisor-only?$/;"	m	struct:__anon6
-switch_install	include/isrs.h	/^void switch_install()$/;"	f
-switch_page_directory	include/paging.h	/^void switch_page_directory(page_directory_t *dir)$/;"	f
-switch_page_directory	src/paging.c	/^void switch_page_directory(page_directory_t *dir)$/;"	f
-switch_task	src/task.c	/^void switch_task()$/;"	f
-switch_test	include/isrs.h	/^void switch_test()$/;"	f
-switch_to_kernel	include/isrs.h	/^void switch_to_kernel(void) {$/;"	f
-switch_to_user	include/isrs.h	/^void switch_to_user(void) {$/;"	f
-switch_to_user_mode	src/task.c	/^void switch_to_user_mode()$/;"	f
-switch_tok_handler	include/isrs.h	/^void switch_tok_handler(struct regs *r)$/;"	f
-switch_tou_handler	include/isrs.h	/^void switch_tou_handler(struct regs *r)$/;"	f
-switchk2u	include/trap.c	/^struct trapframe switchk2u, *switchu2k;$/;"	v	typeref:struct:trapframe
-switchk2u	lab1_result/kern/trap/trap.c	/^struct trapframe switchk2u, *switchu2k;$/;"	v	typeref:struct:trapframe
-switchu2k	include/trap.c	/^struct trapframe switchk2u, *switchu2k;$/;"	v	typeref:struct:
-switchu2k	lab1_result/kern/trap/trap.c	/^struct trapframe switchk2u, *switchu2k;$/;"	v	typeref:struct:
-symfile	lab1_result/Makefile	/^symfile = $(call cgtype,$(call toobj,$(1)),o,sym)$/;"	m
-syscall_handler	src/syscall.c	/^void syscall_handler(registers_t *regs)$/;"	f
-syscalls	src/syscall.c	/^static void *syscalls[3] =$/;"	v	file:
-tables	include/system.h	/^    page_table_t *tables[1024];$/;"	m	struct:page_directory
-tables	src/paging.h	/^    page_table_t *tables[1024];$/;"	m	struct:page_directory
-tablesPhysical	include/system.h	/^    unsigned int tablesPhysical[1024];$/;"	m	struct:page_directory
-tablesPhysical	src/paging.h	/^    u32int tablesPhysical[1024];$/;"	m	struct:page_directory
-tabsize	include/multiboot.h	/^	unsigned long tabsize;  $/;"	m	struct:aout_symbol_table
-task	src/task.h	/^typedef struct task$/;"	s
-task_t	src/task.h	/^} task_t;$/;"	t	typeref:struct:task
-taskstate	include/mmu.h	/^struct taskstate {$/;"	s
-taskstate	lab1_result/kern/mm/mmu.h	/^struct taskstate {$/;"	s
-test_frame	include/paging.h	/^static unsigned int test_frame(unsigned int frame_addr)$/;"	f
-test_frame	src/paging.c	/^static u32int test_frame(u32int frame_addr)$/;"	f	file:
-textmemptr	include/scrn.h	/^unsigned short *textmemptr = (unsigned short *)0xB8000;$/;"	v
-tf_cs	lab1_result/kern/trap/trap.h	/^    uint16_t tf_cs;$/;"	m	struct:trapframe
-tf_ds	lab1_result/kern/trap/trap.h	/^    uint16_t tf_ds;$/;"	m	struct:trapframe
-tf_eflags	lab1_result/kern/trap/trap.h	/^    uint32_t tf_eflags;$/;"	m	struct:trapframe
-tf_eip	lab1_result/kern/trap/trap.h	/^    uintptr_t tf_eip;$/;"	m	struct:trapframe
-tf_err	lab1_result/kern/trap/trap.h	/^    uint32_t tf_err;$/;"	m	struct:trapframe
-tf_es	lab1_result/kern/trap/trap.h	/^    uint16_t tf_es;$/;"	m	struct:trapframe
-tf_esp	lab1_result/kern/trap/trap.h	/^    uintptr_t tf_esp;$/;"	m	struct:trapframe
-tf_fs	lab1_result/kern/trap/trap.h	/^    uint16_t tf_fs;$/;"	m	struct:trapframe
-tf_gs	lab1_result/kern/trap/trap.h	/^    uint16_t tf_gs;$/;"	m	struct:trapframe
-tf_padding0	lab1_result/kern/trap/trap.h	/^    uint16_t tf_padding0;$/;"	m	struct:trapframe
-tf_padding1	lab1_result/kern/trap/trap.h	/^    uint16_t tf_padding1;$/;"	m	struct:trapframe
-tf_padding2	lab1_result/kern/trap/trap.h	/^    uint16_t tf_padding2;$/;"	m	struct:trapframe
-tf_padding3	lab1_result/kern/trap/trap.h	/^    uint16_t tf_padding3;$/;"	m	struct:trapframe
-tf_padding4	lab1_result/kern/trap/trap.h	/^    uint16_t tf_padding4;$/;"	m	struct:trapframe
-tf_padding5	lab1_result/kern/trap/trap.h	/^    uint16_t tf_padding5;$/;"	m	struct:trapframe
-tf_regs	lab1_result/kern/trap/trap.h	/^    struct pushregs tf_regs;$/;"	m	struct:trapframe	typeref:struct:trapframe::pushregs
-tf_ss	lab1_result/kern/trap/trap.h	/^    uint16_t tf_ss;$/;"	m	struct:trapframe
-tf_trapno	lab1_result/kern/trap/trap.h	/^    uint32_t tf_trapno;$/;"	m	struct:trapframe
-tick	src/timer.c	/^u32int tick = 0;$/;"	v
-ticks	lab1_result/kern/driver/clock.c	/^volatile size_t ticks;$/;"	v
-timer_callback	src/timer.c	/^static void timer_callback(registers_t *regs)$/;"	f	file:
-timer_handler	include/timer.h	/^void timer_handler(struct regs *r)$/;"	f
-timer_install	include/timer.h	/^void timer_install()$/;"	f
-timer_phase	include/timer.h	/^void timer_phase(int hz)$/;"	f
-timer_test	include/timer.h	/^void timer_test(int count)$/;"	f
-timer_ticks	include/timer.h	/^int timer_ticks = 0;$/;"	v
-timer_wait	include/timer.h	/^void timer_wait(int ticks)$/;"	f
-to_struct	include/type.h	68;"	d
-to_struct	lab1_result/libs/defs.h	64;"	d
-todep	lab1_result/tools/function.mk	/^todep = $(patsubst %.o,%.d,$(call toobj,$(1),$(2)))$/;"	m
-togglecode	lab1_result/kern/driver/console.c	/^static uint8_t togglecode[256] = {$/;"	v	file:
-toobj	lab1_result/tools/function.mk	/^toobj = $(addprefix $(OBJDIR)$(SLASH)$(if $(2),$(2)$(SLASH)),\\$/;"	m
-totarget	lab1_result/tools/function.mk	/^totarget = $(addprefix $(BINDIR)$(SLASH),$(1))$/;"	m
-trap	include/trap.c	/^trap(struct trapframe *tf) {$/;"	f
-trap	lab1_result/kern/trap/trap.c	/^trap(struct trapframe *tf) {$/;"	f
-trap	src/descriptor_tables.h	/^    u16int trap;$/;"	m	struct:tss_entry_struct
-trap_dispatch	include/trap.c	/^trap_dispatch(struct trapframe *tf) {$/;"	f	file:
-trap_dispatch	lab1_result/kern/trap/trap.c	/^trap_dispatch(struct trapframe *tf) {$/;"	f	file:
-trap_in_kernel	include/trap.c	/^trap_in_kernel(struct trapframe *tf) {$/;"	f
-trap_in_kernel	lab1_result/kern/trap/trap.c	/^trap_in_kernel(struct trapframe *tf) {$/;"	f
-trapframe	lab1_result/kern/trap/trap.h	/^struct trapframe {$/;"	s
-trapname	include/trap.c	/^trapname(int trapno) {$/;"	f	file:
-trapname	lab1_result/kern/trap/trap.c	/^trapname(int trapno) {$/;"	f	file:
-ts	include/gdt.h	/^static struct taskstate ts = {0};$/;"	v	typeref:struct:taskstate
-ts	lab1_result/kern/mm/pmm.c	/^static struct taskstate ts = {0};$/;"	v	typeref:struct:taskstate	file:
-ts_cr3	include/mmu.h	/^    uintptr_t ts_cr3;        \/\/ page directory base$/;"	m	struct:taskstate
-ts_cr3	lab1_result/kern/mm/mmu.h	/^    uintptr_t ts_cr3;        \/\/ page directory base$/;"	m	struct:taskstate
-ts_cs	include/mmu.h	/^    uint16_t ts_cs;$/;"	m	struct:taskstate
-ts_cs	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_cs;$/;"	m	struct:taskstate
-ts_ds	include/mmu.h	/^    uint16_t ts_ds;$/;"	m	struct:taskstate
-ts_ds	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_ds;$/;"	m	struct:taskstate
-ts_eax	include/mmu.h	/^    uint32_t ts_eax;        \/\/ more saved state (registers)$/;"	m	struct:taskstate
-ts_eax	lab1_result/kern/mm/mmu.h	/^    uint32_t ts_eax;        \/\/ more saved state (registers)$/;"	m	struct:taskstate
-ts_ebp	include/mmu.h	/^    uintptr_t ts_ebp;$/;"	m	struct:taskstate
-ts_ebp	lab1_result/kern/mm/mmu.h	/^    uintptr_t ts_ebp;$/;"	m	struct:taskstate
-ts_ebx	include/mmu.h	/^    uint32_t ts_ebx;$/;"	m	struct:taskstate
-ts_ebx	lab1_result/kern/mm/mmu.h	/^    uint32_t ts_ebx;$/;"	m	struct:taskstate
-ts_ecx	include/mmu.h	/^    uint32_t ts_ecx;$/;"	m	struct:taskstate
-ts_ecx	lab1_result/kern/mm/mmu.h	/^    uint32_t ts_ecx;$/;"	m	struct:taskstate
-ts_edi	include/mmu.h	/^    uint32_t ts_edi;$/;"	m	struct:taskstate
-ts_edi	lab1_result/kern/mm/mmu.h	/^    uint32_t ts_edi;$/;"	m	struct:taskstate
-ts_edx	include/mmu.h	/^    uint32_t ts_edx;$/;"	m	struct:taskstate
-ts_edx	lab1_result/kern/mm/mmu.h	/^    uint32_t ts_edx;$/;"	m	struct:taskstate
-ts_eflags	include/mmu.h	/^    uint32_t ts_eflags;$/;"	m	struct:taskstate
-ts_eflags	lab1_result/kern/mm/mmu.h	/^    uint32_t ts_eflags;$/;"	m	struct:taskstate
-ts_eip	include/mmu.h	/^    uintptr_t ts_eip;        \/\/ saved state from last task switch$/;"	m	struct:taskstate
-ts_eip	lab1_result/kern/mm/mmu.h	/^    uintptr_t ts_eip;        \/\/ saved state from last task switch$/;"	m	struct:taskstate
-ts_es	include/mmu.h	/^    uint16_t ts_es;            \/\/ even more saved state (segment selectors)$/;"	m	struct:taskstate
-ts_es	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_es;            \/\/ even more saved state (segment selectors)$/;"	m	struct:taskstate
-ts_esi	include/mmu.h	/^    uint32_t ts_esi;$/;"	m	struct:taskstate
-ts_esi	lab1_result/kern/mm/mmu.h	/^    uint32_t ts_esi;$/;"	m	struct:taskstate
-ts_esp	include/mmu.h	/^    uintptr_t ts_esp;$/;"	m	struct:taskstate
-ts_esp	lab1_result/kern/mm/mmu.h	/^    uintptr_t ts_esp;$/;"	m	struct:taskstate
-ts_esp0	include/mmu.h	/^    uintptr_t ts_esp0;        \/\/ stack pointers and segment selectors$/;"	m	struct:taskstate
-ts_esp0	lab1_result/kern/mm/mmu.h	/^    uintptr_t ts_esp0;        \/\/ stack pointers and segment selectors$/;"	m	struct:taskstate
-ts_esp1	include/mmu.h	/^    uintptr_t ts_esp1;$/;"	m	struct:taskstate
-ts_esp1	lab1_result/kern/mm/mmu.h	/^    uintptr_t ts_esp1;$/;"	m	struct:taskstate
-ts_esp2	include/mmu.h	/^    uintptr_t ts_esp2;$/;"	m	struct:taskstate
-ts_esp2	lab1_result/kern/mm/mmu.h	/^    uintptr_t ts_esp2;$/;"	m	struct:taskstate
-ts_fs	include/mmu.h	/^    uint16_t ts_fs;$/;"	m	struct:taskstate
-ts_fs	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_fs;$/;"	m	struct:taskstate
-ts_gs	include/mmu.h	/^    uint16_t ts_gs;$/;"	m	struct:taskstate
-ts_gs	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_gs;$/;"	m	struct:taskstate
-ts_iomb	include/mmu.h	/^    uint16_t ts_iomb;        \/\/ i\/o map base address$/;"	m	struct:taskstate
-ts_iomb	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_iomb;        \/\/ i\/o map base address$/;"	m	struct:taskstate
-ts_ldt	include/mmu.h	/^    uint16_t ts_ldt;$/;"	m	struct:taskstate
-ts_ldt	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_ldt;$/;"	m	struct:taskstate
-ts_link	include/mmu.h	/^    uint32_t ts_link;        \/\/ old ts selector$/;"	m	struct:taskstate
-ts_link	lab1_result/kern/mm/mmu.h	/^    uint32_t ts_link;        \/\/ old ts selector$/;"	m	struct:taskstate
-ts_padding1	include/mmu.h	/^    uint16_t ts_padding1;$/;"	m	struct:taskstate
-ts_padding1	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding1;$/;"	m	struct:taskstate
-ts_padding10	include/mmu.h	/^    uint16_t ts_padding10;$/;"	m	struct:taskstate
-ts_padding10	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding10;$/;"	m	struct:taskstate
-ts_padding2	include/mmu.h	/^    uint16_t ts_padding2;$/;"	m	struct:taskstate
-ts_padding2	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding2;$/;"	m	struct:taskstate
-ts_padding3	include/mmu.h	/^    uint16_t ts_padding3;$/;"	m	struct:taskstate
-ts_padding3	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding3;$/;"	m	struct:taskstate
-ts_padding4	include/mmu.h	/^    uint16_t ts_padding4;$/;"	m	struct:taskstate
-ts_padding4	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding4;$/;"	m	struct:taskstate
-ts_padding5	include/mmu.h	/^    uint16_t ts_padding5;$/;"	m	struct:taskstate
-ts_padding5	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding5;$/;"	m	struct:taskstate
-ts_padding6	include/mmu.h	/^    uint16_t ts_padding6;$/;"	m	struct:taskstate
-ts_padding6	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding6;$/;"	m	struct:taskstate
-ts_padding7	include/mmu.h	/^    uint16_t ts_padding7;$/;"	m	struct:taskstate
-ts_padding7	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding7;$/;"	m	struct:taskstate
-ts_padding8	include/mmu.h	/^    uint16_t ts_padding8;$/;"	m	struct:taskstate
-ts_padding8	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding8;$/;"	m	struct:taskstate
-ts_padding9	include/mmu.h	/^    uint16_t ts_padding9;$/;"	m	struct:taskstate
-ts_padding9	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_padding9;$/;"	m	struct:taskstate
-ts_ss	include/mmu.h	/^    uint16_t ts_ss;$/;"	m	struct:taskstate
-ts_ss	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_ss;$/;"	m	struct:taskstate
-ts_ss0	include/mmu.h	/^    uint16_t ts_ss0;        \/\/ after an increase in privilege level$/;"	m	struct:taskstate
-ts_ss0	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_ss0;        \/\/ after an increase in privilege level$/;"	m	struct:taskstate
-ts_ss1	include/mmu.h	/^    uint16_t ts_ss1;$/;"	m	struct:taskstate
-ts_ss1	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_ss1;$/;"	m	struct:taskstate
-ts_ss2	include/mmu.h	/^    uint16_t ts_ss2;$/;"	m	struct:taskstate
-ts_ss2	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_ss2;$/;"	m	struct:taskstate
-ts_t	include/mmu.h	/^    uint16_t ts_t;            \/\/ trap on task switch$/;"	m	struct:taskstate
-ts_t	lab1_result/kern/mm/mmu.h	/^    uint16_t ts_t;            \/\/ trap on task switch$/;"	m	struct:taskstate
-tss_entry	src/descriptor_tables.c	/^tss_entry_t tss_entry;$/;"	v
-tss_entry_struct	src/descriptor_tables.h	/^struct tss_entry_struct$/;"	s
-tss_entry_t	src/descriptor_tables.h	/^typedef struct tss_entry_struct tss_entry_t;$/;"	t	typeref:struct:tss_entry_struct
-tss_flush	src/gdt.s	/^tss_flush:$/;"	l
-type_t	src/ordered_array.h	/^typedef void* type_t;$/;"	t
-u	include/multiboot.h	/^	} u;  $/;"	m	struct:multiboot_info	typeref:union:multiboot_info::__anon7
-u16	include/type.h	/^typedef	unsigned short		u16;$/;"	t
-u16int	src/common.h	/^typedef unsigned short u16int;$/;"	t
-u32	include/type.h	/^typedef	unsigned int		u32;$/;"	t
-u32int	src/common.h	/^typedef unsigned int   u32int;$/;"	t
-u8	include/type.h	/^typedef	unsigned char		u8;$/;"	t
-u8int	src/common.h	/^typedef unsigned char  u8int;$/;"	t
-uid	src/fs.h	/^    u32int uid;         \/\/ The owning user.$/;"	m	struct:fs_node
-uint16_t	include/type.h	/^typedef unsigned short uint16_t;$/;"	t
-uint16_t	lab1_result/libs/defs.h	/^typedef unsigned short uint16_t;$/;"	t
-uint32_t	include/type.h	/^typedef unsigned int uint32_t;$/;"	t
-uint32_t	lab1_result/libs/defs.h	/^typedef unsigned int uint32_t;$/;"	t
-uint64_t	include/type.h	/^typedef unsigned long long uint64_t;$/;"	t
-uint64_t	lab1_result/libs/defs.h	/^typedef unsigned long long uint64_t;$/;"	t
-uint8_t	include/type.h	/^typedef unsigned char uint8_t;$/;"	t
-uint8_t	lab1_result/libs/defs.h	/^typedef unsigned char uint8_t;$/;"	t
-uintptr_t	include/type.h	/^typedef uint32_t uintptr_t;$/;"	t
-uintptr_t	lab1_result/libs/defs.h	/^typedef uint32_t uintptr_t;$/;"	t
-unused	include/system.h	/^    unsigned int unused     : 7;   \/\/ Amalgamation of unused and reserved bits$/;"	m	struct:page
-unused	src/paging.h	/^    u32int unused     : 7;   \/\/ Amalgamation of unused and reserved bits$/;"	m	struct:page
-update_score	lab1_result/tools/grade.sh	/^update_score() {$/;"	f
-user	include/system.h	/^    unsigned int user       : 1;   \/\/ Supervisor level only if clear$/;"	m	struct:page
-user	src/paging.h	/^    u32int user       : 1;   \/\/ Supervisor level only if clear$/;"	m	struct:page
-useresp	include/system.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
-useresp	src/isr.h	/^    u32int eip, cs, eflags, useresp, ss; \/\/ Pushed by the processor automatically.$/;"	m	struct:registers
-va_arg	lab1_result/libs/stdarg.h	8;"	d
-va_end	lab1_result/libs/stdarg.h	9;"	d
-va_list	lab1_result/libs/stdarg.h	/^typedef __builtin_va_list va_list;$/;"	t
-va_start	lab1_result/libs/stdarg.h	7;"	d
-vbe_control_info	src/multiboot.h	/^    u32int vbe_control_info;$/;"	m	struct:multiboot
-vbe_interface_len	src/multiboot.h	/^    u32int vbe_interface_len;$/;"	m	struct:multiboot
-vbe_interface_off	src/multiboot.h	/^    u32int vbe_interface_off;$/;"	m	struct:multiboot
-vbe_interface_seg	src/multiboot.h	/^    u32int vbe_interface_seg;$/;"	m	struct:multiboot
-vbe_mode	src/multiboot.h	/^    u32int vbe_mode;$/;"	m	struct:multiboot
-vbe_mode_info	src/multiboot.h	/^    u32int vbe_mode_info;$/;"	m	struct:multiboot
-vcprintf	lab1_result/kern/libs/stdio.c	/^vcprintf(const char *fmt, va_list ap) {$/;"	f
-vector0	lab1_result/kern/trap/vectors.S	/^vector0:$/;"	l
-vector1	lab1_result/kern/trap/vectors.S	/^vector1:$/;"	l
-vector10	lab1_result/kern/trap/vectors.S	/^vector10:$/;"	l
-vector100	lab1_result/kern/trap/vectors.S	/^vector100:$/;"	l
-vector101	lab1_result/kern/trap/vectors.S	/^vector101:$/;"	l
-vector102	lab1_result/kern/trap/vectors.S	/^vector102:$/;"	l
-vector103	lab1_result/kern/trap/vectors.S	/^vector103:$/;"	l
-vector104	lab1_result/kern/trap/vectors.S	/^vector104:$/;"	l
-vector105	lab1_result/kern/trap/vectors.S	/^vector105:$/;"	l
-vector106	lab1_result/kern/trap/vectors.S	/^vector106:$/;"	l
-vector107	lab1_result/kern/trap/vectors.S	/^vector107:$/;"	l
-vector108	lab1_result/kern/trap/vectors.S	/^vector108:$/;"	l
-vector109	lab1_result/kern/trap/vectors.S	/^vector109:$/;"	l
-vector11	lab1_result/kern/trap/vectors.S	/^vector11:$/;"	l
-vector110	lab1_result/kern/trap/vectors.S	/^vector110:$/;"	l
-vector111	lab1_result/kern/trap/vectors.S	/^vector111:$/;"	l
-vector112	lab1_result/kern/trap/vectors.S	/^vector112:$/;"	l
-vector113	lab1_result/kern/trap/vectors.S	/^vector113:$/;"	l
-vector114	lab1_result/kern/trap/vectors.S	/^vector114:$/;"	l
-vector115	lab1_result/kern/trap/vectors.S	/^vector115:$/;"	l
-vector116	lab1_result/kern/trap/vectors.S	/^vector116:$/;"	l
-vector117	lab1_result/kern/trap/vectors.S	/^vector117:$/;"	l
-vector118	lab1_result/kern/trap/vectors.S	/^vector118:$/;"	l
-vector119	lab1_result/kern/trap/vectors.S	/^vector119:$/;"	l
-vector12	lab1_result/kern/trap/vectors.S	/^vector12:$/;"	l
-vector120	lab1_result/kern/trap/vectors.S	/^vector120:$/;"	l
-vector121	lab1_result/kern/trap/vectors.S	/^vector121:$/;"	l
-vector122	lab1_result/kern/trap/vectors.S	/^vector122:$/;"	l
-vector123	lab1_result/kern/trap/vectors.S	/^vector123:$/;"	l
-vector124	lab1_result/kern/trap/vectors.S	/^vector124:$/;"	l
-vector125	lab1_result/kern/trap/vectors.S	/^vector125:$/;"	l
-vector126	lab1_result/kern/trap/vectors.S	/^vector126:$/;"	l
-vector127	lab1_result/kern/trap/vectors.S	/^vector127:$/;"	l
-vector128	lab1_result/kern/trap/vectors.S	/^vector128:$/;"	l
-vector129	lab1_result/kern/trap/vectors.S	/^vector129:$/;"	l
-vector13	lab1_result/kern/trap/vectors.S	/^vector13:$/;"	l
-vector130	lab1_result/kern/trap/vectors.S	/^vector130:$/;"	l
-vector131	lab1_result/kern/trap/vectors.S	/^vector131:$/;"	l
-vector132	lab1_result/kern/trap/vectors.S	/^vector132:$/;"	l
-vector133	lab1_result/kern/trap/vectors.S	/^vector133:$/;"	l
-vector134	lab1_result/kern/trap/vectors.S	/^vector134:$/;"	l
-vector135	lab1_result/kern/trap/vectors.S	/^vector135:$/;"	l
-vector136	lab1_result/kern/trap/vectors.S	/^vector136:$/;"	l
-vector137	lab1_result/kern/trap/vectors.S	/^vector137:$/;"	l
-vector138	lab1_result/kern/trap/vectors.S	/^vector138:$/;"	l
-vector139	lab1_result/kern/trap/vectors.S	/^vector139:$/;"	l
-vector14	lab1_result/kern/trap/vectors.S	/^vector14:$/;"	l
-vector140	lab1_result/kern/trap/vectors.S	/^vector140:$/;"	l
-vector141	lab1_result/kern/trap/vectors.S	/^vector141:$/;"	l
-vector142	lab1_result/kern/trap/vectors.S	/^vector142:$/;"	l
-vector143	lab1_result/kern/trap/vectors.S	/^vector143:$/;"	l
-vector144	lab1_result/kern/trap/vectors.S	/^vector144:$/;"	l
-vector145	lab1_result/kern/trap/vectors.S	/^vector145:$/;"	l
-vector146	lab1_result/kern/trap/vectors.S	/^vector146:$/;"	l
-vector147	lab1_result/kern/trap/vectors.S	/^vector147:$/;"	l
-vector148	lab1_result/kern/trap/vectors.S	/^vector148:$/;"	l
-vector149	lab1_result/kern/trap/vectors.S	/^vector149:$/;"	l
-vector15	lab1_result/kern/trap/vectors.S	/^vector15:$/;"	l
-vector150	lab1_result/kern/trap/vectors.S	/^vector150:$/;"	l
-vector151	lab1_result/kern/trap/vectors.S	/^vector151:$/;"	l
-vector152	lab1_result/kern/trap/vectors.S	/^vector152:$/;"	l
-vector153	lab1_result/kern/trap/vectors.S	/^vector153:$/;"	l
-vector154	lab1_result/kern/trap/vectors.S	/^vector154:$/;"	l
-vector155	lab1_result/kern/trap/vectors.S	/^vector155:$/;"	l
-vector156	lab1_result/kern/trap/vectors.S	/^vector156:$/;"	l
-vector157	lab1_result/kern/trap/vectors.S	/^vector157:$/;"	l
-vector158	lab1_result/kern/trap/vectors.S	/^vector158:$/;"	l
-vector159	lab1_result/kern/trap/vectors.S	/^vector159:$/;"	l
-vector16	lab1_result/kern/trap/vectors.S	/^vector16:$/;"	l
-vector160	lab1_result/kern/trap/vectors.S	/^vector160:$/;"	l
-vector161	lab1_result/kern/trap/vectors.S	/^vector161:$/;"	l
-vector162	lab1_result/kern/trap/vectors.S	/^vector162:$/;"	l
-vector163	lab1_result/kern/trap/vectors.S	/^vector163:$/;"	l
-vector164	lab1_result/kern/trap/vectors.S	/^vector164:$/;"	l
-vector165	lab1_result/kern/trap/vectors.S	/^vector165:$/;"	l
-vector166	lab1_result/kern/trap/vectors.S	/^vector166:$/;"	l
-vector167	lab1_result/kern/trap/vectors.S	/^vector167:$/;"	l
-vector168	lab1_result/kern/trap/vectors.S	/^vector168:$/;"	l
-vector169	lab1_result/kern/trap/vectors.S	/^vector169:$/;"	l
-vector17	lab1_result/kern/trap/vectors.S	/^vector17:$/;"	l
-vector170	lab1_result/kern/trap/vectors.S	/^vector170:$/;"	l
-vector171	lab1_result/kern/trap/vectors.S	/^vector171:$/;"	l
-vector172	lab1_result/kern/trap/vectors.S	/^vector172:$/;"	l
-vector173	lab1_result/kern/trap/vectors.S	/^vector173:$/;"	l
-vector174	lab1_result/kern/trap/vectors.S	/^vector174:$/;"	l
-vector175	lab1_result/kern/trap/vectors.S	/^vector175:$/;"	l
-vector176	lab1_result/kern/trap/vectors.S	/^vector176:$/;"	l
-vector177	lab1_result/kern/trap/vectors.S	/^vector177:$/;"	l
-vector178	lab1_result/kern/trap/vectors.S	/^vector178:$/;"	l
-vector179	lab1_result/kern/trap/vectors.S	/^vector179:$/;"	l
-vector18	lab1_result/kern/trap/vectors.S	/^vector18:$/;"	l
-vector180	lab1_result/kern/trap/vectors.S	/^vector180:$/;"	l
-vector181	lab1_result/kern/trap/vectors.S	/^vector181:$/;"	l
-vector182	lab1_result/kern/trap/vectors.S	/^vector182:$/;"	l
-vector183	lab1_result/kern/trap/vectors.S	/^vector183:$/;"	l
-vector184	lab1_result/kern/trap/vectors.S	/^vector184:$/;"	l
-vector185	lab1_result/kern/trap/vectors.S	/^vector185:$/;"	l
-vector186	lab1_result/kern/trap/vectors.S	/^vector186:$/;"	l
-vector187	lab1_result/kern/trap/vectors.S	/^vector187:$/;"	l
-vector188	lab1_result/kern/trap/vectors.S	/^vector188:$/;"	l
-vector189	lab1_result/kern/trap/vectors.S	/^vector189:$/;"	l
-vector19	lab1_result/kern/trap/vectors.S	/^vector19:$/;"	l
-vector190	lab1_result/kern/trap/vectors.S	/^vector190:$/;"	l
-vector191	lab1_result/kern/trap/vectors.S	/^vector191:$/;"	l
-vector192	lab1_result/kern/trap/vectors.S	/^vector192:$/;"	l
-vector193	lab1_result/kern/trap/vectors.S	/^vector193:$/;"	l
-vector194	lab1_result/kern/trap/vectors.S	/^vector194:$/;"	l
-vector195	lab1_result/kern/trap/vectors.S	/^vector195:$/;"	l
-vector196	lab1_result/kern/trap/vectors.S	/^vector196:$/;"	l
-vector197	lab1_result/kern/trap/vectors.S	/^vector197:$/;"	l
-vector198	lab1_result/kern/trap/vectors.S	/^vector198:$/;"	l
-vector199	lab1_result/kern/trap/vectors.S	/^vector199:$/;"	l
-vector2	lab1_result/kern/trap/vectors.S	/^vector2:$/;"	l
-vector20	lab1_result/kern/trap/vectors.S	/^vector20:$/;"	l
-vector200	lab1_result/kern/trap/vectors.S	/^vector200:$/;"	l
-vector201	lab1_result/kern/trap/vectors.S	/^vector201:$/;"	l
-vector202	lab1_result/kern/trap/vectors.S	/^vector202:$/;"	l
-vector203	lab1_result/kern/trap/vectors.S	/^vector203:$/;"	l
-vector204	lab1_result/kern/trap/vectors.S	/^vector204:$/;"	l
-vector205	lab1_result/kern/trap/vectors.S	/^vector205:$/;"	l
-vector206	lab1_result/kern/trap/vectors.S	/^vector206:$/;"	l
-vector207	lab1_result/kern/trap/vectors.S	/^vector207:$/;"	l
-vector208	lab1_result/kern/trap/vectors.S	/^vector208:$/;"	l
-vector209	lab1_result/kern/trap/vectors.S	/^vector209:$/;"	l
-vector21	lab1_result/kern/trap/vectors.S	/^vector21:$/;"	l
-vector210	lab1_result/kern/trap/vectors.S	/^vector210:$/;"	l
-vector211	lab1_result/kern/trap/vectors.S	/^vector211:$/;"	l
-vector212	lab1_result/kern/trap/vectors.S	/^vector212:$/;"	l
-vector213	lab1_result/kern/trap/vectors.S	/^vector213:$/;"	l
-vector214	lab1_result/kern/trap/vectors.S	/^vector214:$/;"	l
-vector215	lab1_result/kern/trap/vectors.S	/^vector215:$/;"	l
-vector216	lab1_result/kern/trap/vectors.S	/^vector216:$/;"	l
-vector217	lab1_result/kern/trap/vectors.S	/^vector217:$/;"	l
-vector218	lab1_result/kern/trap/vectors.S	/^vector218:$/;"	l
-vector219	lab1_result/kern/trap/vectors.S	/^vector219:$/;"	l
-vector22	lab1_result/kern/trap/vectors.S	/^vector22:$/;"	l
-vector220	lab1_result/kern/trap/vectors.S	/^vector220:$/;"	l
-vector221	lab1_result/kern/trap/vectors.S	/^vector221:$/;"	l
-vector222	lab1_result/kern/trap/vectors.S	/^vector222:$/;"	l
-vector223	lab1_result/kern/trap/vectors.S	/^vector223:$/;"	l
-vector224	lab1_result/kern/trap/vectors.S	/^vector224:$/;"	l
-vector225	lab1_result/kern/trap/vectors.S	/^vector225:$/;"	l
-vector226	lab1_result/kern/trap/vectors.S	/^vector226:$/;"	l
-vector227	lab1_result/kern/trap/vectors.S	/^vector227:$/;"	l
-vector228	lab1_result/kern/trap/vectors.S	/^vector228:$/;"	l
-vector229	lab1_result/kern/trap/vectors.S	/^vector229:$/;"	l
-vector23	lab1_result/kern/trap/vectors.S	/^vector23:$/;"	l
-vector230	lab1_result/kern/trap/vectors.S	/^vector230:$/;"	l
-vector231	lab1_result/kern/trap/vectors.S	/^vector231:$/;"	l
-vector232	lab1_result/kern/trap/vectors.S	/^vector232:$/;"	l
-vector233	lab1_result/kern/trap/vectors.S	/^vector233:$/;"	l
-vector234	lab1_result/kern/trap/vectors.S	/^vector234:$/;"	l
-vector235	lab1_result/kern/trap/vectors.S	/^vector235:$/;"	l
-vector236	lab1_result/kern/trap/vectors.S	/^vector236:$/;"	l
-vector237	lab1_result/kern/trap/vectors.S	/^vector237:$/;"	l
-vector238	lab1_result/kern/trap/vectors.S	/^vector238:$/;"	l
-vector239	lab1_result/kern/trap/vectors.S	/^vector239:$/;"	l
-vector24	lab1_result/kern/trap/vectors.S	/^vector24:$/;"	l
-vector240	lab1_result/kern/trap/vectors.S	/^vector240:$/;"	l
-vector241	lab1_result/kern/trap/vectors.S	/^vector241:$/;"	l
-vector242	lab1_result/kern/trap/vectors.S	/^vector242:$/;"	l
-vector243	lab1_result/kern/trap/vectors.S	/^vector243:$/;"	l
-vector244	lab1_result/kern/trap/vectors.S	/^vector244:$/;"	l
-vector245	lab1_result/kern/trap/vectors.S	/^vector245:$/;"	l
-vector246	lab1_result/kern/trap/vectors.S	/^vector246:$/;"	l
-vector247	lab1_result/kern/trap/vectors.S	/^vector247:$/;"	l
-vector248	lab1_result/kern/trap/vectors.S	/^vector248:$/;"	l
-vector249	lab1_result/kern/trap/vectors.S	/^vector249:$/;"	l
-vector25	lab1_result/kern/trap/vectors.S	/^vector25:$/;"	l
-vector250	lab1_result/kern/trap/vectors.S	/^vector250:$/;"	l
-vector251	lab1_result/kern/trap/vectors.S	/^vector251:$/;"	l
-vector252	lab1_result/kern/trap/vectors.S	/^vector252:$/;"	l
-vector253	lab1_result/kern/trap/vectors.S	/^vector253:$/;"	l
-vector254	lab1_result/kern/trap/vectors.S	/^vector254:$/;"	l
-vector255	lab1_result/kern/trap/vectors.S	/^vector255:$/;"	l
-vector26	lab1_result/kern/trap/vectors.S	/^vector26:$/;"	l
-vector27	lab1_result/kern/trap/vectors.S	/^vector27:$/;"	l
-vector28	lab1_result/kern/trap/vectors.S	/^vector28:$/;"	l
-vector29	lab1_result/kern/trap/vectors.S	/^vector29:$/;"	l
-vector3	lab1_result/kern/trap/vectors.S	/^vector3:$/;"	l
-vector30	lab1_result/kern/trap/vectors.S	/^vector30:$/;"	l
-vector31	lab1_result/kern/trap/vectors.S	/^vector31:$/;"	l
-vector32	lab1_result/kern/trap/vectors.S	/^vector32:$/;"	l
-vector33	lab1_result/kern/trap/vectors.S	/^vector33:$/;"	l
-vector34	lab1_result/kern/trap/vectors.S	/^vector34:$/;"	l
-vector35	lab1_result/kern/trap/vectors.S	/^vector35:$/;"	l
-vector36	lab1_result/kern/trap/vectors.S	/^vector36:$/;"	l
-vector37	lab1_result/kern/trap/vectors.S	/^vector37:$/;"	l
-vector38	lab1_result/kern/trap/vectors.S	/^vector38:$/;"	l
-vector39	lab1_result/kern/trap/vectors.S	/^vector39:$/;"	l
-vector4	lab1_result/kern/trap/vectors.S	/^vector4:$/;"	l
-vector40	lab1_result/kern/trap/vectors.S	/^vector40:$/;"	l
-vector41	lab1_result/kern/trap/vectors.S	/^vector41:$/;"	l
-vector42	lab1_result/kern/trap/vectors.S	/^vector42:$/;"	l
-vector43	lab1_result/kern/trap/vectors.S	/^vector43:$/;"	l
-vector44	lab1_result/kern/trap/vectors.S	/^vector44:$/;"	l
-vector45	lab1_result/kern/trap/vectors.S	/^vector45:$/;"	l
-vector46	lab1_result/kern/trap/vectors.S	/^vector46:$/;"	l
-vector47	lab1_result/kern/trap/vectors.S	/^vector47:$/;"	l
-vector48	lab1_result/kern/trap/vectors.S	/^vector48:$/;"	l
-vector49	lab1_result/kern/trap/vectors.S	/^vector49:$/;"	l
-vector5	lab1_result/kern/trap/vectors.S	/^vector5:$/;"	l
-vector50	lab1_result/kern/trap/vectors.S	/^vector50:$/;"	l
-vector51	lab1_result/kern/trap/vectors.S	/^vector51:$/;"	l
-vector52	lab1_result/kern/trap/vectors.S	/^vector52:$/;"	l
-vector53	lab1_result/kern/trap/vectors.S	/^vector53:$/;"	l
-vector54	lab1_result/kern/trap/vectors.S	/^vector54:$/;"	l
-vector55	lab1_result/kern/trap/vectors.S	/^vector55:$/;"	l
-vector56	lab1_result/kern/trap/vectors.S	/^vector56:$/;"	l
-vector57	lab1_result/kern/trap/vectors.S	/^vector57:$/;"	l
-vector58	lab1_result/kern/trap/vectors.S	/^vector58:$/;"	l
-vector59	lab1_result/kern/trap/vectors.S	/^vector59:$/;"	l
-vector6	lab1_result/kern/trap/vectors.S	/^vector6:$/;"	l
-vector60	lab1_result/kern/trap/vectors.S	/^vector60:$/;"	l
-vector61	lab1_result/kern/trap/vectors.S	/^vector61:$/;"	l
-vector62	lab1_result/kern/trap/vectors.S	/^vector62:$/;"	l
-vector63	lab1_result/kern/trap/vectors.S	/^vector63:$/;"	l
-vector64	lab1_result/kern/trap/vectors.S	/^vector64:$/;"	l
-vector65	lab1_result/kern/trap/vectors.S	/^vector65:$/;"	l
-vector66	lab1_result/kern/trap/vectors.S	/^vector66:$/;"	l
-vector67	lab1_result/kern/trap/vectors.S	/^vector67:$/;"	l
-vector68	lab1_result/kern/trap/vectors.S	/^vector68:$/;"	l
-vector69	lab1_result/kern/trap/vectors.S	/^vector69:$/;"	l
-vector7	lab1_result/kern/trap/vectors.S	/^vector7:$/;"	l
-vector70	lab1_result/kern/trap/vectors.S	/^vector70:$/;"	l
-vector71	lab1_result/kern/trap/vectors.S	/^vector71:$/;"	l
-vector72	lab1_result/kern/trap/vectors.S	/^vector72:$/;"	l
-vector73	lab1_result/kern/trap/vectors.S	/^vector73:$/;"	l
-vector74	lab1_result/kern/trap/vectors.S	/^vector74:$/;"	l
-vector75	lab1_result/kern/trap/vectors.S	/^vector75:$/;"	l
-vector76	lab1_result/kern/trap/vectors.S	/^vector76:$/;"	l
-vector77	lab1_result/kern/trap/vectors.S	/^vector77:$/;"	l
-vector78	lab1_result/kern/trap/vectors.S	/^vector78:$/;"	l
-vector79	lab1_result/kern/trap/vectors.S	/^vector79:$/;"	l
-vector8	lab1_result/kern/trap/vectors.S	/^vector8:$/;"	l
-vector80	lab1_result/kern/trap/vectors.S	/^vector80:$/;"	l
-vector81	lab1_result/kern/trap/vectors.S	/^vector81:$/;"	l
-vector82	lab1_result/kern/trap/vectors.S	/^vector82:$/;"	l
-vector83	lab1_result/kern/trap/vectors.S	/^vector83:$/;"	l
-vector84	lab1_result/kern/trap/vectors.S	/^vector84:$/;"	l
-vector85	lab1_result/kern/trap/vectors.S	/^vector85:$/;"	l
-vector86	lab1_result/kern/trap/vectors.S	/^vector86:$/;"	l
-vector87	lab1_result/kern/trap/vectors.S	/^vector87:$/;"	l
-vector88	lab1_result/kern/trap/vectors.S	/^vector88:$/;"	l
-vector89	lab1_result/kern/trap/vectors.S	/^vector89:$/;"	l
-vector9	lab1_result/kern/trap/vectors.S	/^vector9:$/;"	l
-vector90	lab1_result/kern/trap/vectors.S	/^vector90:$/;"	l
-vector91	lab1_result/kern/trap/vectors.S	/^vector91:$/;"	l
-vector92	lab1_result/kern/trap/vectors.S	/^vector92:$/;"	l
-vector93	lab1_result/kern/trap/vectors.S	/^vector93:$/;"	l
-vector94	lab1_result/kern/trap/vectors.S	/^vector94:$/;"	l
-vector95	lab1_result/kern/trap/vectors.S	/^vector95:$/;"	l
-vector96	lab1_result/kern/trap/vectors.S	/^vector96:$/;"	l
-vector97	lab1_result/kern/trap/vectors.S	/^vector97:$/;"	l
-vector98	lab1_result/kern/trap/vectors.S	/^vector98:$/;"	l
-vector99	lab1_result/kern/trap/vectors.S	/^vector99:$/;"	l
-video_memory	src/monitor.c	/^u16int *video_memory = (u16int *)0xB8000;$/;"	v
-vprintfmt	lab1_result/libs/printfmt.c	/^vprintfmt(void (*putch)(int, void*), void *putdat, const char *fmt, va_list ap) {$/;"	f
-vsnprintf	lab1_result/libs/printfmt.c	/^vsnprintf(char *str, size_t size, const char *fmt, va_list ap) {$/;"	f
-waitdisk	lab1_result/boot/bootmain.c	/^waitdisk(void) {$/;"	f	file:
-warn	lab1_result/kern/debug/assert.h	9;"	d
-white	include/scrn.h	24;"	d
-wpos	lab1_result/kern/driver/console.c	/^    uint32_t wpos;$/;"	m	struct:__anon12	file:
-write	src/fs.h	/^    write_type_t write;$/;"	m	struct:fs_node
-write_fs	src/fs.c	/^u32int write_fs(fs_node_t *node, u32int offset, u32int size, u8int *buffer)$/;"	f
-write_tss	src/descriptor_tables.c	/^static void write_tss(s32int num, u16int ss0, u32int esp0)$/;"	f	file:
-write_type_t	src/fs.h	/^typedef u32int (*write_type_t)(struct fs_node*,u32int,u32int,u8int*);$/;"	t
+LDFLAGS	Makefile	/^LDFLAGS		= -m elf_i386 -T tools\/kernel.ld$/;"	m
+LINES	kernel/include/scrn.h	4;"	d
+MULTIBOOT_AOUT_KLUDGE	boot/start.s	/^    MULTIBOOT_AOUT_KLUDGE	equ 1<<16$/;"	d
+MULTIBOOT_CHECKSUM	boot/start.s	/^    MULTIBOOT_CHECKSUM	equ -(MULTIBOOT_HEADER_MAGIC + MULTIBOOT_HEADER_FLAGS)$/;"	d
+MULTIBOOT_HEADER_FLAGS	boot/start.s	/^    MULTIBOOT_HEADER_FLAGS	equ MULTIBOOT_PAGE_ALIGN | MULTIBOOT_MEMORY_INFO | MULTIBOOT_AOUT_KLUDGE$/;"	d
+MULTIBOOT_HEADER_MAGIC	boot/start.s	/^    MULTIBOOT_HEADER_MAGIC	equ 0x1BADB002$/;"	d
+MULTIBOOT_MEMORY_INFO	boot/start.s	/^    MULTIBOOT_MEMORY_INFO	equ 1<<1$/;"	d
+MULTIBOOT_PAGE_ALIGN	boot/start.s	/^    MULTIBOOT_PAGE_ALIGN	equ 1<<0$/;"	d
+MyPutc	kernel/driver/scrn.c	/^void MyPutc(char c)$/;"	f
+MyPuts	kernel/driver/scrn.c	/^void MyPuts(char *str)$/;"	f
+NULL	kernel/include/type.h	5;"	d
+PANIC	kernel/include/debug.h	4;"	d
+ROUNDDOWN	kernel/include/type.h	46;"	d
+ROUNDUP	kernel/include/type.h	52;"	d
+RollScreen	kernel/driver/scrn.c	/^void RollScreen()$/;"	f
+SCREENSIZE	kernel/include/scrn.h	7;"	d
+SECTION	boot/start.s	/^SECTION .bss$/;"	l
+SEG	kernel/include/mmu.h	116;"	d
+SEG16	kernel/include/mmu.h	124;"	d
+SEG_NULL	kernel/include/mmu.h	113;"	d
+SETCALLGATE	kernel/include/mmu.h	84;"	d
+SETGATE	kernel/include/mmu.h	71;"	d
+STA_A	kernel/include/mmu.h	33;"	d
+STA_C	kernel/include/mmu.h	30;"	d
+STA_E	kernel/include/mmu.h	29;"	d
+STA_R	kernel/include/mmu.h	32;"	d
+STA_W	kernel/include/mmu.h	31;"	d
+STA_X	kernel/include/mmu.h	28;"	d
+STS_CG16	kernel/include/mmu.h	39;"	d
+STS_CG32	kernel/include/mmu.h	45;"	d
+STS_IG16	kernel/include/mmu.h	41;"	d
+STS_IG32	kernel/include/mmu.h	46;"	d
+STS_LDT	kernel/include/mmu.h	37;"	d
+STS_T16A	kernel/include/mmu.h	36;"	d
+STS_T16B	kernel/include/mmu.h	38;"	d
+STS_T32A	kernel/include/mmu.h	43;"	d
+STS_T32B	kernel/include/mmu.h	44;"	d
+STS_TG	kernel/include/mmu.h	40;"	d
+STS_TG16	kernel/include/mmu.h	42;"	d
+STS_TG32	kernel/include/mmu.h	47;"	d
+S_OBJECTS	Makefile	/^S_OBJECTS = $(patsubst %.s, %.o, $(S_SOURCES))$/;"	m
+S_SOURCES	Makefile	/^S_SOURCES = $(shell find . -name "*.s")$/;"	m
+TXT_COLOR	kernel/include/scrn.h	25;"	d
+T_SWITCH_TOK	kernel/include/isrs.h	43;"	d
+T_SWITCH_TOU	kernel/include/isrs.h	42;"	d
+VIDPTR	kernel/driver/scrn.c	/^static char *VIDPTR = (char*)0xb8000;$/;"	v	file:
+_COMMON_H_	kernel/include/common.h	2;"	d
+_DEBUG_H_	kernel/include/debug.h	2;"	d
+_ELF_H_	kernel/include/elf.h	2;"	d
+_GDT_H_	kernel/include/gdt.h	2;"	d
+_IDT_H_	kernel/include/idt.h	2;"	d
+_IRQ_H_	kernel/include/irq.h	2;"	d
+_ISRS_H_	kernel/include/isrs.h	2;"	d
+_KB_H_	kernel/include/kb.h	2;"	d
+_MMU_H_	kernel/include/mmu.h	2;"	d
+_MULTIBOOT_H_	kernel/include/multiboot.h	2;"	d
+_SCRN_H_	kernel/include/scrn.h	2;"	d
+_STRING_H_	kernel/include/string.h	2;"	d
+_TIMER_H_	kernel/include/timer.h	2;"	d
+_TYPE_H_	kernel/include/type.h	2;"	d
+__always_inline	kernel/include/type.h	70;"	d
+__noinline	kernel/include/type.h	71;"	d
+__noreturn	kernel/include/type.h	72;"	d
+_sys_stack	boot/start.s	/^_sys_stack:$/;"	l
+access	kernel/include/gdt.h	/^    unsigned char access;$/;"	m	struct:gdt_entry
+addr	kernel/include/elf.h	/^  uint32_t addr;$/;"	m	struct:elf_section_header_t
+addr	kernel/include/multiboot.h	/^	uint32_t addr;$/;"	m	struct:multiboot_t
+addralign	kernel/include/elf.h	/^  uint32_t addralign;$/;"	m	struct:elf_section_header_t
+always0	kernel/include/idt.h	/^    unsigned char always0;$/;"	m	struct:idt_entry
+apm_table	kernel/include/multiboot.h	/^	uint32_t apm_table; 	    	\/\/ APM 表$/;"	m	struct:multiboot_t
+attrib	kernel/driver/scrn.c	/^static int attrib = TXT_COLOR;$/;"	v	file:
+base	kernel/include/gdt.h	/^    unsigned int base;$/;"	m	struct:gdt_ptr
+base	kernel/include/idt.h	/^    unsigned int base;$/;"	m	struct:idt_ptr
+base_addr_high	kernel/include/multiboot.h	/^	uint32_t base_addr_high;$/;"	m	struct:mmap_entry_t
+base_addr_low	kernel/include/multiboot.h	/^	uint32_t base_addr_low;$/;"	m	struct:mmap_entry_t
+base_hi	kernel/include/idt.h	/^    unsigned short base_hi;$/;"	m	struct:idt_entry
+base_high	kernel/include/gdt.h	/^    unsigned char base_high;$/;"	m	struct:gdt_entry
+base_lo	kernel/include/idt.h	/^    unsigned short base_lo;$/;"	m	struct:idt_entry
+base_low	kernel/include/gdt.h	/^    unsigned short base_low;$/;"	m	struct:gdt_entry
+base_middle	kernel/include/gdt.h	/^    unsigned char base_middle;$/;"	m	struct:gdt_entry
+bits	kernel/driver/scrn_s.s	/^bits 32$/;"	l
+black	kernel/include/scrn.h	9;"	d
+blue	kernel/include/scrn.h	10;"	d
+bool	kernel/include/type.h	/^typedef int bool;$/;"	t
+boot_device	kernel/include/multiboot.h	/^	uint32_t boot_device;		\/\/ 指出引导程序从哪个BIOS磁盘设备载入的OS映像$/;"	m	struct:multiboot_t
+boot_loader_name	kernel/include/multiboot.h	/^	uint32_t boot_loader_name; 	\/\/ boot loader 的名字$/;"	m	struct:multiboot_t
+brown	kernel/include/scrn.h	15;"	d
+cls	kernel/driver/scrn.c	/^void cls()$/;"	f
+cmain	kernel/init/cmain.c	/^void cmain()$/;"	f
+cmdline	kernel/include/multiboot.h	/^	uint32_t cmdline;		\/\/ 内核命令行$/;"	m	struct:multiboot_t
+config_table	kernel/include/multiboot.h	/^	uint32_t config_table; 		\/\/ ROM 配置表$/;"	m	struct:multiboot_t
+cs	kernel/include/idt.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
+csr_x	kernel/driver/scrn.c	/^static int csr_x = 0, csr_y = 0;$/;"	v	file:
+csr_y	kernel/driver/scrn.c	/^static int csr_x = 0, csr_y = 0;$/;"	v	file:
+cyan	kernel/include/scrn.h	12;"	d
+dark_grey	kernel/include/scrn.h	17;"	d
+drives_addr	kernel/include/multiboot.h	/^	uint32_t drives_addr; 		\/\/ 指出第一个驱动器这个结构的大小$/;"	m	struct:multiboot_t
+drives_length	kernel/include/multiboot.h	/^	uint32_t drives_length; 	\/\/ 指出第一个驱动器结构的物理地址	$/;"	m	struct:multiboot_t
+ds	kernel/include/idt.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
+eax	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+ebp	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+ebx	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+ecx	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+edi	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+edx	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+eflags	kernel/include/idt.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
+eip	kernel/include/idt.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
+elf_section_header_t	kernel/include/elf.h	/^struct elf_section_header_t {$/;"	s
+elf_section_header_t	kernel/include/elf.h	/^} __attribute__((packed)) elf_section_header_t;$/;"	t	typeref:struct:elf_section_header_t
+elf_symbol_t	kernel/include/elf.h	/^struct elf_symbol_t {$/;"	s
+elf_symbol_t	kernel/include/elf.h	/^} __attribute__((packed)) elf_symbol_t;$/;"	t	typeref:struct:elf_symbol_t
+elf_t	kernel/include/elf.h	/^struct elf_t {$/;"	s
+elf_t	kernel/include/elf.h	/^} elf_t;$/;"	t	typeref:struct:elf_t
+entsize	kernel/include/elf.h	/^  uint32_t entsize;$/;"	m	struct:elf_section_header_t
+err_code	kernel/include/idt.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
+es	kernel/include/idt.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
+esi	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+esp	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+exception_messages	kernel/include/isrs.h	/^static unsigned char *exception_messages[] =$/;"	v
+extern	kernel/mm/gdt_s.s	/^extern gp$/;"	l
+extern	kernel/trap/idt_s.s	/^extern idtp$/;"	l
+extern	kernel/trap/irq_s.s	/^extern irq_handler$/;"	l
+extern	kernel/trap/isrs_s.s	/^extern isr_handler$/;"	l
+flags	kernel/include/elf.h	/^  uint32_t flags;$/;"	m	struct:elf_section_header_t
+flags	kernel/include/idt.h	/^    unsigned char flags;$/;"	m	struct:idt_entry
+flags	kernel/include/multiboot.h	/^	uint32_t flags;			\/\/ Multiboot 的版本信息$/;"	m	struct:multiboot_t
+flush2	kernel/mm/gdt_s.s	/^flush2:$/;"	l
+fs	kernel/include/idt.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
+gatedesc	kernel/include/mmu.h	/^struct gatedesc {$/;"	s
+gd_args	kernel/include/mmu.h	/^    unsigned gd_args : 5;            \/\/ # args, 0 for interrupt\/trap gates$/;"	m	struct:gatedesc
+gd_dpl	kernel/include/mmu.h	/^    unsigned gd_dpl : 2;            \/\/ descriptor(meaning new) privilege level$/;"	m	struct:gatedesc
+gd_off_15_0	kernel/include/mmu.h	/^    unsigned gd_off_15_0 : 16;        \/\/ low 16 bits of offset in segment$/;"	m	struct:gatedesc
+gd_off_31_16	kernel/include/mmu.h	/^    unsigned gd_off_31_16 : 16;        \/\/ high bits of offset in segment$/;"	m	struct:gatedesc
+gd_p	kernel/include/mmu.h	/^    unsigned gd_p : 1;                \/\/ Present$/;"	m	struct:gatedesc
+gd_rsv1	kernel/include/mmu.h	/^    unsigned gd_rsv1 : 3;            \/\/ reserved(should be zero I guess)$/;"	m	struct:gatedesc
+gd_s	kernel/include/mmu.h	/^    unsigned gd_s : 1;                \/\/ must be 0 (system)$/;"	m	struct:gatedesc
+gd_ss	kernel/include/mmu.h	/^    unsigned gd_ss : 16;            \/\/ segment selector$/;"	m	struct:gatedesc
+gd_type	kernel/include/mmu.h	/^    unsigned gd_type : 4;            \/\/ type(STS_{TG,IG32,TG32})$/;"	m	struct:gatedesc
+gdt	kernel/include/gdt.h	/^struct gdt_entry gdt[gdt_size];$/;"	v	typeref:struct:gdt_entry
+gdt_entry	kernel/include/gdt.h	/^struct gdt_entry$/;"	s
+gdt_flush	kernel/mm/gdt_s.s	/^gdt_flush:$/;"	l
+gdt_install	kernel/mm/gdt.c	/^void gdt_install()$/;"	f
+gdt_ptr	kernel/include/gdt.h	/^struct gdt_ptr$/;"	s
+gdt_set_gate	kernel/mm/gdt.c	/^void gdt_set_gate(int num, unsigned long base, unsigned long limit, unsigned char access, unsigned char gran)$/;"	f
+gdt_size	kernel/include/gdt.h	31;"	d
+global	boot/start.s	/^global start$/;"	l
+global	kernel/driver/scrn_s.s	/^global set_cursor $/;"	l
+global	kernel/mm/gdt_s.s	/^global gdt_flush$/;"	l
+global	kernel/trap/idt_s.s	/^global idt_load$/;"	l
+global	kernel/trap/irq_s.s	/^global irq0$/;"	l
+global	kernel/trap/irq_s.s	/^global irq1$/;"	l
+global	kernel/trap/irq_s.s	/^global irq10$/;"	l
+global	kernel/trap/irq_s.s	/^global irq11$/;"	l
+global	kernel/trap/irq_s.s	/^global irq12$/;"	l
+global	kernel/trap/irq_s.s	/^global irq13$/;"	l
+global	kernel/trap/irq_s.s	/^global irq14$/;"	l
+global	kernel/trap/irq_s.s	/^global irq15$/;"	l
+global	kernel/trap/irq_s.s	/^global irq2$/;"	l
+global	kernel/trap/irq_s.s	/^global irq3$/;"	l
+global	kernel/trap/irq_s.s	/^global irq4$/;"	l
+global	kernel/trap/irq_s.s	/^global irq5$/;"	l
+global	kernel/trap/irq_s.s	/^global irq6$/;"	l
+global	kernel/trap/irq_s.s	/^global irq7$/;"	l
+global	kernel/trap/irq_s.s	/^global irq8$/;"	l
+global	kernel/trap/irq_s.s	/^global irq9$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr0$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr1$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr10$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr11$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr12$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr13$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr14$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr15$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr16$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr17$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr18$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr19$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr2$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr20$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr21$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr22$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr23$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr24$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr25$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr26$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr27$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr28$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr29$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr3$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr30$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr31$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr4$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr5$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr6$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr7$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr8$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr9$/;"	l
+gp	kernel/include/gdt.h	/^struct gdt_ptr gp;$/;"	v	typeref:struct:gdt_ptr
+granularity	kernel/include/gdt.h	/^    unsigned char granularity;$/;"	m	struct:gdt_entry
+green	kernel/include/scrn.h	11;"	d
+gs	kernel/include/idt.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
+idt	kernel/include/idt.h	/^struct idt_entry idt[256];$/;"	v	typeref:struct:idt_entry
+idt_entry	kernel/include/idt.h	/^struct idt_entry$/;"	s
+idt_install	kernel/trap/idt.c	/^void idt_install()$/;"	f
+idt_load	kernel/trap/idt_s.s	/^idt_load:$/;"	l
+idt_ptr	kernel/include/idt.h	/^struct idt_ptr$/;"	s
+idt_set_gate	kernel/trap/idt.c	/^void idt_set_gate(unsigned char num, unsigned long base, unsigned short sel, unsigned char flags)$/;"	f
+idtp	kernel/include/idt.h	/^struct idt_ptr idtp;$/;"	v	typeref:struct:idt_ptr
+info	kernel/include/elf.h	/^  uint32_t info;$/;"	m	struct:elf_section_header_t
+info	kernel/include/elf.h	/^  uint8_t  info;$/;"	m	struct:elf_symbol_t
+init_video	kernel/driver/scrn.c	/^void init_video(void)$/;"	f
+inportb	kernel/libs/common.c	/^unsigned char inportb (unsigned short _port)$/;"	f
+inportw	kernel/libs/common.c	/^unsigned short inportw(unsigned short port)$/;"	f
+int16_t	kernel/include/type.h	/^typedef short int16_t;$/;"	t
+int32_t	kernel/include/type.h	/^typedef int int32_t;$/;"	t
+int64_t	kernel/include/type.h	/^typedef long long int64_t;$/;"	t
+int8_t	kernel/include/type.h	/^typedef char int8_t;$/;"	t
+int_no	kernel/include/idt.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
+intptr_t	kernel/include/type.h	/^typedef int32_t intptr_t;$/;"	t
+irq0	kernel/trap/irq_s.s	/^irq0:$/;"	l
+irq1	kernel/trap/irq_s.s	/^irq1:$/;"	l
+irq10	kernel/trap/irq_s.s	/^irq10:$/;"	l
+irq11	kernel/trap/irq_s.s	/^irq11:$/;"	l
+irq12	kernel/trap/irq_s.s	/^irq12:$/;"	l
+irq13	kernel/trap/irq_s.s	/^irq13:$/;"	l
+irq14	kernel/trap/irq_s.s	/^irq14:$/;"	l
+irq15	kernel/trap/irq_s.s	/^irq15:$/;"	l
+irq2	kernel/trap/irq_s.s	/^irq2:$/;"	l
+irq3	kernel/trap/irq_s.s	/^irq3:$/;"	l
+irq4	kernel/trap/irq_s.s	/^irq4:$/;"	l
+irq5	kernel/trap/irq_s.s	/^irq5:$/;"	l
+irq6	kernel/trap/irq_s.s	/^irq6:$/;"	l
+irq7	kernel/trap/irq_s.s	/^irq7:$/;"	l
+irq8	kernel/trap/irq_s.s	/^irq8:$/;"	l
+irq9	kernel/trap/irq_s.s	/^irq9:$/;"	l
+irq_common_stub	kernel/trap/irq_s.s	/^irq_common_stub:$/;"	l
+irq_handler	kernel/trap/irq.c	/^void irq_handler(struct regs *r)$/;"	f
+irq_install	kernel/trap/irq.c	/^void irq_install()$/;"	f
+irq_install_handler	kernel/trap/irq.c	/^void irq_install_handler(int irq, void (*handler)(struct regs *r))$/;"	f
+irq_remap	kernel/trap/irq.c	/^void irq_remap(void)$/;"	f
+irq_routines	kernel/include/irq.h	/^static void *irq_routines[16] =$/;"	v
+irq_uninstall_handler	kernel/trap/irq.c	/^void irq_uninstall_handler(int irq)$/;"	f
+isr0	kernel/trap/isrs_s.s	/^isr0:$/;"	l
+isr1	kernel/trap/isrs_s.s	/^isr1:$/;"	l
+isr10	kernel/trap/isrs_s.s	/^isr10:$/;"	l
+isr11	kernel/trap/isrs_s.s	/^isr11:$/;"	l
+isr12	kernel/trap/isrs_s.s	/^isr12:$/;"	l
+isr13	kernel/trap/isrs_s.s	/^isr13:$/;"	l
+isr14	kernel/trap/isrs_s.s	/^isr14:$/;"	l
+isr15	kernel/trap/isrs_s.s	/^isr15:$/;"	l
+isr16	kernel/trap/isrs_s.s	/^isr16:$/;"	l
+isr17	kernel/trap/isrs_s.s	/^isr17:$/;"	l
+isr18	kernel/trap/isrs_s.s	/^isr18:$/;"	l
+isr19	kernel/trap/isrs_s.s	/^isr19:$/;"	l
+isr2	kernel/trap/isrs_s.s	/^isr2:$/;"	l
+isr20	kernel/trap/isrs_s.s	/^isr20:$/;"	l
+isr21	kernel/trap/isrs_s.s	/^isr21:$/;"	l
+isr22	kernel/trap/isrs_s.s	/^isr22:$/;"	l
+isr23	kernel/trap/isrs_s.s	/^isr23:$/;"	l
+isr24	kernel/trap/isrs_s.s	/^isr24:$/;"	l
+isr25	kernel/trap/isrs_s.s	/^isr25:$/;"	l
+isr26	kernel/trap/isrs_s.s	/^isr26:$/;"	l
+isr27	kernel/trap/isrs_s.s	/^isr27:$/;"	l
+isr28	kernel/trap/isrs_s.s	/^isr28:$/;"	l
+isr29	kernel/trap/isrs_s.s	/^isr29:$/;"	l
+isr3	kernel/trap/isrs_s.s	/^isr3:$/;"	l
+isr30	kernel/trap/isrs_s.s	/^isr30:$/;"	l
+isr31	kernel/trap/isrs_s.s	/^isr31:$/;"	l
+isr4	kernel/trap/isrs_s.s	/^isr4:$/;"	l
+isr5	kernel/trap/isrs_s.s	/^isr5:$/;"	l
+isr6	kernel/trap/isrs_s.s	/^isr6:$/;"	l
+isr7	kernel/trap/isrs_s.s	/^isr7:$/;"	l
+isr8	kernel/trap/isrs_s.s	/^isr8:$/;"	l
+isr9	kernel/trap/isrs_s.s	/^isr9:$/;"	l
+isr_common_stub	kernel/trap/isrs_s.s	/^isr_common_stub:$/;"	l
+isr_handler	kernel/trap/isrs.c	/^void isr_handler(struct regs *r)$/;"	f
+isr_install_handler	kernel/trap/isrs.c	/^void isr_install_handler(int isr,void (*handler)(struct regs * r))$/;"	f
+isr_routines	kernel/include/isrs.h	/^static void *isr_routines[32] = $/;"	v
+isr_uninstall_handler	kernel/trap/isrs.c	/^void isr_uninstall_handler(int isr)$/;"	f
+isrs_install	kernel/trap/isrs.c	/^void isrs_install()$/;"	f
+itoa	kernel/driver/scrn.c	/^void itoa (char *buf, int base, int d)  $/;"	f
+kbdus	kernel/driver/kb.c	/^unsigned char kbdus[128] =$/;"	v
+keyboard_handler	kernel/driver/kb.c	/^void keyboard_handler(struct regs *r)$/;"	f
+keyboard_install	kernel/driver/kb.c	/^void keyboard_install()$/;"	f
+length_high	kernel/include/multiboot.h	/^	uint32_t length_high;$/;"	m	struct:mmap_entry_t
+length_low	kernel/include/multiboot.h	/^	uint32_t length_low;$/;"	m	struct:mmap_entry_t
+light_brown	kernel/include/scrn.h	22;"	d
+light_cyan	kernel/include/scrn.h	19;"	d
+light_green	kernel/include/scrn.h	18;"	d
+light_grey	kernel/include/scrn.h	16;"	d
+light_magenta	kernel/include/scrn.h	21;"	d
+light_red	kernel/include/scrn.h	20;"	d
+limit	kernel/include/gdt.h	/^    unsigned short limit;$/;"	m	struct:gdt_ptr
+limit	kernel/include/idt.h	/^    unsigned short limit;$/;"	m	struct:idt_ptr
+limit_low	kernel/include/gdt.h	/^    unsigned short limit_low;$/;"	m	struct:gdt_entry
+link	kernel/include/elf.h	/^  uint32_t link;$/;"	m	struct:elf_section_header_t
+magenta	kernel/include/scrn.h	14;"	d
+mboot	boot/start.s	/^mboot:$/;"	l
+mem_lower	kernel/include/multiboot.h	/^	uint32_t mem_lower;$/;"	m	struct:multiboot_t
+mem_upper	kernel/include/multiboot.h	/^	uint32_t mem_upper;$/;"	m	struct:multiboot_t
+memcpy	kernel/libs/string.c	/^void *memcpy(void *dest, const void *src, size_t count)$/;"	f
+memset	kernel/libs/string.c	/^void *memset(void *dest, char val, size_t count)$/;"	f
+memsetw	kernel/libs/string.c	/^unsigned short *memsetw(unsigned short *dest, unsigned short val, size_t count)$/;"	f
+mmap_addr	kernel/include/multiboot.h	/^	uint32_t mmap_addr;$/;"	m	struct:multiboot_t
+mmap_entry_t	kernel/include/multiboot.h	/^struct mmap_entry_t {$/;"	s
+mmap_entry_t	kernel/include/multiboot.h	/^} __attribute__((packed)) mmap_entry_t;$/;"	t	typeref:struct:mmap_entry_t
+mmap_length	kernel/include/multiboot.h	/^	uint32_t mmap_length;		$/;"	m	struct:multiboot_t
+mods_addr	kernel/include/multiboot.h	/^	uint32_t mods_addr;$/;"	m	struct:multiboot_t
+mods_count	kernel/include/multiboot.h	/^	uint32_t mods_count;		\/\/ boot 模块列表$/;"	m	struct:multiboot_t
+move_csr	kernel/driver/scrn.c	/^void move_csr(void)$/;"	f
+multiboot_t	kernel/include/multiboot.h	/^struct multiboot_t {$/;"	s
+multiboot_t	kernel/include/multiboot.h	/^} __attribute__((packed)) multiboot_t;$/;"	t	typeref:struct:multiboot_t
+name	kernel/include/elf.h	/^  uint32_t name;$/;"	m	struct:elf_section_header_t
+name	kernel/include/elf.h	/^  uint32_t name;$/;"	m	struct:elf_symbol_t
+num	kernel/include/multiboot.h	/^	uint32_t num;$/;"	m	struct:multiboot_t
+offset	kernel/include/elf.h	/^  uint32_t offset;$/;"	m	struct:elf_section_header_t
+offsetof	kernel/include/type.h	58;"	d
+other	kernel/include/elf.h	/^  uint8_t  other;$/;"	m	struct:elf_symbol_t
+outportb	kernel/libs/common.c	/^void outportb (unsigned short _port, unsigned char _data)$/;"	f
+panic	kernel/debug/debug.c	/^void panic(char *message,char *file, unsigned int line)$/;"	f
+panic_assert	kernel/debug/debug.c	/^void panic_assert(char *file, unsigned int line, char *desc)$/;"	f
+pop	kernel/driver/scrn_s.s	/^	pop dx$/;"	d
+pop	kernel/trap/irq_s.s	/^    pop ds$/;"	d
+pop	kernel/trap/isrs_s.s	/^    pop ds$/;"	d
+ppn_t	kernel/include/type.h	/^typedef uintptr_t ppn_t;$/;"	t
+printf	kernel/driver/scrn.c	/^void printf(const char *format, ...)  $/;"	f
+push	kernel/driver/scrn_s.s	/^	push dx$/;"	d
+push	kernel/trap/irq_s.s	/^    push ds$/;"	d
+push	kernel/trap/isrs_s.s	/^    push ds$/;"	d
+putc	kernel/driver/scrn.c	/^void putc(unsigned char c)$/;"	f
+puts	kernel/driver/scrn.c	/^void puts(unsigned char *text)$/;"	f
+red	kernel/include/scrn.h	13;"	d
+regs	kernel/include/idt.h	/^struct regs$/;"	s
+s16	kernel/include/type.h	/^typedef	         short		s16;$/;"	t
+s32	kernel/include/type.h	/^typedef	         int		s32;$/;"	t
+s8	kernel/include/type.h	/^typedef	         char		s8;$/;"	t
+scroll	kernel/driver/scrn.c	/^void scroll(void)$/;"	f
+sd_avl	kernel/include/mmu.h	/^    unsigned sd_avl : 1;            \/\/ unused (available for software use)$/;"	m	struct:segdesc
+sd_base_15_0	kernel/include/mmu.h	/^    unsigned sd_base_15_0 : 16;        \/\/ low bits of segment base address$/;"	m	struct:segdesc
+sd_base_23_16	kernel/include/mmu.h	/^    unsigned sd_base_23_16 : 8;        \/\/ middle bits of segment base address$/;"	m	struct:segdesc
+sd_base_31_24	kernel/include/mmu.h	/^    unsigned sd_base_31_24 : 8;        \/\/ high bits of segment base address$/;"	m	struct:segdesc
+sd_db	kernel/include/mmu.h	/^    unsigned sd_db : 1;                \/\/ 0 = 16-bit segment, 1 = 32-bit segment$/;"	m	struct:segdesc
+sd_dpl	kernel/include/mmu.h	/^    unsigned sd_dpl : 2;            \/\/ descriptor Privilege Level$/;"	m	struct:segdesc
+sd_g	kernel/include/mmu.h	/^    unsigned sd_g : 1;                \/\/ granularity: limit scaled by 4K when set$/;"	m	struct:segdesc
+sd_lim_15_0	kernel/include/mmu.h	/^    unsigned sd_lim_15_0 : 16;        \/\/ low bits of segment limit$/;"	m	struct:segdesc
+sd_lim_19_16	kernel/include/mmu.h	/^    unsigned sd_lim_19_16 : 4;        \/\/ high bits of segment limit$/;"	m	struct:segdesc
+sd_p	kernel/include/mmu.h	/^    unsigned sd_p : 1;                \/\/ present$/;"	m	struct:segdesc
+sd_rsv1	kernel/include/mmu.h	/^    unsigned sd_rsv1 : 1;            \/\/ reserved$/;"	m	struct:segdesc
+sd_s	kernel/include/mmu.h	/^    unsigned sd_s : 1;                \/\/ 0 = system, 1 = application$/;"	m	struct:segdesc
+sd_type	kernel/include/mmu.h	/^    unsigned sd_type : 4;            \/\/ segment type (see STS_ constants)$/;"	m	struct:segdesc
+second	kernel/driver/timer.c	/^int second = 0;$/;"	v
+segdesc	kernel/include/mmu.h	/^struct segdesc {$/;"	s
+sel	kernel/include/idt.h	/^    unsigned short sel;$/;"	m	struct:idt_entry
+set_cursor	kernel/driver/scrn_s.s	/^set_cursor:$/;"	l
+settextcolor	kernel/driver/scrn.c	/^void settextcolor(unsigned char forecolor, unsigned char backcolor)$/;"	f
+shndx	kernel/include/elf.h	/^  uint16_t shndx;$/;"	m	struct:elf_symbol_t
+shndx	kernel/include/multiboot.h	/^	uint32_t shndx;$/;"	m	struct:multiboot_t
+size	kernel/include/elf.h	/^  uint32_t size;$/;"	m	struct:elf_section_header_t
+size	kernel/include/elf.h	/^  uint32_t size;$/;"	m	struct:elf_symbol_t
+size	kernel/include/multiboot.h	/^	uint32_t size; 		\/\/ 留意 size 是不含 size 自身变量的大小$/;"	m	struct:mmap_entry_t
+size	kernel/include/multiboot.h	/^	uint32_t size;$/;"	m	struct:multiboot_t
+size_t	kernel/include/type.h	/^typedef  	 int		size_t; $/;"	t
+ss	kernel/include/idt.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
+start	boot/start.s	/^start:$/;"	l
+strcat	kernel/libs/string.c	/^char *strcat(char *dest, const char *src)$/;"	f
+strcmp	kernel/libs/string.c	/^int strcmp(char *str1, char *str2)$/;"	f
+strcpy	kernel/libs/string.c	/^char *strcpy(char *dest, const char *src)$/;"	f
+strlen	kernel/libs/string.c	/^size_t strlen(const char *str)$/;"	f
+strtab	kernel/include/elf.h	/^  const char   *strtab;$/;"	m	struct:elf_t
+strtabsz	kernel/include/elf.h	/^  uint32_t      strtabsz;$/;"	m	struct:elf_t
+stublet	boot/start.s	/^stublet:$/;"	l
+symtab	kernel/include/elf.h	/^  elf_symbol_t *symtab;$/;"	m	struct:elf_t
+symtabsz	kernel/include/elf.h	/^  uint32_t      symtabsz;$/;"	m	struct:elf_t
+taskstate	kernel/include/mmu.h	/^struct taskstate {$/;"	s
+textmemptr	kernel/driver/scrn.c	/^static unsigned short *textmemptr = (unsigned short *)0xB8000;$/;"	v	file:
+timer_handler	kernel/driver/timer.c	/^void timer_handler(struct regs *r)$/;"	f
+timer_install	kernel/driver/timer.c	/^void timer_install()$/;"	f
+timer_phase	kernel/driver/timer.c	/^void timer_phase(int hz)$/;"	f
+timer_test	kernel/driver/timer.c	/^void timer_test(int count)$/;"	f
+timer_ticks	kernel/driver/timer.c	/^int timer_ticks = 0;$/;"	v
+timer_wait	kernel/driver/timer.c	/^void timer_wait(int ticks)$/;"	f
+to_struct	kernel/include/type.h	67;"	d
+ts_cr3	kernel/include/mmu.h	/^    uintptr_t ts_cr3;        \/\/ page directory base$/;"	m	struct:taskstate
+ts_cs	kernel/include/mmu.h	/^    uint16_t ts_cs;$/;"	m	struct:taskstate
+ts_ds	kernel/include/mmu.h	/^    uint16_t ts_ds;$/;"	m	struct:taskstate
+ts_eax	kernel/include/mmu.h	/^    uint32_t ts_eax;        \/\/ more saved state (registers)$/;"	m	struct:taskstate
+ts_ebp	kernel/include/mmu.h	/^    uintptr_t ts_ebp;$/;"	m	struct:taskstate
+ts_ebx	kernel/include/mmu.h	/^    uint32_t ts_ebx;$/;"	m	struct:taskstate
+ts_ecx	kernel/include/mmu.h	/^    uint32_t ts_ecx;$/;"	m	struct:taskstate
+ts_edi	kernel/include/mmu.h	/^    uint32_t ts_edi;$/;"	m	struct:taskstate
+ts_edx	kernel/include/mmu.h	/^    uint32_t ts_edx;$/;"	m	struct:taskstate
+ts_eflags	kernel/include/mmu.h	/^    uint32_t ts_eflags;$/;"	m	struct:taskstate
+ts_eip	kernel/include/mmu.h	/^    uintptr_t ts_eip;        \/\/ saved state from last task switch$/;"	m	struct:taskstate
+ts_es	kernel/include/mmu.h	/^    uint16_t ts_es;            \/\/ even more saved state (segment selectors)$/;"	m	struct:taskstate
+ts_esi	kernel/include/mmu.h	/^    uint32_t ts_esi;$/;"	m	struct:taskstate
+ts_esp	kernel/include/mmu.h	/^    uintptr_t ts_esp;$/;"	m	struct:taskstate
+ts_esp0	kernel/include/mmu.h	/^    uintptr_t ts_esp0;        \/\/ stack pointers and segment selectors$/;"	m	struct:taskstate
+ts_esp1	kernel/include/mmu.h	/^    uintptr_t ts_esp1;$/;"	m	struct:taskstate
+ts_esp2	kernel/include/mmu.h	/^    uintptr_t ts_esp2;$/;"	m	struct:taskstate
+ts_fs	kernel/include/mmu.h	/^    uint16_t ts_fs;$/;"	m	struct:taskstate
+ts_gs	kernel/include/mmu.h	/^    uint16_t ts_gs;$/;"	m	struct:taskstate
+ts_iomb	kernel/include/mmu.h	/^    uint16_t ts_iomb;        \/\/ i\/o map base address$/;"	m	struct:taskstate
+ts_ldt	kernel/include/mmu.h	/^    uint16_t ts_ldt;$/;"	m	struct:taskstate
+ts_link	kernel/include/mmu.h	/^    uint32_t ts_link;        \/\/ old ts selector$/;"	m	struct:taskstate
+ts_padding1	kernel/include/mmu.h	/^    uint16_t ts_padding1;$/;"	m	struct:taskstate
+ts_padding10	kernel/include/mmu.h	/^    uint16_t ts_padding10;$/;"	m	struct:taskstate
+ts_padding2	kernel/include/mmu.h	/^    uint16_t ts_padding2;$/;"	m	struct:taskstate
+ts_padding3	kernel/include/mmu.h	/^    uint16_t ts_padding3;$/;"	m	struct:taskstate
+ts_padding4	kernel/include/mmu.h	/^    uint16_t ts_padding4;$/;"	m	struct:taskstate
+ts_padding5	kernel/include/mmu.h	/^    uint16_t ts_padding5;$/;"	m	struct:taskstate
+ts_padding6	kernel/include/mmu.h	/^    uint16_t ts_padding6;$/;"	m	struct:taskstate
+ts_padding7	kernel/include/mmu.h	/^    uint16_t ts_padding7;$/;"	m	struct:taskstate
+ts_padding8	kernel/include/mmu.h	/^    uint16_t ts_padding8;$/;"	m	struct:taskstate
+ts_padding9	kernel/include/mmu.h	/^    uint16_t ts_padding9;$/;"	m	struct:taskstate
+ts_ss	kernel/include/mmu.h	/^    uint16_t ts_ss;$/;"	m	struct:taskstate
+ts_ss0	kernel/include/mmu.h	/^    uint16_t ts_ss0;        \/\/ after an increase in privilege level$/;"	m	struct:taskstate
+ts_ss1	kernel/include/mmu.h	/^    uint16_t ts_ss1;$/;"	m	struct:taskstate
+ts_ss2	kernel/include/mmu.h	/^    uint16_t ts_ss2;$/;"	m	struct:taskstate
+ts_t	kernel/include/mmu.h	/^    uint16_t ts_t;            \/\/ trap on task switch$/;"	m	struct:taskstate
+type	kernel/include/elf.h	/^  uint32_t type;$/;"	m	struct:elf_section_header_t
+type	kernel/include/multiboot.h	/^	uint32_t type;$/;"	m	struct:mmap_entry_t
+u16	kernel/include/type.h	/^typedef	unsigned short		u16;$/;"	t
+u32	kernel/include/type.h	/^typedef	unsigned int		u32;$/;"	t
+u8	kernel/include/type.h	/^typedef	unsigned char		u8;$/;"	t
+uint16_t	kernel/include/type.h	/^typedef unsigned short uint16_t;$/;"	t
+uint32_t	kernel/include/type.h	/^typedef unsigned int uint32_t;$/;"	t
+uint64_t	kernel/include/type.h	/^typedef unsigned long long uint64_t;$/;"	t
+uint8_t	kernel/include/type.h	/^typedef unsigned char uint8_t;$/;"	t
+uintptr_t	kernel/include/type.h	/^typedef uint32_t uintptr_t;$/;"	t
+useresp	kernel/include/idt.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
+value	kernel/include/elf.h	/^  uint32_t value;$/;"	m	struct:elf_symbol_t
+vbe_control_info	kernel/include/multiboot.h	/^	uint32_t vbe_control_info;$/;"	m	struct:multiboot_t
+vbe_interface_len	kernel/include/multiboot.h	/^	uint32_t vbe_interface_len;$/;"	m	struct:multiboot_t
+vbe_interface_off	kernel/include/multiboot.h	/^	uint32_t vbe_interface_off;$/;"	m	struct:multiboot_t
+vbe_interface_seg	kernel/include/multiboot.h	/^	uint32_t vbe_interface_seg;$/;"	m	struct:multiboot_t
+vbe_mode	kernel/include/multiboot.h	/^	uint32_t vbe_mode;$/;"	m	struct:multiboot_t
+vbe_mode_info	kernel/include/multiboot.h	/^	uint32_t vbe_mode_info;$/;"	m	struct:multiboot_t
+white	kernel/include/scrn.h	23;"	d
