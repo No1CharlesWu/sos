@@ -15,14 +15,14 @@
 #include "pmm.h"
 
 extern unsigned int code;
-extern unsigned int bss;
 extern unsigned int end;
 void cmain()
 {
     cls();
-    printf("code: 0x%x\n",&code);
-    printf("bss: 0x%x\n",&bss);
-    printf("end: 0x%x\n",&end);
+    printf("kernel in memory start: 0x%x\n", &code);
+    printf("kernel in memory end:   0x%x\n", &end);
+    printf("kernel in memory used:   %d KB\n\n", (&end - &code + 1023) / 1024);
+
     printf("main start.\n");
     init_video();
     printf("init video ready.\n");
@@ -38,9 +38,12 @@ void cmain()
     printf("timer install ready.\n");
     keyboard_install();
     printf("keyboard install ready.\n");
+    init_pmm();
+    printf("init pmm ready.\n");
 
     __asm__ __volatile__ ("sti");	
 
     show_memory_map();
+    test_alloc_and_free_page();
 
 }

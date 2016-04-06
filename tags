@@ -60,7 +60,11 @@ MULTIBOOT_PAGE_ALIGN	boot/start.s	/^    MULTIBOOT_PAGE_ALIGN	equ 1<<0$/;"	d
 MyPutc	kernel/driver/scrn.c	/^void MyPutc(char c)$/;"	f
 MyPuts	kernel/driver/scrn.c	/^void MyPuts(char *str)$/;"	f
 NULL	kernel/include/type.h	5;"	d
+PAGE_MAX_SIZE	kernel/include/pmm.h	19;"	d
 PANIC	kernel/include/debug.h	4;"	d
+PHY_PAGE_MASK	kernel/include/pmm.h	22;"	d
+PMM_MAX_SIZE	kernel/include/pmm.h	13;"	d
+PMM_PAGE_SIZE	kernel/include/pmm.h	16;"	d
 ROUNDDOWN	kernel/include/type.h	46;"	d
 ROUNDUP	kernel/include/type.h	52;"	d
 RollScreen	kernel/driver/scrn.c	/^void RollScreen()$/;"	f
@@ -76,6 +80,7 @@ SEG_UDATA	kernel/include/gdt.h	9;"	d
 SEG_UTEXT	kernel/include/gdt.h	8;"	d
 SETCALLGATE	kernel/include/mmu.h	84;"	d
 SETGATE	kernel/include/mmu.h	71;"	d
+STACK_SIZE	kernel/include/pmm.h	10;"	d
 STACK_TOP	boot/start.s	/^STACK_TOP equ $-stack-1$/;"	d
 STA_A	kernel/include/mmu.h	33;"	d
 STA_C	kernel/include/mmu.h	30;"	d
@@ -269,6 +274,7 @@ idt_set_gate	kernel/trap/idt.c	/^void idt_set_gate(unsigned char num, unsigned l
 idtp	kernel/include/idt.h	/^struct idt_ptr idtp;$/;"	v	typeref:struct:idt_ptr
 info	kernel/include/elf.h	/^  uint32_t info;$/;"	m	struct:elf_section_header_t
 info	kernel/include/elf.h	/^  uint8_t  info;$/;"	m	struct:elf_symbol_t
+init_pmm	kernel/mm/pmm.c	/^void init_pmm()$/;"	f
 init_video	kernel/driver/scrn.c	/^void init_video(void)$/;"	f
 inportb	kernel/libs/common.c	/^unsigned char inportb (unsigned short _port)$/;"	f
 inportw	kernel/libs/common.c	/^unsigned short inportw(unsigned short port)$/;"	f
@@ -381,6 +387,11 @@ other	kernel/include/elf.h	/^  uint8_t  other;$/;"	m	struct:elf_symbol_t
 outportb	kernel/libs/common.c	/^void outportb (unsigned short _port, unsigned char _data)$/;"	f
 panic	kernel/debug/debug.c	/^void panic(char *message,char *file, unsigned int line)$/;"	f
 panic_assert	kernel/debug/debug.c	/^void panic_assert(char *file, unsigned int line, char *desc)$/;"	f
+phy_page_count	kernel/mm/pmm.c	/^uint32_t phy_page_count;$/;"	v
+pmm_alloc_page	kernel/mm/pmm.c	/^uint32_t pmm_alloc_page()$/;"	f
+pmm_free_page	kernel/mm/pmm.c	/^void pmm_free_page(uint32_t p)$/;"	f
+pmm_stack	kernel/mm/pmm.c	/^static uint32_t pmm_stack[PAGE_MAX_SIZE+1];$/;"	v	file:
+pmm_stack_top	kernel/mm/pmm.c	/^static uint32_t pmm_stack_top;$/;"	v	file:
 pop	kernel/driver/scrn_s.s	/^	pop dx$/;"	d
 pop	kernel/trap/irq_s.s	/^    pop ds$/;"	d
 pop	kernel/trap/isrs_s.s	/^    pop ds$/;"	d
@@ -439,6 +450,7 @@ stublet	boot/start.s	/^stublet:$/;"	l
 symtab	kernel/include/elf.h	/^  elf_symbol_t *symtab;$/;"	m	struct:elf_t
 symtabsz	kernel/include/elf.h	/^  uint32_t      symtabsz;$/;"	m	struct:elf_t
 taskstate	kernel/include/mmu.h	/^struct taskstate {$/;"	s
+test_alloc_and_free_page	kernel/mm/pmm.c	/^void test_alloc_and_free_page()$/;"	f
 textmemptr	kernel/driver/scrn.c	/^static unsigned short *textmemptr = (unsigned short *)0xB8000;$/;"	v	file:
 timer_handler	kernel/driver/timer.c	/^void timer_handler(struct regs *r)$/;"	f
 timer_install	kernel/driver/timer.c	/^void timer_install()$/;"	f
