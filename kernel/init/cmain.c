@@ -12,6 +12,7 @@
 #include "multiboot.h"
 #include "elf.h"
 #include "mmu.h"
+#include "pmm.h"
 
 extern unsigned int code;
 extern unsigned int bss;
@@ -39,5 +40,7 @@ void cmain()
     printf("keyboard install ready.\n");
 
     __asm__ __volatile__ ("sti");	
+
+    show_memory_map();
 
 }

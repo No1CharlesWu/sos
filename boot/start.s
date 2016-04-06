@@ -1,7 +1,7 @@
 [BITS 32]
 global start
+global glb_mboot_ptr
 start:
-    mov esp, _sys_stack     ; This points the stack to our new stack area
     jmp stublet
 
 ; This part MUST be 4byte aligned, so we solve that issue using 'ALIGN 4'
@@ -29,20 +29,25 @@ mboot:
     dd end
     dd start
 
-; This is an endless loop here. Make a note of this: Later on, we
-; will insert an 'extern _main', followed by 'call _main', right
-; before the 'jmp $'.
 stublet:
     extern cmain
+
+    mov [glb_mboot_ptr],ebx
+    mov esp, STACK_TOP ; This points the stack to our new stack area
+    and esp, 0FFFFFFF0H
+    mov ebp, 0
     call cmain
     xchg bx,bx
-    jmp $
 
-; Here is the definition of our BSS section. Right now, we'll use
-; it just to store the stack. Remember that a stack actually grows
-; downwards, so we declare the size of the data before declaring
-; the identifier '_sys_stack'
+stop:
+    hlt
+    jmp stop
+
 SECTION .bss
-    resb 8192               ; This reserves 8KBytes of memory here
-_sys_stack:
+stack:
+    resb 32768
+glb_mboot_ptr:
+    resb 4
+
+STACK_TOP equ $-stack-1
 

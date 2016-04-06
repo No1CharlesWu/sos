@@ -14,6 +14,8 @@ COLUMNS	kernel/include/scrn.h	5;"	d
 C_OBJECTS	Makefile	/^C_OBJECTS = $(patsubst %.c, %.o, $(C_SOURCES))$/;"	m
 C_SOURCES	Makefile	/^C_SOURCES = $(shell find . -name "*.c")$/;"	m
 CleanScreen	kernel/driver/scrn.c	/^void CleanScreen()$/;"	f
+DPL_KERNEL	kernel/include/gdt.h	19;"	d
+DPL_USER	kernel/include/gdt.h	20;"	d
 ELF32_ST_TYPE	kernel/include/elf.h	7;"	d
 FL_AC	kernel/include/mmu.h	22;"	d
 FL_AF	kernel/include/mmu.h	7;"	d
@@ -36,9 +38,16 @@ FL_VIF	kernel/include/mmu.h	23;"	d
 FL_VIP	kernel/include/mmu.h	24;"	d
 FL_VM	kernel/include/mmu.h	21;"	d
 FL_ZF	kernel/include/mmu.h	8;"	d
+GD_KDATA	kernel/include/gdt.h	13;"	d
+GD_KTEXT	kernel/include/gdt.h	12;"	d
+GD_TSS	kernel/include/gdt.h	16;"	d
+GD_UDATA	kernel/include/gdt.h	15;"	d
+GD_UTEXT	kernel/include/gdt.h	14;"	d
 IMG	Makefile	/^IMG		= tools\/os.img$/;"	m
 INDEX	kernel/driver/scrn.c	/^static int INDEX = 0;$/;"	v	file:
 KERNEL	Makefile	/^KERNEL 		= tools\/kernel.bin$/;"	m
+KERNEL_CS	kernel/include/gdt.h	23;"	d
+KERNEL_DS	kernel/include/gdt.h	24;"	d
 LD	Makefile	/^LD 		= ld$/;"	m
 LDFLAGS	Makefile	/^LDFLAGS		= -m elf_i386 -T tools\/kernel.ld$/;"	m
 LINES	kernel/include/scrn.h	4;"	d
@@ -57,11 +66,17 @@ ROUNDUP	kernel/include/type.h	52;"	d
 RollScreen	kernel/driver/scrn.c	/^void RollScreen()$/;"	f
 SCREENSIZE	kernel/include/scrn.h	7;"	d
 SECTION	boot/start.s	/^SECTION .bss$/;"	l
-SEG	kernel/include/mmu.h	116;"	d
-SEG16	kernel/include/mmu.h	124;"	d
-SEG_NULL	kernel/include/mmu.h	113;"	d
+SEG	kernel/include/mmu.h	113;"	d
+SEG16	kernel/include/mmu.h	121;"	d
+SEG_KDATA	kernel/include/gdt.h	7;"	d
+SEG_KTEXT	kernel/include/gdt.h	6;"	d
+SEG_NULL	kernel/include/gdt.h	5;"	d
+SEG_TSS	kernel/include/gdt.h	10;"	d
+SEG_UDATA	kernel/include/gdt.h	9;"	d
+SEG_UTEXT	kernel/include/gdt.h	8;"	d
 SETCALLGATE	kernel/include/mmu.h	84;"	d
 SETGATE	kernel/include/mmu.h	71;"	d
+STACK_TOP	boot/start.s	/^STACK_TOP equ $-stack-1$/;"	d
 STA_A	kernel/include/mmu.h	33;"	d
 STA_C	kernel/include/mmu.h	30;"	d
 STA_E	kernel/include/mmu.h	29;"	d
@@ -85,6 +100,8 @@ S_SOURCES	Makefile	/^S_SOURCES = $(shell find . -name "*.s")$/;"	m
 TXT_COLOR	kernel/include/scrn.h	25;"	d
 T_SWITCH_TOK	kernel/include/isrs.h	43;"	d
 T_SWITCH_TOU	kernel/include/isrs.h	42;"	d
+USER_CS	kernel/include/gdt.h	25;"	d
+USER_DS	kernel/include/gdt.h	26;"	d
 VIDPTR	kernel/driver/scrn.c	/^static char *VIDPTR = (char*)0xb8000;$/;"	v	file:
 _COMMON_H_	kernel/include/common.h	2;"	d
 _DEBUG_H_	kernel/include/debug.h	2;"	d
@@ -96,6 +113,7 @@ _ISRS_H_	kernel/include/isrs.h	2;"	d
 _KB_H_	kernel/include/kb.h	2;"	d
 _MMU_H_	kernel/include/mmu.h	2;"	d
 _MULTIBOOT_H_	kernel/include/multiboot.h	2;"	d
+_PMM_H_	kernel/include/pmm.h	2;"	d
 _SCRN_H_	kernel/include/scrn.h	2;"	d
 _STRING_H_	kernel/include/string.h	2;"	d
 _TIMER_H_	kernel/include/timer.h	2;"	d
@@ -103,7 +121,6 @@ _TYPE_H_	kernel/include/type.h	2;"	d
 __always_inline	kernel/include/type.h	70;"	d
 __noinline	kernel/include/type.h	71;"	d
 __noreturn	kernel/include/type.h	72;"	d
-_sys_stack	boot/start.s	/^_sys_stack:$/;"	l
 access	kernel/include/gdt.h	/^    unsigned char access;$/;"	m	struct:gdt_entry
 addr	kernel/include/elf.h	/^  uint32_t addr;$/;"	m	struct:elf_section_header_t
 addr	kernel/include/multiboot.h	/^	uint32_t addr;$/;"	m	struct:multiboot_t
@@ -184,7 +201,9 @@ gdt_flush	kernel/mm/gdt_s.s	/^gdt_flush:$/;"	l
 gdt_install	kernel/mm/gdt.c	/^void gdt_install()$/;"	f
 gdt_ptr	kernel/include/gdt.h	/^struct gdt_ptr$/;"	s
 gdt_set_gate	kernel/mm/gdt.c	/^void gdt_set_gate(int num, unsigned long base, unsigned long limit, unsigned char access, unsigned char gran)$/;"	f
-gdt_size	kernel/include/gdt.h	31;"	d
+gdt_size	kernel/include/gdt.h	47;"	d
+glb_mboot_ptr	boot/start.s	/^glb_mboot_ptr:$/;"	l
+global	boot/start.s	/^global glb_mboot_ptr$/;"	l
 global	boot/start.s	/^global start$/;"	l
 global	kernel/driver/scrn_s.s	/^global set_cursor $/;"	l
 global	kernel/mm/gdt_s.s	/^global gdt_flush$/;"	l
@@ -336,6 +355,7 @@ limit	kernel/include/gdt.h	/^    unsigned short limit;$/;"	m	struct:gdt_ptr
 limit	kernel/include/idt.h	/^    unsigned short limit;$/;"	m	struct:idt_ptr
 limit_low	kernel/include/gdt.h	/^    unsigned short limit_low;$/;"	m	struct:gdt_entry
 link	kernel/include/elf.h	/^  uint32_t link;$/;"	m	struct:elf_section_header_t
+ltr	kernel/mm/gdt.c	/^inline void ltr(uint16_t sel) $/;"	f
 magenta	kernel/include/scrn.h	14;"	d
 mboot	boot/start.s	/^mboot:$/;"	l
 mem_lower	kernel/include/multiboot.h	/^	uint32_t mem_lower;$/;"	m	struct:multiboot_t
@@ -394,16 +414,21 @@ second	kernel/driver/timer.c	/^int second = 0;$/;"	v
 segdesc	kernel/include/mmu.h	/^struct segdesc {$/;"	s
 sel	kernel/include/idt.h	/^    unsigned short sel;$/;"	m	struct:idt_entry
 set_cursor	kernel/driver/scrn_s.s	/^set_cursor:$/;"	l
+set_ts	kernel/mm/gdt.c	/^void set_ts(struct taskstate ts)$/;"	f
 settextcolor	kernel/driver/scrn.c	/^void settextcolor(unsigned char forecolor, unsigned char backcolor)$/;"	f
 shndx	kernel/include/elf.h	/^  uint16_t shndx;$/;"	m	struct:elf_symbol_t
 shndx	kernel/include/multiboot.h	/^	uint32_t shndx;$/;"	m	struct:multiboot_t
+show_memory_map	kernel/mm/pmm.c	/^void show_memory_map()$/;"	f
 size	kernel/include/elf.h	/^  uint32_t size;$/;"	m	struct:elf_section_header_t
 size	kernel/include/elf.h	/^  uint32_t size;$/;"	m	struct:elf_symbol_t
 size	kernel/include/multiboot.h	/^	uint32_t size; 		\/\/ 留意 size 是不含 size 自身变量的大小$/;"	m	struct:mmap_entry_t
 size	kernel/include/multiboot.h	/^	uint32_t size;$/;"	m	struct:multiboot_t
 size_t	kernel/include/type.h	/^typedef  	 int		size_t; $/;"	t
 ss	kernel/include/idt.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
+stack	boot/start.s	/^stack:$/;"	l
+stack0	kernel/mm/gdt.c	/^uint8_t stack0[1024];$/;"	v
 start	boot/start.s	/^start:$/;"	l
+stop	boot/start.s	/^stop:$/;"	l
 strcat	kernel/libs/string.c	/^char *strcat(char *dest, const char *src)$/;"	f
 strcmp	kernel/libs/string.c	/^int strcmp(char *str1, char *str2)$/;"	f
 strcpy	kernel/libs/string.c	/^char *strcpy(char *dest, const char *src)$/;"	f
@@ -422,6 +447,7 @@ timer_test	kernel/driver/timer.c	/^void timer_test(int count)$/;"	f
 timer_ticks	kernel/driver/timer.c	/^int timer_ticks = 0;$/;"	v
 timer_wait	kernel/driver/timer.c	/^void timer_wait(int ticks)$/;"	f
 to_struct	kernel/include/type.h	67;"	d
+ts	kernel/mm/gdt.c	/^struct taskstate ts = {0};$/;"	v	typeref:struct:taskstate
 ts_cr3	kernel/include/mmu.h	/^    uintptr_t ts_cr3;        \/\/ page directory base$/;"	m	struct:taskstate
 ts_cs	kernel/include/mmu.h	/^    uint16_t ts_cs;$/;"	m	struct:taskstate
 ts_ds	kernel/include/mmu.h	/^    uint16_t ts_ds;$/;"	m	struct:taskstate
