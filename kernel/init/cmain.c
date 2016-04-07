@@ -43,7 +43,7 @@ void cmain()
 
     __asm__ __volatile__ ("sti");	
 
-    show_memory_map();
+    show_memory_map(glb_mboot_ptr);
     test_alloc_and_free_page();
 
 }

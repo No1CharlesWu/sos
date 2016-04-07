@@ -28,7 +28,7 @@ extern uint32_t kern_stack_top;
 extern uint32_t phy_page_count;
 
 // 输出 BIOS 提供的物理内存布局
-void show_memory_map();
+void show_memory_map(multiboot_t *glb_mboot_ptr);
 
 // 初始化物理内存管理
 void init_pmm();

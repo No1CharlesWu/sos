@@ -61,7 +61,7 @@ void pmm_free_page(uint32_t p)
 	pmm_stack[++pmm_stack_top] = p;
 }
 
-void show_memory_map()
+void show_memory_map(multiboot_t *glb_mboot_ptr)
 {
 	uint32_t mmap_addr = glb_mboot_ptr->mmap_addr;
 	uint32_t mmap_length = glb_mboot_ptr->mmap_length;
