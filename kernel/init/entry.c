@@ -1,7 +1,6 @@
 #include "multiboot.h"
 #include "type.h"
 #include "common.h"
-#include "elf.h"
 typedef uint32_t pgd_t;
 
 #define PAGE_OFFSET 	0xC0000000
