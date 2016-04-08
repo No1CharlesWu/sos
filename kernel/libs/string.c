@@ -49,20 +49,26 @@ int strcmp(char *str1, char *str2)
 // return dest.
 char *strcpy(char *dest, const char *src)
 {
-    do
-    {
-      *dest++ = *src++;
+    char *tmp = dest;
+
+    while (*src) {
+        *dest++ = *src++;
     }
-    while (*src != 0);
+
+    *dest = '\0';
+
+    return tmp;
+
 }
 
 // Concatenate the NULL-terminated string src onto
 // the end of dest, and return dest.
 char *strcat(char *dest, const char *src)
 {
-    while (*dest != 0)
+    char *cp = dest;
+    while (*cp)
     {
-        *dest = *dest++;
+        cp++;
     }
 
     do

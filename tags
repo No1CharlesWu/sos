@@ -1,0 +1,153 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ASM	Makefile	/^ASM		= nasm$/;"	m
+ASMKFLAGS	Makefile	/^ASMKFLAGS	= -I kernel\/include\/ -f elf$/;"	m
+BYTES_FOR_EACH_ELEMENT	kernel/include/scrn.h	6;"	d
+CC	Makefile	/^CC		= gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS		= -Wall -I kernel\/include\/ -fno-stack-protector -fno-builtin -m32 -c -nostdinc$/;"	m
+COLUMNS	kernel/include/scrn.h	5;"	d
+C_OBJECTS	Makefile	/^C_OBJECTS = $(patsubst %.c, %.o, $(C_SOURCES))$/;"	m
+C_SOURCES	Makefile	/^C_SOURCES = $(shell find . -name "*.c")$/;"	m
+CleanScreen	kernel/driver/scrn.c	/^void CleanScreen()$/;"	f
+FALSE	kernel/include/type.h	10;"	d
+IMG	Makefile	/^IMG		= tools\/os.img$/;"	m
+INDEX	kernel/driver/scrn.c	/^static int INDEX = 0;$/;"	v	file:
+KERNEL	Makefile	/^KERNEL 		= tools\/kernel.bin$/;"	m
+LD	Makefile	/^LD 		= ld$/;"	m
+LDFLAGS	Makefile	/^LDFLAGS		= -m elf_i386 -T tools\/kernel.ld -nostdlib$/;"	m
+LINES	kernel/include/scrn.h	4;"	d
+MBOOT_CHECKSUM	boot/boot.s	/^MBOOT_CHECKSUM 		equ 	- (MBOOT_HEADER_MAGIC + MBOOT_HEADER_FLAGS)$/;"	d
+MBOOT_HEADER_FLAGS	boot/boot.s	/^MBOOT_HEADER_FLAGS 	equ 	MBOOT_PAGE_ALIGN | MBOOT_MEM_INFO$/;"	d
+MBOOT_HEADER_MAGIC	boot/boot.s	/^MBOOT_HEADER_MAGIC 	equ 	0x1BADB002 	; Multiboot 魔数，由规范决定的$/;"	d
+MBOOT_MEM_INFO	boot/boot.s	/^MBOOT_MEM_INFO 		equ 	1 << 1    	; 1 号位通过 Multiboot 信息结构的 mem_* 域包括可用内存的信息$/;"	d
+MBOOT_PAGE_ALIGN	boot/boot.s	/^MBOOT_PAGE_ALIGN 	equ 	1 << 0    	; 0 号位表示所有的引导模块将按页(4KB)边界对齐$/;"	d
+MyPutc	kernel/driver/scrn.c	/^void MyPutc(char c)$/;"	f
+MyPuts	kernel/driver/scrn.c	/^void MyPuts(char *str)$/;"	f
+NULL	kernel/include/type.h	5;"	d
+OFFSET_INDEX	kernel/init/entry.c	14;"	d	file:
+PAGE_MASK	kernel/init/entry.c	11;"	d	file:
+PAGE_OFFSET	kernel/init/entry.c	6;"	d	file:
+PAGE_PRESENT	kernel/init/entry.c	7;"	d	file:
+PAGE_SIZE	kernel/init/entry.c	10;"	d	file:
+PAGE_USER	kernel/init/entry.c	9;"	d	file:
+PAGE_WRITE	kernel/init/entry.c	8;"	d	file:
+PGD_INDEX	kernel/init/entry.c	12;"	d	file:
+PTE_INDEX	kernel/init/entry.c	13;"	d	file:
+RollScreen	kernel/driver/scrn.c	/^void RollScreen()$/;"	f
+SCREENSIZE	kernel/include/scrn.h	7;"	d
+STACK_SIZE	kernel/init/entry.c	15;"	d	file:
+STACK_TOP	boot/boot.s	/^STACK_TOP equ $-stack-1 	; 内核栈顶，$ 符指代是当前地址$/;"	d
+S_OBJECTS	Makefile	/^S_OBJECTS = $(patsubst %.s, %.o, $(S_SOURCES))$/;"	m
+S_SOURCES	Makefile	/^S_SOURCES = $(shell find . -name "*.s")$/;"	m
+TRUE	kernel/include/type.h	9;"	d
+TXT_COLOR	kernel/include/scrn.h	25;"	d
+VIDPTR	kernel/driver/scrn.c	/^static char *VIDPTR = (char*)0xC00b8000;$/;"	v	file:
+_COMMON_H_	kernel/include/common.h	2;"	d
+_MULTIBOOT_H_	kernel/include/multiboot.h	2;"	d
+_SCRN_H_	kernel/include/scrn.h	2;"	d
+_STRING_H_	kernel/include/string.h	2;"	d
+_TYPE_H_	kernel/include/type.h	2;"	d
+addr	kernel/include/multiboot.h	/^	uint32_t addr;$/;"	m	struct:multiboot_t
+apm_table	kernel/include/multiboot.h	/^	uint32_t apm_table; 	    	\/\/ APM 表$/;"	m	struct:multiboot_t
+attrib	kernel/driver/scrn.c	/^static int attrib = TXT_COLOR;$/;"	v	file:
+base_addr_high	kernel/include/multiboot.h	/^	uint32_t base_addr_high;$/;"	m	struct:mmap_entry_t
+base_addr_low	kernel/include/multiboot.h	/^	uint32_t base_addr_low;$/;"	m	struct:mmap_entry_t
+bits	kernel/driver/scrn_s.s	/^bits 32$/;"	l
+black	kernel/include/scrn.h	9;"	d
+blue	kernel/include/scrn.h	10;"	d
+bool	kernel/include/type.h	/^typedef int bool;$/;"	t
+boot_device	kernel/include/multiboot.h	/^	uint32_t boot_device;		\/\/ 指出引导程序从哪个BIOS磁盘设备载入的OS映像$/;"	m	struct:multiboot_t
+boot_loader_name	kernel/include/multiboot.h	/^	uint32_t boot_loader_name; 	\/\/ boot loader 的名字$/;"	m	struct:multiboot_t
+brown	kernel/include/scrn.h	15;"	d
+cls	kernel/driver/scrn.c	/^void cls()$/;"	f
+cmdline	kernel/include/multiboot.h	/^	uint32_t cmdline;		\/\/ 内核命令行$/;"	m	struct:multiboot_t
+config_table	kernel/include/multiboot.h	/^	uint32_t config_table; 		\/\/ ROM 配置表$/;"	m	struct:multiboot_t
+csr_x	kernel/driver/scrn.c	/^static int csr_x = 0, csr_y = 0;$/;"	v	file:
+csr_y	kernel/driver/scrn.c	/^static int csr_x = 0, csr_y = 0;$/;"	v	file:
+cyan	kernel/include/scrn.h	12;"	d
+dark_grey	kernel/include/scrn.h	17;"	d
+dd	boot/boot.s	/^dd MBOOT_CHECKSUM       ; 检测数值，其含义在定义处$/;"	l
+dd	boot/boot.s	/^dd MBOOT_HEADER_FLAGS   ; GRUB 的一些加载时选项，其详细注释在定义处$/;"	l
+dd	boot/boot.s	/^dd MBOOT_HEADER_MAGIC 	; GRUB 会通过这个魔数判断该映像是否支持$/;"	l
+drives_addr	kernel/include/multiboot.h	/^	uint32_t drives_addr; 		\/\/ 指出第一个驱动器这个结构的大小$/;"	m	struct:multiboot_t
+drives_length	kernel/include/multiboot.h	/^	uint32_t drives_length; 	\/\/ 指出第一个驱动器结构的物理地址	$/;"	m	struct:multiboot_t
+flags	kernel/include/multiboot.h	/^	uint32_t flags;			\/\/ Multiboot 的版本信息$/;"	m	struct:multiboot_t
+global	kernel/driver/scrn_s.s	/^global set_cursor $/;"	l
+green	kernel/include/scrn.h	11;"	d
+init_video	kernel/driver/scrn.c	/^void init_video(void)$/;"	f
+inportb	kernel/libs/common.c	/^unsigned char inportb (unsigned short _port)$/;"	f
+inportw	kernel/libs/common.c	/^unsigned short inportw(unsigned short port)$/;"	f
+int16_t	kernel/include/type.h	/^typedef          short      int16_t;$/;"	t
+int32_t	kernel/include/type.h	/^typedef          int        int32_t;$/;"	t
+int8_t	kernel/include/type.h	/^typedef          char       int8_t;$/;"	t
+itoa	kernel/driver/scrn.c	/^void itoa (char *buf, int base, int d)  $/;"	f
+kern_entry	kernel/init/entry.c	/^__attribute__((section(".init.text"))) void kern_entry()$/;"	f
+kern_init	kernel/init/entry.c	/^void kern_init()$/;"	f
+kern_stack	kernel/init/entry.c	/^char kern_stack[STACK_SIZE];$/;"	v
+length_high	kernel/include/multiboot.h	/^	uint32_t length_high;$/;"	m	struct:mmap_entry_t
+length_low	kernel/include/multiboot.h	/^	uint32_t length_low;$/;"	m	struct:mmap_entry_t
+light_brown	kernel/include/scrn.h	22;"	d
+light_cyan	kernel/include/scrn.h	19;"	d
+light_green	kernel/include/scrn.h	18;"	d
+light_grey	kernel/include/scrn.h	16;"	d
+light_magenta	kernel/include/scrn.h	21;"	d
+light_red	kernel/include/scrn.h	20;"	d
+magenta	kernel/include/scrn.h	14;"	d
+mboot_ptr_tmp	boot/boot.s	/^mboot_ptr_tmp: dd 0		; 全局的 multiboot 结构体指针$/;"	d
+mem_lower	kernel/include/multiboot.h	/^	uint32_t mem_lower;$/;"	m	struct:multiboot_t
+mem_upper	kernel/include/multiboot.h	/^	uint32_t mem_upper;$/;"	m	struct:multiboot_t
+memcpy	kernel/libs/string.c	/^void *memcpy(void *dest, const void *src, size_t count)$/;"	f
+memset	kernel/libs/string.c	/^void *memset(void *dest, char val, size_t count)$/;"	f
+memsetw	kernel/libs/string.c	/^unsigned short *memsetw(unsigned short *dest, unsigned short val, size_t count)$/;"	f
+mmap_addr	kernel/include/multiboot.h	/^	uint32_t mmap_addr;$/;"	m	struct:multiboot_t
+mmap_entry_t	kernel/include/multiboot.h	/^struct mmap_entry_t {$/;"	s
+mmap_entry_t	kernel/include/multiboot.h	/^} __attribute__((packed)) mmap_entry_t;$/;"	t	typeref:struct:mmap_entry_t
+mmap_length	kernel/include/multiboot.h	/^	uint32_t mmap_length;		$/;"	m	struct:multiboot_t
+mods_addr	kernel/include/multiboot.h	/^	uint32_t mods_addr;$/;"	m	struct:multiboot_t
+mods_count	kernel/include/multiboot.h	/^	uint32_t mods_count;		\/\/ boot 模块列表$/;"	m	struct:multiboot_t
+move_csr	kernel/driver/scrn.c	/^void move_csr(void)$/;"	f
+multiboot_t	kernel/include/multiboot.h	/^struct multiboot_t {$/;"	s
+multiboot_t	kernel/include/multiboot.h	/^} __attribute__((packed)) multiboot_t;$/;"	t	typeref:struct:multiboot_t
+num	kernel/include/multiboot.h	/^	uint32_t num;$/;"	m	struct:multiboot_t
+outportb	kernel/libs/common.c	/^void outportb (unsigned short _port, unsigned char _data)$/;"	f
+pgd_t	kernel/init/entry.c	/^typedef uint32_t pgd_t;$/;"	t	file:
+pgd_tmp	kernel/init/entry.c	/^__attribute__((section(".init.data"))) pgd_t *pgd_tmp  = (pgd_t *)0x1000;$/;"	v
+pop	kernel/driver/scrn_s.s	/^	pop dx$/;"	d
+printf	kernel/driver/scrn.c	/^void printf(const char *format, ...)  $/;"	f
+pte_hign	kernel/init/entry.c	/^__attribute__((section(".init.data"))) pgd_t *pte_hign = (pgd_t *)0x3000;$/;"	v
+pte_low	kernel/init/entry.c	/^__attribute__((section(".init.data"))) pgd_t *pte_low  = (pgd_t *)0x2000;$/;"	v
+push	kernel/driver/scrn_s.s	/^	push dx$/;"	d
+putc	kernel/driver/scrn.c	/^void putc(unsigned char c)$/;"	f
+puts	kernel/driver/scrn.c	/^void puts(unsigned char *text)$/;"	f
+red	kernel/include/scrn.h	13;"	d
+scroll	kernel/driver/scrn.c	/^void scroll(void)$/;"	f
+section	boot/boot.s	/^section .init.data		; 开启分页前临时的数据段$/;"	l
+section	boot/boot.s	/^section .init.text 	; 临时代码段从这里开始$/;"	l
+set_cursor	kernel/driver/scrn_s.s	/^set_cursor:$/;"	l
+settextcolor	kernel/driver/scrn.c	/^void settextcolor(unsigned char forecolor, unsigned char backcolor)$/;"	f
+shndx	kernel/include/multiboot.h	/^	uint32_t shndx;$/;"	m	struct:multiboot_t
+size	kernel/include/multiboot.h	/^	uint32_t size; 		\/\/ 留意 size 是不含 size 自身变量的大小$/;"	m	struct:mmap_entry_t
+size	kernel/include/multiboot.h	/^	uint32_t size;$/;"	m	struct:multiboot_t
+size_t	kernel/include/type.h	/^typedef  	 int		size_t; $/;"	t
+stack	boot/boot.s	/^stack:    times 1024 db 0  	; 这里作为临时内核栈$/;"	l
+start	boot/boot.s	/^start:$/;"	l
+strcat	kernel/libs/string.c	/^char *strcat(char *dest, const char *src)$/;"	f
+strcmp	kernel/libs/string.c	/^int strcmp(char *str1, char *str2)$/;"	f
+strcpy	kernel/libs/string.c	/^char *strcpy(char *dest, const char *src)$/;"	f
+strlen	kernel/libs/string.c	/^size_t strlen(const char *str)$/;"	f
+textmemptr	kernel/driver/scrn.c	/^static unsigned short *textmemptr = (unsigned short *)0xC00b8000;$/;"	v	file:
+type	kernel/include/multiboot.h	/^	uint32_t type;$/;"	m	struct:mmap_entry_t
+uint16_t	kernel/include/type.h	/^typedef unsigned short      uint16_t;$/;"	t
+uint32_t	kernel/include/type.h	/^typedef unsigned int        uint32_t;$/;"	t
+uint8_t	kernel/include/type.h	/^typedef unsigned char       uint8_t;$/;"	t
+vbe_control_info	kernel/include/multiboot.h	/^	uint32_t vbe_control_info;$/;"	m	struct:multiboot_t
+vbe_interface_len	kernel/include/multiboot.h	/^	uint32_t vbe_interface_len;$/;"	m	struct:multiboot_t
+vbe_interface_off	kernel/include/multiboot.h	/^	uint32_t vbe_interface_off;$/;"	m	struct:multiboot_t
+vbe_interface_seg	kernel/include/multiboot.h	/^	uint32_t vbe_interface_seg;$/;"	m	struct:multiboot_t
+vbe_mode	kernel/include/multiboot.h	/^	uint32_t vbe_mode;$/;"	m	struct:multiboot_t
+vbe_mode_info	kernel/include/multiboot.h	/^	uint32_t vbe_mode_info;$/;"	m	struct:multiboot_t
+white	kernel/include/scrn.h	23;"	d
