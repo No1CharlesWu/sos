@@ -4,8 +4,8 @@ CC		= gcc
 LD 		= ld
 
 ASMKFLAGS	= -I kernel/include/ -f elf
-CFLAGS		= -I kernel/include/ -fno-stack-protector -fno-builtin -m32 -c 
-LDFLAGS		= -m elf_i386 -T tools/kernel.ld
+CFLAGS		= -Wall -I kernel/include/ -fno-stack-protector -fno-builtin -m32 -c -nostdinc
+LDFLAGS		= -m elf_i386 -T tools/kernel.ld -nostdlib
 
 # This Program
 IMG		= tools/os.img
