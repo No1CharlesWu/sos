@@ -77,6 +77,16 @@ __attribute__((section(".init.text"))) void kern_entry()
 extern uint32_t kernel_start;
 extern uint32_t kernel_end;
 
+#define int_number 14
+void test_int(void) {
+	asm volatile (
+	    "int %0 \n"
+	    "movl %%ebp, %%esp \n"
+	    :
+	    : "i"(int_number)
+	);
+}
+
 void kern_init()
 {
     cls();
@@ -93,6 +103,8 @@ void kern_init()
     init_pmm();
     show_memory_map(glb_mboot_ptr);
     test_alloc_and_free_page();
+
+    test_int();
 
     io_xchg();
     printf("\nhlt\n");
