@@ -5,7 +5,8 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 ASM	Makefile	/^ASM		= nasm$/;"	m
-ASMKFLAGS	Makefile	/^ASMKFLAGS	= -I kernel\/include\/ -f elf$/;"	m
+ASMKFLAGS	Makefile	/^ASMKFLAGS	= -f elf$/;"	m
+ASSERT	kernel/include/debug.h	5;"	d
 BYTES_FOR_EACH_ELEMENT	kernel/include/scrn.h	6;"	d
 CC	Makefile	/^CC		= gcc$/;"	m
 CFLAGS	Makefile	/^CFLAGS		= -Wall -I kernel\/include\/ -fno-stack-protector -fno-builtin -m32 -c -nostdinc$/;"	m
@@ -42,7 +43,7 @@ GD_KTEXT	kernel/include/gdt.h	12;"	d
 GD_TSS	kernel/include/gdt.h	16;"	d
 GD_UDATA	kernel/include/gdt.h	15;"	d
 GD_UTEXT	kernel/include/gdt.h	14;"	d
-IMG	Makefile	/^IMG		= tools\/os.img$/;"	m
+IMG	Makefile	/^IMG			= tools\/os.img$/;"	m
 INDEX	kernel/driver/scrn.c	/^static int INDEX = 0;$/;"	v	file:
 KERNEL	Makefile	/^KERNEL 		= tools\/kernel.bin$/;"	m
 KERNEL_CS	kernel/include/gdt.h	23;"	d
@@ -58,28 +59,30 @@ MBOOT_PAGE_ALIGN	boot/boot.s	/^MBOOT_PAGE_ALIGN 	equ 	1 << 0    	; 0 号位表�
 MyPutc	kernel/driver/scrn.c	/^void MyPutc(char c)$/;"	f
 MyPuts	kernel/driver/scrn.c	/^void MyPuts(char *str)$/;"	f
 NULL	kernel/include/type.h	5;"	d
-OFFSET_INDEX	kernel/init/entry.c	17;"	d	file:
-PAGE_MASK	kernel/init/entry.c	14;"	d	file:
-PAGE_OFFSET	kernel/init/entry.c	9;"	d	file:
-PAGE_PRESENT	kernel/init/entry.c	10;"	d	file:
-PAGE_SIZE	kernel/init/entry.c	13;"	d	file:
-PAGE_USER	kernel/init/entry.c	12;"	d	file:
-PAGE_WRITE	kernel/init/entry.c	11;"	d	file:
-PGD_INDEX	kernel/init/entry.c	15;"	d	file:
-PTE_INDEX	kernel/init/entry.c	16;"	d	file:
+OFFSET_INDEX	kernel/init/entry.c	18;"	d	file:
+PAGE_MASK	kernel/init/entry.c	15;"	d	file:
+PAGE_MAX_SIZE	kernel/include/pmm.h	19;"	d
+PAGE_OFFSET	kernel/init/entry.c	10;"	d	file:
+PAGE_PRESENT	kernel/init/entry.c	11;"	d	file:
+PAGE_SIZE	kernel/init/entry.c	14;"	d	file:
+PAGE_USER	kernel/init/entry.c	13;"	d	file:
+PAGE_WRITE	kernel/init/entry.c	12;"	d	file:
+PANIC	kernel/include/debug.h	4;"	d
+PGD_INDEX	kernel/init/entry.c	16;"	d	file:
+PHY_PAGE_MASK	kernel/include/pmm.h	22;"	d
+PMM_MAX_SIZE	kernel/include/pmm.h	13;"	d
+PMM_PAGE_SIZE	kernel/include/pmm.h	16;"	d
+PTE_INDEX	kernel/init/entry.c	17;"	d	file:
 RollScreen	kernel/driver/scrn.c	/^void RollScreen()$/;"	f
 SCREENSIZE	kernel/include/scrn.h	7;"	d
-SEG	kernel/include/mmu.h	113;"	d
-SEG16	kernel/include/mmu.h	121;"	d
 SEG_KDATA	kernel/include/gdt.h	7;"	d
 SEG_KTEXT	kernel/include/gdt.h	6;"	d
 SEG_NULL	kernel/include/gdt.h	5;"	d
 SEG_TSS	kernel/include/gdt.h	10;"	d
 SEG_UDATA	kernel/include/gdt.h	9;"	d
 SEG_UTEXT	kernel/include/gdt.h	8;"	d
-SETCALLGATE	kernel/include/mmu.h	84;"	d
-SETGATE	kernel/include/mmu.h	71;"	d
-STACK_SIZE	kernel/init/entry.c	18;"	d	file:
+STACK_SIZE	kernel/include/pmm.h	10;"	d
+STACK_SIZE	kernel/init/entry.c	19;"	d	file:
 STACK_TOP	boot/boot.s	/^STACK_TOP equ $-stack-1 	; 内核栈顶，$ 符指代是当前地址$/;"	d
 STA_A	kernel/include/mmu.h	33;"	d
 STA_C	kernel/include/mmu.h	30;"	d
@@ -107,9 +110,11 @@ USER_CS	kernel/include/gdt.h	25;"	d
 USER_DS	kernel/include/gdt.h	26;"	d
 VIDPTR	kernel/driver/scrn.c	/^static char *VIDPTR = (char*)0xC00b8000;$/;"	v	file:
 _COMMON_H_	kernel/include/common.h	2;"	d
+_DEBUG_H_	kernel/include/debug.h	2;"	d
 _GDT_H_	kernel/include/gdt.h	2;"	d
 _MMU_H_	kernel/include/mmu.h	2;"	d
 _MULTIBOOT_H_	kernel/include/multiboot.h	2;"	d
+_PMM_H_	kernel/include/pmm.h	2;"	d
 _SCRN_H_	kernel/include/scrn.h	2;"	d
 _STRING_H_	kernel/include/string.h	2;"	d
 _TYPE_H_	kernel/include/type.h	2;"	d
@@ -124,6 +129,7 @@ base_high	kernel/include/gdt.h	/^    unsigned char base_high;$/;"	m	struct:gdt_e
 base_low	kernel/include/gdt.h	/^    unsigned short base_low;$/;"	m	struct:gdt_entry
 base_middle	kernel/include/gdt.h	/^    unsigned char base_middle;$/;"	m	struct:gdt_entry
 bits	kernel/driver/scrn_s.s	/^bits 32$/;"	l
+bits	kernel/libs/common_s.s	/^bits 32$/;"	l
 black	kernel/include/scrn.h	9;"	d
 blue	kernel/include/scrn.h	10;"	d
 bool	kernel/include/type.h	/^typedef int bool;$/;"	t
@@ -145,16 +151,6 @@ drives_length	kernel/include/multiboot.h	/^	uint32_t drives_length; 	\/\/ 指出
 extern	kernel/mm/gdt_s.s	/^extern gp$/;"	l
 flags	kernel/include/multiboot.h	/^	uint32_t flags;			\/\/ Multiboot 的版本信息$/;"	m	struct:multiboot_t
 flush2	kernel/mm/gdt_s.s	/^flush2:$/;"	l
-gatedesc	kernel/include/mmu.h	/^struct gatedesc {$/;"	s
-gd_args	kernel/include/mmu.h	/^    unsigned gd_args : 5;            \/\/ # args, 0 for interrupt\/trap gates$/;"	m	struct:gatedesc
-gd_dpl	kernel/include/mmu.h	/^    unsigned gd_dpl : 2;            \/\/ descriptor(meaning new) privilege level$/;"	m	struct:gatedesc
-gd_off_15_0	kernel/include/mmu.h	/^    unsigned gd_off_15_0 : 16;        \/\/ low 16 bits of offset in segment$/;"	m	struct:gatedesc
-gd_off_31_16	kernel/include/mmu.h	/^    unsigned gd_off_31_16 : 16;        \/\/ high bits of offset in segment$/;"	m	struct:gatedesc
-gd_p	kernel/include/mmu.h	/^    unsigned gd_p : 1;                \/\/ Present$/;"	m	struct:gatedesc
-gd_rsv1	kernel/include/mmu.h	/^    unsigned gd_rsv1 : 3;            \/\/ reserved(should be zero I guess)$/;"	m	struct:gatedesc
-gd_s	kernel/include/mmu.h	/^    unsigned gd_s : 1;                \/\/ must be 0 (system)$/;"	m	struct:gatedesc
-gd_ss	kernel/include/mmu.h	/^    unsigned gd_ss : 16;            \/\/ segment selector$/;"	m	struct:gatedesc
-gd_type	kernel/include/mmu.h	/^    unsigned gd_type : 4;            \/\/ type(STS_{TG,IG32,TG32})$/;"	m	struct:gatedesc
 gdt	kernel/include/gdt.h	/^struct gdt_entry gdt[gdt_size];$/;"	v	typeref:struct:gdt_entry
 gdt_entry	kernel/include/gdt.h	/^struct gdt_entry$/;"	s
 gdt_flush	kernel/mm/gdt_s.s	/^gdt_flush:$/;"	l
@@ -162,11 +158,26 @@ gdt_install	kernel/mm/gdt.c	/^void gdt_install()$/;"	f
 gdt_ptr	kernel/include/gdt.h	/^struct gdt_ptr$/;"	s
 gdt_set_gate	kernel/mm/gdt.c	/^void gdt_set_gate(int num, unsigned long base, unsigned long limit, unsigned char access, unsigned char gran)$/;"	f
 gdt_size	kernel/include/gdt.h	47;"	d
+glb_mboot_ptr	kernel/init/entry.c	/^multiboot_t *glb_mboot_ptr;$/;"	v
 global	kernel/driver/scrn_s.s	/^global set_cursor $/;"	l
+global	kernel/libs/common_s.s	/^global io_cli		;void io_cli(void);$/;"	l
+global	kernel/libs/common_s.s	/^global io_hlt		;void io_hlt(void);$/;"	l
+global	kernel/libs/common_s.s	/^global io_in16		;int io_in16(int port)$/;"	l
+global	kernel/libs/common_s.s	/^global io_in32		;int io_in32(int port)$/;"	l
+global	kernel/libs/common_s.s	/^global io_in8		;int io_in8(int port)$/;"	l
+global	kernel/libs/common_s.s	/^global io_load_eflags	;int io_load_eflags(void)$/;"	l
+global	kernel/libs/common_s.s	/^global io_out16		;void io_out16(int port,int data)$/;"	l
+global	kernel/libs/common_s.s	/^global io_out32		;void io_out32(int port,int data)$/;"	l
+global	kernel/libs/common_s.s	/^global io_out8		;void io_out8(int port,int data)$/;"	l
+global	kernel/libs/common_s.s	/^global io_sti		;void io_sti(void);$/;"	l
+global	kernel/libs/common_s.s	/^global io_stihlt	;void io_stihlt(void);$/;"	l
+global	kernel/libs/common_s.s	/^global io_store_eflags	;void io_store_eflags(int eflags)$/;"	l
+global	kernel/libs/common_s.s	/^global io_xchg      ;void io_xchg(void);$/;"	l
 global	kernel/mm/gdt_s.s	/^global gdt_flush$/;"	l
 gp	kernel/include/gdt.h	/^struct gdt_ptr gp;$/;"	v	typeref:struct:gdt_ptr
 granularity	kernel/include/gdt.h	/^    unsigned char granularity;$/;"	m	struct:gdt_entry
 green	kernel/include/scrn.h	11;"	d
+init_pmm	kernel/mm/pmm.c	/^void init_pmm()$/;"	f
 init_video	kernel/driver/scrn.c	/^void init_video(void)$/;"	f
 inportb	kernel/libs/common.c	/^unsigned char inportb (unsigned short _port)$/;"	f
 inportw	kernel/libs/common.c	/^unsigned short inportw(unsigned short port)$/;"	f
@@ -174,6 +185,19 @@ int16_t	kernel/include/type.h	/^typedef          short      int16_t;$/;"	t
 int32_t	kernel/include/type.h	/^typedef          int        int32_t;$/;"	t
 int8_t	kernel/include/type.h	/^typedef          char       int8_t;$/;"	t
 intptr_t	kernel/include/type.h	/^typedef int32_t intptr_t;$/;"	t
+io_cli	kernel/libs/common_s.s	/^io_cli:		;void io_cli(void);$/;"	l
+io_hlt	kernel/libs/common_s.s	/^io_hlt:		;void io_hlt(void);$/;"	l
+io_in16	kernel/libs/common_s.s	/^io_in16:	;int io_in16(int port)$/;"	l
+io_in32	kernel/libs/common_s.s	/^io_in32:	;int io_in32(int port)$/;"	l
+io_in8	kernel/libs/common_s.s	/^io_in8:		;int io_in8(int port)$/;"	l
+io_load_eflags	kernel/libs/common_s.s	/^io_load_eflags:	;int io_load_eflags(void)$/;"	l
+io_out16	kernel/libs/common_s.s	/^io_out16:	;void io_out16(int port,int data)$/;"	l
+io_out32	kernel/libs/common_s.s	/^io_out32:	;void io_out32(int port,int data)$/;"	l
+io_out8	kernel/libs/common_s.s	/^io_out8:	;void io_out8(int port,int data)$/;"	l
+io_sti	kernel/libs/common_s.s	/^io_sti:		;void io_sti(void);$/;"	l
+io_stihlt	kernel/libs/common_s.s	/^io_stihlt:	;void io_stihlt(void);$/;"	l
+io_store_eflags	kernel/libs/common_s.s	/^io_store_eflags:	;void io_store_eflags(int eflags)$/;"	l
+io_xchg	kernel/libs/common_s.s	/^io_xchg:    ;void io_xchg(void);$/;"	l
 itoa	kernel/driver/scrn.c	/^void itoa (char *buf, int base, int d)  $/;"	f
 kern_entry	kernel/init/entry.c	/^__attribute__((section(".init.text"))) void kern_entry()$/;"	f
 kern_init	kernel/init/entry.c	/^void kern_init()$/;"	f
@@ -207,8 +231,15 @@ multiboot_t	kernel/include/multiboot.h	/^struct multiboot_t {$/;"	s
 multiboot_t	kernel/include/multiboot.h	/^} __attribute__((packed)) multiboot_t;$/;"	t	typeref:struct:multiboot_t
 num	kernel/include/multiboot.h	/^	uint32_t num;$/;"	m	struct:multiboot_t
 outportb	kernel/libs/common.c	/^void outportb (unsigned short _port, unsigned char _data)$/;"	f
+panic	kernel/debug/debug.c	/^void panic(char *message,char *file, unsigned int line)$/;"	f
+panic_assert	kernel/debug/debug.c	/^void panic_assert(char *file, unsigned int line, char *desc)$/;"	f
 pgd_t	kernel/init/entry.c	/^typedef uint32_t pgd_t;$/;"	t	file:
 pgd_tmp	kernel/init/entry.c	/^__attribute__((section(".init.data"))) pgd_t *pgd_tmp  = (pgd_t *)0x1000;$/;"	v
+phy_page_count	kernel/mm/pmm.c	/^uint32_t phy_page_count;$/;"	v
+pmm_alloc_page	kernel/mm/pmm.c	/^uint32_t pmm_alloc_page()$/;"	f
+pmm_free_page	kernel/mm/pmm.c	/^void pmm_free_page(uint32_t p)$/;"	f
+pmm_stack	kernel/mm/pmm.c	/^static uint32_t pmm_stack[PAGE_MAX_SIZE+1];$/;"	v	file:
+pmm_stack_top	kernel/mm/pmm.c	/^static uint32_t pmm_stack_top;$/;"	v	file:
 pop	kernel/driver/scrn_s.s	/^	pop dx$/;"	d
 printf	kernel/driver/scrn.c	/^void printf(const char *format, ...)  $/;"	f
 pte_hign	kernel/init/entry.c	/^__attribute__((section(".init.data"))) pgd_t *pte_hign = (pgd_t *)0x3000;$/;"	v
@@ -218,26 +249,14 @@ putc	kernel/driver/scrn.c	/^void putc(unsigned char c)$/;"	f
 puts	kernel/driver/scrn.c	/^void puts(unsigned char *text)$/;"	f
 red	kernel/include/scrn.h	13;"	d
 scroll	kernel/driver/scrn.c	/^void scroll(void)$/;"	f
-sd_avl	kernel/include/mmu.h	/^    unsigned sd_avl : 1;            \/\/ unused (available for software use)$/;"	m	struct:segdesc
-sd_base_15_0	kernel/include/mmu.h	/^    unsigned sd_base_15_0 : 16;        \/\/ low bits of segment base address$/;"	m	struct:segdesc
-sd_base_23_16	kernel/include/mmu.h	/^    unsigned sd_base_23_16 : 8;        \/\/ middle bits of segment base address$/;"	m	struct:segdesc
-sd_base_31_24	kernel/include/mmu.h	/^    unsigned sd_base_31_24 : 8;        \/\/ high bits of segment base address$/;"	m	struct:segdesc
-sd_db	kernel/include/mmu.h	/^    unsigned sd_db : 1;                \/\/ 0 = 16-bit segment, 1 = 32-bit segment$/;"	m	struct:segdesc
-sd_dpl	kernel/include/mmu.h	/^    unsigned sd_dpl : 2;            \/\/ descriptor Privilege Level$/;"	m	struct:segdesc
-sd_g	kernel/include/mmu.h	/^    unsigned sd_g : 1;                \/\/ granularity: limit scaled by 4K when set$/;"	m	struct:segdesc
-sd_lim_15_0	kernel/include/mmu.h	/^    unsigned sd_lim_15_0 : 16;        \/\/ low bits of segment limit$/;"	m	struct:segdesc
-sd_lim_19_16	kernel/include/mmu.h	/^    unsigned sd_lim_19_16 : 4;        \/\/ high bits of segment limit$/;"	m	struct:segdesc
-sd_p	kernel/include/mmu.h	/^    unsigned sd_p : 1;                \/\/ present$/;"	m	struct:segdesc
-sd_rsv1	kernel/include/mmu.h	/^    unsigned sd_rsv1 : 1;            \/\/ reserved$/;"	m	struct:segdesc
-sd_s	kernel/include/mmu.h	/^    unsigned sd_s : 1;                \/\/ 0 = system, 1 = application$/;"	m	struct:segdesc
-sd_type	kernel/include/mmu.h	/^    unsigned sd_type : 4;            \/\/ segment type (see STS_ constants)$/;"	m	struct:segdesc
 section	boot/boot.s	/^section .init.data		; 开启分页前临时的数据段$/;"	l
 section	boot/boot.s	/^section .init.text 	; 临时代码段从这里开始$/;"	l
-segdesc	kernel/include/mmu.h	/^struct segdesc {$/;"	s
+section	kernel/libs/common_s.s	/^section .text$/;"	l
 set_cursor	kernel/driver/scrn_s.s	/^set_cursor:$/;"	l
 set_ts	kernel/mm/gdt.c	/^void set_ts(struct taskstate ts)$/;"	f
 settextcolor	kernel/driver/scrn.c	/^void settextcolor(unsigned char forecolor, unsigned char backcolor)$/;"	f
 shndx	kernel/include/multiboot.h	/^	uint32_t shndx;$/;"	m	struct:multiboot_t
+show_memory_map	kernel/mm/pmm.c	/^void show_memory_map(multiboot_t *glb_mboot_ptr)$/;"	f
 size	kernel/include/multiboot.h	/^	uint32_t size; 		\/\/ 留意 size 是不含 size 自身变量的大小$/;"	m	struct:mmap_entry_t
 size	kernel/include/multiboot.h	/^	uint32_t size;$/;"	m	struct:multiboot_t
 size_t	kernel/include/type.h	/^typedef  	 int		size_t; $/;"	t
@@ -249,6 +268,7 @@ strcmp	kernel/libs/string.c	/^int strcmp(char *str1, char *str2)$/;"	f
 strcpy	kernel/libs/string.c	/^char *strcpy(char *dest, const char *src)$/;"	f
 strlen	kernel/libs/string.c	/^size_t strlen(const char *str)$/;"	f
 taskstate	kernel/include/mmu.h	/^struct taskstate {$/;"	s
+test_alloc_and_free_page	kernel/mm/pmm.c	/^void test_alloc_and_free_page()$/;"	f
 textmemptr	kernel/driver/scrn.c	/^static unsigned short *textmemptr = (unsigned short *)0xC00b8000;$/;"	v	file:
 ts	kernel/mm/gdt.c	/^struct taskstate ts = {0};$/;"	v	typeref:struct:taskstate
 ts_cr3	kernel/include/mmu.h	/^    uintptr_t ts_cr3;        \/\/ page directory base$/;"	m	struct:taskstate

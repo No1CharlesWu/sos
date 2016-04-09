@@ -4,6 +4,7 @@
 #include "scrn.h"
 #include "gdt.h"
 #include "mmu.h"
+#include "pmm.h"
 typedef uint32_t pgd_t;
 
 #define PAGE_OFFSET 	0xC0000000
@@ -77,12 +78,18 @@ void kern_init()
 {
     cls();
     init_video();
-    gdt_install();
     printf("helln world.\n");
     printf("kernel start at : 0x%x\n",&kernel_start);
     printf("kernel   end at : 0x%x\n",&kernel_end);
+    printf("kernel in memory used:   %d KB\n", (&kernel_end - &kernel_start+ 1023) / 1024);
+
+    gdt_install();
+    init_pmm();
+    show_memory_map(glb_mboot_ptr);
+    test_alloc_and_free_page();
+
     io_xchg();
-    printf("hlt\n");
+    printf("\nhlt\n");
     io_hlt();
 }
 
