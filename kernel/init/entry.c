@@ -2,6 +2,8 @@
 #include "type.h"
 #include "common.h"
 #include "scrn.h"
+#include "gdt.h"
+#include "mmu.h"
 typedef uint32_t pgd_t;
 
 #define PAGE_OFFSET 	0xC0000000
@@ -17,6 +19,9 @@ typedef uint32_t pgd_t;
 
 // 内核初始化函数
 void kern_init();
+
+// 开启分页机制之后的 Multiboot 数据指针
+multiboot_t *glb_mboot_ptr;
 
 // 开启分页机制之后的内核栈
 char kern_stack[STACK_SIZE];
@@ -59,10 +64,12 @@ __attribute__((section(".init.text"))) void kern_entry()
 	asm volatile ("mov %0, %%esp\n\t"
 			"xor %%ebp, %%ebp" : : "r" (kern_stack_top));
 
-
+	// 更新全局 multiboot_t 指针
+	glb_mboot_ptr = mboot_ptr_tmp+ PAGE_OFFSET;
 	// 调用内核初始化函数
-	kern_init();
+    kern_init();
 }
+
 extern uint32_t kernel_start;
 extern uint32_t kernel_end;
 
@@ -70,9 +77,12 @@ void kern_init()
 {
     cls();
     init_video();
+    gdt_install();
     printf("helln world.\n");
     printf("kernel start at : 0x%x\n",&kernel_start);
     printf("kernel   end at : 0x%x\n",&kernel_end);
-    asm volatile ("hlt");
+    io_xchg();
+    printf("hlt\n");
+    io_hlt();
 }
 

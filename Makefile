@@ -3,12 +3,12 @@ ASM		= nasm
 CC		= gcc
 LD 		= ld
 
-ASMKFLAGS	= -I kernel/include/ -f elf
+ASMKFLAGS	= -f elf
 CFLAGS		= -Wall -I kernel/include/ -fno-stack-protector -fno-builtin -m32 -c -nostdinc
 LDFLAGS		= -m elf_i386 -T tools/kernel.ld -nostdlib
 
 # This Program
-IMG		= tools/os.img
+IMG			= tools/os.img
 KERNEL 		= tools/kernel.bin
 C_SOURCES = $(shell find . -name "*.c")
 C_OBJECTS = $(patsubst %.c, %.o, $(C_SOURCES))
@@ -47,14 +47,14 @@ img:
 
 .s.o:
 	@echo 编译汇编文件 $< ...
-	$(ASM) $(ASMKFLAGS) $< -o $@ 
+	$(ASM) $(ASMKFLAGS) $<
+
 .c.o:
 	@echo 编译代码文件 $< ...
 	$(CC) $(CFLAGS)  $< -o $@
 
-
 $(KERNEL) : $(C_OBJECTS) $(S_OBJECTS)
 	@echo 链接内核文件...
-	$(LD) $(LDFLAGS) $(C_OBJECTS) $(S_OBJECTS) -o $(KERNEL)
+	$(LD) $(LDFLAGS) $(S_OBJECTS) $(C_OBJECTS) -o $(KERNEL)
 
 
