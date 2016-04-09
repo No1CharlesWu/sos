@@ -1,5 +1,16 @@
 #include "isrs.h"
 #include "idt.h"
+#include "scrn.h"
+
+static const char * trapname(int trapno);
+
+static void *isr_routines[32] = 
+{
+	0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0
+};
 
 /* This is a very repetitive function... it's not hard, it's
 *  just annoying. As you can see, we set the first 32 entries
@@ -72,14 +83,60 @@ void isr_handler(struct regs *r)
     handler = isr_routines[r->int_no];
     if(handler)
     {
-	handler(r);
+        handler(r);
     }
     else if (r->int_no < 32)
     {
-        puts(exception_messages[r->int_no]);
-        puts(" Exception. System Halted!\n");
+        printf("%s",trapname(r->int_no));
+        printf(" Exception. System Halted!\n");
         for (;;);
     }
+}
+
+static const char * trapname(int trapno) 
+{
+    static const char * const excnames[] = {
+    "Division By Zero",
+    "Debug",
+    "Non Maskable Interrupt",
+    "Breakpoint",
+    "Into Detected Overflow",
+    "Out of Bounds",
+    "Invalid Opcode",
+    "No Coprocessor",
+
+    "Double Fault",
+    "Coprocessor Segment Overrun",
+    "Bad TSS",
+    "Segment Not Present",
+    "Stack Fault",
+    "General Protection Fault",
+    "Page Fault",
+    "Unknown Interrupt",
+
+    "Coprocessor Fault",
+    "Alignment Check",
+    "Machine Check",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+
+    "Reserved",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+    "Reserved",
+    "Reserved"
+    };
+
+    if (trapno < sizeof(excnames)/sizeof(const char * const)) {
+        return excnames[trapno];
+    }
+    return "(unknown trap)";
 }
 
 //void print_cur_status(void) {

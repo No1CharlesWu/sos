@@ -5,6 +5,9 @@
 #include "gdt.h"
 #include "mmu.h"
 #include "pmm.h"
+#include "idt.h"
+#include "isrs.h"
+#include "irq.h"
 typedef uint32_t pgd_t;
 
 #define PAGE_OFFSET 	0xC0000000
@@ -84,6 +87,9 @@ void kern_init()
     printf("kernel in memory used:   %d KB\n", (&kernel_end - &kernel_start+ 1023) / 1024);
 
     gdt_install();
+    idt_install();
+    isrs_install();
+    irq_install();
     init_pmm();
     show_memory_map(glb_mboot_ptr);
     test_alloc_and_free_page();

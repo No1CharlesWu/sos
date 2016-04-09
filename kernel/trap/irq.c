@@ -2,6 +2,14 @@
 #include "idt.h"
 #include "common.h"
 
+/* This array is actually an array of function pointers. We use
+*  this to handle custom IRQ handlers for a given IRQ */
+static void *irq_routines[16] =
+{
+    0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0
+};
+
 /* This installs a custom IRQ handler for the given IRQ */
 void irq_install_handler(int irq, void (*handler)(struct regs *r))
 {

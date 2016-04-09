@@ -59,20 +59,20 @@ MBOOT_PAGE_ALIGN	boot/boot.s	/^MBOOT_PAGE_ALIGN 	equ 	1 << 0    	; 0 号位表�
 MyPutc	kernel/driver/scrn.c	/^void MyPutc(char c)$/;"	f
 MyPuts	kernel/driver/scrn.c	/^void MyPuts(char *str)$/;"	f
 NULL	kernel/include/type.h	5;"	d
-OFFSET_INDEX	kernel/init/entry.c	18;"	d	file:
-PAGE_MASK	kernel/init/entry.c	15;"	d	file:
+OFFSET_INDEX	kernel/init/entry.c	21;"	d	file:
+PAGE_MASK	kernel/init/entry.c	18;"	d	file:
 PAGE_MAX_SIZE	kernel/include/pmm.h	19;"	d
-PAGE_OFFSET	kernel/init/entry.c	10;"	d	file:
-PAGE_PRESENT	kernel/init/entry.c	11;"	d	file:
-PAGE_SIZE	kernel/init/entry.c	14;"	d	file:
-PAGE_USER	kernel/init/entry.c	13;"	d	file:
-PAGE_WRITE	kernel/init/entry.c	12;"	d	file:
+PAGE_OFFSET	kernel/init/entry.c	13;"	d	file:
+PAGE_PRESENT	kernel/init/entry.c	14;"	d	file:
+PAGE_SIZE	kernel/init/entry.c	17;"	d	file:
+PAGE_USER	kernel/init/entry.c	16;"	d	file:
+PAGE_WRITE	kernel/init/entry.c	15;"	d	file:
 PANIC	kernel/include/debug.h	4;"	d
-PGD_INDEX	kernel/init/entry.c	16;"	d	file:
+PGD_INDEX	kernel/init/entry.c	19;"	d	file:
 PHY_PAGE_MASK	kernel/include/pmm.h	22;"	d
 PMM_MAX_SIZE	kernel/include/pmm.h	13;"	d
 PMM_PAGE_SIZE	kernel/include/pmm.h	16;"	d
-PTE_INDEX	kernel/init/entry.c	17;"	d	file:
+PTE_INDEX	kernel/init/entry.c	20;"	d	file:
 RollScreen	kernel/driver/scrn.c	/^void RollScreen()$/;"	f
 SCREENSIZE	kernel/include/scrn.h	7;"	d
 SEG_KDATA	kernel/include/gdt.h	7;"	d
@@ -82,7 +82,7 @@ SEG_TSS	kernel/include/gdt.h	10;"	d
 SEG_UDATA	kernel/include/gdt.h	9;"	d
 SEG_UTEXT	kernel/include/gdt.h	8;"	d
 STACK_SIZE	kernel/include/pmm.h	10;"	d
-STACK_SIZE	kernel/init/entry.c	19;"	d	file:
+STACK_SIZE	kernel/init/entry.c	22;"	d	file:
 STACK_TOP	boot/boot.s	/^STACK_TOP equ $-stack-1 	; 内核栈顶，$ 符指代是当前地址$/;"	d
 STA_A	kernel/include/mmu.h	33;"	d
 STA_C	kernel/include/mmu.h	30;"	d
@@ -106,12 +106,17 @@ S_OBJECTS	Makefile	/^S_OBJECTS = $(patsubst %.s, %.o, $(S_SOURCES))$/;"	m
 S_SOURCES	Makefile	/^S_SOURCES = $(shell find . -name "*.s")$/;"	m
 TRUE	kernel/include/type.h	9;"	d
 TXT_COLOR	kernel/include/scrn.h	25;"	d
+T_SWITCH_TOK	kernel/include/isrs.h	43;"	d
+T_SWITCH_TOU	kernel/include/isrs.h	42;"	d
 USER_CS	kernel/include/gdt.h	25;"	d
 USER_DS	kernel/include/gdt.h	26;"	d
 VIDPTR	kernel/driver/scrn.c	/^static char *VIDPTR = (char*)0xC00b8000;$/;"	v	file:
 _COMMON_H_	kernel/include/common.h	2;"	d
 _DEBUG_H_	kernel/include/debug.h	2;"	d
 _GDT_H_	kernel/include/gdt.h	2;"	d
+_IDT_H_	kernel/include/idt.h	2;"	d
+_IRQ_H_	kernel/include/irq.h	2;"	d
+_ISRS_H_	kernel/include/isrs.h	2;"	d
 _MMU_H_	kernel/include/mmu.h	2;"	d
 _MULTIBOOT_H_	kernel/include/multiboot.h	2;"	d
 _PMM_H_	kernel/include/pmm.h	2;"	d
@@ -120,12 +125,16 @@ _STRING_H_	kernel/include/string.h	2;"	d
 _TYPE_H_	kernel/include/type.h	2;"	d
 access	kernel/include/gdt.h	/^    unsigned char access;$/;"	m	struct:gdt_entry
 addr	kernel/include/multiboot.h	/^	uint32_t addr;$/;"	m	struct:multiboot_t
+always0	kernel/include/idt.h	/^    unsigned char always0;$/;"	m	struct:idt_entry
 apm_table	kernel/include/multiboot.h	/^	uint32_t apm_table; 	    	\/\/ APM 表$/;"	m	struct:multiboot_t
 attrib	kernel/driver/scrn.c	/^static int attrib = TXT_COLOR;$/;"	v	file:
 base	kernel/include/gdt.h	/^    unsigned int base;$/;"	m	struct:gdt_ptr
+base	kernel/include/idt.h	/^    unsigned int base;$/;"	m	struct:idt_ptr
 base_addr_high	kernel/include/multiboot.h	/^	uint32_t base_addr_high;$/;"	m	struct:mmap_entry_t
 base_addr_low	kernel/include/multiboot.h	/^	uint32_t base_addr_low;$/;"	m	struct:mmap_entry_t
+base_hi	kernel/include/idt.h	/^    unsigned short base_hi;$/;"	m	struct:idt_entry
 base_high	kernel/include/gdt.h	/^    unsigned char base_high;$/;"	m	struct:gdt_entry
+base_lo	kernel/include/idt.h	/^    unsigned short base_lo;$/;"	m	struct:idt_entry
 base_low	kernel/include/gdt.h	/^    unsigned short base_low;$/;"	m	struct:gdt_entry
 base_middle	kernel/include/gdt.h	/^    unsigned char base_middle;$/;"	m	struct:gdt_entry
 bits	kernel/driver/scrn_s.s	/^bits 32$/;"	l
@@ -139,6 +148,7 @@ brown	kernel/include/scrn.h	15;"	d
 cls	kernel/driver/scrn.c	/^void cls()$/;"	f
 cmdline	kernel/include/multiboot.h	/^	uint32_t cmdline;		\/\/ 内核命令行$/;"	m	struct:multiboot_t
 config_table	kernel/include/multiboot.h	/^	uint32_t config_table; 		\/\/ ROM 配置表$/;"	m	struct:multiboot_t
+cs	kernel/include/idt.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
 csr_x	kernel/driver/scrn.c	/^static int csr_x = 0, csr_y = 0;$/;"	v	file:
 csr_y	kernel/driver/scrn.c	/^static int csr_x = 0, csr_y = 0;$/;"	v	file:
 cyan	kernel/include/scrn.h	12;"	d
@@ -148,9 +158,27 @@ dd	boot/boot.s	/^dd MBOOT_HEADER_FLAGS   ; GRUB 的一些加载时选项，其�
 dd	boot/boot.s	/^dd MBOOT_HEADER_MAGIC 	; GRUB 会通过这个魔数判断该映像是否支持$/;"	l
 drives_addr	kernel/include/multiboot.h	/^	uint32_t drives_addr; 		\/\/ 指出第一个驱动器这个结构的大小$/;"	m	struct:multiboot_t
 drives_length	kernel/include/multiboot.h	/^	uint32_t drives_length; 	\/\/ 指出第一个驱动器结构的物理地址	$/;"	m	struct:multiboot_t
+ds	kernel/include/idt.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
+eax	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+ebp	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+ebx	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+ecx	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+edi	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+edx	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+eflags	kernel/include/idt.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
+eip	kernel/include/idt.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
+err_code	kernel/include/idt.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
+es	kernel/include/idt.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
+esi	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+esp	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
 extern	kernel/mm/gdt_s.s	/^extern gp$/;"	l
+extern	kernel/trap/idt_s.s	/^extern idtp$/;"	l
+extern	kernel/trap/irq_s.s	/^extern irq_handler$/;"	l
+extern	kernel/trap/isrs_s.s	/^extern isr_handler$/;"	l
+flags	kernel/include/idt.h	/^    unsigned char flags;$/;"	m	struct:idt_entry
 flags	kernel/include/multiboot.h	/^	uint32_t flags;			\/\/ Multiboot 的版本信息$/;"	m	struct:multiboot_t
 flush2	kernel/mm/gdt_s.s	/^flush2:$/;"	l
+fs	kernel/include/idt.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
 gdt	kernel/include/gdt.h	/^struct gdt_entry gdt[gdt_size];$/;"	v	typeref:struct:gdt_entry
 gdt_entry	kernel/include/gdt.h	/^struct gdt_entry$/;"	s
 gdt_flush	kernel/mm/gdt_s.s	/^gdt_flush:$/;"	l
@@ -174,9 +202,66 @@ global	kernel/libs/common_s.s	/^global io_stihlt	;void io_stihlt(void);$/;"	l
 global	kernel/libs/common_s.s	/^global io_store_eflags	;void io_store_eflags(int eflags)$/;"	l
 global	kernel/libs/common_s.s	/^global io_xchg      ;void io_xchg(void);$/;"	l
 global	kernel/mm/gdt_s.s	/^global gdt_flush$/;"	l
+global	kernel/trap/idt_s.s	/^global idt_load$/;"	l
+global	kernel/trap/irq_s.s	/^global irq0$/;"	l
+global	kernel/trap/irq_s.s	/^global irq1$/;"	l
+global	kernel/trap/irq_s.s	/^global irq10$/;"	l
+global	kernel/trap/irq_s.s	/^global irq11$/;"	l
+global	kernel/trap/irq_s.s	/^global irq12$/;"	l
+global	kernel/trap/irq_s.s	/^global irq13$/;"	l
+global	kernel/trap/irq_s.s	/^global irq14$/;"	l
+global	kernel/trap/irq_s.s	/^global irq15$/;"	l
+global	kernel/trap/irq_s.s	/^global irq2$/;"	l
+global	kernel/trap/irq_s.s	/^global irq3$/;"	l
+global	kernel/trap/irq_s.s	/^global irq4$/;"	l
+global	kernel/trap/irq_s.s	/^global irq5$/;"	l
+global	kernel/trap/irq_s.s	/^global irq6$/;"	l
+global	kernel/trap/irq_s.s	/^global irq7$/;"	l
+global	kernel/trap/irq_s.s	/^global irq8$/;"	l
+global	kernel/trap/irq_s.s	/^global irq9$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr0$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr1$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr10$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr11$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr12$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr13$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr14$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr15$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr16$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr17$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr18$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr19$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr2$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr20$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr21$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr22$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr23$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr24$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr25$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr26$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr27$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr28$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr29$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr3$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr30$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr31$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr4$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr5$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr6$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr7$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr8$/;"	l
+global	kernel/trap/isrs_s.s	/^global isr9$/;"	l
 gp	kernel/include/gdt.h	/^struct gdt_ptr gp;$/;"	v	typeref:struct:gdt_ptr
 granularity	kernel/include/gdt.h	/^    unsigned char granularity;$/;"	m	struct:gdt_entry
 green	kernel/include/scrn.h	11;"	d
+gs	kernel/include/idt.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
+idt	kernel/include/idt.h	/^struct idt_entry idt[256];$/;"	v	typeref:struct:idt_entry
+idt_entry	kernel/include/idt.h	/^struct idt_entry$/;"	s
+idt_install	kernel/trap/idt.c	/^void idt_install()$/;"	f
+idt_load	kernel/trap/idt_s.s	/^idt_load:$/;"	l
+idt_ptr	kernel/include/idt.h	/^struct idt_ptr$/;"	s
+idt_set_gate	kernel/trap/idt.c	/^void idt_set_gate(unsigned char num, unsigned long base, unsigned short sel, unsigned char flags)$/;"	f
+idtp	kernel/include/idt.h	/^struct idt_ptr idtp;$/;"	v	typeref:struct:idt_ptr
 init_pmm	kernel/mm/pmm.c	/^void init_pmm()$/;"	f
 init_video	kernel/driver/scrn.c	/^void init_video(void)$/;"	f
 inportb	kernel/libs/common.c	/^unsigned char inportb (unsigned short _port)$/;"	f
@@ -184,6 +269,7 @@ inportw	kernel/libs/common.c	/^unsigned short inportw(unsigned short port)$/;"	f
 int16_t	kernel/include/type.h	/^typedef          short      int16_t;$/;"	t
 int32_t	kernel/include/type.h	/^typedef          int        int32_t;$/;"	t
 int8_t	kernel/include/type.h	/^typedef          char       int8_t;$/;"	t
+int_no	kernel/include/idt.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
 intptr_t	kernel/include/type.h	/^typedef int32_t intptr_t;$/;"	t
 io_cli	kernel/libs/common_s.s	/^io_cli:		;void io_cli(void);$/;"	l
 io_hlt	kernel/libs/common_s.s	/^io_hlt:		;void io_hlt(void);$/;"	l
@@ -198,6 +284,67 @@ io_sti	kernel/libs/common_s.s	/^io_sti:		;void io_sti(void);$/;"	l
 io_stihlt	kernel/libs/common_s.s	/^io_stihlt:	;void io_stihlt(void);$/;"	l
 io_store_eflags	kernel/libs/common_s.s	/^io_store_eflags:	;void io_store_eflags(int eflags)$/;"	l
 io_xchg	kernel/libs/common_s.s	/^io_xchg:    ;void io_xchg(void);$/;"	l
+irq0	kernel/trap/irq_s.s	/^irq0:$/;"	l
+irq1	kernel/trap/irq_s.s	/^irq1:$/;"	l
+irq10	kernel/trap/irq_s.s	/^irq10:$/;"	l
+irq11	kernel/trap/irq_s.s	/^irq11:$/;"	l
+irq12	kernel/trap/irq_s.s	/^irq12:$/;"	l
+irq13	kernel/trap/irq_s.s	/^irq13:$/;"	l
+irq14	kernel/trap/irq_s.s	/^irq14:$/;"	l
+irq15	kernel/trap/irq_s.s	/^irq15:$/;"	l
+irq2	kernel/trap/irq_s.s	/^irq2:$/;"	l
+irq3	kernel/trap/irq_s.s	/^irq3:$/;"	l
+irq4	kernel/trap/irq_s.s	/^irq4:$/;"	l
+irq5	kernel/trap/irq_s.s	/^irq5:$/;"	l
+irq6	kernel/trap/irq_s.s	/^irq6:$/;"	l
+irq7	kernel/trap/irq_s.s	/^irq7:$/;"	l
+irq8	kernel/trap/irq_s.s	/^irq8:$/;"	l
+irq9	kernel/trap/irq_s.s	/^irq9:$/;"	l
+irq_common_stub	kernel/trap/irq_s.s	/^irq_common_stub:$/;"	l
+irq_handler	kernel/trap/irq.c	/^void irq_handler(struct regs *r)$/;"	f
+irq_install	kernel/trap/irq.c	/^void irq_install()$/;"	f
+irq_install_handler	kernel/trap/irq.c	/^void irq_install_handler(int irq, void (*handler)(struct regs *r))$/;"	f
+irq_remap	kernel/trap/irq.c	/^void irq_remap(void)$/;"	f
+irq_routines	kernel/trap/irq.c	/^static void *irq_routines[16] =$/;"	v	file:
+irq_uninstall_handler	kernel/trap/irq.c	/^void irq_uninstall_handler(int irq)$/;"	f
+isr0	kernel/trap/isrs_s.s	/^isr0:$/;"	l
+isr1	kernel/trap/isrs_s.s	/^isr1:$/;"	l
+isr10	kernel/trap/isrs_s.s	/^isr10:$/;"	l
+isr11	kernel/trap/isrs_s.s	/^isr11:$/;"	l
+isr12	kernel/trap/isrs_s.s	/^isr12:$/;"	l
+isr13	kernel/trap/isrs_s.s	/^isr13:$/;"	l
+isr14	kernel/trap/isrs_s.s	/^isr14:$/;"	l
+isr15	kernel/trap/isrs_s.s	/^isr15:$/;"	l
+isr16	kernel/trap/isrs_s.s	/^isr16:$/;"	l
+isr17	kernel/trap/isrs_s.s	/^isr17:$/;"	l
+isr18	kernel/trap/isrs_s.s	/^isr18:$/;"	l
+isr19	kernel/trap/isrs_s.s	/^isr19:$/;"	l
+isr2	kernel/trap/isrs_s.s	/^isr2:$/;"	l
+isr20	kernel/trap/isrs_s.s	/^isr20:$/;"	l
+isr21	kernel/trap/isrs_s.s	/^isr21:$/;"	l
+isr22	kernel/trap/isrs_s.s	/^isr22:$/;"	l
+isr23	kernel/trap/isrs_s.s	/^isr23:$/;"	l
+isr24	kernel/trap/isrs_s.s	/^isr24:$/;"	l
+isr25	kernel/trap/isrs_s.s	/^isr25:$/;"	l
+isr26	kernel/trap/isrs_s.s	/^isr26:$/;"	l
+isr27	kernel/trap/isrs_s.s	/^isr27:$/;"	l
+isr28	kernel/trap/isrs_s.s	/^isr28:$/;"	l
+isr29	kernel/trap/isrs_s.s	/^isr29:$/;"	l
+isr3	kernel/trap/isrs_s.s	/^isr3:$/;"	l
+isr30	kernel/trap/isrs_s.s	/^isr30:$/;"	l
+isr31	kernel/trap/isrs_s.s	/^isr31:$/;"	l
+isr4	kernel/trap/isrs_s.s	/^isr4:$/;"	l
+isr5	kernel/trap/isrs_s.s	/^isr5:$/;"	l
+isr6	kernel/trap/isrs_s.s	/^isr6:$/;"	l
+isr7	kernel/trap/isrs_s.s	/^isr7:$/;"	l
+isr8	kernel/trap/isrs_s.s	/^isr8:$/;"	l
+isr9	kernel/trap/isrs_s.s	/^isr9:$/;"	l
+isr_common_stub	kernel/trap/isrs_s.s	/^isr_common_stub:$/;"	l
+isr_handler	kernel/trap/isrs.c	/^void isr_handler(struct regs *r)$/;"	f
+isr_install_handler	kernel/trap/isrs.c	/^void isr_install_handler(int isr,void (*handler)(struct regs * r))$/;"	f
+isr_routines	kernel/trap/isrs.c	/^static void *isr_routines[32] = $/;"	v	file:
+isr_uninstall_handler	kernel/trap/isrs.c	/^void isr_uninstall_handler(int isr)$/;"	f
+isrs_install	kernel/trap/isrs.c	/^void isrs_install()$/;"	f
 itoa	kernel/driver/scrn.c	/^void itoa (char *buf, int base, int d)  $/;"	f
 kern_entry	kernel/init/entry.c	/^__attribute__((section(".init.text"))) void kern_entry()$/;"	f
 kern_init	kernel/init/entry.c	/^void kern_init()$/;"	f
@@ -211,6 +358,7 @@ light_grey	kernel/include/scrn.h	16;"	d
 light_magenta	kernel/include/scrn.h	21;"	d
 light_red	kernel/include/scrn.h	20;"	d
 limit	kernel/include/gdt.h	/^    unsigned short limit;$/;"	m	struct:gdt_ptr
+limit	kernel/include/idt.h	/^    unsigned short limit;$/;"	m	struct:idt_ptr
 limit_low	kernel/include/gdt.h	/^    unsigned short limit_low;$/;"	m	struct:gdt_entry
 ltr	kernel/mm/gdt.c	/^inline void ltr(uint16_t sel) $/;"	f
 magenta	kernel/include/scrn.h	14;"	d
@@ -241,17 +389,23 @@ pmm_free_page	kernel/mm/pmm.c	/^void pmm_free_page(uint32_t p)$/;"	f
 pmm_stack	kernel/mm/pmm.c	/^static uint32_t pmm_stack[PAGE_MAX_SIZE+1];$/;"	v	file:
 pmm_stack_top	kernel/mm/pmm.c	/^static uint32_t pmm_stack_top;$/;"	v	file:
 pop	kernel/driver/scrn_s.s	/^	pop dx$/;"	d
+pop	kernel/trap/irq_s.s	/^    pop ds$/;"	d
+pop	kernel/trap/isrs_s.s	/^    pop ds$/;"	d
 printf	kernel/driver/scrn.c	/^void printf(const char *format, ...)  $/;"	f
 pte_hign	kernel/init/entry.c	/^__attribute__((section(".init.data"))) pgd_t *pte_hign = (pgd_t *)0x3000;$/;"	v
 pte_low	kernel/init/entry.c	/^__attribute__((section(".init.data"))) pgd_t *pte_low  = (pgd_t *)0x2000;$/;"	v
 push	kernel/driver/scrn_s.s	/^	push dx$/;"	d
+push	kernel/trap/irq_s.s	/^    push ds$/;"	d
+push	kernel/trap/isrs_s.s	/^    push ds$/;"	d
 putc	kernel/driver/scrn.c	/^void putc(unsigned char c)$/;"	f
 puts	kernel/driver/scrn.c	/^void puts(unsigned char *text)$/;"	f
 red	kernel/include/scrn.h	13;"	d
+regs	kernel/include/idt.h	/^struct regs$/;"	s
 scroll	kernel/driver/scrn.c	/^void scroll(void)$/;"	f
 section	boot/boot.s	/^section .init.data		; 开启分页前临时的数据段$/;"	l
 section	boot/boot.s	/^section .init.text 	; 临时代码段从这里开始$/;"	l
 section	kernel/libs/common_s.s	/^section .text$/;"	l
+sel	kernel/include/idt.h	/^    unsigned short sel;$/;"	m	struct:idt_entry
 set_cursor	kernel/driver/scrn_s.s	/^set_cursor:$/;"	l
 set_ts	kernel/mm/gdt.c	/^void set_ts(struct taskstate ts)$/;"	f
 settextcolor	kernel/driver/scrn.c	/^void settextcolor(unsigned char forecolor, unsigned char backcolor)$/;"	f
@@ -260,6 +414,7 @@ show_memory_map	kernel/mm/pmm.c	/^void show_memory_map(multiboot_t *glb_mboot_pt
 size	kernel/include/multiboot.h	/^	uint32_t size; 		\/\/ 留意 size 是不含 size 自身变量的大小$/;"	m	struct:mmap_entry_t
 size	kernel/include/multiboot.h	/^	uint32_t size;$/;"	m	struct:multiboot_t
 size_t	kernel/include/type.h	/^typedef  	 int		size_t; $/;"	t
+ss	kernel/include/idt.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
 stack	boot/boot.s	/^stack:    times 1024 db 0  	; 这里作为临时内核栈$/;"	l
 stack0	kernel/mm/gdt.c	/^uint8_t stack0[1024];$/;"	v
 start	boot/boot.s	/^start:$/;"	l
@@ -270,6 +425,7 @@ strlen	kernel/libs/string.c	/^size_t strlen(const char *str)$/;"	f
 taskstate	kernel/include/mmu.h	/^struct taskstate {$/;"	s
 test_alloc_and_free_page	kernel/mm/pmm.c	/^void test_alloc_and_free_page()$/;"	f
 textmemptr	kernel/driver/scrn.c	/^static unsigned short *textmemptr = (unsigned short *)0xC00b8000;$/;"	v	file:
+trapname	kernel/trap/isrs.c	/^static const char * trapname(int trapno) $/;"	f	file:
 ts	kernel/mm/gdt.c	/^struct taskstate ts = {0};$/;"	v	typeref:struct:taskstate
 ts_cr3	kernel/include/mmu.h	/^    uintptr_t ts_cr3;        \/\/ page directory base$/;"	m	struct:taskstate
 ts_cs	kernel/include/mmu.h	/^    uint16_t ts_cs;$/;"	m	struct:taskstate
@@ -313,6 +469,7 @@ uint16_t	kernel/include/type.h	/^typedef unsigned short      uint16_t;$/;"	t
 uint32_t	kernel/include/type.h	/^typedef unsigned int        uint32_t;$/;"	t
 uint8_t	kernel/include/type.h	/^typedef unsigned char       uint8_t;$/;"	t
 uintptr_t	kernel/include/type.h	/^typedef uint32_t uintptr_t;$/;"	t
+useresp	kernel/include/idt.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
 vbe_control_info	kernel/include/multiboot.h	/^	uint32_t vbe_control_info;$/;"	m	struct:multiboot_t
 vbe_interface_len	kernel/include/multiboot.h	/^	uint32_t vbe_interface_len;$/;"	m	struct:multiboot_t
 vbe_interface_off	kernel/include/multiboot.h	/^	uint32_t vbe_interface_off;$/;"	m	struct:multiboot_t
