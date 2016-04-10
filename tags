@@ -60,30 +60,30 @@ MyPutc	kernel/driver/scrn.c	/^void MyPutc(char c)$/;"	f
 MyPuts	kernel/driver/scrn.c	/^void MyPuts(char *str)$/;"	f
 NULL	kernel/include/type.h	5;"	d
 OFFSET_INDEX	kernel/include/vmm.h	48;"	d
-OFFSET_INDEX	kernel/init/entry.c	22;"	d	file:
+OFFSET_INDEX	kernel/init/entry.c	24;"	d	file:
 PAGE_MASK	kernel/include/vmm.h	39;"	d
-PAGE_MASK	kernel/init/entry.c	19;"	d	file:
+PAGE_MASK	kernel/init/entry.c	21;"	d	file:
 PAGE_MAX_SIZE	kernel/include/pmm.h	19;"	d
 PAGE_OFFSET	kernel/include/vmm.h	9;"	d
-PAGE_OFFSET	kernel/init/entry.c	14;"	d	file:
+PAGE_OFFSET	kernel/init/entry.c	16;"	d	file:
 PAGE_PRESENT	kernel/include/vmm.h	17;"	d
-PAGE_PRESENT	kernel/init/entry.c	15;"	d	file:
+PAGE_PRESENT	kernel/init/entry.c	17;"	d	file:
 PAGE_SIZE	kernel/include/vmm.h	36;"	d
-PAGE_SIZE	kernel/init/entry.c	18;"	d	file:
+PAGE_SIZE	kernel/init/entry.c	20;"	d	file:
 PAGE_USER	kernel/include/vmm.h	33;"	d
-PAGE_USER	kernel/init/entry.c	17;"	d	file:
+PAGE_USER	kernel/init/entry.c	19;"	d	file:
 PAGE_WRITE	kernel/include/vmm.h	25;"	d
-PAGE_WRITE	kernel/init/entry.c	16;"	d	file:
+PAGE_WRITE	kernel/init/entry.c	18;"	d	file:
 PANIC	kernel/include/debug.h	4;"	d
 PGD_INDEX	kernel/include/vmm.h	42;"	d
-PGD_INDEX	kernel/init/entry.c	20;"	d	file:
+PGD_INDEX	kernel/init/entry.c	22;"	d	file:
 PGD_SIZE	kernel/include/vmm.h	57;"	d
 PHY_PAGE_MASK	kernel/include/pmm.h	22;"	d
 PMM_MAX_SIZE	kernel/include/pmm.h	13;"	d
 PMM_PAGE_SIZE	kernel/include/pmm.h	16;"	d
 PTE_COUNT	kernel/include/vmm.h	63;"	d
 PTE_INDEX	kernel/include/vmm.h	45;"	d
-PTE_INDEX	kernel/init/entry.c	21;"	d	file:
+PTE_INDEX	kernel/init/entry.c	23;"	d	file:
 PTE_SIZE	kernel/include/vmm.h	60;"	d
 RollScreen	kernel/driver/scrn.c	/^void RollScreen()$/;"	f
 SCREENSIZE	kernel/include/scrn.h	7;"	d
@@ -94,7 +94,7 @@ SEG_TSS	kernel/include/gdt.h	10;"	d
 SEG_UDATA	kernel/include/gdt.h	9;"	d
 SEG_UTEXT	kernel/include/gdt.h	8;"	d
 STACK_SIZE	kernel/include/pmm.h	10;"	d
-STACK_SIZE	kernel/init/entry.c	23;"	d	file:
+STACK_SIZE	kernel/init/entry.c	25;"	d	file:
 STACK_TOP	boot/boot.s	/^STACK_TOP equ $-stack-1 	; 内核栈顶，$ 符指代是当前地址$/;"	d
 STA_A	kernel/include/mmu.h	33;"	d
 STA_C	kernel/include/mmu.h	30;"	d
@@ -129,11 +129,13 @@ _GDT_H_	kernel/include/gdt.h	2;"	d
 _IDT_H_	kernel/include/idt.h	2;"	d
 _IRQ_H_	kernel/include/irq.h	2;"	d
 _ISRS_H_	kernel/include/isrs.h	2;"	d
+_KB_H_	kernel/include/kb.h	2;"	d
 _MMU_H_	kernel/include/mmu.h	2;"	d
 _MULTIBOOT_H_	kernel/include/multiboot.h	2;"	d
 _PMM_H_	kernel/include/pmm.h	2;"	d
 _SCRN_H_	kernel/include/scrn.h	2;"	d
 _STRING_H_	kernel/include/string.h	2;"	d
+_TIMER_H_	kernel/include/timer.h	2;"	d
 _TYPE_H_	kernel/include/type.h	2;"	d
 _VMM_H_	kernel/include/vmm.h	2;"	d
 access	kernel/include/gdt.h	/^    unsigned char access;$/;"	m	struct:gdt_entry
@@ -285,7 +287,7 @@ int16_t	kernel/include/type.h	/^typedef          short      int16_t;$/;"	t
 int32_t	kernel/include/type.h	/^typedef          int        int32_t;$/;"	t
 int8_t	kernel/include/type.h	/^typedef          char       int8_t;$/;"	t
 int_no	kernel/include/idt.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
-int_number	kernel/init/entry.c	81;"	d	file:
+int_number	kernel/init/entry.c	83;"	d	file:
 intptr_t	kernel/include/type.h	/^typedef int32_t intptr_t;$/;"	t
 io_cli	kernel/libs/common_s.s	/^io_cli:		;void io_cli(void);$/;"	l
 io_hlt	kernel/libs/common_s.s	/^io_hlt:		;void io_hlt(void);$/;"	l
@@ -362,9 +364,12 @@ isr_routines	kernel/trap/isrs.c	/^static void *isr_routines[32] = $/;"	v	file:
 isr_uninstall_handler	kernel/trap/isrs.c	/^void isr_uninstall_handler(int isr)$/;"	f
 isrs_install	kernel/trap/isrs.c	/^void isrs_install()$/;"	f
 itoa	kernel/driver/scrn.c	/^void itoa (char *buf, int base, int d)  $/;"	f
+kbdus	kernel/driver/kb.c	/^unsigned char kbdus[128] =$/;"	v
 kern_entry	kernel/init/entry.c	/^__attribute__((section(".init.text"))) void kern_entry()$/;"	f
 kern_init	kernel/init/entry.c	/^void kern_init()$/;"	f
 kern_stack	kernel/init/entry.c	/^char kern_stack[STACK_SIZE];$/;"	v
+keyboard_handler	kernel/driver/kb.c	/^void keyboard_handler(struct regs *r)$/;"	f
+keyboard_install	kernel/driver/kb.c	/^void keyboard_install()$/;"	f
 length_high	kernel/include/multiboot.h	/^	uint32_t length_high;$/;"	m	struct:mmap_entry_t
 length_low	kernel/include/multiboot.h	/^	uint32_t length_low;$/;"	m	struct:mmap_entry_t
 light_brown	kernel/include/scrn.h	22;"	d
@@ -424,6 +429,7 @@ puts	kernel/driver/scrn.c	/^void puts(unsigned char *text)$/;"	f
 red	kernel/include/scrn.h	13;"	d
 regs	kernel/include/idt.h	/^struct regs$/;"	s
 scroll	kernel/driver/scrn.c	/^void scroll(void)$/;"	f
+second	kernel/driver/timer.c	/^int second = 0;$/;"	v
 section	boot/boot.s	/^section .init.data		; 开启分页前临时的数据段$/;"	l
 section	boot/boot.s	/^section .init.text 	; 临时代码段从这里开始$/;"	l
 section	kernel/libs/common_s.s	/^section .text$/;"	l
@@ -449,6 +455,12 @@ taskstate	kernel/include/mmu.h	/^struct taskstate {$/;"	s
 test_alloc_and_free_page	kernel/mm/pmm.c	/^void test_alloc_and_free_page()$/;"	f
 test_int	kernel/init/entry.c	/^void test_int(void) {$/;"	f
 textmemptr	kernel/driver/scrn.c	/^static unsigned short *textmemptr = (unsigned short *)0xC00b8000;$/;"	v	file:
+timer_handler	kernel/driver/timer.c	/^void timer_handler(struct regs *r)$/;"	f
+timer_install	kernel/driver/timer.c	/^void timer_install()$/;"	f
+timer_phase	kernel/driver/timer.c	/^void timer_phase(int hz)$/;"	f
+timer_test	kernel/driver/timer.c	/^void timer_test(int count)$/;"	f
+timer_ticks	kernel/driver/timer.c	/^int timer_ticks = 0;$/;"	v
+timer_wait	kernel/driver/timer.c	/^void timer_wait(int ticks)$/;"	f
 trapname	kernel/trap/isrs.c	/^static const char * trapname(int trapno) $/;"	f	file:
 ts	kernel/mm/gdt.c	/^struct taskstate ts = {0};$/;"	v	typeref:struct:taskstate
 ts_cr3	kernel/include/mmu.h	/^    uintptr_t ts_cr3;        \/\/ page directory base$/;"	m	struct:taskstate

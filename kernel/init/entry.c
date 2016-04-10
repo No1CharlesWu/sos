@@ -9,6 +9,8 @@
 #include "isrs.h"
 #include "irq.h"
 #include "vmm.h"
+#include "kb.h"
+#include "timer.h"
 typedef uint32_t pgd_t;
 
 #define PAGE_OFFSET 	0xC0000000
@@ -78,7 +80,7 @@ __attribute__((section(".init.text"))) void kern_entry()
 extern uint32_t kernel_start;
 extern uint32_t kernel_end;
 
-#define int_number 14
+#define int_number  32
 void test_int(void) {
 	asm volatile (
 	    "int %0 \n"
@@ -92,26 +94,36 @@ void kern_init()
 {
     cls();
     init_video();
-    printf("helln world.\n");
     printf("kernel start at : 0x%x\n",&kernel_start);
     printf("kernel   end at : 0x%x\n",&kernel_end);
     printf("kernel in memory used:   %d KB\n", (&kernel_end - &kernel_start+ 1023) / 1024);
 
     gdt_install();
+    printf("gdt install ready.\n");
     idt_install();
+    printf("idt install ready.\n");
     isrs_install();
+    printf("isr install ready.\n");
     irq_install();
+    printf("irq install ready.\n");
+    keyboard_install();
+    printf("keyboard install ready.\n");
+    timer_install();
+    printf("timer install ready.\n");
+    io_sti();
+    printf("open the interrupt.\n");
 
-
-    show_memory_map(glb_mboot_ptr);
+    //show_memory_map(glb_mboot_ptr);
     init_pmm();
+    printf("init pmm ready.\n");
     init_vmm();
-    test_alloc_and_free_page();
+    printf("init vmm ready.\n");
+    //test_alloc_and_free_page();
 
     //test_int();
 
     io_xchg();
-    printf("\nhlt\n");
-    io_hlt();
+    printf("\nWrite any things to test keyboard.\n");
+    while(1);
 }
 

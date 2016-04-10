@@ -27,9 +27,7 @@
 ENTRY(start)
 SECTIONS
 {
-    /*
-     * PROVIDE( kernel_start = 0xC0100000);
-     */
+    PROVIDE( kernel_start = 0xC0100000);
 	. = 0x100000; 
 	.init.text : 
 	{
@@ -45,7 +43,6 @@ SECTIONS
 	. += 0xC0000000;
 	.text : AT(ADDR(.text) - 0xC0000000)
 	{
-        PROVIDE( kernel_start = .);
         *(.text)
 		. = ALIGN(4096);
 	}
