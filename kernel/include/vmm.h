@@ -1,25 +1,7 @@
-/*
- * =====================================================================================
- *
- *       Filename:  vmm.h
- *
- *    Description:  虚拟内存管理
- *
- *        Version:  1.0
- *        Created:  2013年11月17日 16时45分53秒
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  Hurley (LiuHuan), liuhuan1992@gmail.com
- *        Company:  Class 1107 of Computer Science and Technology
- *
- * =====================================================================================
- */
+#ifndef _VMM_H_
+#define _VMM_H_
 
-#ifndef INCLUDE_VMM_H
-#define INCLUDE_VMM_H
-
-#include "types.h"
+#include "type.h"
 #include "idt.h"
 #include "vmm.h"
 
@@ -100,6 +82,6 @@ void unmap(pgd_t *pgd_now, uint32_t va);
 uint32_t get_mapping(pgd_t *pgd_now, uint32_t va, uint32_t *pa);
 
 // 页错误中断的函数处理
-void page_fault(pt_regs *regs);
+void page_fault(struct regs *regs);
 
 #endif 	// INCLUDE_VMM_H

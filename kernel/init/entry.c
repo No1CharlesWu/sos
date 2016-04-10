@@ -8,6 +8,7 @@
 #include "idt.h"
 #include "isrs.h"
 #include "irq.h"
+#include "vmm.h"
 typedef uint32_t pgd_t;
 
 #define PAGE_OFFSET 	0xC0000000
@@ -100,11 +101,14 @@ void kern_init()
     idt_install();
     isrs_install();
     irq_install();
-    init_pmm();
+
+
     show_memory_map(glb_mboot_ptr);
+    init_pmm();
+    init_vmm();
     test_alloc_and_free_page();
 
-    test_int();
+    //test_int();
 
     io_xchg();
     printf("\nhlt\n");

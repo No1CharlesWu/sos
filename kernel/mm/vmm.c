@@ -1,26 +1,10 @@
-/*
- * =====================================================================================
- *
- *       Filename:  vmm.c
- *
- *    Description:  虚拟内存管理
- *
- *        Version:  1.0
- *        Created:  2013年11月17日 16时59分53秒
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  Hurley (LiuHuan), liuhuan1992@gmail.com
- *        Company:  Class 1107 of Computer Science and Technology
- *
- * =====================================================================================
- */
-
+#include "type.h"
 #include "idt.h"
 #include "string.h"
 #include "debug.h"
 #include "vmm.h"
 #include "pmm.h"
+#include "isrs.h"
 
 // 内核页目录区域
 pgd_t pgd_kern[PGD_SIZE] __attribute__ ((aligned(PAGE_SIZE)));
@@ -48,7 +32,7 @@ void init_vmm()
 	uint32_t pgd_kern_phy_addr = (uint32_t)pgd_kern - PAGE_OFFSET;
 
 	// 注册页错误中断的处理函数 ( 14 是页故障的中断号 )
-	register_interrupt_handler(14, &page_fault);
+	isr_install_handler(14, page_fault);
 
 	switch_pgd(pgd_kern_phy_addr);
 }
@@ -70,7 +54,7 @@ void map(pgd_t *pgd_now, uint32_t va, uint32_t pa, uint32_t flags)
 
 		// 转换到内核线性地址并清 0
 		pte = (pte_t *)((uint32_t)pte + PAGE_OFFSET);
-		bzero(pte, PAGE_SIZE);
+        memset(pte,0,PAGE_SIZE);
 	} else {
 		// 转换到内核线性地址
 		pte = (pte_t *)((uint32_t)pte + PAGE_OFFSET);
