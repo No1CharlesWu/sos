@@ -1,0 +1,57 @@
+# Programs, flags
+ASM		= nasm
+CC		= gcc
+LD 		= ld
+
+CFLAGS = -c -Wall -m32 -ggdb -gstabs+ -nostdinc -fno-builtin -fno-stack-protector -I kernel/include
+LDFLAGS = -T tools/kernel.ld -m elf_i386 -nostdlib
+ASMFLAGS = -f elf -g -F stabs
+
+# This Program
+IMG		= tools/os.img
+KERNEL 		= tools/kernel.bin
+C_SOURCES = $(shell find . -name "*.c")
+C_OBJECTS = $(patsubst %.c, %.o, $(C_SOURCES))
+S_SOURCES = $(shell find . -name "*.s")
+S_OBJECTS = $(patsubst %.s, %.o, $(S_SOURCES))
+
+all: $(C_OBJECTS) $(S_OBJECTS) link  img
+.c.o:
+	@echo 编译代码文件 $< ...
+	$(CC) $(CFLAGS) $< -o $@
+
+.s.o:
+	@echo 编译汇编文件 $< ...
+	$(ASM) $(ASMFLAGS) $<
+
+link:
+	@echo 链接内核文件...
+	$(LD) $(LDFLAGS) $(S_OBJECTS) $(C_OBJECTS) -o $(KERNEL)
+
+.PHONY:clean
+clean : 
+	rm -f $(C_OBJECTS) $(S_OBJECTS)
+
+run : everything
+	qemu-system-i386 -kernel $(KERNEL)
+
+debug : everything img
+	bochs -f tools/os.bxrc
+
+# All Phony Targets
+.PHONY : everything all final clean realclean image buildimg
+
+everything : $(KERNEL) $(IMG)
+
+
+realclean : 
+	rm -f $(C_OBJECTS) $(S_OBJECTS) $(KERNEL)
+
+img:
+	sudo kpartx -av ./tools/os.img
+	sudo mount -text2 /dev/mapper/loop0p1 /mnt
+	sudo cp ./tools/kernel.bin /mnt/
+	sudo umount /mnt
+	sudo kpartx -dv ./tools/os.img
+
+
