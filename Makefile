@@ -18,12 +18,10 @@ S_OBJECTS = $(patsubst %.s, %.o, $(S_SOURCES))
 run : everything
 	make clean
 	qemu-system-i386 -kernel $(KERNEL)
-	make clean
 
 debug : everything img
 	make clean
 	bochs -f tools/os.bxrc
-	make clean
 
 # All Phony Targets
 .PHONY : everything all final clean realclean image buildimg
@@ -53,7 +51,7 @@ img:
 	@echo 编译代码文件 $< ...
 	$(CC) $(CFLAGS)  $< -o $@
 
-$(KERNEL) : $(C_OBJECTS) $(S_OBJECTS)
+$(KERNEL) : $(S_OBJECTS) $(C_OBJECTS) 
 	@echo 链接内核文件...
 	$(LD) $(LDFLAGS) $(S_OBJECTS) $(C_OBJECTS) -o $(KERNEL)
 

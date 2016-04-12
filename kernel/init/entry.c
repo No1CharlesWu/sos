@@ -11,6 +11,7 @@
 #include "vmm.h"
 #include "kb.h"
 #include "timer.h"
+#include "heap.h"
 
 // 内核初始化函数
 void kern_init();
@@ -108,6 +109,8 @@ void kern_init()
     printf("init vmm ready.\n");
     //test_alloc_and_free_page();
 
+    init_heap();
+    test_heap();
     //test_int();
 
     io_xchg();
