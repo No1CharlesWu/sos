@@ -2,6 +2,8 @@
 ; something special in order to set CS. We do what is called a
 ; far jump. A jump that includes a segment as well as an offset.
 ; This is declared in C as 'extern void gdt_flush();'
+bits 32
+section .text
 global gdt_flush
 extern gp
 gdt_flush:

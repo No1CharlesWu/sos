@@ -11,18 +11,6 @@
 #include "vmm.h"
 #include "kb.h"
 #include "timer.h"
-typedef uint32_t pgd_t;
-
-#define PAGE_OFFSET 	0xC0000000
-#define PAGE_PRESENT 	0x1
-#define PAGE_WRITE 	0x2
-#define PAGE_USER 	0x4
-#define PAGE_SIZE 	4096
-#define PAGE_MASK      0xFFFFF000
-#define PGD_INDEX(x) (((x) >> 22) & 0x3FF)
-#define PTE_INDEX(x) (((x) >> 12) & 0x3FF)
-#define OFFSET_INDEX(x) ((x) & 0xFFF)
-#define STACK_SIZE 8192
 
 // 内核初始化函数
 void kern_init();
