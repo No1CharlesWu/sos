@@ -158,7 +158,7 @@ void glue_chunk(header_t *chunk)
 
 void test_heap()
 {
-	printf("Test kmalloc() && kfree() now ...\n\n");
+	printf("\nTest kmalloc() && kfree() now ...\n");
 
 	void *addr1 = kmalloc(50);
 	printf("kmalloc    50 byte in 0x%x\n", addr1);
@@ -177,5 +177,19 @@ void test_heap()
 	kfree(addr3);
 	printf("free mem in 0x%x\n\n", addr4);
 	kfree(addr4);
+//    void *a1 = kmalloc(50);
+//	printf("kmalloc 50 byte in 0x%x\n", a1);
+//    void *a2 = kmalloc(60);
+//	printf("kmalloc 60 byte in 0x%x\n", a2);
+//    kfree(a1);
+//    void *a3 = kmalloc(40);
+//	printf("kmalloc 40 byte in 0x%x\n", a3);
+//    void *a4 = kmalloc(5);
+//	printf("kmalloc 5 byte in 0x%x\n", a4);
+//    kfree(a2);
+//    void *a5 = kmalloc(5);
+//	printf("kmalloc 5 byte in 0x%x\n", a5);
+//    void *a6 = kmalloc(5);
+//	printf("kmalloc 5 byte in 0x%x\n", a6);
 }
 

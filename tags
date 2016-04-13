@@ -290,7 +290,7 @@ int16_t	kernel/include/type.h	/^typedef          short      int16_t;$/;"	t
 int32_t	kernel/include/type.h	/^typedef          int        int32_t;$/;"	t
 int8_t	kernel/include/type.h	/^typedef          char       int8_t;$/;"	t
 int_no	kernel/include/idt.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
-int_number	kernel/init/entry.c	71;"	d	file:
+int_number	kernel/init/entry.c	72;"	d	file:
 intptr_t	kernel/include/type.h	/^typedef int32_t intptr_t;$/;"	t
 io_cli	kernel/libs/common_s.s	/^io_cli:		;void io_cli(void);$/;"	l
 io_hlt	kernel/libs/common_s.s	/^io_hlt:		;void io_hlt(void);$/;"	l
