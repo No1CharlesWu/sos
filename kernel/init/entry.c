@@ -12,7 +12,8 @@
 #include "kb.h"
 #include "timer.h"
 #include "heap.h"
-
+#include "sched.h"
+#include "task.h"
 // 内核初始化函数
 void kern_init();
 
@@ -20,7 +21,10 @@ void kern_init();
 multiboot_t *glb_mboot_ptr;
 
 // 开启分页机制之后的内核栈
-char kern_stack[STACK_SIZE];
+char kern_stack[STACK_SIZE] __attribute__ ((aligned(16)));
+
+// 内核栈的栈顶
+uint32_t kern_stack_top;
 
 // 内核使用的临时页表和页目录
 // 该地址必须是页对齐的地址，内存 0-640KB 肯定是空闲的
@@ -56,7 +60,7 @@ __attribute__((section(".init.text"))) void kern_entry()
 	asm volatile ("mov %0, %%cr0" : : "r" (cr0));
 	
 	// 切换内核栈
-	uint32_t kern_stack_top = ((uint32_t)kern_stack + STACK_SIZE) & 0xFFFFFFF0;
+	kern_stack_top = ((uint32_t)kern_stack + STACK_SIZE) & 0xFFFFFFF0;
 	asm volatile ("mov %0, %%esp\n\t"
 			"xor %%ebp, %%ebp" : : "r" (kern_stack_top));
 
@@ -78,7 +82,21 @@ void test_int(void) {
 	    : "i"(int_number)
 	);
 }
+int flag = 0;
 
+int thread(void *arg)
+{
+    while (1) {
+        if (flag == 1) {
+            printf("B");
+            flag = 0;
+//            timer_wait(100);
+//            schedule();
+        }
+    }
+
+    return 0;
+}
 void kern_init()
 {
     cls();
@@ -95,12 +113,10 @@ void kern_init()
     printf("isr install ready.\n");
     irq_install();
     printf("irq install ready.\n");
-    keyboard_install();
-    printf("keyboard install ready.\n");
+    //keyboard_install();
+    //printf("keyboard install ready.\n");
     timer_install();
     printf("timer install ready.\n");
-    io_sti();
-    printf("open the interrupt.\n");
 
     //show_memory_map(glb_mboot_ptr);
     init_pmm();
@@ -110,9 +126,22 @@ void kern_init()
     //test_alloc_and_free_page();
 
     init_heap();
-    test_heap();
+    //test_heap();
     //test_int();
 
+    init_sched();
+    int a = kernel_thread(thread, NULL);
+    printf("%d\n",a);
+    io_sti();
+    printf("open the interrupt.\n");
+    while (1) {
+        if (flag == 0) {
+            printf("A");
+            flag = 1;
+//            timer_wait(100);
+//            schedule();
+        }
+    }
     io_xchg();
     printf("\nWrite any things to test keyboard.\n");
     while(1);

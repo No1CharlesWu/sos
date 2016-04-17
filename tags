@@ -107,6 +107,10 @@ STS_TG16	kernel/include/mmu.h	42;"	d
 STS_TG32	kernel/include/mmu.h	47;"	d
 S_OBJECTS	Makefile	/^S_OBJECTS = $(patsubst %.s, %.o, $(S_SOURCES))$/;"	m
 S_SOURCES	Makefile	/^S_SOURCES = $(shell find . -name "*.s")$/;"	m
+TASK_RUNNABLE	kernel/include/task.h	/^	TASK_RUNNABLE = 2, 	\/\/ 可运行(也许正在运行)$/;"	e	enum:task_state
+TASK_SLEEPING	kernel/include/task.h	/^	TASK_SLEEPING = 1, 	\/\/ 睡眠中$/;"	e	enum:task_state
+TASK_UNINIT	kernel/include/task.h	/^	TASK_UNINIT = 0, 	\/\/ 未初始化$/;"	e	enum:task_state
+TASK_ZOMBIE	kernel/include/task.h	/^	TASK_ZOMBIE = 3, 	\/\/ 僵尸状态$/;"	e	enum:task_state
 TRUE	kernel/include/type.h	9;"	d
 TXT_COLOR	kernel/include/scrn.h	25;"	d
 T_SWITCH_TOK	kernel/include/isrs.h	43;"	d
@@ -125,8 +129,10 @@ _KB_H_	kernel/include/kb.h	2;"	d
 _MMU_H_	kernel/include/mmu.h	2;"	d
 _MULTIBOOT_H_	kernel/include/multiboot.h	2;"	d
 _PMM_H_	kernel/include/pmm.h	2;"	d
+_SCHEDULER_H_	kernel/include/sched.h	2;"	d
 _SCRN_H_	kernel/include/scrn.h	2;"	d
 _STRING_H_	kernel/include/string.h	2;"	d
+_TASK_H_	kernel/include/task.h	2;"	d
 _TIMER_H_	kernel/include/timer.h	2;"	d
 _TYPE_H_	kernel/include/type.h	2;"	d
 _VMM_H_	kernel/include/vmm.h	2;"	d
@@ -156,12 +162,16 @@ bool	kernel/include/type.h	/^typedef int bool;$/;"	t
 boot_device	kernel/include/multiboot.h	/^	uint32_t boot_device;		\/\/ 指出引导程序从哪个BIOS磁盘设备载入的OS映像$/;"	m	struct:multiboot_t
 boot_loader_name	kernel/include/multiboot.h	/^	uint32_t boot_loader_name; 	\/\/ boot loader 的名字$/;"	m	struct:multiboot_t
 brown	kernel/include/scrn.h	15;"	d
+change_task_to	kernel/sched/sched.c	/^void change_task_to(struct task_struct *next)$/;"	f
 cls	kernel/driver/scrn.c	/^void cls()$/;"	f
 cmdline	kernel/include/multiboot.h	/^	uint32_t cmdline;		\/\/ 内核命令行$/;"	m	struct:multiboot_t
 config_table	kernel/include/multiboot.h	/^	uint32_t config_table; 		\/\/ ROM 配置表$/;"	m	struct:multiboot_t
+context	kernel/include/task.h	/^	struct context context; 	\/\/ 进程切换需要的上下文信息$/;"	m	struct:task_struct	typeref:struct:task_struct::context
+context	kernel/include/task.h	/^struct context {$/;"	s
 cs	kernel/include/idt.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
 csr_x	kernel/driver/scrn.c	/^static int csr_x = 0, csr_y = 0;$/;"	v	file:
 csr_y	kernel/driver/scrn.c	/^static int csr_x = 0, csr_y = 0;$/;"	v	file:
+current	kernel/sched/sched.c	/^struct task_struct *current = NULL;$/;"	v	typeref:struct:task_struct
 cyan	kernel/include/scrn.h	12;"	d
 dark_grey	kernel/include/scrn.h	17;"	d
 dd	boot/boot.s	/^dd MBOOT_CHECKSUM       ; 检测数值，其含义在定义处$/;"	l
@@ -172,20 +182,27 @@ drives_length	kernel/include/multiboot.h	/^	uint32_t drives_length; 	\/\/ 指出
 ds	kernel/include/idt.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
 eax	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
 ebp	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+ebp	kernel/include/task.h	/^	uint32_t ebp;$/;"	m	struct:context
 ebx	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+ebx	kernel/include/task.h	/^	uint32_t ebx;$/;"	m	struct:context
 ecx	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
 edi	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+edi	kernel/include/task.h	/^	uint32_t edi;$/;"	m	struct:context
 edx	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
 eflags	kernel/include/idt.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
+eflags	kernel/include/task.h	/^	uint32_t eflags;$/;"	m	struct:context
 eip	kernel/include/idt.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
 err_code	kernel/include/idt.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
 es	kernel/include/idt.h	/^    unsigned int gs, fs, es, ds;$/;"	m	struct:regs
 esi	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+esi	kernel/include/task.h	/^	uint32_t esi;$/;"	m	struct:context
 esp	kernel/include/idt.h	/^    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;$/;"	m	struct:regs
+esp	kernel/include/task.h	/^	uint32_t esp;$/;"	m	struct:context
 extern	kernel/mm/gdt_s.s	/^extern gp$/;"	l
 extern	kernel/trap/idt_s.s	/^extern idtp$/;"	l
 extern	kernel/trap/irq_s.s	/^extern irq_handler$/;"	l
 extern	kernel/trap/isrs_s.s	/^extern isr_handler$/;"	l
+flag	kernel/init/entry.c	/^int flag = 0;$/;"	v
 flags	kernel/include/idt.h	/^    unsigned char flags;$/;"	m	struct:idt_entry
 flags	kernel/include/multiboot.h	/^	uint32_t flags;			\/\/ Multiboot 的版本信息$/;"	m	struct:multiboot_t
 flush2	kernel/mm/gdt_s.s	/^flush2:$/;"	l
@@ -282,6 +299,7 @@ idt_set_gate	kernel/trap/idt.c	/^void idt_set_gate(unsigned char num, unsigned l
 idtp	kernel/include/idt.h	/^struct idt_ptr idtp;$/;"	v	typeref:struct:idt_ptr
 init_heap	kernel/mm/heap.c	/^void init_heap()$/;"	f
 init_pmm	kernel/mm/pmm.c	/^void init_pmm()$/;"	f
+init_sched	kernel/sched/sched.c	/^void init_sched()$/;"	f
 init_video	kernel/driver/scrn.c	/^void init_video(void)$/;"	f
 init_vmm	kernel/mm/vmm.c	/^void init_vmm()$/;"	f
 inportb	kernel/libs/common.c	/^unsigned char inportb (unsigned short _port)$/;"	f
@@ -290,7 +308,7 @@ int16_t	kernel/include/type.h	/^typedef          short      int16_t;$/;"	t
 int32_t	kernel/include/type.h	/^typedef          int        int32_t;$/;"	t
 int8_t	kernel/include/type.h	/^typedef          char       int8_t;$/;"	t
 int_no	kernel/include/idt.h	/^    unsigned int int_no, err_code;$/;"	m	struct:regs
-int_number	kernel/init/entry.c	72;"	d	file:
+int_number	kernel/init/entry.c	76;"	d	file:
 intptr_t	kernel/include/type.h	/^typedef int32_t intptr_t;$/;"	t
 io_cli	kernel/libs/common_s.s	/^io_cli:		;void io_cli(void);$/;"	l
 io_hlt	kernel/libs/common_s.s	/^io_hlt:		;void io_hlt(void);$/;"	l
@@ -370,11 +388,14 @@ itoa	kernel/driver/scrn.c	/^void itoa (char *buf, int base, int d)  $/;"	f
 kbdus	kernel/driver/kb.c	/^unsigned char kbdus[128] =$/;"	v
 kern_entry	kernel/init/entry.c	/^__attribute__((section(".init.text"))) void kern_entry()$/;"	f
 kern_init	kernel/init/entry.c	/^void kern_init()$/;"	f
-kern_stack	kernel/init/entry.c	/^char kern_stack[STACK_SIZE];$/;"	v
+kern_stack	kernel/init/entry.c	/^char kern_stack[STACK_SIZE] __attribute__ ((aligned(16)));$/;"	v
+kern_stack_top	kernel/init/entry.c	/^uint32_t kern_stack_top;$/;"	v
+kernel_thread	kernel/task/task.c	/^int32_t kernel_thread(int (*fn)(void *), void *arg)$/;"	f
 keyboard_handler	kernel/driver/kb.c	/^void keyboard_handler(struct regs *r)$/;"	f
 keyboard_install	kernel/driver/kb.c	/^void keyboard_install()$/;"	f
 kfree	kernel/mm/heap.c	/^void kfree(void *p)$/;"	f
 kmalloc	kernel/mm/heap.c	/^void *kmalloc(uint32_t len)$/;"	f
+kthread_exit	kernel/task/task.c	/^void kthread_exit()$/;"	f
 length	kernel/include/heap.h	/^	uint32_t length : 31; 	\/\/ 当前内存块的长度$/;"	m	struct:header
 length_high	kernel/include/multiboot.h	/^	uint32_t length_high;$/;"	m	struct:mmap_entry_t
 length_low	kernel/include/multiboot.h	/^	uint32_t length_low;$/;"	m	struct:mmap_entry_t
@@ -396,6 +417,8 @@ mem_upper	kernel/include/multiboot.h	/^	uint32_t mem_upper;$/;"	m	struct:multibo
 memcpy	kernel/libs/string.c	/^void *memcpy(void *dest, const void *src, size_t count)$/;"	f
 memset	kernel/libs/string.c	/^void *memset(void *dest, char val, size_t count)$/;"	f
 memsetw	kernel/libs/string.c	/^unsigned short *memsetw(unsigned short *dest, unsigned short val, size_t count)$/;"	f
+mm	kernel/include/task.h	/^	struct mm_struct *mm; 		\/\/ 当前进程的内存地址映像$/;"	m	struct:task_struct	typeref:struct:task_struct::mm_struct
+mm_struct	kernel/include/task.h	/^struct mm_struct {$/;"	s
 mmap_addr	kernel/include/multiboot.h	/^	uint32_t mmap_addr;$/;"	m	struct:multiboot_t
 mmap_entry_t	kernel/include/multiboot.h	/^struct mmap_entry_t {$/;"	s
 mmap_entry_t	kernel/include/multiboot.h	/^} __attribute__((packed)) mmap_entry_t;$/;"	t	typeref:struct:mmap_entry_t
@@ -406,15 +429,20 @@ move_csr	kernel/driver/scrn.c	/^void move_csr(void)$/;"	f
 multiboot_t	kernel/include/multiboot.h	/^struct multiboot_t {$/;"	s
 multiboot_t	kernel/include/multiboot.h	/^} __attribute__((packed)) multiboot_t;$/;"	t	typeref:struct:multiboot_t
 next	kernel/include/heap.h	/^	struct header *next;$/;"	m	struct:header	typeref:struct:header::header
+next	kernel/include/task.h	/^	struct task_struct *next; 	\/\/ 链表指针$/;"	m	struct:task_struct	typeref:struct:task_struct::task_struct
+now_pid	kernel/task/task.c	/^pid_t now_pid = 0;$/;"	v
 num	kernel/include/multiboot.h	/^	uint32_t num;$/;"	m	struct:multiboot_t
 outportb	kernel/libs/common.c	/^void outportb (unsigned short _port, unsigned char _data)$/;"	f
 page_fault	kernel/mm/page_fault.c	/^void page_fault(struct regs *regs)$/;"	f
 panic	kernel/debug/debug.c	/^void panic(char *message,char *file, unsigned int line)$/;"	f
 panic_assert	kernel/debug/debug.c	/^void panic_assert(char *file, unsigned int line, char *desc)$/;"	f
+pgd_dir	kernel/include/task.h	/^	pgd_t *pgd_dir; 	\/\/ 进程页表$/;"	m	struct:mm_struct
 pgd_kern	kernel/mm/vmm.c	/^pgd_t pgd_kern[PGD_SIZE] __attribute__ ((aligned(PAGE_SIZE)));$/;"	v
 pgd_t	kernel/include/vmm.h	/^typedef uint32_t pgd_t;$/;"	t
 pgd_tmp	kernel/init/entry.c	/^__attribute__((section(".init.data"))) pgd_t *pgd_tmp  = (pgd_t *)0x1000;$/;"	v
 phy_page_count	kernel/mm/pmm.c	/^uint32_t phy_page_count;$/;"	v
+pid	kernel/include/task.h	/^	pid_t 	 pid; 			\/\/ 进程标识符$/;"	m	struct:task_struct
+pid_t	kernel/include/type.h	/^typedef int32_t pid_t;$/;"	t
 pmm_alloc_page	kernel/mm/pmm.c	/^uint32_t pmm_alloc_page()$/;"	f
 pmm_free_page	kernel/mm/pmm.c	/^void pmm_free_page(uint32_t p)$/;"	f
 pmm_stack	kernel/mm/pmm.c	/^static uint32_t pmm_stack[PAGE_MAX_SIZE+1];$/;"	v	file:
@@ -435,6 +463,8 @@ putc	kernel/driver/scrn.c	/^void putc(unsigned char c)$/;"	f
 puts	kernel/driver/scrn.c	/^void puts(unsigned char *text)$/;"	f
 red	kernel/include/scrn.h	13;"	d
 regs	kernel/include/idt.h	/^struct regs$/;"	s
+running_proc_head	kernel/sched/sched.c	/^struct task_struct *running_proc_head = NULL;$/;"	v	typeref:struct:task_struct
+schedule	kernel/sched/sched.c	/^void schedule()$/;"	f
 scroll	kernel/driver/scrn.c	/^void scroll(void)$/;"	f
 second	kernel/driver/timer.c	/^static uint32_t second = 0;$/;"	v	file:
 section	boot/boot.s	/^section .init.data		; 开启分页前临时的数据段$/;"	l
@@ -454,18 +484,25 @@ size_t	kernel/include/type.h	/^typedef  	 int		size_t; $/;"	t
 split_chunk	kernel/mm/heap.c	/^void split_chunk(header_t *chunk, uint32_t len)$/;"	f
 ss	kernel/include/idt.h	/^    unsigned int eip, cs, eflags, useresp, ss;    $/;"	m	struct:regs
 stack	boot/boot.s	/^stack:    times 1024 db 0  	; 这里作为临时内核栈$/;"	l
+stack	kernel/include/task.h	/^	void  	*stack; 		\/\/ 进程的内核栈地址$/;"	m	struct:task_struct
 stack0	kernel/mm/gdt.c	/^uint8_t stack0[1024];$/;"	v
 start	boot/boot.s	/^start:$/;"	l
+state	kernel/include/task.h	/^	volatile task_state state; 	\/\/ 进程当前状态$/;"	m	struct:task_struct
 strcat	kernel/libs/string.c	/^char *strcat(char *dest, const char *src)$/;"	f
 strcmp	kernel/libs/string.c	/^int strcmp(char *str1, char *str2)$/;"	f
 strcpy	kernel/libs/string.c	/^char *strcpy(char *dest, const char *src)$/;"	f
 strlen	kernel/libs/string.c	/^size_t strlen(const char *str)$/;"	f
 switch_pgd	kernel/mm/vmm.c	/^void switch_pgd(uint32_t pd)$/;"	f
+switch_to	kernel/sched/switch_to.s	/^switch_to:$/;"	l
+task_state	kernel/include/task.h	/^enum task_state {$/;"	g
+task_state	kernel/include/task.h	/^} task_state;$/;"	t	typeref:enum:task_state
+task_struct	kernel/include/task.h	/^struct task_struct {$/;"	s
 taskstate	kernel/include/mmu.h	/^struct taskstate {$/;"	s
 test_alloc_and_free_page	kernel/mm/pmm.c	/^void test_alloc_and_free_page()$/;"	f
 test_heap	kernel/mm/heap.c	/^void test_heap()$/;"	f
 test_int	kernel/init/entry.c	/^void test_int(void) {$/;"	f
 textmemptr	kernel/driver/scrn.c	/^static unsigned short *textmemptr = (unsigned short *)0xC00b8000;$/;"	v	file:
+thread	kernel/init/entry.c	/^int thread(void *arg)$/;"	f
 timer_handler	kernel/driver/timer.c	/^void timer_handler(struct regs *r)$/;"	f
 timer_install	kernel/driver/timer.c	/^void timer_install()$/;"	f
 timer_phase	kernel/driver/timer.c	/^void timer_phase(int hz)$/;"	f
@@ -524,4 +561,5 @@ vbe_interface_off	kernel/include/multiboot.h	/^	uint32_t vbe_interface_off;$/;"	
 vbe_interface_seg	kernel/include/multiboot.h	/^	uint32_t vbe_interface_seg;$/;"	m	struct:multiboot_t
 vbe_mode	kernel/include/multiboot.h	/^	uint32_t vbe_mode;$/;"	m	struct:multiboot_t
 vbe_mode_info	kernel/include/multiboot.h	/^	uint32_t vbe_mode_info;$/;"	m	struct:multiboot_t
+wait_proc_head	kernel/sched/sched.c	/^struct task_struct *wait_proc_head = NULL;$/;"	v	typeref:struct:task_struct
 white	kernel/include/scrn.h	23;"	d

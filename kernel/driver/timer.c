@@ -4,6 +4,7 @@
 #include "irq.h"
 #include "scrn.h"
 #include "type.h"
+#include "sched.h"
 /* This will keep track of how many ticks that the system
  *  has been running for */
 static uint32_t timer_ticks = 0;
@@ -19,6 +20,7 @@ void timer_handler(struct regs *r)
     /* Increment our 'tick count' */
     timer_ticks++;
 
+    schedule();
     /* Every 18 clocks (approximately 1 second), we will
     *  display a message on the screen */
     if (timer_ticks % 100 == 0)

@@ -25,4 +25,5 @@ typedef unsigned int        uint32_t;
 typedef int32_t intptr_t;
 typedef uint32_t uintptr_t;
 
+typedef int32_t pid_t;
 #endif
