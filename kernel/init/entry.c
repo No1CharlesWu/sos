@@ -84,14 +84,22 @@ void test_int(void) {
 }
 int flag = 0;
 
+int thread1(void *arg)
+{
+    int i = 20;
+    while (i--) {
+            printf("C");
+            timer_wait(4);
+    }
+
+    return 0;
+}
 int thread(void *arg)
 {
     while (1) {
         if (flag == 1) {
             printf("B");
             flag = 0;
-//            timer_wait(100);
-//            schedule();
         }
     }
 
@@ -130,16 +138,14 @@ void kern_init()
     //test_int();
 
     init_sched();
-    int a = kernel_thread(thread, NULL);
-    printf("%d\n",a);
+    kernel_thread(thread1, NULL);
+    kernel_thread(thread, NULL);
     io_sti();
     printf("open the interrupt.\n");
     while (1) {
         if (flag == 0) {
             printf("A");
             flag = 1;
-//            timer_wait(100);
-//            schedule();
         }
     }
     io_xchg();
