@@ -88,10 +88,6 @@ void irq_handler(struct regs *r)
     /* Find out if we have a custom handler to run for this
     *  IRQ, and then finally, run it */
     handler = irq_routines[r->int_no - 32];
-    if (handler)
-    {
-        handler(r);
-    }
 
     /* If the IDT entry that was invoked was greater than 40
     *  (meaning IRQ8 - 15), then we need to send an EOI to
@@ -104,4 +100,9 @@ void irq_handler(struct regs *r)
     /* In either case, we need to send an EOI to the master
     *  interrupt controller too */
     outportb(0x20, 0x20);
+
+    if (handler)
+    {
+        handler(r);
+    }
 }
